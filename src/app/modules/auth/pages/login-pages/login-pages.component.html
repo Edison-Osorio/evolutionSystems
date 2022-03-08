@@ -1,0 +1,62 @@
+<div class="container text-dark">
+  <div class="row">
+    <div class="card ">
+        <div class="card-header">
+<h2 class="card-title text-center">Iniciar sesion</h2>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="form-group">
+                  <label for="tipo_documento" class="col-form-label"
+                    >Tipo de documento</label
+                  >
+                  <select
+                    name="tipo_documento"
+                    class="form-control form-select"
+                    [(ngModel)]="user.tipoDocumento"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    <option value="1">Cedula de ciudadania</option>
+                    <option value="2">Targeta de identidad</option>
+                    <option value="3">Cedula de estrangeria</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="documento" class="col-form-label"
+                    >Numero de documento:</label
+                  >
+                  <input
+                    type="text"
+                    name="documento"
+                    class="form-control"
+                    [(ngModel)]="user.documento"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="contraseña" class="col-form-label">Contraseña:</label>
+                  <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder=""
+                    [(ngModel)]="user.contrasena"
+                  />
+                  <a routerLink="updateUser" class="m-auto text-danger"
+                    >¿Olvido la contraseña?</a
+                  >
+                </div>
+                <div class="modal-footer">
+                  <div *ngIf="errorSession">
+                    Ocurrio un error con sus credenciales
+                </div>
+                  <button type="submit" class="btn btn-success form-control btn-block" (click)="logIn()">
+                    <i class="fas fa-sign-in-alt"></i> Ingreser
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      

@@ -1,0 +1,11 @@
+.contenedor{
+    background: var(--color-2);
+    font-size: 18px;
+    margin: auto;
+    width: 99%;
+
+}
+
+img{
+    width: 50px;
+}

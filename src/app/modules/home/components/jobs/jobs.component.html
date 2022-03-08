@@ -1,0 +1,147 @@
+<div class="body">
+  <div class="container justify-content-center">
+    <div class="row justify-content-center">
+      <h1 class="justify-content-center">¿Quieres trabajar con nosotros?</h1>
+      <!-- requisitos -->
+      <div class="col-md-12 text-justify mb-2">
+        <p class="into">
+          Buscamos a formar un equipo de trabajo integro, amable, respetuoso y
+          con mucha etica profesional el cual no ayude a proporicionar una mejor
+          aducacion a toda la población a la cual esta dirigida nuestra
+          institución
+        </p>
+        <div class="col-md-4 ">
+            <div class=" tarjeta">
+              <div class="">
+                <h5>Diligencia el formulario para aplicar a un puesto</h5>
+              </div>
+              <div class="">
+                <button
+                id="iniciarModal"
+                class="nav-link btn btn-primary form-control btn-block"
+                data-bs-toggle="modal"
+                data-bs-target="#ingresar"
+                data-bs-whatever="@mdo"
+              >
+                Aplicar al trabajo
+              </button>
+              </div>
+            </div>
+          </div>
+        <h1>Requistos</h1>
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+            esse asperiores quas, impedit
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para aplical a el trabajo-->
+<div
+  class="modal fade"
+  id="ingresar"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ingresar</h5>
+        <!-- <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button> -->
+      </div>
+      <div class="modal-body">
+        <form class="cad-body">
+          <div class="form-group">
+            <label for="tipo_documento" class="col-form-label"
+              >Tipo de documento</label
+            >
+            <select
+              name="tipo_documento"
+              class="form-control form-select"
+              [(ngModel)]="user.tipoDocumento"
+              [ngModelOptions]="{ standalone: true }"
+            >
+              <option value="1">Cedula de ciudadania</option>
+              <option value="2">Targeta de identidad</option>
+              <option value="3">Cedula de estrangeria</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="documento" class="col-form-label"
+              >Numero de documento:</label
+            >
+            <input
+              type="text"
+              name="documento"
+              class="form-control"
+              [(ngModel)]="user.documento"
+            />
+          </div>
+          <div class="form-group">
+            <label for="contraseña" class="col-form-label">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              placeholder=""
+              [(ngModel)]="user.contrasena"
+            />
+            <a routerLink="updateUser" class="m-auto text-danger"
+              >¿Olvido la contraseña?</a
+            >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          <i class="fas fa-times"></i>
+        </button>
+        <button type="button" class="btn btn-success" (click)="send()">
+          <i class="fas fa-sign-in-alt"></i> Ingreser
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<!-- navegation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top text-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand title-navegation" href="#">
+      <img
+        src="../../../../../assets/img/logo/logo.jpeg"
+        alt="logo"
+        class="img-navegation"
+      />
+    </a>
+    <li class="navbar-nav nav-item">
+      <h5>
+        <img
+          src="../../../../../assets/img/logo/logoUser.webp"
+          alt="foto  "
+        />{{ user }}
+      </h5>
+    </li>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <div class="nav justify-content-end" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item mt-1">
+            <button
+              type="button"
+              class="btn btn-secondary m-2 form-control btn-block"
+              routerLink="/docente/docente/"
+            >
+              inicio
+            </button>
+          </li>
+          <li class="nav-item m-1">
+            <button
+              type="button"
+              class="btn btn-info m-2 form-control btn-block"
+            >
+              Mi Informacion
+            </button>
+          </li>
+          <li class="nav-item m-1">
+            <button
+              type="button"
+              class="btn btn-info m-2 form-control btn-block"
+              routerLink="../grupos"
+            >
+              Grupos
+            </button>
+          </li>
+          <li class="nav-item m-1">
+            <button
+              type="button"
+              class="btn btn-info m-2 form-control btn-block"
+              routerLink="../programador"
+            >
+              Programador
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

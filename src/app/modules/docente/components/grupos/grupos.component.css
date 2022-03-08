@@ -1,0 +1,21 @@
+legend.centrado {
+    text-align: center;
+  }
+  
+  #imagen {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  fieldset {
+    background-color: #4aa1f3f3;
+  }
+  
+  img {
+    width: 100px;
+    border-radius: 50%;
+  }
+    
+  .img-grupos{
+    width: 200px;
+  }

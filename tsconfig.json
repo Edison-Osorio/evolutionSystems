@@ -18,6 +18,23 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
+    "paths": {
+      "@core/*":[
+        "src/app/core/*"
+      ],
+      "@modules/*":[
+        "src/app/modules/*"
+      ],
+      "@data/*":[
+        "src/app/data/*"
+      ],
+      "@shared/*":[
+        "src/app/shared/*"
+      ],
+      "@assets/*":[
+        "src/app/assets/*"
+      ]
+        },
     "lib": [
       "es2020",
       "dom"
