@@ -7,7 +7,6 @@ import { AdminStartComponent } from './components/admin-start/admin-start.compon
 import { AlumnosComponent } from './components/alumnos/alumnos.component';
 import { GruposComponent } from './components/grupos/grupos.component';
 import { ProfesorComponent } from './components/profesor/profesor.component';
-// import { SharedModule } from '@shared/shared.module';
 import { NavigationAdminComponent } from './components/navigation-admin/navigation-admin.component';
 
 
