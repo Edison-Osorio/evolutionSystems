@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 a{
     background-color: #D6EEEB;
     Color: black;
@@ -57,3 +58,85 @@ h6{
 .logo{
     width: 60px;
 }
+=======
+a{
+    background-color: #D6EEEB;
+    Color: black;
+    font-style: arial;
+    font-weight: bold;
+    text-decoration: none;
+    border-color:#D6EEEB;
+}
+p{
+    font-style: arial;
+    color: black;
+}
+h2{
+    Color: black;
+    font-style: arial;
+}
+h3{
+    background-color: #D6EEEB;
+    Color: black;
+    font-style: arial;
+}
+h5{
+    background-color: #6ACDE5;
+    Color: black;
+    font-style: arial;
+}
+h6{
+    background-color: #6ACDE5;
+    Color: black;
+    font-style: arial;
+    text-decoration: none;
+    width: 230px;
+}
+.page-header{
+    background-color: #6ACDE5;
+    text-align:justify;
+}
+.container{
+    background-color: #D6EEEB;
+}
+.fondop{
+    background-color: #6ACDE5;
+    color: black;
+}
+.cabecero{
+    background-color:white;
+    border-color: #6ACDE5;
+}
+.bnavegacion{
+    background-color: white;
+    Color: black;
+    font-style: arial;
+    font-weight: bold;
+    text-decoration: none;
+    border-color:white;
+}
+.logo{
+    width: 60px;
+}
+.img-grupos{
+    width: 200px;
+  }
+  legend.centrado {
+    text-align: center;
+  }
+  
+  #imagen {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  
+  img {
+    width: 100px;
+    border-radius: 50%;
+  }
+
+  .button-grupo{
+      background: var(--color-5);
+  }
+>>>>>>> a61afbcfdbb89689b968092a050a5bf5b92de9d6

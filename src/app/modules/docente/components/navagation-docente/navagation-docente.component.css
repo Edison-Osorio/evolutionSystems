@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 legend.centrado {
     text-align: center;
   }
@@ -15,3 +16,23 @@ legend.centrado {
     width: 50px;
     border-radius: 50%;
   }
+=======
+legend.centrado {
+    text-align: center;
+  }
+  
+  #imagen {
+    width: 50px;
+    border-radius: 50%;
+  }
+  
+  fieldset {
+    background-color: #4aa1f3f3;
+  }
+  
+  img {
+    width: 50px;
+    border-radius: 50%;
+  }
+  
+>>>>>>> a61afbcfdbb89689b968092a050a5bf5b92de9d6
