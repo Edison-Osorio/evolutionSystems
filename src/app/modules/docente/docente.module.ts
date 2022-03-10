@@ -19,8 +19,8 @@ import { NavagationDocenteComponent } from './components/navagation-docente/nava
     GruposComponent,
     NotasComponent,
     ProgramadorComponent,
-    NavagationDocenteComponent
-  ],
+    NavagationDocenteComponent,
+   ],
   imports: [
     CommonModule,
     DocenteRoutingModule
