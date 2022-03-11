@@ -44,12 +44,30 @@ export class LoginPagesComponent implements OnInit {
         decodetoken = decode(token);
         
         console.log(decodetoken.tipoDocumento);
+
+        const {rol} = decodetoken
         
         
           const date:Date = addHours(new Date(), 1)
           this.cookie.set('token', token, date, '/');
+
+          switch (rol) {
+            case 'administrador':
+              this.router.navigate(['/admin'])
+              break;
+            case 'docente':
+              this.router.navigate(['/docente'])
+              break;
+            case 'estudiante':
+              this.router.navigate(['/estudiante'])
+              break;
+          
+            default:
+              this.router.navigate(['/'])
+              break;
+          }
+
         
-         this.router.navigate(['/'])
 
       },
       (err) => {
