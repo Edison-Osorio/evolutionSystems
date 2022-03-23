@@ -1,3 +1,4 @@
+
 a{
     background-color: #D6EEEB;
     Color: black;
@@ -69,3 +70,26 @@ h6{
     word-wrap: break-word;
     background-color: aquamarine;
 }
+
+.img-grupos{
+    width: 200px;
+  }
+  legend.centrado {
+    text-align: center;
+  }
+  
+  #imagen {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  
+  img {
+    width: 100px;
+    border-radius: 50%;
+  }
+
+  .button-grupo{
+      background: var(--color-5);
+  }
+
