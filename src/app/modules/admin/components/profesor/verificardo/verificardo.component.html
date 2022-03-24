@@ -1,0 +1,62 @@
+<app-navigation-admin></app-navigation-admin>
+<div class="body-page text-dark">
+    <div class="m-2">
+        <br>
+        <h6> Estas en la pagina de grupos</h6>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card mt-4">
+                    <div class="card-header mt-4">
+                        <a routerLink="/admin/registrodo" class="btn btn-primary text-center">Registrar</a><br><br>
+                        <a routerLink="/admin/verificardo" class="btn btn-primary text-center">Verificar</a><br><br>
+                        <a routerLink="/admin/actualizardo" class="btn btn-primary text-center">Actualizar</a><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="card-header mt-4">
+                    <h3>Registrar</h3>
+                    <div class="abs-center">
+                        <div class="card mt-4">
+                            <form method="post" action="crud.component.html" class="was-validated">
+                                <fieldset>
+                                    <legend class="abs-center">Actualizar docente </legend>
+                                    <label for="nif">Nif </label><br>
+                                    <input class="form-control" type="number" name="nif" value="1234" placeholder="Ingrese su nif"
+                                        required disabled> <br>
+                                    <label for="nombres">Nombres</label><br>
+                                    <input class="form-control" type="text" name="nombres" value="Maria"
+                                        placeholder="Ingrese su nombre completo" required disabled> <br>
+                                    <label for="direccion">Direccion</label><br>
+                                    <input class="form-control" type="text" name="direccion" value="En la pm"
+                                        placeholder="Ingrese su direccion" required disabled> <br>
+                                    <label for="fecha">Fecha de nacimiento</label><br>
+                                    <input class="form-control" type="date" name="fecha"> <br>
+                                    <label for="telefono">Telefono</label><br>
+                                    <input class="form-control" type="text" name="telefono" value="235436"
+                                        placeholder="Numero telefonico" required disabled> <br>
+                                    <label for="asignatura">Asignatura</label><br>
+                                    <input class="form-control" type="text" name="asignatura" value="Matematicas"
+                                        placeholder="Asignaturda que domina" required disabled> <br>
+                                    <label for="dbamcario">Dato bancario</label><br>
+                                    <input class="form-control" type="number" name="dbancairo" value="4564676567"
+                                        placeholder="Dato bancario" required disabled> <br>
+                                    <input class="btn btn-success form-control" type="submit" value="Modificar"
+                                        name="Modificar">
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card mt-4">
+                        <div class="card-header text-lef">
+                            <p class="fondop">Evolution sisteam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
