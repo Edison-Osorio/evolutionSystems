@@ -1,4 +1,3 @@
-
 a{
     background-color: #D6EEEB;
     Color: black;
@@ -62,34 +61,3 @@ h6{
 .logo{
     width: 60px;
 }
-.my-fixed-item {
-    position: fixed;
-    min-height: 120px;
-    width: 252px;
-    text-align: center;
-    word-wrap: break-word;
-    background-color: aquamarine;
-}
-
-.img-grupos{
-    width: 200px;
-  }
-  legend.centrado {
-    text-align: center;
-  }
-  
-  #imagen {
-    width: 100px;
-    border-radius: 50%;
-  }
-  
-  
-  img {
-    width: 100px;
-    border-radius: 50%;
-  }
-
-  .button-grupo{
-      background: var(--color-5);
-  }
-

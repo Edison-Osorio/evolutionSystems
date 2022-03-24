@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'estudiantes',
     component: EstudianteComponent,
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> a3e9372315c2219588dadb759760f309a6d8b9fe
   {
     path: '**',
     redirectTo: '/docente/docente',

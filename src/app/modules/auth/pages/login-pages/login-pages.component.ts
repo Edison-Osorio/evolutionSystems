@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { User } from '@core/models/User';
 import { AuthService } from '@modules/auth/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
-import {addHours} from 'date-fns'
-import decode  from 'jwt-decode'
+import { addHours } from 'date-fns';
+import decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login-pages',
@@ -14,43 +14,65 @@ import decode  from 'jwt-decode'
 export class LoginPagesComponent implements OnInit {
   errorSession: boolean = false;
 
+  // Variable que mustra el error del servidor
+  error: string = ''
+
   user: User = {
     // email: 'osorio@gmail.com',
     // password: '12345',
-    // tipoDocumento:'1',
+    tipoDocumento:'1',
     documento: '',
     contrasena: '',
   };
 
+
   constructor(
     private authService: AuthService,
     private router: Router,
-     private cookie: CookieService
+    private cookie: CookieService
   ) {}
   ngOnInit(): void {}
 
   logIn() {
-    delete this.user.tipoDocumento;
     console.log(this.user);
     this.authService.signin(this.user).subscribe(
       (res: any) => {
-        console.log(res);
-        const { token } = res;
-        if (!token) return console.log('no se aprobo su ingreso');
-        ;
-        console.log('el token es igual a  --->', token);
+        const { token, msg } = res;
+        if (!token) {
+          this.errorSession = true;
+          this.error = msg
+          console.log(res);
+          
+          return console.log('no se aprobo su ingreso');
+        } else {
+          console.log('el token es igual a  --->', token);
 
-        let decodetoken:any = {};
-        decodetoken = decode(token);
-        
-        console.log(decodetoken.tipoDocumento);
-        
-        
-          const date:Date = addHours(new Date(), 1)
+          let decodetoken: any = {};
+          decodetoken = decode(token);
+
+          console.log(decodetoken.tipoDocumento);
+
+          const { rol } = decodetoken;
+
+          const date: Date = addHours(new Date(), 1);
           this.cookie.set('token', token, date, '/');
-        
-         this.router.navigate(['/'])
 
+          switch (rol) {
+            case 'administrador':
+              this.router.navigate(['/admin']);
+              break;
+            case 'docente':
+              this.router.navigate(['/docente']);
+              break;
+            case 'estudiante':
+              this.router.navigate(['/estudiante']);
+              break;
+
+            default:
+              this.router.navigate(['/']);
+              break;
+          }
+        }
       },
       (err) => {
         this.errorSession = true;

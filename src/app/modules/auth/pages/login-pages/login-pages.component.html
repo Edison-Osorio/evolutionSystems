@@ -47,7 +47,8 @@
                 </div>
                 <div class="modal-footer">
                   <div *ngIf="errorSession">
-                    Ocurrio un error con sus credenciales
+                    <!-- Ocurrio un error con sus credenciales -->
+                    <p style="margin-right: 3em;" class="text-danger">{{error}}</p>
                 </div>
                   <button type="submit" class="btn btn-success form-control btn-block" (click)="logIn()">
                     <i class="fas fa-sign-in-alt"></i> Ingreser
