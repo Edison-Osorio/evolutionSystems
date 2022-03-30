@@ -1,3 +1,4 @@
+import { AluSerService } from '@modules/admin/services/alu_ser/alu-ser.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminStartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private AlumService:AluSerService) { }
 
   ngOnInit(): void {
+    this.getAluSer();
+  }
+
+  getAluSer(){
+    this.AlumService.getAlu_ser().subscribe(
+      res => {
+        console.log(res)
+      },
+      err=>console.log(err)
+    )
   }
 
 }

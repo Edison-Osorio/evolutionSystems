@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -16,6 +18,7 @@ import { ActualizardoComponent } from './components/profesor/actualizardo/actual
 
 
 
+
 @NgModule({
   declarations: [
     AdminPagesComponent,
@@ -28,12 +31,15 @@ import { ActualizardoComponent } from './components/profesor/actualizardo/actual
     ActualizarComponent,
     RegistrodoComponent,
     VerificardoComponent,
-    ActualizardoComponent,  
+    ActualizardoComponent,
+
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule, 
-    // SharedModule,
+    AdminRoutingModule,
+    FormsModule,
+    HttpClientModule
+
   ]
 })
 export class AdminModule { }
