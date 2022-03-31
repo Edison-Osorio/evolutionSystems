@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +15,8 @@ import { ActualizarComponent } from './components/grupos/actualizar/actualizar.c
 import { RegistrodoComponent } from './components/profesor/registrodo/registrodo.component';
 import { VerificardoComponent } from './components/profesor/verificardo/verificardo.component';
 import { ActualizardoComponent } from './components/profesor/actualizardo/actualizardo.component';
+import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert-alumno.component';
+// import { InsertAlumnoComponent } from './alumnos/insert-alumno/insert-alumno.component';
 
 
 
@@ -28,12 +32,15 @@ import { ActualizardoComponent } from './components/profesor/actualizardo/actual
     ActualizarComponent,
     RegistrodoComponent,
     VerificardoComponent,
-    ActualizardoComponent,  
+    ActualizardoComponent,
+    InsertAlumnoComponent,  
   ],
   imports: [
     CommonModule,
     AdminRoutingModule, 
     // SharedModule,
+    FormsModule,
+HttpClientModule
   ]
 })
 export class AdminModule { }

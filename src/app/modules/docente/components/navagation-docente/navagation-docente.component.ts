@@ -1,4 +1,8 @@
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
+import decode from 'jwt-decode';
+
 
 @Component({
   selector: 'app-navagation-docente',
@@ -7,11 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavagationDocenteComponent implements OnInit {
 
-  user: any = 'Juan Fernando'
+  nameUser:string = ''
 
-    constructor() { }
+  name:string = 'hola'
+
+    constructor(private cookie: CookieService, private router: Router) { }
 
   ngOnInit(): void {
+    this.decodeToken()
+  }
+
+  salir(){
+this.cookie.delete('token', '/')
+this.router.navigate(['/']) 
+  }
+
+  decodeToken() {
+    const token = this.cookie.get('token')!;
+    let decodetoken: any = {};
+    decodetoken = decode(token);
+    console.log(decodetoken.nombre);
+    this.nameUser = decodetoken.nombre
+    console.log(this.nameUser);
+    
   }
 
 }

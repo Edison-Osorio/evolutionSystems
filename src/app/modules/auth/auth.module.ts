@@ -6,11 +6,13 @@ import { LoginPagesComponent } from './pages/login-pages/login-pages.component';
 
 // modules
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule } from '@angular/common/http'
+import {HttpClientModule } from '@angular/common/http';
+import { RestorePasswordComponent } from './pages/restore-password/restore-password.component'
 
 @NgModule({
   declarations: [
-    LoginPagesComponent
+    LoginPagesComponent,
+    RestorePasswordComponent
   ],
   imports: [
     CommonModule,

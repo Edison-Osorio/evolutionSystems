@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -23,7 +24,8 @@ import { NavagationDocenteComponent } from './components/navagation-docente/nava
    ],
   imports: [
     CommonModule,
-    DocenteRoutingModule
+    DocenteRoutingModule,
+    FormsModule
   ]
 })
 export class DocenteModule { }

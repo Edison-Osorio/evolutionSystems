@@ -10,6 +10,7 @@ import { ActualizarComponent } from './components/grupos/actualizar/actualizar.c
 import { RegistrodoComponent } from './components/profesor/registrodo/registrodo.component';
 import { VerificardoComponent } from './components/profesor/verificardo/verificardo.component';
 import { ActualizardoComponent } from './components/profesor/actualizardo/actualizardo.component';
+import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert-alumno.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
     path: 'admin', 
     component:AdminStartComponent
   },
+  {path:'createAlumno', component: InsertAlumnoComponent},
   {
     path: 'grupos', 
     component: GruposComponent
