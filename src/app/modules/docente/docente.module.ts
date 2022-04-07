@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -9,6 +10,7 @@ import { GruposComponent } from './components/grupos/grupos.component';
 import { NotasComponent } from './components/notas/notas.component';
 import { ProgramadorComponent } from './components/programador/programador.component';
 import { NavagationDocenteComponent } from './components/navagation-docente/navagation-docente.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { NavagationDocenteComponent } from './components/navagation-docente/nava
    ],
   imports: [
     CommonModule,
-    DocenteRoutingModule
+    DocenteRoutingModule,
+    HttpClientModule
   ]
 })
 export class DocenteModule { }

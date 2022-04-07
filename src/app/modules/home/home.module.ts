@@ -11,6 +11,7 @@ import { MatriculasComponent } from './components/matriculas/matriculas.componen
  import {HttpClientModule } from '@angular/common/http';
 import { HomeStartComponent } from './components/home-start/home-start.component'
 import { FormsModule } from '@angular/forms';
+import { SliderJobsComponent } from './components/slider-jobs/slider-jobs.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     JobsComponent,
     MatriculasComponent,
     HomeStartComponent,
+    SliderJobsComponent,
   ],
   imports: [
     CommonModule,
