@@ -7,18 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-start.component.css'],
 })
 export class AdminStartComponent implements OnInit {
-  constructor(private AlumService: AluSerService) {}
+ 
+
+  constructor(private AlumService:AluSerService) { }
 
   ngOnInit(): void {
     this.getAluSer();
   }
 
-  getAluSer() {
+  getAluSer(){
     this.AlumService.getAlu_ser().subscribe(
-      (res) => {
-        console.log(res);
+      res => {
+        console.log(res)
       },
-      (err) => console.log(err)
-    );
+      err=>console.log(err)
+    )
+
   }
+
+ 
 }

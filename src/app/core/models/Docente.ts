@@ -1,5 +1,4 @@
 export interface Docente {
-
     nif_doc?: any,
     area_doc?: string,
     nom_doc?: string,

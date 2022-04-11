@@ -35,10 +35,12 @@ const routes: Routes = [
     path: 'estudiantes/:cod_gra',
     component: EstudianteComponent,
   },
+
   {
     path: 'informations',
     component: InformationsComponent
   },
+
 
   {
     path: '**',

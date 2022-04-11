@@ -1,5 +1,7 @@
+
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -21,6 +23,7 @@ import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert
 
 
 
+
 @NgModule({
   declarations: [
     AdminPagesComponent,
@@ -34,6 +37,7 @@ import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert
     RegistrodoComponent,
     VerificardoComponent,
     ActualizardoComponent,
+
     InsertAlumnoComponent,  
   ],
   imports: [
@@ -43,5 +47,6 @@ import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert
     FormsModule,
 HttpClientModule
   ],
+
 })
 export class AdminModule { }
