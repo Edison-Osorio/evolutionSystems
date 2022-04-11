@@ -1,9 +1,9 @@
 import { AdminService } from '@modules/admin/services/admin/admin.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable, window } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Docente } from '@core/models/Docente';
 import { User } from '@core/models/User';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-registrodo',
@@ -11,7 +11,8 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./registrodo.component.css']
 })
 export class RegistrodoComponent implements OnInit {
-  docente: Docente = {
+  docent: any =[]
+  docentes: Docente = {
     nif_doc: '',
     area_doc: '',
     nom_doc: '',
@@ -26,19 +27,21 @@ export class RegistrodoComponent implements OnInit {
     nombre: '',
     contrasena: '',
     email: '',
-    rol: ''
+    rol: 'docente'
   }
+  edit: boolean= false;
 
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+
   }
 
   createDocente() {
-    this.adminService.createDocente(this.docente).subscribe(
+    this.adminService.createDocente(this.docentes).subscribe(
       res => {
         console.log('se realizo una insercion --->', res)
-        //{ document.location.reload() }
+        { document.location.reload() }
       },
       err => console.error(err)
     )
@@ -51,6 +54,5 @@ export class RegistrodoComponent implements OnInit {
       err => console.error(err)
     )
   }
-
 
 }

@@ -12,7 +12,7 @@ export class AuthService {
   private URL = environment.api;
 
   signup(user: any) {
-    return this.http.post(`${this.URL}/signup`, user);
+    return this.http.post(`${this.URL}auth/signup`, user);
   }
 
   updateUser(user: any) {
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   signin(user: any) {
-    return this.http.post(`${this.URL}/signin`, user);
+    return this.http.post(`${this.URL}auth/signin`, user);
   }
   isAuth(): boolean {
     const token = this.cookie.get('token');

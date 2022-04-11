@@ -1,97 +1,132 @@
 <app-navigation-admin></app-navigation-admin>
 
 <div class="body-page">
-    <div class="m-2">
-        <br>
-        <h6> Estas en la pagina de grupos</h6>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="card mt-4">
-                    <div class="card-header mt-4">
-                        <a routerLink="/admin/registro" class="btn btn-primary text-center">Registrar</a><br><br>
-                        <a routerLink="/admin/verificar" class="btn btn-primary text-center">Verificar</a><br><br>
-                        <a routerLink="/admin/actualizar" class="btn btn-primary text-center">Actualizar</a><br><br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-10">
-                <div class="card mt-4">
-                    <div class="card-header mt-4">
-
-                        <div class="text-justify m-2">
-                            <div class="card-body mt-5">
-                              <button
-                                type="button"
-                                class="btn ms-2  button-grupo"
-                                data-bs-toggle="button"
-                                autocomplete="off"
-                              >
-                                GRUPO1 <br />
-                                ADSI 123434 <br />
-                                <img class="img-grupos" src="../../../../../assets/img/logo/logo.jpeg" />
-                                <br />
-                          
-                                <button
-                                  type="button"
-                                  class="btn btn-secondary"
-                                  routerLink="/admin/alumnos"
-                                >
-                                  alumnos
-                                </button>
-                              </button>
-                              <button
-                                type="button"
-                                class="btn ms-2 button-grupo"
-                                data-bs-toggle="button"
-                                autocomplete="off"
-                                aria-pressed="true"
-                              >
-                                GRUPO 2 <br />
-                                ADSI 2345676543 <br />
-                                <img class="img-grupos" src="../../../../../assets/img/logo/logo.jpeg" />
-                                <br />
-                               
-                          
-                                <button
-                                  type="button"
-                                  class="btn btn-secondary"
-                                  routerLink="/admin/alumnos"
-                                >
-                                  alumnos
-                                </button>
-                              </button>
-                              <button
-                                type="button"
-                                class="btn ms-2 button-grupo"
-                                data-bs-toggle="button"
-                                autocomplete="off"
-                              >
-                                GRUPO 3 <br />
-                                ADSI 12343245 <br />
-                                <img class="img-grupos" src="../../../../../assets/img/logo/logo.jpeg" />
-                                <br />
-                                <button
-                                  type="button"
-                                  class="btn btn-secondary"
-                                  routerLink="/admin/alumnos"
-                                >
-                                  alumnos
-                                </button>
-                              </button>
-                            </div>
-                          </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card mt-4">
-                    <div class="card-header text-lef">
-                        <p class="fondop">Evolution sisteam</p>
-                    </div>
-                </div>
-            </div>
+  <div class="m-2">
+    <br />
+    <h6>Estas en la pagina de grupos</h6>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card mt-4">
+          <div class="card-header mt-4">
+            <a routerLink="/admin/registro" class="btn btn-primary text-center"
+              >Registrar</a
+            ><br /><br />
+          </div>
         </div>
-    </div>
+      </div>
+      <div class="col-md-10">
+        <div class="card mt-4">
+          <div class="card-header mt-4">
+            <div class="text-justify m-2">
+              <div class="card-body mt-5">
+                <button
+                  *ngFor="let grado of grados"
+                  type="button"
+                  class="btn ms-2 mb-2 button-grupo"
+                  data-bs-toggle="button"
+                  autocomplete="off"
+                >
+                  {{ grado.cod_gra }}<br />
+                  {{ grado.nom_grad }}<br />
+                  <img
+                    class="img-grupos"
+                    src="../../../../../assets/img/logo/logo.jpeg"
+                  />
+                  <br />
 
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    [routerLink]="['/admin/grupos', grado.cod_gra]"
+                  >
+                    alumnos
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    (click)="notasAlumno(grado.cod_gra)"
+                  >
+                    Notas
+                  </button>
+                  <button class="btn btn-info">
+                    <i class="fa-solid fa-pen-to-square"
+                      [routerLink]="['/admin/actualizar',grado.cod_gra]"
+                    ></i></button>
+                  <button class="btn btn-danger">
+                    <i
+                      class="fa-solid fa-trash-can"
+                      (click)="deleteGrado(grado.cod_gra)"
+                    ></i>
+                  </button>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12" *ngIf="hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>IDENTIFICACION DEL ALUMNO</th>
+              <th>NOMBRE ALUMNO</th>
+              <th>TELEFONO ALUMNO</th>
+              <th>DIRECCIÓN</th>
+              <th>FECHA DE NACIMIENTO</th>
+              <th>NOMBRE DEL PADRE</th>
+              <th>NOMBRE DE LA MADRE</th>
+              <th>DATO BANCARIO</th>
+              <th>ACTUALIZAR/ELIMINAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let estudiantes of estudiantes">
+              <td>{{ estudiantes.id_alu }}</td>
+              <td>{{ estudiantes.nom_alu | uppercase}}</td>
+              <td>{{ estudiantes.tel_alu | uppercase }}</td>
+              <td>{{ estudiantes.dire_alu | uppercase }}</td>
+              <td>{{ estudiantes.fec_alu | date: "dd-MM-yyyy" }}</td>
+              <td>{{ estudiantes.nom_pa | uppercase}}</td>
+              <td>{{ estudiantes.nom_ma | uppercase}}</td>
+              <td>{{ estudiantes.dat_ban_alu }}</td>
+              <td>
+                <button class="btn btn-info">
+                  <i
+                    class="fa-solid fa-pen-to-square"
+                    [routerLink]="['/admin/actualizardo']"
+                  ></i></button
+                ><button class="btn btn-danger" (click)="deleteAlumno(estudiantes.id_alu)">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="hiddena">
+        <table class="table" >
+          <thead>
+            <tr>
+              <th>NOMBRE ALUMNO</th>
+              <th>NOMBRE ASIGNATURA</th>
+              <th>NOTA 1</th>
+              <th>NOTA 2</th>
+              <th>NOTA 3</th>
+              <th>NOTA 4</th>
+              <th>NOTA FINAL</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let notas of notas">
+            <td>{{notas.nom_alu | uppercase}}</td>
+            <td>{{notas.nom_asi | uppercase}}</td>
+            <td>{{notas.nota1}}</td>
+            <td>{{notas.nota2}}</td>
+            <td>{{notas.nota3}}</td>
+            <td>{{notas.nota4}}</td>
+            <td>{{notas.nota_final}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

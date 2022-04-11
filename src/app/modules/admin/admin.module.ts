@@ -1,7 +1,8 @@
+import { AdminService } from '@modules/admin/services/admin/admin.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminPagesComponent } from './pages/admin-pages/admin-pages.component';
@@ -15,6 +16,7 @@ import { ActualizarComponent } from './components/grupos/actualizar/actualizar.c
 import { RegistrodoComponent } from './components/profesor/registrodo/registrodo.component';
 import { VerificardoComponent } from './components/profesor/verificardo/verificardo.component';
 import { ActualizardoComponent } from './components/profesor/actualizardo/actualizardo.component';
+import { EstudianteComponent } from '@modules/docente/components/estudiante/estudiante.component';
 
 
 
@@ -32,6 +34,8 @@ import { ActualizardoComponent } from './components/profesor/actualizardo/actual
     RegistrodoComponent,
     VerificardoComponent,
     ActualizardoComponent,
+ 
+
 
   ],
   imports: [
@@ -39,7 +43,10 @@ import { ActualizardoComponent } from './components/profesor/actualizardo/actual
     AdminRoutingModule,
     FormsModule,
     HttpClientModule
-
+  ],
+  providers:[
+    AdminService,
+    DatePipe
   ]
 })
 export class AdminModule { }

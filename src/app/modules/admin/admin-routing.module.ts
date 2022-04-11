@@ -14,48 +14,60 @@ import { ActualizardoComponent } from './components/profesor/actualizardo/actual
 
 const routes: Routes = [
   {
-    path: '', 
-    component:AdminPagesComponent,
+    path: '',
+    component: AdminPagesComponent,
     redirectTo: 'admin'
   },
   {
-    path: 'admin', 
-    component:AdminStartComponent
+    path: 'admin',
+    component: AdminStartComponent
   },
   {
-    path: 'grupos', 
+    path: 'grupos/:cod_gra',
     component: GruposComponent
   },
   {
-    path: 'profesor', 
+    path: 'grupos',
+    component: GruposComponent
+  },
+  {
+    path: 'profesor',
     component: ProfesorComponent
   },
   {
-    path: 'registro', 
+    path: 'registro',
     component: RegistroComponent
   },
   {
-    path: 'registrodo', 
+    path: 'registrodo',
     component: RegistrodoComponent
   },
   {
-    path: 'verificar', 
+    path: 'registrodo/:nif_doc',
+    component: RegistrodoComponent
+  },
+  {
+    path: 'verificar',
     component: VerificarComponent
   },
   {
-    path: 'verificardo', 
+    path: 'verificardo',
     component: VerificardoComponent
   },
   {
-    path: 'actualizar', 
+    path: 'actualizar',
     component: ActualizarComponent
   },
   {
-    path: 'actualizardo', 
+    path: 'actualizar/:cod_gra',
+    component: ActualizarComponent
+  },
+  {
+    path: 'actualizardo/:nif_doc',
     component: ActualizardoComponent
   },
   {
-    path:'**',
+    path: '**',
     redirectTo: '/admin/admin'
   },
 ];

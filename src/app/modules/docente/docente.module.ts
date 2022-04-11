@@ -15,12 +15,12 @@ import { NavagationDocenteComponent } from './components/navagation-docente/nava
   declarations: [
     DocentePageComponent,
     DocenteStartComponent,
-    EstudianteComponent,
     GruposComponent,
     NotasComponent,
     ProgramadorComponent,
     NavagationDocenteComponent,
-   ],
+    EstudianteComponent
+  ],
   imports: [
     CommonModule,
     DocenteRoutingModule

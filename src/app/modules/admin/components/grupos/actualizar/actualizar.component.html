@@ -1,62 +1,105 @@
 <app-navigation-admin></app-navigation-admin>
 <div class="body-page text-dark">
-    <div class="m-2">
-        <br>
-        <h6> Estas en la pagina de grupos</h6>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="card mt-4">
-                    <div class="card-header mt-4">
-                        <a routerLink="/admin/registro" class="btn btn-primary text-center">Registrar</a><br><br>
-                        <a routerLink="/admin/verificar" class="btn btn-primary text-center">Verificar</a><br><br>
-                        <a routerLink="/admin/actualizar" class="btn btn-primary text-center">Actualizar</a><br><br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-10">
-                <div class="card-header mt-4">
-                    <h3>Actualizar</h3>
-                    <div class="abs-center">
-                        <div class="card mt-4">
-                            <form method="post" action="crud.component.html" class="was-validated">
-                                <fieldset>
-                                    <legend class="abs-center">Actualizar grupo </legend>
-                                    <label for="identificador">Identificador </label><br>
-                                    <input class="form-control" type="number" name="identificador" value="12"
-                                        placeholder="Ingrese el identificador" required disabled> <br>
-                                    <label for="rangogr">Rango de grados</label><br>
-                                    <input class="form-control" type="text" name="rangogr" value="03-06 años"
-                                        placeholder="Ingrese el rango" required> <br>
-                                    <label for="carateristicagr">Caracteristicas del grado</label><br>
-                                    <input class="form-control" type="text" name="caracteristicagr" value="canson"
-                                        placeholder="Ingrese caracteristicas" required> <br>
-                                    <label for="nombregr">Nombre del grado</label><br>
-                                    <input class="form-control" type="text" name="nombregr" value="A"
-                                        placeholder="Ingrese el nombre" required> <br>
-                                    <label for="plangr">Plan de grado</label><br>
-                                    <input class="form-control" type="text" name="plangr" value="Que ganen el año"
-                                        placeholder="Ingrese plan" required> <br>
-                                    <label for="descripciongr">Descripcion de grado</label><br>
-                                    <input class="form-control" type="text" name="descripciongr" value="Ay regular tres cauartos"
-                                        placeholder="Ingrese la descripcion" required> <br>
-                                    <input class="btn btn-success form-control" type="submit" value="Modificar"
-                                        name="Modificar">
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card mt-4">
-                    <div class="card-header text-lef">
-                        <p class="fondop">Evolution sisteam</p>
-                    </div>
-                </div>
-            </div>
+  <div class="m-2">
+    <br />
+    <h6>Estas en la pagina de grupos</h6>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="card mt-4">
+          <div class="card-header mt-4">
+            <a routerLink="/admin/registro" class="btn btn-primary text-center"
+              >Registrar</a
+            ><br /><br />
+            <a
+              routerLink="/admin/actualizar"
+              class="btn btn-primary text-center"
+              >Actualizar</a
+            ><br /><br />
+          </div>
         </div>
+      </div>
+      <div class="col-md-10">
+        <div class="card-header mt-4">
+          <h3>Actualizar</h3>
+          <div class="abs-center">
+            <div class="card mt-4">
+              <form
+                method="post"
+                action="crud.component.html"
+                class="was-validated"
+              >
+                <fieldset>
+                  <legend class="abs-center">Actualizar grupo</legend>
+                  <label for="identificador">Identificador </label><br />
+                  <input
+                    class="form-control"
+                    type="number"
+                    name="identificador"
+                    placeholder="Ingrese el identificador"
+                    readonly
+                    [(ngModel)]="grado.cod_gra"
+                  />
+                  <br />
+                  <label for="rangogr">Rango de grados</label><br />
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="rangogr"
+                    [(ngModel)]="grado.rango_grad"
+                    placeholder="Ingrese el rango"
+                  />
+                  <br />
+                  <label for="carateristicagr">Caracteristicas del grado</label
+                  ><br />
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="caracteristicagr"
+                    [(ngModel)]="grado.carac_grad"
+                    placeholder="Ingrese caracteristicas"
+                  />
+                  <br />
+                  <label for="nombregr">Nombre del grado</label><br />
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="nombregr"
+                    [(ngModel)]="grado.nom_grad"
+                    placeholder="Ingrese el nombre"
+                  />
+                  <br />
+                  <label for="plangr">Plan de grado</label><br />
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="plangr"
+                    [(ngModel)]="grado.plan_grad"
+                    placeholder="Ingrese plan"
+                  />
+                  <br />
+                  <label for="descripciongr">Descripcion de grado</label><br />
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="descripciongr"
+                    [(ngModel)]="grado.desc_grad"
+                    placeholder="Ingrese la descripcion"
+                  />
+                  <br />
+                  <input
+                    class="btn btn-success form-control"
+                    type="submit"
+                    value="Modificar"
+                    name="Modificar"
+                    (click)="updateGrado()"
+                    [routerLink]="['/admin/grupos']"
+                  />
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
+  </div>
 </div>
-
-

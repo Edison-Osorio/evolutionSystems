@@ -10,11 +10,11 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  routerLink="/admin/registrodo"
-                  class="btn btn-primary text-center"
-                  >Agregar Profesor</a
-                >
+
+                <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarDocente">
+Registrar docente
+</button>
               </li>
             </ul>
           </div>
@@ -57,8 +57,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let docentes of docente">
-                  <td>{{ docentes.nif_doc }}</td>
+                <div *ngIf="estado">{{ mensaje }}</div>
+                <tr *ngFor="let docentes of docentes">
+                  <td>{{ docentes.nif_doc }} </td>
                   <td>{{ docentes.nom_doc | uppercase }}</td>
                   <td>{{ docentes.area_doc | uppercase }}</td>
                   <td>{{ docentes.dir_doc | uppercase }}</td>
@@ -67,7 +68,9 @@
                   <td>{{ docentes.dat_ban_doc }}</td>
                   <td>
                     <button class="btn btn-info">
-                      <i class="fa-solid fa-pen-to-square"></i></button
+                      <i class="fa-solid fa-pen-to-square"
+                        [routerLink]="['/admin/actualizardo',docentes.nif_doc]"
+                      ></i></button
                     ><button class="btn btn-danger">
                       <i
                         class="fa-solid fa-trash-can"
@@ -91,3 +94,6 @@
     </div>
   </div>
 </div>
+
+<app-registrodo
+></app-registrodo>  

@@ -1,6 +1,5 @@
 import { AdminService } from './../../services/admin/admin.service';
 import { Component, OnInit } from '@angular/core';
-import { window } from 'rxjs';
 import { Docente } from '@core/models/Docente';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,7 +9,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profesor.component.css']
 })
 export class ProfesorComponent implements OnInit {
-  docente: any = [];
+  docentes: any = [];
+  estado: boolean = false
+  edit: boolean = false
+  mensaje: string = 'docente no encontrado'
   docent: Docente = {
     nif_doc: '',
   }
@@ -26,19 +28,22 @@ export class ProfesorComponent implements OnInit {
   getDocente() {
     this.adminService.getDocente().subscribe(
       res => {
-        this.docente = res;
+        this.docentes = res;
       },
       err => console.log(err)
     )
   }
 
   getOneDocente(nif_doc: string | number) {
-      this.adminService.getOneDocente(nif_doc).subscribe(
-        res => {
-          this.docente = res;
-        },
-        err => (err)
-      )
+    this.adminService.getOneDocente(nif_doc).subscribe(
+      res => {
+        if (res<1) {
+          this.estado = true
+        }
+        this.docentes = res;
+      },
+      err => (err)
+    )
   }
 
   deleteDocente(nif_doc: number) {
@@ -50,4 +55,6 @@ export class ProfesorComponent implements OnInit {
       err => console.log(err, nif_doc)
     )
   }
+
+
 }
