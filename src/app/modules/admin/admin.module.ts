@@ -20,6 +20,7 @@ import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert
 
 
 
+
 @NgModule({
   declarations: [
     AdminPagesComponent,
@@ -41,6 +42,6 @@ import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert
     // SharedModule,
     FormsModule,
 HttpClientModule
-  ]
+  ],
 })
 export class AdminModule { }

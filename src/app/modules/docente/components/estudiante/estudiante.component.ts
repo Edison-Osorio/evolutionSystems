@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DocenteService } from '@modules/docente/services/docente.service';
+import {ActivatedRoute} from '@angular/router'
+import { Alumno } from '@core/models/Alumno';
+
 
 @Component({
   selector: 'app-estudiante',
@@ -6,34 +10,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./estudiante.component.css']
 })
 export class EstudianteComponent implements OnInit {
-
-  user='01'
-  a='juan fernando'
-  b='castillo rueda'
-  c='masculino'
-  d='18'
-  e='cc'
-  f='1001605598' 
-  g='3155189616' 
-  h='@gmam' 
-  i='venecia-concordia' 
-  
-  user1='02'
-  a1='maria isabel'
-  b1='perez soto'
-  c1='femenino'
-  d1='18'
-  e1='cc'
-  f1='1001626546' 
-  g1='3157389430' 
-  h1='@dfff' 
-  i1='venecia' 
-
-
-
-  constructor() { }
+  estudiantes:any = []
+  constructor(private docenteService: DocenteService, private activedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    const params = this.activedRoute.snapshot.params;
+    if (params['cod_gra']) {
+      console.log(params['cod_gra']);
+      
+      this.docenteService.getEstudiantes(params['cod_gra']).subscribe(
+        res => {
+          if (res != null) {
+            // this.hidden = true
+            this.estudiantes = res;
+            console.log(res)
+          }
+        },
+        err => console.log(err)
+      )
   }
 
+}
 }

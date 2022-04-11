@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  // api: 'http://10.170.208.44:3000/api/auth'
+  //api: 'http://10.170.208.44:3000/api/auth'
    api: 'http://localhost:3000/api'
 };
 

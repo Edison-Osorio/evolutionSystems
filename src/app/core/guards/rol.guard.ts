@@ -23,7 +23,7 @@ export class RolGuard implements CanActivate {
       const token = (this.cookie.get('token')!);
       let decodetoken:any = {};
       decodetoken = decode(token);
-      console.log(decodetoken.username);
+      // console.log(decodetoken.username);
   
       if( !this.authService.isAuth() || decodetoken.rol !== expectedRole){
         console.log('Usuario no autorizado para la vista');

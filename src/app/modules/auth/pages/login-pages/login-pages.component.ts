@@ -15,16 +15,15 @@ export class LoginPagesComponent implements OnInit {
   errorSession: boolean = false;
 
   // Variable que mustra el error del servidor
-  error: string = ''
+  error: string = '';
 
   user: User = {
     // email: 'osorio@gmail.com',
     // password: '12345',
-    tipoDocumento:'1',
+    tipoDocumento: '1',
     documento: '',
     contrasena: '',
   };
-
 
   constructor(
     private authService: AuthService,
@@ -34,23 +33,17 @@ export class LoginPagesComponent implements OnInit {
   ngOnInit(): void {}
 
   logIn() {
-    console.log(this.user);
     this.authService.signin(this.user).subscribe(
       (res: any) => {
         const { token, msg } = res;
         if (!token) {
           this.errorSession = true;
-          this.error = msg
-          console.log(res);
-          
+          this.error = msg;
+
           return console.log('no se aprobo su ingreso');
         } else {
-          console.log('el token es igual a  --->', token);
-
           let decodetoken: any = {};
           decodetoken = decode(token);
-
-          console.log(decodetoken.tipoDocumento);
 
           const { rol } = decodetoken;
 
