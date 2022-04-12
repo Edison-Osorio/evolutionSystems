@@ -1,36 +1,35 @@
-<app-navigation-admin></app-navigation-admin>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="registrarGrado"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrarGrado">Registrar grupos</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
 
-<div class="body-page text-dark">
-  <div class="m-2">
-    <br />
-    <h6>Estas en la pagina de grupos</h6>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="card mt-4">
-          <div class="card-header mt-4">
-            <a routerLink="/admin/registro" class="btn btn-primary text-center"
-              >Registrar</a
-            ><br /><br />
-            <a
-              routerLink="/admin/actualizar"
-              class="btn btn-primary text-center"
-              >Actualizar</a
-            ><br /><br />
-          </div>
-        </div>
       </div>
-      <div class="col-md-10">
-        <div class="card-header mt-4">
-          <h3>Registrar</h3>
-          <div class="abs-center">
-            <div class="card mt-4">
+      <div class="modal-body">
+        <div class="col-md-10">
+          <div class="card-header mt-4">
+            <div class="abs-center">
               <form
                 method="post"
                 action="crud.component.html"
                 class="was-validated"
               >
                 <fieldset>
-                  <legend class="abs-center">Registrar grupo</legend>
                   <label for="identificador">Identificador </label><br />
                   <input
                     class="form-control"
@@ -41,6 +40,16 @@
                     required
                   />
                   <br />
+                  <label for="identificador">Imagen </label><br />
+                  <input
+                    class="form-control"
+                    type="text"
+                    [(ngModel)]="grado.imagen"
+                    name="identificador"
+                    placeholder="Ingrese el link de la imagen"
+
+                  />
+                  <br>
                   <label for="rangogr">Rango de grados</label><br />
                   <input
                     class="form-control"
@@ -92,27 +101,25 @@
                     required
                   />
                   <br />
-                  <input
-                    class="btn btn-success form-control"
-                    type="submit"
-                    (click)="createGrado()"
-                    [routerLink]="['/admin/grupos']"
-                    value="Registrar"
-                    name="Registrar"
-                  />
+
                 </fieldset>
               </form>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-12">
-        <div class="card mt-4">
-          <div class="card-header text-lef">
-            <p class="fondop">Evolution sisteam</p>
-          </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" (click)="createGrado()"
+          >Registrar</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-insert-alumno>

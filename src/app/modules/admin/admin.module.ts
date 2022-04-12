@@ -1,6 +1,7 @@
-import { AdminService } from '@modules/admin/services/admin/admin.service';
+
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 
@@ -16,7 +17,12 @@ import { ActualizarComponent } from './components/grupos/actualizar/actualizar.c
 import { RegistrodoComponent } from './components/profesor/registrodo/registrodo.component';
 import { VerificardoComponent } from './components/profesor/verificardo/verificardo.component';
 import { ActualizardoComponent } from './components/profesor/actualizardo/actualizardo.component';
-import { EstudianteComponent } from '@modules/docente/components/estudiante/estudiante.component';
+import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert-alumno.component';
+import { HorarioComponent } from './components/horario/horario.component';
+import { AsignaturaComponent } from './components/asignatura/asignatura.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
+// import { InsertAlumnoComponent } from './alumnos/insert-alumno/insert-alumno.component';
+
 
 
 
@@ -34,19 +40,21 @@ import { EstudianteComponent } from '@modules/docente/components/estudiante/estu
     RegistrodoComponent,
     VerificardoComponent,
     ActualizardoComponent,
- 
-
-
+    InsertAlumnoComponent,
+      HorarioComponent,
+      AsignaturaComponent,
+      ServiciosComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    // SharedModule,
     FormsModule,
-    HttpClientModule
+HttpClientModule
   ],
   providers:[
-    AdminService,
     DatePipe
   ]
+
 })
 export class AdminModule { }

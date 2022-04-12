@@ -46,4 +46,7 @@ h6{
   background-color: #D6EEEB;
   color: black;
 }
-  
+ 
+.card{
+  width: 65%;
+}

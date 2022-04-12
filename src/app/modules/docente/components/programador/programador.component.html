@@ -5,31 +5,26 @@
 <br />
 
 <div class="row">
-  <div class="col-md-10">
-    <div class="card mt-2">
+  <div class="col-md-12">
+    <div class="card m-auto mt-2">
       <div class="card-header mt-2">
-        <table class="table table-bordered border-primary">
-          <caption></caption>
+        <table class="table table-bordered text-center ">
           <thead>
             <tr>
-              <th col>Fecha</th>
-              <th col>Lunes</th>
-              <th col>Martes</th>
-              <th col>Miercoles</th>
-              <th col>Jueves</th>
-              <th col>Viernes</th>
-              <th col>Sabado</th>
+              <th col>FECHA</th>
+              <th col>ASIGNATURA</th>
+              <th col>GRUPO</th>
+              <th col>DESCRIPCIÓN DEL GRUPO</th>
+              <th col>HORA DE INGRESO</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th row></th>
-              <td>24444</td>
-              <td>defg</td>
-              <td>cvdfgbhn</td>
-              <td>zxcv</td>
-              <td>cvb</td>
-              <td>cxvb</td>
+            <tr *ngFor="let horario of horarios" >
+              <td>{{horario.fec_hor | date: 'dd/MM/yyyy'}}</td>
+              <td>{{horario.nom_asi}}</td>
+              <td>{{horario.nom_grad}}</td>
+              <td>{{horario.desc_grad}}</td>
+              <td>{{horario.hora}}</td>
             </tr>
           </tbody>
         </table>

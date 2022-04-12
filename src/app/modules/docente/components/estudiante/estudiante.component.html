@@ -26,34 +26,30 @@
   <div class="col-md-10">
     <div class="card mt-2">
       <div class="card-header mt-2">
-        <table class="table table-bordered border-primary">
-          <caption></caption>
+        <table class="table table-bordered">
           <thead>
             <tr>
-              <th col>N°</th>
-              <th col>Nombres</th>
-              <th col>Apellidos</th>
-              <th col>Sexo</th>
-              <th col>Edad</th>
-              <th col>Tipo</th>
+              <!-- <th col>N°</th> -->
               <th col>Documento</th>
-              <th col>Telefono</th>
-              <th col>Correo <br /></th>
+              <th col>Nombres</th>
               <th col>Direccion</th>
+              <th col>Telefono</th>
+              <th col>Fecha Nacimiento</th>
+              <th col>Nombre Papá</th>
+              <th col>Nombre Mamá</th>
+              <th col>Cuenta de Banco</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th row>{{ user }}</th>
-              <td>{{ a }}</td>
-              <td>{{ b }}</td>
-              <td>{{ c }}</td>
-              <td>{{ d }}</td>
-              <td>{{ e }}</td>
-              <td>{{ f }}</td>
-              <td>{{ g }}</td>
-              <td>{{ h }}</td>
-              <td>{{ i }}</td>
+            <tr *ngFor="let estudiante of estudiantes">
+              <th row>{{ estudiante.id_alu}}</th>
+              <td>{{ estudiante.nom_alu }}</td>
+              <td>{{ estudiante.dire_alu }}</td>
+              <td>{{ estudiante.tel_alu }}</td>
+              <td>{{ estudiante.fec_alu | date: 'dd-MM-yyyy' }}</td>
+              <td>{{ estudiante.nom_pa }}</td>
+              <td>{{ estudiante.nom_ma }}</td>
+              <td>{{ estudiante.dat_ban_alu }}</td>
             </tr>
           </tbody>
         </table>

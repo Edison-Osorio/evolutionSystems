@@ -16,7 +16,7 @@ export class AuthLoginGuard implements CanActivate {
     private cookie : CookieService
   ){}
 
-  canActivate(     route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     if(this.authService.isAuth()){
       console.log('Ya inicio sesion');

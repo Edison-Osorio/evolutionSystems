@@ -1,0 +1,189 @@
+<div
+  class="modal fade text-dark"
+  id="createAlumno"
+  aria-hidden="true"
+  aria-labelledby="exampleModalToggleLabel2"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalToggleLabel2">
+          Registrar alumno
+        </h5>
+        <!-- <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button> -->
+      </div>
+      <div class="modal-body">
+        <form method="post">
+          <div class="form-group">
+            <label for="documento" class="col-form-label">Rol:</label>
+            <input
+              type="text"
+              name="rol"
+              class="form-control"
+              [(ngModel)]="user.rol"
+              placeholder="Rol del alumno"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="tipo_documento" class="col-form-label"
+              >Tipo de documento</label
+            >
+            <select
+              name="tipo_documento"
+              class="form-control form-select"
+              [(ngModel)]="user.tipoDocumento"
+              [ngModelOptions]="{ standalone: true }"
+            >
+              <option value="1">Cedula de ciudadania</option>
+              <option value="2">Targeta de identidad</option>
+              <option value="3">Cedula de estrangeria</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="documento" class="col-form-label"
+              >Numero de documento:</label
+            >
+            <input
+              type="text"
+              name="documento"
+              class="form-control"
+              [(ngModel)]="UserA.id_alu"
+              [(ngModel)]="user.documento"
+            />
+          </div>
+          <div class="form-group">
+            <label for="documento" class="col-form-label"
+              >Nombre Completo:</label
+            >
+            <input
+              type="text"
+              name="documento"
+              class="form-control"
+              [(ngModel)]="UserA.nom_alu"
+              [(ngModel)]="user.nombre"
+            />
+          </div>
+          <div class="form-group">
+            <label for="documento" class="col-form-label">Correo:</label>
+            <input
+              type="email"
+              name="documento"
+              class="form-control"
+              [(ngModel)]="user.email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="contraseña" class="col-form-label">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control"
+              placeholder=""
+              [(ngModel)]="user.contrasena"
+            />
+            <div class="form-group">
+              <label for="documento" class="col-form-label">Direccion:</label>
+              <input
+                type="text"
+                name="documento"
+                class="form-control"
+                [(ngModel)]="UserA.dire_alu"
+              />
+            </div>
+            <div class="form-group">
+              <label for="documento" class="col-form-label">Telefono:</label>
+              <input
+                type="text"
+                name="documento"
+                class="form-control"
+                [(ngModel)]="UserA.tel_alu"
+              />
+            </div>
+            <div class="form-group">
+              <label for="documento" class="col-form-label"
+                >Fecha de Nacimiento:</label
+              >
+              <input
+                type="date"
+                name="documento"
+                class="form-control"
+                [(ngModel)]="UserA.fec_alu"
+              />
+            </div>
+            <div class="form-group">
+              <label for="documento" class="col-form-label"
+                >Nombre del Papá:</label
+              >
+              <input
+                type="text"
+                name="documento"
+                class="form-control"
+                [(ngModel)]="UserA.nom_pa"
+              />
+            </div>
+            <div class="form-group">
+              <label for="documento" class="col-form-label"
+                >Nombre de la Mamá:</label
+              >
+              <input
+                type="text"
+                name="documento"
+                class="form-control"
+                [(ngModel)]="UserA.nom_ma"
+              />
+            </div>
+            <div class="form-group">
+              <label for="documento" class="col-form-label">Datos Banco</label>
+              <input
+                type="text"
+                name="documento"
+                class="form-control"
+                [(ngModel)]="UserA.dat_ban_alu"
+              />
+            </div>
+            <div class="form-group">
+              <label for="tipo_documento" class="col-form-label">Grado: </label>
+              <select
+                name="cod_grad"
+                class="form-control form-select"
+                [(ngModel)]="UserA.cod_gra"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option value="0">Seleccionar grado ......</option>
+                <option
+                  *ngFor="let grado of grados"
+                  value="{{ grado.cod_gra }}"
+                >
+                  {{ grado.nom_grad }}
+                </option>
+              </select>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+        type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+        >
+          Cerrar
+        </button>
+        <button
+          type="submit"
+          class="btn btn-success"
+          (click)="createAlumno()"
+          (click)="createUser()"
+        >
+          Registrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

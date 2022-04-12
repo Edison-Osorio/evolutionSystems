@@ -1,7 +1,8 @@
 import { Grado } from './../../../../core/models/Grado';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter  } from '@angular/core';
 import { AdminService } from '@modules/admin/services/admin/admin.service';
+
 
 @Component({
   selector: 'app-grupos',
@@ -10,8 +11,13 @@ import { AdminService } from '@modules/admin/services/admin/admin.service';
 })
 export class GruposComponent implements OnInit {
 
+  @Input()
+  codigo:number=0
+  @Output() onShare:EventEmitter<number>=new EventEmitter
+
   constructor(private adminService: AdminService, private activedRoute: ActivatedRoute) { }
   grados: any = [];
+
   hidden: boolean = false;
   hiddena: boolean = false;
   grado: Grado = {
@@ -20,11 +26,14 @@ export class GruposComponent implements OnInit {
     carac_grad: '',
     nom_grad: '',
     plan_grad: '',
-    desc_grad: ''
+    desc_grad: '',
+    imagen:''
   }
+
   notas: any = [];
   estudiantes: any = [];
   ngOnInit(): void {
+
     const params = this.activedRoute.snapshot.params;
     if (params['cod_gra']) {
       this.adminService.getEstudiantes(params['cod_gra']).subscribe(
@@ -47,6 +56,8 @@ export class GruposComponent implements OnInit {
       )
     }
   }
+
+  
 
   deleteAlumno(id_alu: number | string) {
     this.adminService.deleteAlumno(id_alu).subscribe(
@@ -90,6 +101,8 @@ export class GruposComponent implements OnInit {
       },
       err => console.log(err)
     )
+
+
 
   }
 }

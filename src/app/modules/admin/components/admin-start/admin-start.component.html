@@ -1,7 +1,79 @@
-
 <app-navigation-admin></app-navigation-admin>
 
 <div class="body-page">
+
+  <div class="m-2">
+    <br />
+
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="card mt-4">
+          <div class="card-header mt-4">
+            <h3>Bienvenido</h3>
+            <ul class="nav justify-content-center">
+              <li class="nav-item">
+                <a
+                  class="nav-link btn btn-primary text-center"
+                  routerLinkActive="active"
+                  data-bs-target="#createAlumno"
+                  data-bs-toggle="modal"
+                  data-bs-dismiss="modal"
+                  >Añadir Alumno</a
+                >
+              </li>
+              &nbsp;
+              <li class="nav-item">
+                <a
+                  class="nav-link btn btn-primary text-center"
+                  routerLink="/admin/profesor/"
+                  routerLinkActive="active"
+                  >Docentes</a
+                >
+              </li>
+              &nbsp;
+              <li class="nav-item">
+                <a
+                  class="nav-link btn btn-primary text-center"
+                  routerLink="/admin/grupos/"
+                  routerLinkActive="active"
+                  >Grupos</a
+                >
+              </li>
+              &nbsp;
+              <li class="nav-item">
+                <a
+                  class="nav-link btn btn-primary text-center"
+
+                  routerLinkActive="active"
+                  >Horario</a
+                >
+              </li>
+              &nbsp;
+              <li class="nav-item">
+                <a
+                  class="nav-link btn btn-primary text-center"
+                  routerLinkActive="active"
+                  >Asignaturas</a
+                >
+              </li>
+              &nbsp;
+              <li class="nav-item">
+                <a
+                  class="nav-link btn btn-primary text-center"
+                  routerLinkActive="active"
+                  >Servicios</a
+                >
+              </li>
+            </ul>
+            <p>
+              Esta es la intitucion evolution system, esta pagina wed esta
+              generada para que tu como estudiante puedas tener una mayor
+              agilidd con la visulizacion de sus notas, mejorar las
+              posivilidades de acceso a becas y servicios que ofrece nuestra
+              institucion
+            </p>
+          </div>
+
     <div class="m-2">
         <br>
         <div class="page-header mt-5">
@@ -49,5 +121,14 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
+
+
+  </div>
 </div>
+
+<app-insert-alumno></app-insert-alumno>
+</div>
+
+

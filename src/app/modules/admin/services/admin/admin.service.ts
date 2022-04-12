@@ -1,3 +1,4 @@
+import { Alumno } from '@core/models/Alumno';
 import { Grado } from './../../../../core/models/Grado';
 import { Observable } from 'rxjs';
 import { User } from './../../../../core/models/User';
@@ -32,6 +33,9 @@ export class AdminService {
     return this.http.post(`${this.URL}admin/docente/add`, docente)
   }
 
+  createAlumno(alumno:Alumno){
+    return this.http.post(`${this.URL}admin/estudiante/add`,alumno)
+  }
   createUser(user: User) {
     return this.http.post(`${this.URL}auth/signup`, user)
   }

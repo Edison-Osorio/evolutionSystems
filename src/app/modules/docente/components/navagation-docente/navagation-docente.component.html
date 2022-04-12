@@ -1,62 +1,77 @@
 <!-- navegation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top text-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top cabecero">
   <div class="container-fluid">
-    <a class="navbar-brand title-navegation" href="#">
+    <a class="bnavegacion navbar-brand title-navegation" href="#">
       <img
         src="../../../../../assets/img/logo/logo.jpeg"
         alt="logo"
-        class="img-navegation"
-      />
+        class="logo img-navegation"
+      />{{ nameUser }}
     </a>
-
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div class="text-center test-darck" id="navbarText">
       <div class="nav justify-content-end" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-black">
+          <li class="nav-item">
+            <h6 class="bnavegacion navbar-brand title-navegation" href="#">
+              <img  alt="logo" class="logo img-navegation" />
+              {{ nameUser }}
+          </h6>
+          </li>
+        </ul>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <div class="nav-item mt-3">
-            <h5>Juan Castillo</h5>
-          </div>
-
-          <li class="nav-item mt-1">
-            <button
-              type="button"
-              class="btn btn-secondary m-2 form-control btn-block"
-              routerLink="/docente/docente/"
+          <li class="nav-item">
+            <a
+              class="nav-link btn btn-secondary text-center"
+              routerLinkActive="active"
+              routerLink="/docente/informations"
+              ><i class="fa-solid fa-id-card"></i> My Informcioón</a
             >
-              inicio
-            </button>
           </li>
-
-          <li class="nav-item m-1">
-            <button
-              type="button"
-              class="btn btn-info m-2 form-control btn-block"
-              routerLink="../grupos"
+          <li class="nav-item ms-1">
+            <a
+              class="nav-link btn btn-secondary text-center"
+              routerLinkActive="active"
+              (click)="salir()"
+              ><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a
             >
-              Grupos
-            </button>
-          </li>
-          <li class="nav-item m-1">
-            <button
-              type="button"
-              class="btn btn-info m-2 form-control btn-block"
-              routerLink="../programador"
-            >
-              Programador
-            </button>
           </li>
         </ul>
       </div>
     </div>
   </div>
 </nav>
+
+<br>
+
+
+<!-- Inicio de la navegación de los botones -->
+<ul class="nav justify-content-center mt-5">
+   <li class="nav-item mt-1">
+    <button
+      type="button"
+      class="btn btn-secondary m-2 form-control btn-block"
+      routerLink="/docente/docente/"
+    >
+      inicio
+    </button>
+  </li>
+
+  <li class="nav-item m-1">
+    <button
+      type="button"
+      class="btn btn-info m-2 form-control btn-block"
+      routerLink="/docente/grupos"
+    >
+      Grupos
+    </button>
+  </li>
+  <li class="nav-item m-1">
+    <button
+      type="button"
+      class="btn btn-info m-2 form-control btn-block"
+      routerLink="/docente/programador"
+    >
+      Programador
+    </button>
+  </li>
+</ul>

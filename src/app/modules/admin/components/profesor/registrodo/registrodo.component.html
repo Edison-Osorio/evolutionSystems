@@ -1,4 +1,3 @@
-
 <!-- Modal registrar docente -->
 <div
   class="modal fade"
@@ -20,6 +19,7 @@
           aria-label="Close"
         ></button>
       </div>
+
       <div class="modal-body">
         <fieldset>
           <label for="rol">Rol</label>
@@ -38,7 +38,7 @@
             class="form-control"
             type="number"
             name="nif_doc"
-            [(ngModel)]="docentes.nif_doc"
+            [(ngModel)]="docente.nif_doc"
             [(ngModel)]="user.documento"
             placeholder="Ingrese su nif"
             required
@@ -49,7 +49,7 @@
             class="form-control"
             type="text"
             name="nom_doc"
-            [(ngModel)]="docentes.nom_doc"
+            [(ngModel)]="docente.nom_doc"
             [(ngModel)]="user.nombre"
             placeholder="Ingrese su nombre completo"
             required
@@ -60,7 +60,7 @@
             class="form-control"
             type="text"
             name="dir_doc"
-            [(ngModel)]="docentes.dir_doc"
+            [(ngModel)]="docente.dir_doc"
             placeholder="Ingrese su direccion"
             required
           />
@@ -70,7 +70,7 @@
             class="form-control"
             type="date"
             name="fec_nac_doc"
-            [(ngModel)]="docentes.fec_nac_doc"
+            [(ngModel)]="docente.fec_nac_doc"
           />
           <br />
           <label for="telefono">Telefono</label><br />
@@ -78,7 +78,7 @@
             class="form-control"
             type="text"
             name="tel_doc"
-            [(ngModel)]="docentes.tel_doc"
+            [(ngModel)]="docente.tel_doc"
             placeholder="Numero telefonico"
             required
           />
@@ -88,7 +88,7 @@
             class="form-control"
             type="text"
             name="area_doc"
-            [(ngModel)]="docentes.area_doc"
+            [(ngModel)]="docente.area_doc"
             placeholder="Asignaturda que domina"
             required
           />
@@ -98,7 +98,7 @@
             class="form-control"
             type="text"
             name="dbancario"
-            [(ngModel)]="docentes.dat_ban_doc"
+            [(ngModel)]="docente.dat_ban_doc"
             placeholder="Dato bancario"
             required
           /><br />
@@ -135,7 +135,7 @@
           Registrar docente
         </button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
+          Cerrar
         </button>
       </div>
     </div>

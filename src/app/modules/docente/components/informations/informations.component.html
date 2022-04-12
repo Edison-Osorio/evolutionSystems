@@ -1,0 +1,99 @@
+<app-navagation-docente></app-navagation-docente>
+<div class="text-justify text-dark m-3">
+  <br />
+
+  <div class="mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-justify">
+          <div class="card">
+            <div class="card-header">
+              <h2>Información</h2>
+            </div>
+            <div class="card-body btn-info">
+              <form class="cad-body">
+                <img
+                  src="../../../../../assets/img/logo/logoUser.webp"
+                  alt="foto  "
+                />
+                <div class="form-group">
+                  <label for="nif_doc" class="col-form-label"
+                    >Documento:
+                  </label>
+                  <input
+                    type="text"
+                    name="nif_doc"
+                    [(ngModel)]="user.nif_doc"
+                    class="form-control"
+                    disabled
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="nombres" class="col-form-label">Nombres</label>
+                  <input
+                    type="text"
+                    name="nombres"
+                    [(ngModel)]="user.nom_doc"
+                    class="form-control"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="direcion" class="col-form-label">direcion</label>
+                  <input
+                    type="text"
+                    name="direcion"
+                    [(ngModel)]="user.dir_doc"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="telefono" class="col-form-label"
+                    >Fecha de Nacimiento</label
+                  >
+                  <input
+                    type="date"
+                    name="fec_nac_doc"
+                    [(ngModel)]="user.fec_nac_doc"
+                    class="form-control"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="telefono" class="col-form-label">telefono</label>
+                  <input
+                    type="tel"
+                    name="telefono"
+                    [(ngModel)]="user.tel_doc"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="dat_ban_doc" class="col-form-label"
+                    >Cuenta de Banco</label
+                  >
+                  <input
+                    type="number"
+                    name="dat_ban_doc"
+                    [(ngModel)]="user.dat_ban_doc"
+                    class="form-control"
+                    placeholder=""
+                  />
+                </div>
+                <br />
+                <button
+                  type="button"
+                  class="btn btn-success"
+                  (click)="updateUser()"
+                >
+                  Actualizar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

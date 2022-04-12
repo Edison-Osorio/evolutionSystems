@@ -2,7 +2,6 @@
 <div class="body-page" ngFor="let docentes of docente">
   <div class="m-2">
     <br />
-    <h6>Estas en la pagina del docente</h6>
     <div class="row">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -10,11 +9,15 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-
-                <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarDocente">
-Registrar docente
-</button>
+                <!-- Button modal registrar docente -->
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#registrarDocente"
+                >
+                  Registrar docente
+                </button>
               </li>
             </ul>
           </div>
@@ -57,9 +60,8 @@ Registrar docente
                 </tr>
               </thead>
               <tbody>
-                <div *ngIf="estado">{{ mensaje }}</div>
-                <tr *ngFor="let docentes of docentes">
-                  <td>{{ docentes.nif_doc }} </td>
+                <tr *ngFor="let docentes of docente">
+                  <td>{{ docentes.nif_doc }}</td>
                   <td>{{ docentes.nom_doc | uppercase }}</td>
                   <td>{{ docentes.area_doc | uppercase }}</td>
                   <td>{{ docentes.dir_doc | uppercase }}</td>
@@ -67,10 +69,8 @@ Registrar docente
                   <td>{{ docentes.fec_nac_doc | date: "dd/MM/yyyy" }}</td>
                   <td>{{ docentes.dat_ban_doc }}</td>
                   <td>
-                    <button class="btn btn-info">
-                      <i class="fa-solid fa-pen-to-square"
-                        [routerLink]="['/admin/actualizardo',docentes.nif_doc]"
-                      ></i></button
+                    <button class="btn btn-info" [routerLink]="['/admin/actualizardo',docentes.nif_doc]" >
+                      <i class="fa-solid fa-pen-to-square"></i></button
                     ><button class="btn btn-danger">
                       <i
                         class="fa-solid fa-trash-can"
@@ -84,16 +84,9 @@ Registrar docente
           </div>
         </div>
       </div>
-      <div class="col-md-12">
-        <div class="card mt-4">
-          <div class="card-header text-lef">
-            <p class="fondop">Evolution systems</p>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>
 
-<app-registrodo
-></app-registrodo>  
+<app-registrodo>

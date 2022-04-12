@@ -14,7 +14,8 @@ export class ActualizarComponent implements OnInit {
     carac_grad: '',
     nom_grad: '',
     plan_grad: '',
-    desc_grad: ''
+    desc_grad: '',
+    imagen:''
   }
   //edit: boolean=true
   constructor(private adminService: AdminService, private activedRoute: ActivatedRoute) { }
@@ -41,5 +42,6 @@ export class ActualizarComponent implements OnInit {
       err=>console.log(err)
     )
   }
+
 
 }

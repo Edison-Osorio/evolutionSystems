@@ -4,9 +4,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-admin-start',
   templateUrl: './admin-start.component.html',
-  styleUrls: ['./admin-start.component.css']
+  styleUrls: ['./admin-start.component.css'],
 })
 export class AdminStartComponent implements OnInit {
+ 
 
   constructor(private AlumService:AluSerService) { }
 
@@ -21,6 +22,8 @@ export class AdminStartComponent implements OnInit {
       },
       err=>console.log(err)
     )
+
   }
 
+ 
 }
