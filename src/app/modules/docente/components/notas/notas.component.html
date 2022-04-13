@@ -2,89 +2,73 @@
 <br />
 <br />
 <br />
-
+<div class="container-xxl">
 <div class="row d-flex justify-content-center">
-  <div class="col-md-10">
-    <div class="col-md-5 d-flex">
-      <select name="" id="" class="form-select">
-        <option value="">primer cemestre</option>
-        <option value="">primer cemestre</option>
-        <option value="">primer cemestre</option>
+  <div class="col-md-12">
+    <div class="col-md-6 d-flex">
+   <div>
+    <select name="periodo" id="" class="form-select" [(ngModel)]="selectedPeriodo" (change)="onSelectPeriodo($event.target)" >
+      <option value="">Selecciona periodo</option>
+      <option
+        *ngFor="let trimestre of trimestres"
+        value="{{ trimestre.id_etapa }}"
+      >
+        {{ trimestre.nombre_etapa }}
+      </option>
+    </select>
+   </div>
+    <div *ngIf="hidden">
+      <select name="asignatura" id="" class="form-select ms-4" [(ngModel)]="selectedAsignatura" (change)="onSelectAsignatura($event.target)">
+        <option value="">Selecciona Asignatura</option>
+        <option
+          *ngFor="let asignatura of asignaturas"
+          value="{{ asignatura.id_asi }}"
+        >
+          {{ asignatura.nom_asi }}
+        </option>
       </select>
-      <select name="" id="" class="form-select ms-4">
-        <option value="">primer cemestre</option>
-        <option value="">primer cemestre</option>
-        <option value="">primer cemestre</option>
-      </select>
+    </div>
     </div>
     <div class="card mt-2">
       <div class="card-header mt-2">
+        <form action="">
+          <div class=" col-md-12 d-flex justify-content-end ">
+            <button type="submit" value="Enviar" class="btn btn-outline-success mb-3 me-md-5 " (click)="update()">
+              Guardar cambios
+            </button>
+          </div>
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th col>nombres</th>
+              <th col>Nombres</th>
               <th col>parcial1</th>
               <th col>taller1</th>
               <th col>parcial2</th>
               <th col>taller2</th>
               <th col>
-                ejercisio <br />
-                practico
+                evaluación
               </th>
               <th row>
-                evaluacion <br />
-                final
-              </th>
-              <th row>
-                nota <br />
+                nota
                 final
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th row>{{ user4 }}</th>
-              <td>{{ p1 }}</td>
-              <td>{{ t1 }}</td>
-              <td>{{ p2 }}</td>
-              <td>{{ t2 }}</td>
-              <td>{{ p2 }}</td>
-              <td>{{ t3 }}</td>
-              <td>{{ tt }}</td>
-            </tr>
-            <tr>
-              <th scope="row">{{ user1 }}</th>
-              <td>{{ p1 }}</td>
-              <td>{{ t1 }}</td>
-              <td>{{ p2 }}</td>
-              <td>{{ t2 }}</td>
-              <td>{{ p2 }}</td>
-              <td>{{ t3 }}</td>
-              <td>{{ tt }}</td>
-            </tr>
-            <tr>
-              <th scope="row">{{ user2 }}</th>
-              <td>{{ p1 }}</td>
-              <td>{{ t1 }}</td>
-              <td>{{ p2 }}</td>
-              <td>{{ t2 }}</td>
-              <td>{{ p2 }}</td>
-              <td>{{ t3 }}</td>
-              <td>{{ tt }}</td>
-            </tr>
-            <tr>
-              <th scope="row">{{ user3 }}</th>
-              <td>{{ p1 }}</td>
-              <td>{{ t1 }}</td>
-              <td>{{ p2 }}</td>
-              <td>{{ t2 }}</td>
-              <td>{{ p2 }}</td>
-              <td>{{ t3 }}</td>
-              <td>{{ tt }}</td>
+            <tr *ngFor="let nota of notas">
+              <th class="form-control " >{{ nota.nom_alu }}</th>
+              <td><input type="number" class="form-control " name="nota1" [(ngModel)]="nota.nota1" [ngModelOptions]="{standalone: true}" id=""  step="any"> </td>
+              <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota2" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
+              <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota3" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
+              <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota4" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
+              <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota5" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
+              <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota_final" [ngModelOptions]="{standalone: true}" id="" step="any"  readonly></td>
             </tr>
           </tbody>
         </table>
+      </form>
       </div>
     </div>
   </div>
+</div>
 </div>

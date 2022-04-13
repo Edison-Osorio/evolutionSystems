@@ -34,11 +34,8 @@ export class GruposComponent implements OnInit {
   }
 
   getGrados() {
-    this.docenteService.getGrados(this.decodeToken()).subscribe((res: any) => {
-      console.log(res);
+    this.docenteService.getGrados(this.decodeToken()).subscribe((res: any) => { 
       this.grados = res;
-
-      console.log('esta es la variable de grados -->', this.grados);
     });
   }
 }

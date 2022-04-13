@@ -4,28 +4,25 @@
 <br />
 <div class="text-justify m-2">
   <div class="card-body mt-5  d-flex justify-content-center">
-    <button
-      type="button"
-      class="btn ms-2 btn-primary"
-      data-bs-toggle="button"
-      autocomplete="off"
-
-      *ngFor="let grado of grados"
-    >
-      {{grado.nom_grad}} <br />
-      {{grado.cod_gra}}<br />
-      <img class="img-grupos" src="../../../../../assets/img/logo/logo.jpeg" />
-      <br />
-      <button type="button" class="btn btn-secondary" [routerLink]="['/docente/notas', grado.cod_gra]">
-        notas
-      </button>
-
-      <button
-        type="button"
-        class="btn btn-secondary"
-        [routerLink]="['/docente/estudiantes', grado.cod_gra]">
-        alumnos
-      </button>
-    </button>
+    <div class="card ms-2 mb-2 text-dark bg-primary"  *ngFor="let grado of grados">
+      <div class="card-header content-center">
+      <h4> {{grado.nom_grad}}</h4>
+        {{grado.cod_gra}}
+      </div>
+      <div class="card-body ">
+        <img class="img-grupos" src="../../../../../assets/img/logo/logo.jpeg" />
+        <br />
+        <button type="button" class="btn btn-secondary ms-3 mt-1" [routerLink]="['/docente/notas', grado.cod_gra]">
+          notas
+        </button>
+  
+        <button
+          type="button"
+          class="btn btn-secondary ms-2"
+          [routerLink]="['/docente/estudiantes', grado.cod_gra]">
+          alumnos
+        </button>
+      </div>
+    </div>
   </div>
 </div>

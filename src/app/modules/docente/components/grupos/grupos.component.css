@@ -19,3 +19,7 @@ legend.centrado {
   .img-grupos{
     width: 200px;
   }
+
+  .card{
+    border-radius: 6%;
+  }
