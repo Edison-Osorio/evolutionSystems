@@ -16,7 +16,7 @@ export class ActualizardoComponent implements OnInit {
   docent: any = [];
   docentes: Docente = {
     nif_doc: '',
-    area_doc: '',
+    titulo: '',
     nom_doc: '',
     dir_doc: '',
     fec_nac_doc: Date,

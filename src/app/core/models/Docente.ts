@@ -1,6 +1,6 @@
 export interface Docente {
   nif_doc?: any;
-  area_doc?: string;
+  titulo?: string;
   nom_doc?: string;
   dir_doc?: string;
   fec_nac_doc?: any;

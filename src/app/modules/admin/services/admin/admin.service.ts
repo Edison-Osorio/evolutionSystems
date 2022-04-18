@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,8 +34,8 @@ export class AdminService {
     return this.http.post(`${this.URL}/admin/docente/add`, docente)
   }
 
-  createAlumno(alumno:Alumno){
-    return this.http.post(`${this.URL}/admin/estudiante/add`,alumno)
+  createAlumno(alumno: Alumno) {
+    return this.http.post(`${this.URL}/admin/estudiante/add`, alumno)
   }
   createUser(user: User) {
     return this.http.post(`${this.URL}/auth/signup`, user)
@@ -71,5 +72,27 @@ export class AdminService {
   // updategrado(cod_gra: number | string, grado: Grado): Observable<Docente> {
   //   return this.http.put(`${this.URL}/admin/grado/update/${cod_gra}`, grado)
   // }
+
+  //servicios del horario
+  //obtener todos
+  getHorario() {
+    return this.http.get(`${this.URL}/admin/horario`)
+  }
+  // crear 
+  crateHorario(horario: any) {
+    return this.http.post(`${this.URL}/admin/horario/add`, horario)
+  }
+  //eliminar
+  deleteHorario(cod_hor: any){
+    return this.http.delete(`${this.URL}/admin/horario/delete/${cod_hor}`)
+  }
+  //actualizar
+  updateHorario(cod_hor: any, horario:any){
+    return this.http.put(`${this.URL}/admin/horario/update/${cod_hor}`,horario)
+  }
+  //obtener uno
+  getOnoHorario(cod_hor: any){
+    return this.http.get(`${this.URL}/admin/horario/${cod_hor}`)
+  }
 }
 

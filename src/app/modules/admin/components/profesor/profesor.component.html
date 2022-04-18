@@ -51,7 +51,7 @@
                 <tr>
                   <th>NIF DOCENTE</th>
                   <th>NOMBRE DOCENTE</th>
-                  <th>AREA DOCENTE</th>
+                  <th>TITULO</th>
                   <th>DIRECCIÓN</th>
                   <th>TELEFONO DOCENTE</th>
                   <th>FECHA NACIMIENTO</th>
@@ -63,7 +63,7 @@
                 <tr *ngFor="let docentes of docente">
                   <td>{{ docentes.nif_doc }}</td>
                   <td>{{ docentes.nom_doc | uppercase }}</td>
-                  <td>{{ docentes.area_doc | uppercase }}</td>
+                  <td>{{ docentes.titulo | uppercase }}</td>
                   <td>{{ docentes.dir_doc | uppercase }}</td>
                   <td>{{ docentes.tel_doc }}</td>
                   <td>{{ docentes.fec_nac_doc | date: "dd/MM/yyyy" }}</td>
@@ -71,10 +71,9 @@
                   <td>
                     <button class="btn btn-info" [routerLink]="['/admin/actualizardo',docentes.nif_doc]" >
                       <i class="fa-solid fa-pen-to-square"></i></button
-                    ><button class="btn btn-danger">
+                      ><button class="btn btn-danger" (click)="deleteDocente(docentes.nif_doc)">
                       <i
                         class="fa-solid fa-trash-can"
-                        (click)="deleteDocente(docentes.nif_doc)"
                       ></i>
                     </button>
                   </td>

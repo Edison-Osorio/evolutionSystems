@@ -12,6 +12,7 @@ import { VerificardoComponent } from './components/profesor/verificardo/verifica
 import { ActualizardoComponent } from './components/profesor/actualizardo/actualizardo.component';
 
 import { AlumnoComponent } from './components/alumno/alumno.component';
+import { HorarioComponent } from './components/horario/horario.component';
 
 const routes: Routes = [
   {
@@ -76,9 +77,18 @@ const routes: Routes = [
   //   component: InsertAlumnoComponent,
   // },
   {
+    path:'horario',
+    component: HorarioComponent
+  },
+  {
+    path:'horario/:cod_gra',
+    component: HorarioComponent
+  },
+  {
     path: '**',
     redirectTo: '/admin/admin',
-  },
+  }
+  
 ];
 
 @NgModule({

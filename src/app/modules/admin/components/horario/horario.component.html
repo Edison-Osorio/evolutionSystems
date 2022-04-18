@@ -1,1 +1,88 @@
-<p>horario works!</p>
+<app-navigation-admin></app-navigation-admin>
+<div>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <!-- Button modal registrar horario -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarHorario">
+                Registrar horario
+            </button>
+        </li>
+    </ul>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">CODIGO</th>
+            <th scope="col">FECHA</th>
+            <th scope="col">HORA</th>
+            <th scope="col">Actualixar/Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let horarios of horarios">
+
+            <td>{{horarios.cod_hor}}</td>
+            <td>{{horarios.horario |date:'dd/MM/yy'}}</td>
+            <td>{{horarios.horario |date:'h:mm a'}}</td>
+            <td><button class="btn btn-info md-2" data-bs-toggle="modal" data-bs-target="#actualizarHorario"><i class="fa-solid fa-pen-to-square"></i></button><button
+                    class="btn btn-danger ms-2" (click)="deleteHorario(horarios.cod_hor)"><i class="fa-solid fa-trash-can"></i></button></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal actualizar horario -->
+<div class="modal fade" id="actualizarHorario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog text-black">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Actualizar horario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Codigo para el horario</label>
+                    <input type="text" class="form-control" [(ngModel)]="horarios.cod_hor"
+                        placeholder="Codigo para el horario">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Fecha/Hora</label>
+                    <input type="datetime-local" class="form-control" [(ngModel)]="Horario.horario">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="createHorario()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal registrar horario -->
+<div class="modal fade" id="registrarHorario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog text-black">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Registrar horario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Codigo para el horario</label>
+                    <input type="text" class="form-control" [(ngModel)]="Horario.cod_hor"
+                        placeholder="Codigo para el horario">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Fecha/Hora</label>
+                    <input type="datetime-local" class="form-control" [(ngModel)]="Horario.horario">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="createHorario()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
