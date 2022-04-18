@@ -18,17 +18,18 @@ import { InformationsComponent } from './components/informations/informations.co
   declarations: [
     DocentePageComponent,
     DocenteStartComponent,
-    EstudianteComponent,
     GruposComponent,
     NotasComponent,
     ProgramadorComponent,
     NavagationDocenteComponent,
-    InformationsComponent,
-   ],
+    EstudianteComponent,
+    InformationsComponent
+  ],
+
   imports: [
     CommonModule,
     DocenteRoutingModule,
-    FormsModule, 
+    FormsModule,
     HttpClientModule
   ],
   providers:[DatePipe]

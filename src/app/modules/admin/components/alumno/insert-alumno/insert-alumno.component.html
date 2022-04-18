@@ -1,0 +1,208 @@
+<!-- Modal registrar docente -->
+<div
+  class="modal fade bg-green"
+  id="registrarAlumno"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg text-black ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrarDocente">Agregar nuevo Alumno</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <fieldset>
+            <legend class="content-dark">Información Personal</legend>
+          <div class="row g-3 align-items-center">
+               
+            <div class="form-group mb-2 col-auto">
+              <label for="tipoDocumento">Tipo de Documento</label>
+              <select
+                name="tipo_documento"
+                class="form-control form-select"
+                [(ngModel)]="user.tipoDocumento"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option value="1">Cedula de ciudadania</option>
+                <option value="2">Targeta de identidad</option>
+                <option value="3">Cedula de estrangeria</option>
+              </select>
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="nif">Documento </label>
+              <input
+                class="form-control"
+                type="number"
+                name="id_alu"
+                [(ngModel)]="alumno.id_alu"
+                [(ngModel)]="user.documento"
+                placeholder="Ingrese el documento"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto col-auto">
+              <label for="nombres">Nombres</label>
+              <input
+                class="form-control"
+                type="text"
+                name="nom_alu"
+                [(ngModel)]="alumno.nom_alu"
+                [(ngModel)]="user.nombre"
+                placeholder="Ingrese el nombre completo"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto col-auto">
+              <label for="direccion">Direccion</label>
+              <input
+                class="form-control"
+                type="text"
+                name="dir_alu"
+                [(ngModel)]="alumno.dire_alu"
+                placeholder="Ingrese la direccion"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="fecha">Fecha de nacimiento</label>
+              <input
+                class="form-control"
+                type="date"
+                name="fec_alu"
+                [(ngModel)]="alumno.fec_alu"
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="telefono">Telefono</label>
+              <input
+                class="form-control"
+                type="text"
+                name="tel_alu"
+                [(ngModel)]="alumno.tel_alu"
+                placeholder="Numero telefonico"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+                <label for="correo">Correo</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  name="correo"
+                  [(ngModel)]="user.email"
+                  placeholder="Correo electronico"
+                  required
+                />
+             </div>
+             <div class="form-group mb-2 col-auto">
+                <label for="contrasena">Contraseña</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="contrasena"
+                  [(ngModel)]="user.contrasena"
+                  placeholder="Contraseña"
+                  required
+                />
+            </div>
+        </div>
+          <!-- Información de padres -->
+          <legend class="content-dark mt-3">Información de los padres</legend>
+          <div class="row g-3 align-items-center">
+          <div class="form-group mb-2 col-auto">
+            <label for="nom_pa">Nombre del Papá</label>
+            <input
+              class="form-control"
+              type="text"
+              name="nom_pa"
+              [(ngModel)]="alumno.nom_pa"
+              placeholder="Nombre del papá"
+              required
+            />
+          </div>
+          <div class="form-group mb-2 col-auto">
+            <label for="nom_ma">Nombre de la Mamá</label>
+            <input
+              class="form-control"
+              type="text"
+              name="nom_ma"
+              [(ngModel)]="alumno.nom_ma"
+              placeholder="Nombre de la mamá"
+              required
+            />
+          </div>
+          <div class="form-group mb-2 col-auto">
+            <label for="dat_ban_alu">Dato bancario</label>
+            <input
+              class="form-control"
+              type="text"
+              name="dat_ban_alu"
+              [(ngModel)]="alumno.dat_ban_alu"
+              placeholder="Dato bancario"
+              required
+            />
+          </div>
+          </div>
+          <!-- Informacion de los grupos -->
+          <legend class="content-dark mt-3">Información de Grupo</legend>
+          <div class="row g-3 align-items-center">
+            <div class="form-group col-auto">
+                <label for="id_ciclo" class="col-form-label">Grado: </label>
+                <select
+                  name="id_ciclo"
+                  class="form-control form-select"
+                  [(ngModel)]="alumno.id_curso"
+                  [ngModelOptions]="{ standalone: true }"
+                  required="false"
+                >
+                  <option value="">Seleccionar grado ......</option>
+                  <option *ngFor="let curso of cursos" value="{{curso.id_curso}}" >
+                    {{curso.nombre_curso}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group col-auto">
+                <label for="id_ciclo" class="col-form-label">Grado: </label>
+                <select
+                  name="id_ciclo"
+                  class="form-control form-select"
+                  [(ngModel)]="alumno.id_grupo"
+                  [ngModelOptions]="{ standalone: true }"
+                  required="false"
+                >
+                  <option value="">Seleccionar grado ......</option>
+                  <option *ngFor="let grupo of grupos" value="{{grupo.id_grupo}}" >
+                    {{grupo.nombre_grupo}}
+                  </option>
+                </select>
+              </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button
+          routerLink="/admin/profesor"
+          class="btn btn-success"
+          type="submit"
+          value="Registrar"
+          name="Registrar"
+          (click)="insertAlumno()"
+        >
+          Registrar docente
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

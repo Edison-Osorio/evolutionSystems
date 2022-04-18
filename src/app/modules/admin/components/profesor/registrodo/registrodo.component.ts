@@ -38,7 +38,7 @@ export class RegistrodoComponent implements OnInit {
     this.adminService.createDocente(this.docente).subscribe(
       res => {
         console.log('se realizo una insercion --->', res)
-        //{ document.location.reload() }
+        { document.location.reload() }
       },
       err => console.error(err)
     )

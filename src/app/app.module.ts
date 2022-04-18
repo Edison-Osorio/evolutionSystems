@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
     HttpClientModule
   ],
   providers: [ CookieService, {
-    provide: HTTP_INTERCEPTORS, 
+    provide: HTTP_INTERCEPTORS,
     useClass: InjectSessionInterceptor,
     multi: true
   } ],

@@ -10,60 +10,79 @@ import { ActualizarComponent } from './components/grupos/actualizar/actualizar.c
 import { RegistrodoComponent } from './components/profesor/registrodo/registrodo.component';
 import { VerificardoComponent } from './components/profesor/verificardo/verificardo.component';
 import { ActualizardoComponent } from './components/profesor/actualizardo/actualizardo.component';
-import { InsertAlumnoComponent } from './components/alumnos/insert-alumno/insert-alumno.component';
 
+import { AlumnoComponent } from './components/alumno/alumno.component';
 
 const routes: Routes = [
   {
-    path: '', 
-    component:AdminPagesComponent,
-    redirectTo: 'admin'
+    path: '',
+    component: AdminPagesComponent,
+    redirectTo: 'admin',
   },
   {
-    path: 'admin', 
-    component:AdminStartComponent
-  },
-  {path:'createAlumno', component: InsertAlumnoComponent},
-  {
-    path: 'grupos', 
-    component: GruposComponent
+    path: 'admin',
+    component: AdminStartComponent,
   },
   {
-    path: 'profesor', 
-    component: ProfesorComponent
+    path:'alumno', component: AlumnoComponent
+  },
+  // { path: 'createAlumno', component: InsertAlumnoComponent },
+  {
+    path: 'grupos/:cod_gra',
+    component: GruposComponent,
   },
   {
-    path: 'registro', 
-    component: RegistroComponent
+    path: 'grupos',
+    component: GruposComponent,
   },
   {
-    path: 'registrodo', 
-    component: RegistrodoComponent
+    path: 'profesor',
+    component: ProfesorComponent,
   },
   {
-    path: 'verificar', 
-    component: VerificarComponent
+    path: 'registro',
+    component: RegistroComponent,
   },
   {
-    path: 'verificardo', 
-    component: VerificardoComponent
+    path: 'registrodo',
+    component: RegistrodoComponent,
   },
   {
-    path: 'actualizar', 
-    component: ActualizarComponent
+    path: 'registrodo/:nif_doc',
+    component: RegistrodoComponent,
   },
   {
-    path: 'actualizardo', 
-    component: ActualizardoComponent
+    path: 'verificar',
+    component: VerificarComponent,
   },
   {
-    path:'**',
-    redirectTo: '/admin/admin'
+    path: 'verificardo',
+    component: VerificardoComponent,
+  },
+  {
+    path: 'actualizar',
+    component: ActualizarComponent,
+  },
+  {
+    path: 'actualizar/:cod_gra',
+    component: ActualizarComponent,
+  },
+  {
+    path: 'actualizardo/:nif_doc',
+    component: ActualizardoComponent,
+  },
+  // {
+  //   path: 'insert-alumno',
+  //   component: InsertAlumnoComponent,
+  // },
+  {
+    path: '**',
+    redirectTo: '/admin/admin',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

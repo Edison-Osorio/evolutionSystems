@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top cabecero">
+
+<!-- navegation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top cabecero">
   <div class="container-fluid">
     <a class="bnavegacion navbar-brand title-navegation" href="#">
       <img
@@ -11,14 +13,22 @@
       <div class="nav justify-content-end" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-black">
           <li class="nav-item">
-            <a class="bnavegacion navbar-brand title-navegation" href="#">
+            <h6 class="bnavegacion navbar-brand title-navegation" href="#">
               <img  alt="logo" class="logo img-navegation" />
               {{ nameUser }}
-            </a>
+          </h6>
           </li>
         </ul>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
+            <a
+              class="nav-link btn btn-secondary text-center"
+              routerLinkActive="active"
+              routerLink="/docente/informations"
+              ><i class="fa-solid fa-id-card"></i> My Informcioón</a
+            >
+          </li>
+          <li class="nav-item ms-1">
             <a
               class="nav-link btn btn-secondary text-center"
               routerLinkActive="active"
@@ -31,4 +41,73 @@
     </div>
   </div>
 </nav>
+
+<br>
+
+
+<!-- Inicio de la navegación de los botones -->
+<ul class="nav justify-content-center mt-5">
+  <li class="nav-item m-1">
+    <button
+      class="btn btn-info m-2 form-control btn-block text-center"
+      routerLink="/admin/alumno/"
+      routerLinkActive="active"
+    >
+      Alumnos
+    </button>
+    >
+  </li>
+  &nbsp;
+  <li class="nav-item m-1">
+    <button
+      class="btn btn-info m-2 form-control btn-block text-center"
+      routerLink="/admin/profesor/"
+      routerLinkActive="active"
+    >
+      Docentes
+    </button>
+    >
+  </li>
+  &nbsp;
+  <li class="nav-item m-1">
+    <button
+      class="btn btn-info m-2 form-control btn-block text-center"
+      routerLink="/admin/grupos/"
+      routerLinkActive="active"
+    >
+      Grupos
+    </button>
+    >
+  </li>
+  &nbsp;
+  <li class="nav-item m-1">
+    <button
+      class="btn btn-info m-2 form-control btn-block text-center"
+      routerLinkActive="active"
+    >
+      Horario
+    </button>
+    >
+  </li>
+  &nbsp;
+  <li class="nav-item m-1">
+    <button
+      class="btn btn-info m-2 form-control btn-block text-center"
+      routerLinkActive="active"
+    >
+      Asignaturas
+    </button>
+    >
+  </li>
+  &nbsp;
+  <li class="nav-item m-1">
+    <button
+      class="btn btn-info m-2 form-control btn-block text-center"
+      routerLinkActive="active"
+    >
+      Servicios
+    </button>
+    >
+  </li>
+</ul>
 

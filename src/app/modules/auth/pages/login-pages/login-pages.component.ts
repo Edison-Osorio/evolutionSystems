@@ -70,6 +70,8 @@ export class LoginPagesComponent implements OnInit {
       (err) => {
         this.errorSession = true;
         console.log('Su contraseña o email incorrecto');
+        console.log(err);
+        
       }
     );
   }

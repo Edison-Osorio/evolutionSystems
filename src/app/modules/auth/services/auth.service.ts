@@ -13,11 +13,14 @@ export class AuthService {
   private URL = environment.api;
 
   signup(user: any) {
+
     return this.http.post(`${this.URL}/auth/signup`, user);
   }
 
+
   signin(user: any) {
     return this.http.post(`${this.URL}/auth/signin`, user);
+
   }
 
   getOnUser(user: any) {

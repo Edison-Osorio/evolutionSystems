@@ -1,158 +1,142 @@
-<app-navigation-admin></app-navigation-admin>
-<div class="body-page text-dark">
-  <div class="m-2">
-    <br />
-    <h6>Estas en la pagina de grupos</h6>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="card mt-4">
-          <div class="card-header mt-4">
-            <a
-              routerLink="/admin/registrodo"
-              class="btn btn-primary text-center"
-              >Registrar</a
-            ><br /><br />
-            <a
-              routerLink="/admin/verificardo"
-              class="btn btn-primary text-center"
-              >Buscar</a
-            ><br /><br />
-            <a
-              routerLink="/admin/actualizardo"
-              class="btn btn-primary text-center"
-              >Actualizar</a
-            ><br /><br />
-          </div>
-        </div>
+<!-- Modal registrar docente -->
+<div
+  class="modal fade"
+  id="registrarDocente"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrarDocente">Registrar docente</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
-      <div class="col-md-10">
-        <div class="card-header mt-4">
-          <h3>Registrar</h3>
-          <div class="abs-center">
-            <div class="card mt-4">
-              <form
-                method="post"
-                action="crud.component.html"
-                class="was-validated"
-              >
-                <fieldset>
-                  <br />
-                  <legend class="abs-center">Registrar docente</legend>
-                  <label for="rol">Rol</label>
-                  <input
-                    class="form-control"
-                    name="docente"
-                    [(ngModel)]="user.rol"
-                    readonly
-                  />
-                  <label for="nif">Nif </label><br />
-                  <input
-                    class="form-control"
-                    type="number"
-                    name="nif_doc"
-                    [(ngModel)]="docente.nif_doc"
-                    [(ngModel)]="user.documento"
-                    placeholder="Ingrese su nif"
-                    required
-                  />
-                  <br />
-                  <label for="nombres">Nombres</label><br />
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="nom_doc"
-                    [(ngModel)]="docente.nom_doc"
-                    [(ngModel)]="user.nombre"
-                    placeholder="Ingrese su nombre completo"
-                    required
-                  />
-                  <br />
-                  <label for="direccion">Direccion</label><br />
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="dir_doc"
-                    [(ngModel)]="docente.dir_doc"
-                    placeholder="Ingrese su direccion"
-                    required
-                  />
-                  <br />
-                  <label for="fecha">Fecha de nacimiento</label><br />
-                  <input
-                    class="form-control"
-                    type="date"
-                    name="fec_nac_doc"
-                    [(ngModel)]="docente.fec_nac_doc"
-                  />
-                  <br />
-                  <label for="telefono">Telefono</label><br />
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="tel_doc"
-                    [(ngModel)]="docente.tel_doc"
-                    placeholder="Numero telefonico"
-                    required
-                  />
-                  <br />
-                  <label for="asignatura">Asignatura</label><br />
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="area_doc"
-                    [(ngModel)]="docente.area_doc"
-                    placeholder="Asignaturda que domina"
-                    required
-                  />
-                  <br />
-                  <label for="dbamcario">Dato bancario</label><br />
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="dbancario"
-                    [(ngModel)]="docente.dat_ban_doc"
-                    placeholder="Dato bancario"
-                    required
-                  /><br />
-                  <label for="correo">Correo</label><br />
-                  <input
-                    class="form-control"
-                    type="email"
-                    name="correo"
-                    [(ngModel)]="user.email"
-                    placeholder="Correo electronico"
-                    required
-                  /><br />
-                  <label for="contrasena">Contraseña</label><br />
-                  <input
-                    class="form-control"
-                    type="password"
-                    name="contrasena"
-                    [(ngModel)]="user.contrasena"
-                    placeholder="Contraseña"
-                    required
-                  /><br />
 
-                  <input
-                    class="btn btn-success form-control"
-                    (click)="createDocente()"
-                    (click)="createUser()"
-                    type="submit"
-                    value="Registrar"
-                    name="Registrar"
-                  />
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="card mt-4">
-            <div class="card-header text-lef">
-              <p class="fondop">Evolution systems</p>
-            </div>
-          </div>
-        </div>
+      <div class="modal-body">
+        <fieldset>
+          <label for="rol">Rol</label>
+          <input
+            class="form-control"
+            type="text"
+            name="rol"
+            [(ngModel)]="user.rol"
+            value="docente"
+            placeholder="rol docente"
+            readonly
+          />
+          <br />
+          <label for="nif">Nif </label><br />
+          <input
+            class="form-control"
+            type="number"
+            name="nif_doc"
+            [(ngModel)]="docente.nif_doc"
+            [(ngModel)]="user.documento"
+            placeholder="Ingrese su nif"
+            required
+          />
+          <br />
+          <label for="nombres">Nombres</label><br />
+          <input
+            class="form-control"
+            type="text"
+            name="nom_doc"
+            [(ngModel)]="docente.nom_doc"
+            [(ngModel)]="user.nombre"
+            placeholder="Ingrese su nombre completo"
+            required
+          />
+          <br />
+          <label for="direccion">Direccion</label><br />
+          <input
+            class="form-control"
+            type="text"
+            name="dir_doc"
+            [(ngModel)]="docente.dir_doc"
+            placeholder="Ingrese su direccion"
+            required
+          />
+          <br />
+          <label for="fecha">Fecha de nacimiento</label><br />
+          <input
+            class="form-control"
+            type="date"
+            name="fec_nac_doc"
+            [(ngModel)]="docente.fec_nac_doc"
+          />
+          <br />
+          <label for="telefono">Telefono</label><br />
+          <input
+            class="form-control"
+            type="text"
+            name="tel_doc"
+            [(ngModel)]="docente.tel_doc"
+            placeholder="Numero telefonico"
+            required
+          />
+          <br />
+          <label for="asignatura">Asignatura</label><br />
+          <input
+            class="form-control"
+            type="text"
+            name="area_doc"
+            [(ngModel)]="docente.area_doc"
+            placeholder="Asignaturda que domina"
+            required
+          />
+          <br />
+          <label for="dbamcario">Dato bancario</label><br />
+          <input
+            class="form-control"
+            type="text"
+            name="dbancario"
+            [(ngModel)]="docente.dat_ban_doc"
+            placeholder="Dato bancario"
+            required
+          /><br />
+          <label for="correo">Correo</label><br />
+          <input
+            class="form-control"
+            type="email"
+            name="correo"
+            [(ngModel)]="user.email"
+            placeholder="Correo electronico"
+            required
+          /><br />
+          <label for="contrasena">Contraseña</label><br />
+          <input
+            class="form-control"
+            type="password"
+            name="contrasena"
+            [(ngModel)]="user.contrasena"
+            placeholder="Contraseña"
+            required
+          /><br />
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button
+          routerLink="/admin/profesor"
+          class="btn btn-success"
+          (click)="createDocente()"
+          (click)="createUser()"
+          type="submit"
+          value="Registrar"
+          name="Registrar"
+        >
+          Registrar docente
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
       </div>
     </div>
   </div>
