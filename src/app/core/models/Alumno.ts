@@ -3,7 +3,7 @@ export interface Alumno {
     nom_alu?: string,
     dire_alu?: string,
     tel_alu?: string,
-    fec_alu?: Date,
+    fec_alu?: any,
     nom_pa?: string,
     nom_ma?: string,
     dat_ban_alu?: string,

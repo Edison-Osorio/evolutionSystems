@@ -30,13 +30,8 @@
               placeholder="Buscar"
               type="number"
               aria-label="Search"
-            
             />
-            <button
-              class="btn btn-outline-success"
-              type="submit"
-             
-            >
+            <button class="btn btn-outline-success" type="submit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
@@ -63,7 +58,7 @@
                 </tr>
               </thead>
               <tbody>
-               <tr *ngFor="let alumno of alumnos">
+                <tr *ngFor="let alumno of alumnos">
                   <td>{{ alumno.id_alu }}</td>
                   <td>{{ alumno.nom_alu | uppercase }}</td>
                   <td>{{ alumno.dire_alu | uppercase }}</td>
@@ -75,28 +70,31 @@
                   <td>{{ alumno.nombre_curso }}</td>
                   <td>{{ alumno.nombre_grupo }}</td>
                   <td>
-                    <button class="btn btn-info" (click)="codigoAlumno(alumno.id_alu)" >
-                      
-                      <i class="fa-solid fa-pen-to-square"></i>
-                      </button
-                    ><button class="btn btn-danger">
-                      <!-- <i
-                        class="fa-solid fa-trash-can"
-                        (click)="deleteDocente(alumno.nif_doc)"
-                      ></i> -->
+                    <button
+                      type="button"
+                      class="btn btn-info mb-2"
+                      (click)="codigoAlumno(alumno.id_alu)"
+                      data-bs-toggle="modal"
+                      data-bs-target="#UpdateAlumno"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i></button
+                    ><button
+                      class="btn btn-danger"
+                      (click)="deleteAlumno(alumno.id_alu)"
+                    >
+                      <i class="fa-solid fa-trash-can"></i>
                     </button>
                   </td>
-                </tr> 
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
 <app-insert-alumno></app-insert-alumno>
-<app-update-alumno [codigo]="codigo()"></app-update-alumno>
-
+<app-update-alumno></app-update-alumno>
+<!-- modal para actualizar Alumnos -->

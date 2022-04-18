@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from '@core/models/User';
 import { CursoService } from '@modules/admin/services/curso.service';
 import { AlumnoService } from '@modules/admin/services/alumno.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-insert-alumno',
@@ -11,6 +12,7 @@ import { AlumnoService } from '@modules/admin/services/alumno.service';
 })
 export class InsertAlumnoComponent implements OnInit {
   cursos: any = [];
+  alumnos: any = [];
 
   grupos: any = [];
 
@@ -36,15 +38,15 @@ export class InsertAlumnoComponent implements OnInit {
     id_grupo: '',
   };
 
-
-
-  // @Output() onCodigo:EventEmitter<number> = new EventEmitter
-
   // enviarCodigo(){
   //   this.onCodigo.emit(this.codigo)
   // }
 
-  constructor(private cursoService: CursoService, private alumnoService:AlumnoService) {}
+  constructor(
+    private cursoService: CursoService,
+    private alumnoService: AlumnoService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getCursos();
@@ -54,39 +56,21 @@ export class InsertAlumnoComponent implements OnInit {
   getCursos() {
     this.cursoService.listCurso().subscribe((res: any) => {
       this.cursos = res;
-      
     });
   }
 
   getGrupos() {
     this.cursoService.getGrupo().subscribe((res: any) => {
       this.grupos = res;
-      
     });
   }
 
-  insertAlumno(){
-    console.log('Este es el objeto de Alumno'); 
-    console.log(this.alumno);
-    this.alumnoService.createAlumno(this.alumno).subscribe(
-      (res:any)=>{
-        console.log(res);
-        
-      }
-    )
-    console.log('Este es el objeto de Usuario');
-    console.log(this.user);
-    this.alumnoService.createUser(this.user).subscribe(
-      (res:any)=>{
-        console.log(res);
-        
-      }
-    )
-    alert('Se ha registrado el alumno')
-    document.location.reload()
-    
-    
-    
+  insertAlumno() {
+    this.alumnoService.createAlumno(this.alumno).subscribe((res: any) => {});
+    this.alumnoService.createUser(this.user).subscribe((res: any) => {});
+    alert('Se ha registrado el alumno');
+    document.location.reload();
+    let ref = document.getElementById('cancel');
+    ref?.click();
   }
-
 }
