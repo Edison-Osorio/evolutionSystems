@@ -1,0 +1,170 @@
+<!-- Modal registrar docente -->
+<div
+  class="modal fade"
+  id="registrarDocente"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-black modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrarDocente">Agregar nuevo docente</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <fieldset>
+          <fieldset>Información Personal</fieldset>
+          <div class="row g-3 align-interms-center">
+            <div class="form-group mb-2 col-auto">
+              <label for="tipoDocumento">Tipo de Documento</label>
+              <select
+                name="tipo_documento"
+                class="form-control form-select"
+                [(ngModel)]="user.tipoDocumento"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option value="1">Cedula de ciudadania</option>
+                <option value="2">Targeta de identidad</option>
+                <option value="3">Cedula de estrangeria</option>
+              </select>
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="nif">Nif </label><br />
+              <input
+                class="form-control"
+                type="number"
+                name="nif_doc"
+                [(ngModel)]="docente.nif_doc"
+                [(ngModel)]="user.documento"
+                placeholder="Ingrese su nif"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="nombres">Nombres</label><br />
+              <input
+                class="form-control"
+                type="text"
+                name="nom_doc"
+                [(ngModel)]="docente.nom_doc"
+                [(ngModel)]="user.nombre"
+                placeholder="Ingrese su nombre completo"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="direccion">Direccion</label><br />
+              <input
+                class="form-control"
+                type="text"
+                name="dir_doc"
+                [(ngModel)]="docente.dir_doc"
+                placeholder="Ingrese su direccion"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="fecha">Fecha de nacimiento</label><br />
+              <input
+                class="form-control"
+                type="date"
+                name="fec_nac_doc"
+                [(ngModel)]="docente.fec_nac_doc"
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="telefono">Telefono</label><br />
+              <input
+                class="form-control"
+                type="text"
+                name="tel_doc"
+                [(ngModel)]="docente.tel_doc"
+                placeholder="Numero telefonico"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="asignatura">Titulo</label><br />
+              <input
+                class="form-control"
+                type="text"
+                name="area_doc"
+                [(ngModel)]="docente.titulo"
+                placeholder="Titulo que posee"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="dbamcario">Dato bancario</label><br />
+              <input
+                class="form-control"
+                type="text"
+                name="dbancario"
+                [(ngModel)]="docente.dat_ban_doc"
+                placeholder="Dato bancario"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="correo">Correo</label><br />
+              <input
+                class="form-control"
+                type="email"
+                name="correo"
+                [(ngModel)]="user.email"
+                placeholder="Correo electronico"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="contrasena">Contraseña</label><br />
+              <input
+                class="form-control"
+                type="text"
+                name="contrasena"
+                [(ngModel)]="user.contrasena"
+                placeholder="Contraseña"
+                required
+              />
+            </div>
+            <div class="form-group mb-2 col-auto">
+              <label for="categoria">Categoria a enseñar</label>
+              <select
+                name="categoria"
+                class="form-control form-select"
+                [(ngModel)]="docente.id_categoria"
+                [ngModelOptions]="{ standalone: true }"
+              >
+                <option value="">Seleccione la categoria...</option>
+                <option *ngFor="let categoria of categorias" value="{{categoria.id_categoria}}">{{categoria.tipo}}</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-success"
+          (click)="createDocente()"
+          type="submit"
+          value="Registrar"
+          name="Registrar"
+        >
+          Registrar docente
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

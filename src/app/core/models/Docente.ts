@@ -6,4 +6,5 @@ export interface Docente {
   fec_nac_doc?: any;
   tel_doc?: string;
   dat_ban_doc?: string;
+  id_categoria?: number | string
 }

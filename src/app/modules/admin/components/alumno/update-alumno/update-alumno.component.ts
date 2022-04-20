@@ -51,7 +51,7 @@ export class UpdateAlumnoComponent implements OnInit {
   }
 
   codigoEmitido() {
-    this.alumnoService.codioAlumno.subscribe((codigo) => {
+    this.alumnoService.codioAlumno.subscribe((codigo:any) => {
       const codigos = codigo.codigo;
       this.getOneAlumno(codigos);
     });
@@ -94,8 +94,8 @@ export class UpdateAlumnoComponent implements OnInit {
     ) {
       this.alumnoService
         .updateAlumno(id_alu, this.alumno)
-        .subscribe((res) => {});
-      this.alumnoService.updateUser(id_alu, this.user).subscribe((res) => {
+        .subscribe((res:any ) => {});
+      this.alumnoService.updateUser(id_alu, this.user).subscribe((res:any) => {
         alert('Usuario Actualizado');
         document.location.reload();
       });

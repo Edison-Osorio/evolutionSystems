@@ -10,8 +10,8 @@
 >
   <div class="modal-dialog modal-lg text-black ">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="registrarDocente">Agregar nuevo Alumno</h5>
+      <div class="modal-header d-flex justify-content-center">
+        <h5 class="modal-title text-center" id="" >Agregar nuevo Alumno</h5>
         <button
           type="button"
           class="btn-close"
@@ -159,7 +159,7 @@
                 <label for="id_ciclo" class="col-form-label">Grado: </label>
                 <select
                   name="id_ciclo"
-                  class="form-control form-select"
+                  class="form-control form-select mb-2"
                   [(ngModel)]="alumno.id_curso"
                   [ngModelOptions]="{ standalone: true }"
                   required="false"
@@ -174,7 +174,7 @@
                 <label for="id_ciclo" class="col-form-label">Grado: </label>
                 <select
                   name="id_ciclo"
-                  class="form-control form-select"
+                  class="form-control form-select mb-2"
                   [(ngModel)]="alumno.id_grupo"
                   [ngModelOptions]="{ standalone: true }"
                   required="false"

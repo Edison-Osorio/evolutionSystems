@@ -11,7 +11,7 @@ export class AlumnoService {
 
   readonly URL = environment.api
 
-  @Output() codioAlumno: EventEmitter<any>= new EventEmitter()
+  @Output() codioAlumno: EventEmitter<any> = new EventEmitter()
   // @Output() OnAlumnos:EventEmitter<number> = new EventEmitter()
 
   constructor(private http:HttpClient) { }
@@ -22,7 +22,7 @@ export class AlumnoService {
   getOneAlumno(id_alu:any){
     return this.http.get(`${this.URL}/admin/estudiante/estudiante/${id_alu}`)
   }
-
+// Obtenemos un usuario de la tabla Usuario
   getOneUsuario(id_alu:any){
   return this.http.get(`${this.URL}/auth/list/${id_alu}`)
   }

@@ -30,9 +30,7 @@ nameUser: string = ''
     const token = this.cookie.get('token')!;
     let decodetoken: any = {};
     decodetoken = decode(token);
-    console.log(decodetoken.nombre);
     this.nameUser = decodetoken.nombre
-    console.log(this.nameUser);
     
   }
 }

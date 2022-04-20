@@ -46,7 +46,7 @@
         <div class="card mt-4">
           <div class="card-header mt-4"></div>
           <div>
-            <table class="table">
+            <table class="table  table-bordered text-center">
               <thead>
                 <tr>
                   <th>NIF DOCENTE</th>
@@ -56,7 +56,8 @@
                   <th>TELEFONO DOCENTE</th>
                   <th>FECHA NACIMIENTO</th>
                   <th>DATO BANCARIO</th>
-                  <th>ACTUALIZAR/ELIMINAR</th>
+                  <th>CATEGORIA </th>
+                  <th>ACCIONES</th>
                 </tr>
               </thead>
               <tbody>
@@ -68,10 +69,13 @@
                   <td>{{ docentes.tel_doc }}</td>
                   <td>{{ docentes.fec_nac_doc | date: "dd/MM/yyyy" }}</td>
                   <td>{{ docentes.dat_ban_doc }}</td>
+                  <td>{{ docentes.tipo }}</td>
                   <td>
-                    <button class="btn btn-info" [routerLink]="['/admin/actualizardo',docentes.nif_doc]" >
+                    <button type="button" class="btn btn-info mb-1"  
+                    (click)="codigoDocente(docentes.nif_doc)" data-bs-toggle="modal"
+                    data-bs-target="#UpdateDocente" >
                       <i class="fa-solid fa-pen-to-square"></i></button
-                      ><button class="btn btn-danger" (click)="deleteDocente(docentes.nif_doc)">
+                      ><button class="btn btn-danger ms-1" (click)="deleteDocente(docentes.nif_doc)">
                       <i
                         class="fa-solid fa-trash-can"
                       ></i>
@@ -88,6 +92,7 @@
   </div>
 </div>
 
+<app-insert-docente></app-insert-docente>
+<app-update-docente></app-update-docente>
 
-<app-registrodo></app-registrodo>
 
