@@ -41,7 +41,6 @@ export class ActualizardoComponent implements OnInit {
     }
   }
   updateDocente() {
-
     this.adminService.updateDocente(this.docentes.nif_doc, this.docentes).subscribe(
       res => {
         console.log(res);

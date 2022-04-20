@@ -83,15 +83,15 @@ export class AdminService {
     return this.http.post(`${this.URL}/admin/horario/add`, horario)
   }
   //eliminar
-  deleteHorario(cod_hor: any){
+  deleteHorario(cod_hor: any) {
     return this.http.delete(`${this.URL}/admin/horario/delete/${cod_hor}`)
   }
   //actualizar
-  updateHorario(cod_hor: any, horario:any){
-    return this.http.put(`${this.URL}/admin/horario/update/${cod_hor}`,horario)
+  updateHorario(cod_hor: number | string, horario: any) {
+    return this.http.put(`${this.URL}/admin/horario/update/${cod_hor}`, horario)
   }
   //obtener uno
-  getOnoHorario(cod_hor: any){
+  getOnoHorario(cod_hor: any) {
     return this.http.get(`${this.URL}/admin/horario/${cod_hor}`)
   }
 }
