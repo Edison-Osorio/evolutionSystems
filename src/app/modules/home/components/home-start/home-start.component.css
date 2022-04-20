@@ -1,12 +1,17 @@
-  .body {
-    margin-top: 5.2em;
-  }
-  
-   .nav-link{
-    color: black;
-  }
-  
-  #contacto{
-      padding-top: 1rem;
-      background: var(--color-2);
-  }
+.body {
+  margin-top: 5.2em;
+}
+
+ .nav-link{
+  color: black;
+}
+
+#contacto{
+    padding-top: 1rem;
+    background: var(--color-2);
+}
+
+#boder{
+  border: solid lamp rgb(22, 22, 22);
+
+}

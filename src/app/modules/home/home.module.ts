@@ -1,3 +1,4 @@
+import { SliderjobsComponent } from './components/sliderjobs/sliderjobs.component';
 import { NgModule } from '@angular/core';
 import { CommonModule} from '@angular/common';
 
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     JobsComponent,
     MatriculasComponent,
     HomeStartComponent,
+    SliderjobsComponent,
   ],
   imports: [
     CommonModule,

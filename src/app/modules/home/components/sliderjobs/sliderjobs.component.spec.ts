@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActualizardoComponent } from './actualizardo.component';
+import { SliderjobsComponent } from './sliderjobs.component';
 
-describe('ActualizardoComponent', () => {
-  let component: ActualizardoComponent;
-  let fixture: ComponentFixture<ActualizardoComponent>;
+describe('SliderjobsComponent', () => {
+  let component: SliderjobsComponent;
+  let fixture: ComponentFixture<SliderjobsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ActualizardoComponent ]
+      declarations: [ SliderjobsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ActualizardoComponent);
+    fixture = TestBed.createComponent(SliderjobsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,15 +1,12 @@
+import { DocenteComponent } from './components/docente/docente.component';
 import { AdminPagesComponent } from './pages/admin-pages/admin-pages.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminStartComponent } from './components/admin-start/admin-start.component';
 import { GruposComponent } from './components/grupos/grupos.component';
-import { ProfesorComponent } from './components/profesor/profesor.component';
 import { RegistroComponent } from './components/grupos/registro/registro.component';
 import { VerificarComponent } from './components/grupos/verificar/verificar.component';
 import { ActualizarComponent } from './components/grupos/actualizar/actualizar.component';
-import { RegistrodoComponent } from './components/profesor/registrodo/registrodo.component';
-import { VerificardoComponent } from './components/profesor/verificardo/verificardo.component';
-import { ActualizardoComponent } from './components/profesor/actualizardo/actualizardo.component';
 
 import { AlumnoComponent } from './components/alumno/alumno.component';
 import { HorarioComponent } from './components/horario/horario.component';
@@ -24,10 +21,11 @@ const routes: Routes = [
     path: 'admin',
     component: AdminStartComponent,
   },
+  // Routes of Students
   {
     path:'alumno', component: AlumnoComponent
   },
-  // { path: 'createAlumno', component: InsertAlumnoComponent },
+  // Routes of grupo
   {
     path: 'grupos/:cod_gra',
     component: GruposComponent,
@@ -36,46 +34,11 @@ const routes: Routes = [
     path: 'grupos',
     component: GruposComponent,
   },
+  // Routes of Teacher
   {
-    path: 'profesor',
-    component: ProfesorComponent,
+    path: 'docente',
+    component: DocenteComponent,
   },
-  {
-    path: 'registro',
-    component: RegistroComponent,
-  },
-  {
-    path: 'registrodo',
-    component: RegistrodoComponent,
-  },
-  {
-    path: 'registrodo/:nif_doc',
-    component: RegistrodoComponent,
-  },
-  {
-    path: 'verificar',
-    component: VerificarComponent,
-  },
-  {
-    path: 'verificardo',
-    component: VerificardoComponent,
-  },
-  {
-    path: 'actualizar',
-    component: ActualizarComponent,
-  },
-  {
-    path: 'actualizar/:cod_gra',
-    component: ActualizarComponent,
-  },
-  {
-    path: 'actualizardo/:nif_doc',
-    component: ActualizardoComponent,
-  },
-  // {
-  //   path: 'insert-alumno',
-  //   component: InsertAlumnoComponent,
-  // },
   {
     path:'horario',
     component: HorarioComponent
