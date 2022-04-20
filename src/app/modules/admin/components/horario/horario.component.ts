@@ -65,6 +65,7 @@ export class HorarioComponent implements OnInit {
         console.log(res)
         this.Horario=res
         console.log(this.Horario)
+        {document.location.reload()}
       }
     )
 
