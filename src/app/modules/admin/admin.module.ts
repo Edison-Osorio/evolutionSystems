@@ -25,6 +25,7 @@ import { DocenteComponent } from './components/docente/docente.component';
 import { InsertDocenteComponent } from './components/docente/insert-docente/insert-docente.component';
 import { UpdateDocenteComponent } from './components/docente/update-docente/update-docente.component';
 import { AdminComponent } from './services/admin/admin.component';
+import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 
 
 
@@ -50,6 +51,7 @@ import { AdminComponent } from './services/admin/admin.component';
       InsertDocenteComponent,
       UpdateDocenteComponent,
       AdminComponent,
+      AlumnoServicioComponent,
   ],
   imports: [
     CommonModule,

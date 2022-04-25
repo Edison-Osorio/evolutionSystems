@@ -10,6 +10,8 @@ import { ActualizarComponent } from './components/grupos/actualizar/actualizar.c
 
 import { AlumnoComponent } from './components/alumno/alumno.component';
 import { HorarioComponent } from './components/horario/horario.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
+import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,16 @@ const routes: Routes = [
   {
     path:'horario/:cod_gra',
     component: HorarioComponent
+  },
+  // routes of services
+  {
+    path:'servicios',
+    component: ServiciosComponent
+  },
+  // routes of alum-services
+  {
+    path:'servicios/alumno-servicios',
+    component: AlumnoServicioComponent
   },
   {
     path: '**',
