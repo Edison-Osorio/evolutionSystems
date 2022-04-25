@@ -15,11 +15,11 @@ export class ServiciosComponent implements OnInit {
   servicios: any = []
   alumnos: any = []
   alumno_servicio: any = []
-  
+
 
   alu_ser: any = {
-    cod_servicio: 0,
-    id_alumno: 0
+    cod_servicio: '',
+    id_alumno: ''
   }
   services:any={
     cod_ser:'',
@@ -40,7 +40,7 @@ export class ServiciosComponent implements OnInit {
         this.alumnos = res;
       }, err => console.log(err)
     )
-    
+
   }
 
   refresh() {
@@ -59,7 +59,7 @@ export class ServiciosComponent implements OnInit {
     this.Services.getAlu_Ser().subscribe(
       res => {
         this.alumno_servicio = res
-        
+
       }
     )
   }
@@ -68,6 +68,16 @@ export class ServiciosComponent implements OnInit {
     this.Services.getOne(id_alumno,cod_servicio).subscribe(
       res=>{
         this.alu_ser=res
+      },err=>console.log(err)
+    )
+  }
+
+  getOneService(cod_ser:any){
+    this.Services.getOneServices(cod_ser).subscribe(
+      res=>{
+        //console.log(res)
+        this.services=res
+        console.log(this.services)
       },err=>console.log(err)
     )
   }

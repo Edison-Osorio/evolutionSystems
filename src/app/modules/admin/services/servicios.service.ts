@@ -8,12 +8,16 @@ import { environment } from 'src/environments/environment';
 export class ServiciosService {
   URL = environment.api
   constructor(private http: HttpClient) { }
- 
+
   //obtener servicios
   getServices(){
     return this.http.get(`${this.URL}/admin/servicios`)
   }
-   
+  //obtener un servicio
+  getOneServices(cod_ser: any){
+    return this.http.get(`${this.URL}/admin/servicios/${cod_ser}`)
+  }
+
   createAlu_ser(alu_ser:any){
     return this.http.post(`${this.URL}/admin/alu_ser/add/`,alu_ser)
   }
@@ -28,4 +32,5 @@ export class ServiciosService {
   getOne(id_alumno:any,cod_servicio:any){
     return this.http.get(`${this.URL}/admin/alu_ser/${id_alumno}/${cod_servicio}`)
   }
+
 }
