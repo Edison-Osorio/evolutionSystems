@@ -8,5 +8,5 @@ export interface Alumno {
     nom_ma?: string,
     dat_ban_alu?: string,
     id_curso?: number | string,
-    id_grupo?: number | string
+    id_periodo?: number | string
 }

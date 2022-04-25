@@ -157,25 +157,7 @@
                   *ngFor="let curso of cursos"
                   value="{{ curso.id_curso }}"
                 >
-                  {{ curso.nombre_curso }}
-                </option>
-              </select>
-            </div>
-            <div class="form-group col-auto">
-              <label for="id_ciclo" class="col-form-label">Grado: </label>
-              <select
-                name="id_ciclo"
-                class="form-control form-select"
-                [(ngModel)]="alumno.id_grupo"
-                [ngModelOptions]="{ standalone: true }"
-                required="false"
-              >
-                <option value="">Seleccionar grado ......</option>
-                <option
-                  *ngFor="let grupo of grupos"
-                  value="{{ grupo.id_grupo }}"
-                >
-                  {{ grupo.nombre_grupo }}
+                {{curso.nombre_curso}} {{curso.nombre_grupo}}
                 </option>
               </select>
             </div>

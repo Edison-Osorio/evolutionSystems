@@ -10,6 +10,7 @@ import { ActualizarComponent } from './components/grupos/actualizar/actualizar.c
 
 import { AlumnoComponent } from './components/alumno/alumno.component';
 import { HorarioComponent } from './components/horario/horario.component';
+import { NotasComponent } from './components/grupos/notas/notas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'grupos',
     component: GruposComponent,
+  },
+  {
+    path:'notas/:id_curso',
+    component: NotasComponent
   },
   // Routes of Teacher
   {
@@ -63,7 +68,7 @@ const routes: Routes = [
     path: '**',
     redirectTo: '/admin/admin',
   }
-  
+
 ];
 
 @NgModule({

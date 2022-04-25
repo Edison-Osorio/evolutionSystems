@@ -49,4 +49,16 @@ export class AlumnoService {
     return this.http.delete(`${this.URL}/auth/delete/${id_alu}`)
   }
 
+  // INSERTAMOS LO ALUMNOS EN LA TABLA DE CURSO
+  createNota(nota : any){
+      return this.http.post(`${this.URL}/admin/nota/add`, nota)
+  }
+
+  // OBTENEMOS LOS PERIODOS DE CADA UNA DE LAS TABLAS 
+  
+  getTrimestres() {
+    return this.http.get(`${this.URL}/admin/nota/trimestres/`);
+    
+  }
+
 }
