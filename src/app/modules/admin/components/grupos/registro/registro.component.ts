@@ -13,38 +13,38 @@ import { Curso } from '@core/models/Curso';
 export class RegistroComponent implements OnInit {
   ciclos: any = [];
 
-  curso: Curso = {
-    nombre_curso:'',
-    plan_estudio: '',
-    id_ciclo: '',
+  grupos: any = [];
 
+  curso: Curso = {
+    nombre_curso: '',
+    plan_estudio: '',
+    id_grupo: '',
+    id_ciclo: '',
   };
-  constructor(
-    private adminService: AdminService,
-    private cursoService: CursoService,
-    private router: Router
-  ) {}
+  constructor(private cursoService: CursoService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCiclos();
+    this.getGrupos();
   }
 
   getCiclos() {
     this.cursoService.getCiclo().subscribe((res: any) => {
-      console.log('Esta es la respuesta del servidor', res);
       this.ciclos = res;
+    });
+  }
 
-      console.log('Esta es la variable ciclos', this.ciclos);
+  // Obtenermos todos los grupos de la tabla Grupos
+  getGrupos() {
+    this.cursoService.getGrupo().subscribe((res: any) => {
+      this.grupos = res;
     });
   }
 
   createCurso() {
     this.cursoService.createCurso(this.curso).subscribe(
       (res) => {
-        console.log(res);
-        console.log('grado creado');
-        alert('Grado Creado')
-        //this.router.navigate(['/admin/grupos'])
+        alert('Grado Creado');
         {
           document.location.reload();
         }

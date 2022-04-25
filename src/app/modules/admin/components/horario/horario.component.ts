@@ -25,6 +25,11 @@ export class HorarioComponent implements OnInit {
     )
   }
 
+  refresh(){
+    this.Horario.cod_hor = ''
+    this.Horario.horario = ''
+  }
+
   createHorario() {
     this.adminService.crateHorario(this.Horario).subscribe(
       res => {
@@ -51,7 +56,7 @@ export class HorarioComponent implements OnInit {
         console.log(res)
         this.Horario = res;
         //delete this.Horario.horario;
-        this.Horario.horario=this.dateFormat.transform(this.Horario.horario, 'dd-MM-yyyy-h:mm: a z')
+        this.Horario.horario=this.dateFormat.transform(this.Horario.horario, 'medium')
         console.log(this.Horario)
         
       },

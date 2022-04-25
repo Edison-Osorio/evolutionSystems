@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
 export class InsertAlumnoComponent implements OnInit {
   cursos: any = [];
   alumnos: any = [];
+  asignaturas: any = [];
+
+  periodos: any = [];
 
   grupos: any = [];
 
@@ -30,12 +33,12 @@ export class InsertAlumnoComponent implements OnInit {
     nom_alu: '',
     dire_alu: '',
     tel_alu: '',
-    fec_alu: new Date(),
+    fec_alu: Date,
     nom_pa: '',
     nom_ma: '',
     dat_ban_alu: '',
     id_curso: '',
-    id_grupo: '',
+    id_periodo: '',
   };
 
   // enviarCodigo(){
@@ -50,7 +53,7 @@ export class InsertAlumnoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCursos();
-    this.getGrupos();
+    this.getPeriodos();
   }
 
   getCursos() {
@@ -59,18 +62,60 @@ export class InsertAlumnoComponent implements OnInit {
     });
   }
 
-  getGrupos() {
-    this.cursoService.getGrupo().subscribe((res: any) => {
-      this.grupos = res;
+  getPeriodos() {
+    this.alumnoService.getTrimestres().subscribe((res: any) => {
+      this.periodos = res;
     });
   }
 
   insertAlumno() {
-    this.alumnoService.createAlumno(this.alumno).subscribe((res: any) => {});
-    this.alumnoService.createUser(this.user).subscribe((res: any) => {});
-    alert('Se ha registrado el alumno');
-    document.location.reload();
-    let ref = document.getElementById('cancel');
-    ref?.click();
+    const {id_periodo} = this.alumno;
+
+    delete this.alumno.id_periodo
+
+    console.log('Iniciamos la inserción');
+
+     this.alumnoService.createAlumno(this.alumno).subscribe((res: any) => {});
+     alert('Se ha registrado el alumno');
+
+     this.alumnoService.createUser(this.user).subscribe((res: any) => {});
+     alert('Se ha registrado el alumno');
+     let ref = document.getElementById('cancel');
+     ref?.click();
+    console.log('Este es el objeto de alumno --> ', this.alumno);
+
+    this.cursoService
+      .getAsignaturaCurso(this.alumno.id_curso)
+      .subscribe((res: any) => {
+        this.asignaturas = res;
+        console.log('Esta es la respuesta del servidor -->', res);
+
+        console.log('Inicia for each');
+
+        for (let codigo_asignatura of this.asignaturas) {
+          console.log(
+            'Este es el codigo de las asignaturas --> ',
+            codigo_asignatura
+          );
+
+          console.log('VARIABLE DE ID PERIODO --> ', id_periodo);
+
+          const nota: any = {
+            id_asi: codigo_asignatura.id_asi,
+            id_alu: this.alumno.id_alu,
+            id_periodo: id_periodo,
+          };
+
+          console.log('Este es el objeto de nota --> ', nota);
+
+           this.alumnoService.createNota(nota).subscribe((res: any) => {
+             console.log(res);
+           });
+          console.log(
+            `INSERT INTO notas(id_asi, id_alu, id_periodo) values (${codigo_asignatura.id_asi}, ${this.alumno.id_alu}, ${id_periodo})`
+          );
+          // document.location.reload();
+        }
+      });
   }
 }

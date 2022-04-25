@@ -2,192 +2,96 @@
 
 <div class="body-page">
   <div class="m-2">
-    <br />
-    <h6>Estas en la pagina de grupos</h6>
     <div class="row">
-      <div class="col-md-2">
-        <div class="card mt-4">
-          <div class="card-header mt-4">
-            <!-- Button modal registrar gardo-->
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#registrarGrado"
-            >
-              Registrar grado
-            </button>
-            <br />
-            <br />
-
-            <!--modal de agregar alumno -->
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#createAlumno"
-            >
-              Agregar alumno
-            </button>
-            <br /><br />
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <!-- Button modal registrar curso -->
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#registrarGrado"
+                >
+                  Registrar grado
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="col-md-10">
-        <div class="card mt-4">
-          <div class="card-header mt-4">
+        <ul class="navbar-nav me-auto mb-5 mb-lg-0">
+          <form class="d-flex">
+            <input
+              class="form-control me-2 lg-4 me-2"
+              name="nif_doc"
+              placeholder="Buscar"
+              type="number"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </ul>
+      </nav>
+      <div class="col-md-12 col-xl-12">
+        <div class="card">
+          <div class="card-header">
             <div class="text-justify m-2">
               <div class="card-body mt-5">
                 <div class="row d-flex justify-content-center text-dark">
-                  <div class="col-md-3"*ngFor="let curso of cursos">
+                  <div
+                    class="col-md-3 col-xl-2 mb-2"
+                    *ngFor="let curso of cursos"
+                  >
                     <div class="card">
                       <div class="card-header text-center">
                         <div class="card-tittle">
-                          <h3>{{ curso.nombre_curso }}</h3>
-                          {{curso.nombre_ciclo}}
+                          <h3>
+                            {{ curso.nombre_curso | uppercase }}
+                            {{ curso.nombre_grupo }}
+                          </h3>
+                          {{ curso.nombre_ciclo }}
                         </div>
                       </div>
                       <div class="card-body">
                         <button
-                        type="button"
-                        class="btn btn-secondary"
-                        [routerLink]="['/admin/grupos', curso.cod_gra]"
-                      >
-                        alumnos
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        (click)="notasAlumno(curso.cod_gra)"
-                      >
-                        Notas
-                      </button>
-                      <button
-                        class="btn btn-info"
-                        [routerLink]="['/admin/actualizar', curso.cod_gra]"
-                      >
-                        <i class="fa-solid fa-pen-to-square"></i>
-                      </button>
-                      <button
-                        class="btn btn-danger"
-                        (click)="deleteGrado(curso.cod_gra)"
-                      >
-                        <i class="fa-solid fa-trash-can"></i>
-                      </button>
+                          ttype="button"
+                          class="btn btn-primary btn-block mb-2"
+                          data-bs-toggle="modal"
+                          data-bs-target="#asignarAsignaturas"
+                          (click)="cursoEmitidos(curso)"
+                        >
+                          Ver Asignaturas
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-secondary mb-2"
+                          routerLink="/admin/notas/{{ curso.id_curso }}"
+                        >
+                          Asignar notas
+                        </button>
+                        <button
+                          class="btn btn-danger ms-2"
+                          (click)="deleteGrado(curso.id_curso)"
+                        >
+                          Eliminar <i class="fa-solid fa-trash-can"></i>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- <button
-                  *ngFor="let grado of cursos"
-                  type="button"
-                  class="btn ms-2 mb-2 button-grupo"
-                  data-bs-toggle="button"
-                  autocomplete="off"
-                >
-                  {{ grado }}<br />
-                  {{ grado.cod_gra }}<br />
-                  <br />
-
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    [routerLink]="['/admin/grupos', grado.cod_gra]"
-                  >
-                    alumnos
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    (click)="notasAlumno(grado.cod_gra)"
-                  >
-                    Notas
-                  </button>
-                  <button
-                    class="btn btn-info"
-                    [routerLink]="['/admin/actualizar', grado.cod_gra]"
-                  >
-                    <i class="fa-solid fa-pen-to-square"></i>
-                  </button>
-                  <button
-                    class="btn btn-danger"
-                    (click)="deleteGrado(grado.cod_gra)"
-                  >
-                    <i class="fa-solid fa-trash-can"></i>
-                  </button>
-                </button> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-12" *ngIf="hidden">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>IDENTIFICACION DEL ALUMNO</th>
-              <th>NOMBRE ALUMNO</th>
-              <th>TELEFONO ALUMNO</th>
-              <th>DIRECCIÓN</th>
-              <th>FECHA DE NACIMIENTO</th>
-              <th>NOMBRE DEL PADRE</th>
-              <th>NOMBRE DE LA MADRE</th>
-              <th>DATO BANCARIO</th>
-              <th>ACTUALIZAR/ELIMINAR</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let estudiantes of estudiantes">
-              <td>{{ estudiantes.id_alu }}</td>
-              <td>{{ estudiantes.nom_alu | uppercase }}</td>
-              <td>{{ estudiantes.tel_alu | uppercase }}</td>
-              <td>{{ estudiantes.dire_alu | uppercase }}</td>
-              <td>{{ estudiantes.fec_alu | date: "dd-MM-yyyy" }}</td>
-              <td>{{ estudiantes.nom_pa | uppercase }}</td>
-              <td>{{ estudiantes.nom_ma | uppercase }}</td>
-              <td>{{ estudiantes.dat_ban_alu }}</td>
-              <td>
-                <button class="btn btn-info">
-                  <i
-                    class="fa-solid fa-pen-to-square"
-                    [routerLink]="['/admin/actualizardo']"
-                  ></i></button
-                ><button
-                  class="btn btn-danger"
-                  (click)="deleteAlumno(estudiantes.id_alu)"
-                >
-                  <i class="fa-solid fa-trash-can"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div *ngIf="hiddena">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>NOMBRE ALUMNO</th>
-              <th>NOMBRE ASIGNATURA</th>
-              <th>NOTA 1</th>
-              <th>NOTA 2</th>
-              <th>NOTA 3</th>
-              <th>NOTA 4</th>
-              <th>NOTA FINAL</th>
-            </tr>
-          </thead>
-          <tr *ngFor="let notas of notas">
-            <td>{{ notas.nom_alu | uppercase }}</td>
-            <td>{{ notas.nom_asi | uppercase }}</td>
-            <td>{{ notas.nota1 }}</td>
-            <td>{{ notas.nota2 }}</td>
-            <td>{{ notas.nota3 }}</td>
-            <td>{{ notas.nota4 }}</td>
-            <td>{{ notas.nota_final }}</td>
-          </tr>
-        </table>
-      </div>
+
+      <app-registro></app-registro>
+      <app-registro-asignaturas></app-registro-asignaturas>
     </div>
   </div>
 </div>
-<app-registro></app-registro>

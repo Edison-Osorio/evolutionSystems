@@ -22,11 +22,17 @@ export class AlumnoComponent implements OnInit {
 
   deleteAlumno(id_alu: number | string) {
     if (confirm('¿Esta seguro de eliminar el Alumno')) {
-      this.alumnoService.deleteAlumno(id_alu).subscribe((res) => {});
-      this.alumnoService.deleteUser(id_alu).subscribe((res) => {
-        alert('Alumno eliminado');
-        document.location.reload();
+      this.alumnoService.deleteAlumno(id_alu).subscribe((res) => {
+        this.alumnoService.deleteUser(id_alu).subscribe((res) => {
+          alert('Alumno eliminado');
+          document.location.reload();
+        },
+      );
+      },
+      (err)=>{
+        alert('No se pudo eliminar el usuario')
       });
+      
     }
   }
 }

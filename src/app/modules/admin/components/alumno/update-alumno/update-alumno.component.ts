@@ -34,7 +34,6 @@ export class UpdateAlumnoComponent implements OnInit {
     nom_ma: '',
     dat_ban_alu: '',
     id_curso: '',
-    id_grupo: '',
   };
 
   constructor(

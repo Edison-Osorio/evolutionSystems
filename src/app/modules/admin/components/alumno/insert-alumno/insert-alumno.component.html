@@ -166,7 +166,7 @@
                 >
                   <option value="">Seleccionar grado ......</option>
                   <option *ngFor="let curso of cursos" value="{{curso.id_curso}}" >
-                    {{curso.nombre_curso}}
+                    {{curso.nombre_curso}} {{curso.nombre_grupo}}
                   </option>
                 </select>
               </div>
@@ -175,13 +175,13 @@
                 <select
                   name="id_ciclo"
                   class="form-control form-select mb-2"
-                  [(ngModel)]="alumno.id_grupo"
+                  [(ngModel)]="alumno.id_periodo"
                   [ngModelOptions]="{ standalone: true }"
                   required="false"
                 >
                   <option value="">Seleccionar grado ......</option>
-                  <option *ngFor="let grupo of grupos" value="{{grupo.id_grupo}}" >
-                    {{grupo.nombre_grupo}}
+                  <option *ngFor="let periodo of periodos " value="{{periodo.id_periodo}}" >
+                    {{periodo.nombre_periodo}}
                   </option>
                 </select>
               </div>
@@ -190,7 +190,6 @@
       </div>
       <div class="modal-footer">
         <button
-          routerLink="/admin/profesor"
           class="btn btn-success"
           type="submit"
           value="Registrar"

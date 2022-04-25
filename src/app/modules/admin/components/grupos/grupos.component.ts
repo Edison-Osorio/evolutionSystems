@@ -10,103 +10,47 @@ import { CursoService } from '@modules/admin/services/curso.service';
   styleUrls: ['./grupos.component.css'],
 })
 export class GruposComponent implements OnInit {
-  @Input()
-  codigo: number = 0;
-  @Output() onShare: EventEmitter<number> = new EventEmitter();
+  // @Input()
+  // codigo: number = 0;
+  // curso: any
+  // @Output() cursosEmitidos: EventEmitter<any> = new EventEmitter()
+  // @Output() onShare: EventEmitter<number> = new EventEmitter();
+
 
   constructor(
     private adminService: AdminService,
     private activedRoute: ActivatedRoute,
-    private cusoService: CursoService
+    private cursoService: CursoService
   ) {}
   cursos: any = [];
-
-  hidden: boolean = false;
-  hiddena: boolean = false;
-  // grado: Grado = {
-  //   cod_gra: '',
-  //   rango_grad: '',
-  //   carac_grad: '',
-  //   nom_grad: '',
-  //   plan_grad: '',
-  //   desc_grad: '',
-  //   imagen: '',
-  // };
 
   notas: any = [];
   estudiantes: any = [];
   ngOnInit(): void {
     this.listCurso();
+  }
 
-    // const params = this.activedRoute.snapshot.params;
-    // if (params['cod_gra']) {
-    //   this.adminService.getEstudiantes(params['cod_gra']).subscribe(
-    //     (res) => {
-    //       if (res != null) {
-    //         this.hidden = true;
-    //         this.estudiantes = res;
-    //         console.log(res);
-    //       }
-    //     },
-    //     (err) => console.log(err)
-    //   );
-    // } else {
-    //   this.adminService.getGrados().subscribe(
-    //     (res) => {
-    //       console.log(res);
-    //       this.grados = res;
-    //     },
-    //     (err) => console.error(err)
-    //   );
-    // }
+  cursoEmitidos(curso:any){
+    this.cursoService.cursosEmitidos.emit(curso)
   }
 
   listCurso() {
-    this.cusoService.listCurso().subscribe((res: any) => {
-      console.log(res);
-      this.cursos = res
+    this.cursoService.listCurso().subscribe((res: any) => {
+      this.cursos = res;
     });
   }
 
-  deleteAlumno(id_alu: number | string) {
-    this.adminService.deleteAlumno(id_alu).subscribe((res) => {
-      console.log(res);
-      window.location.reload();
-      console.log('alumno eliminado');
-    });
-  }
-  notasAlumno(cod_gra: number | string) {
-    this.adminService.notasAlumnos(cod_gra).subscribe(
-      (res) => {
-        if (res != null) {
-          this.hiddena = true;
-          console.log(res);
-          this.notas = res;
-        }
-      },
-      (err) => console.log(err)
-    );
-  }
-
-  // createGrado() {
-  //   this.adminService.createGrado(this.grado).subscribe(
-  //     (res) => {
-  //       console.log(res);
-  //       console.log('grado creado');
-  //     },
-  //     (err) => console.log(err)
-  //   );
-  // }
-
-  deleteGrado(cod_gra: number | string) {
+  // Elimina el grado
+  deleteGrado(id_curso: number | string) {
     if (confirm('¿Está seguro de eliminar este grado?')) {
-      this.adminService.deleteGrado(cod_gra).subscribe(
-        (res) => {
-          console.log(res);
-          console.log('docente eliminado');
-          window.location.reload();
+      this.cursoService.deleteCurso(id_curso).subscribe(
+        (res: any) => {
+          alert(res.message);
+          document.location.reload();
         },
-        (err) => console.log(err)
+        (err) => {
+          alert('No se puede eliminar este grupo');
+        }
       );
     }
   }
