@@ -13,6 +13,7 @@ import { HorarioComponent } from './components/horario/horario.component';
 import { NotasComponent } from './components/grupos/notas/notas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
+import { AsignaturaComponent } from './components/asignatura/asignatura.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,12 @@ const routes: Routes = [
   {
     path:'notas/:id_curso',
     component: NotasComponent
+  },
+
+  // Routes of asignatura
+  {
+    path:'asignatura',
+    component: AsignaturaComponent
   },
   // Routes of Teacher
   {
