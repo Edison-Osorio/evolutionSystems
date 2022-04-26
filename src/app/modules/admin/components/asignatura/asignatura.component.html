@@ -1,1 +1,174 @@
-<p>asignatura works!</p>
+<app-navigation-admin></app-navigation-admin>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <!-- Button modal registrar docente -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="clickAddAsignaturas()"
+            data-bs-toggle="modal"
+            data-bs-target="#registrarAsignatura"
+          >
+            Nueva Asignatura
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ul class="navbar-nav me-auto mb-5 mb-lg-0">
+    <form class="d-flex">
+      <input
+        class="form-control me-2 lg-4 me-2"
+        name="nif_doc"
+        placeholder="Buscar"
+        type="number"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </ul>
+</nav>
+<div class="row m-2">
+  <div class="col-md-12 col-xl-12">
+    <div class="card mt-4 text-center text-black">
+      <div class="card-header">
+        <h1>Lista de Asignaturas</h1>
+      </div>
+      <div>
+        <table class="table table-hover table-bordered text-center">
+          <thead>
+            <tr>
+              <th scope="col">CODIGO</th>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">DESCRIPCION</th>
+              <th scope="col">ACCIÓN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let asignatura of asignaturas">
+              <th scope="row">{{ asignatura.id_asi }}</th>
+              <td>{{ asignatura.nom_asi | uppercase }}</td>
+              <td>{{ asignatura.desc_asi | uppercase }}</td>
+              <td>
+                <button
+                      type="button"
+                      class="btn btn-info mb-2"
+                      (click)="onEdit(asignatura)"
+                      data-bs-toggle="modal"
+                      data-bs-target="#registrarAsignatura"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i></button
+                    >
+                <button class="btn btn-danger ms-2 mb-2" (click)="deleteAsignatura(asignatura.id_asi)">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PARA AGREGAR ASIGNATURAS -->
+<div
+  class="modal fade bg-green"
+  id="registrarAsignatura"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-center">
+        <h5 class="modal-title text-center" id="">
+          Formulario de Asignatura
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <fieldset>
+          <legend class="content-dark">Información Personal</legend>
+
+          <div class="form-group mb-2 col-auto">
+            <label for="nif"> Codigo </label>
+            <input
+              class="form-control"
+              type="number"
+              name="id_asi"
+              [(ngModel)]="asignatura.id_asi"
+              placeholder="Ingrese el codigo"
+              required
+            />
+          </div>
+          <div class="form-group mb-2 col-auto">
+            <label for="nif"> Nombre </label>
+            <input
+              class="form-control"
+              type="text"
+              name="nom_asi"
+              [(ngModel)]="asignatura.nom_asi"
+              placeholder="Ingrese el nombre de la asignatura"
+              required
+            />
+          </div>
+          <div class="form-group mb-2 col-auto">
+            <label for="descripcion"> Descripcion de la Asignatura </label>
+            <input
+              class="form-control"
+              type="text"
+              name="desc_asi"
+              [(ngModel)]="asignatura.desc_asi"
+              placeholder="Ingrese la descripcion de las asignatura"
+              required
+            />
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-success"
+          type="submit"
+          value="Registrar"
+          name="Registrar"
+          *ngIf="showAdd"
+          (click)="createAsignatura()"
+        >
+          Registrar
+        </button>
+        <button
+        class="btn btn-success"
+        type="submit"
+        value="Registrar"
+        name="Registrar"
+        *ngIf="showUpdate"
+        (click)="updateAsignatura()"
+      >
+        Actualizar
+      </button>
+        <button
+          type="button"
+          id="cancel"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

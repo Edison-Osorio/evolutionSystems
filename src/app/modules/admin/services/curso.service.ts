@@ -53,6 +53,21 @@ export class CursoService {
     return this.http.get(`${this.URL}/admin/asignatura/asignatura-curso/${id}`)
   }
 
+  // Creamos las asignaturas
+  createAsignatura(asignatura:any){
+    return this.http.post(`${this.URL}/admin/asignatura/add`, asignatura )
+  }
+
+  // Actualizamos las asignaturas
+  updateAsignatura(id: number , asignatura: any){
+    return this.http.put(`${this.URL}/admin/asignatura/update/${id}`, asignatura)
+  }
+
+  // Eliminamos las asignaturas
+  deleteAsignatura(id: number){
+    return this.http.delete(`${this.URL}/admin/asignatura/delete/${id}`)
+  }
+
   getGrados(id: any) {
     return this.http.get(`${this.URL}/admin/doc_gra/${id}`);
   }
