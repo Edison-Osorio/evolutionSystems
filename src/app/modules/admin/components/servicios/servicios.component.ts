@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AdminService } from '@modules/admin/services/admin.service';
 import { AlumnoService } from '@modules/admin/services/alumno.service';
 import { ServiciosService } from '@modules/admin/services/servicios.service';
@@ -18,8 +19,8 @@ export class ServiciosComponent implements OnInit {
 
 
   alu_ser: any = {
-    cod_servicio: '',
-    id_alumno: ''
+    cod_servicio: 0,
+    id_alumno: 0
   }
   services:any={
     cod_ser:'',
@@ -49,10 +50,13 @@ export class ServiciosComponent implements OnInit {
   }
 
   createAlu_ser() {
+    if (confirm('Esta seguro de asignarle este servicio al alumno')) {
     this.Services.createAlu_ser(this.alu_ser).subscribe(
-      res => { window.location.reload() },
+      res => {{ window.location.reload() }
+    },
       err => console.log(err)
     )
+  }
   }
 
   getAlu_Ser() {
@@ -77,9 +81,20 @@ export class ServiciosComponent implements OnInit {
       res=>{
         //console.log(res)
         this.services=res
-        console.log(this.services)
+
       },err=>console.log(err)
     )
+  }
+
+  updateService(){
+    if (confirm('Esta seguro de actualizar este servicio')) {
+      this.Services.updateService(this.services.cod_ser,this.services).subscribe(
+        res=>{
+        alert('Se realizo la actualizacion')
+        {document.location.reload()}
+      },err=>console.log(err))
+    }
+
   }
 
 

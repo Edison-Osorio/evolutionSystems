@@ -33,4 +33,8 @@ export class ServiciosService {
     return this.http.get(`${this.URL}/admin/alu_ser/${id_alumno}/${cod_servicio}`)
   }
 
+  updateService(cod_ser:any,service:any){
+    return this.http.put(`${this.URL}/admin/servicios/update/${cod_ser}`,service)
+  }
+
 }

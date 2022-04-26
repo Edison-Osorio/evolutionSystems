@@ -4,7 +4,7 @@
   Agregar servicio a alumno
 </button>
 <button class="btn btn-primary ms-2" routerLink="alumno-servicios">Ver alumnos</button>
-<table class="table" >
+<table class="table">
   <thead>
     <tr>
       <th scope="col">CODIGO</th>
@@ -20,7 +20,8 @@
       <td>{{servicios.tipo_ser | uppercase}}</td>
       <td>{{servicios.desc_ser | uppercase}}</td>
       <td>{{servicios.valor | currency }}</td>
-      <td><button class="btn btn-info ms-4"  data-bs-toggle="modal" data-bs-target="#updateSer_alu">
+      <td><button class="btn btn-info ms-4" data-bs-toggle="modal" (click)="getOneService(servicios.cod_ser)"
+          data-bs-target="#updateSer_alu">
           <i class="fa-solid fa-pen-to-square"></i>
         </button>
 
@@ -71,45 +72,45 @@
       </div>
     </div>
   </div>
+</div>
 
-  <!-- modal para actualizar el servicio-->
-  <div class="modal fade" id="updateSer_alu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<!-- modal para actualizar el servicio-->
+<div class="modal fade" id="updateSer_alu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog text-black">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Agregar servicio a alumno</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Actualizar servicio</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="id_ciclo" class="col-form-label">Alumno: </label>
-          <select name="id_alu " class="form-control form-select" [(ngModel)]="alu_ser.id_alumno"
-            [ngModelOptions]="{ standalone: true }" required="false">
-            <option value="0">Seleccione el Alumno ......</option>
-            <option *ngFor="let alumnos of alumnos" value="{{alumnos.id_alu}}">
-              {{alumnos.id_alu}} - {{alumnos.nom_alu}}
-            </option>
-          </select>
+          <label for="id_ciclo" class="col-form-label">CODIGO</label>
+          <input type="text" id="disabledTextInput" [(ngModel)]="services.cod_ser" class="form-control" readonly>
         </div>
       </div>
       <div class="modal-body">
-
         <div class="form-group">
-          <label for="id_ciclo" class="col-form-label">Seleccione el servicio </label>
-          <select name="cod_ser" class="form-control form-select " [(ngModel)]="alu_ser.cod_servicio"
-            [ngModelOptions]="{ standalone: true }" required="false">
-            <option value="0">Seleccionar servicio ......</option>
-            <option *ngFor="let servicios of servicios" value="{{servicios.cod_ser}}">
-              {{servicios.tipo_ser}}
-            </option>
-          </select>
+          <label for="id_ciclo" class="col-form-label">TIPO</label>
+          <input type="text" id="disabledTextInput" [(ngModel)]="services.tipo_ser" class="form-control" readonly>
         </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="createAlu_ser()">Asignar</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="refresh()">Cerrar</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="id_ciclo" class="col-form-label">DESCRIPCION</label>
+          <input type="text" id="disabledTextInput" [(ngModel)]="services.desc_ser" class="form-control">
         </div>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="id_ciclo" class="col-form-label">VALOR</label>
+          <input type="text" id="disabledTextInput" [(ngModel)]="services.valor" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="updateService()">Gurdar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="refresh()">Cerrar</button>
       </div>
     </div>
   </div>
+</div>
