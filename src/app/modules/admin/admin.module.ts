@@ -28,6 +28,7 @@ import { AdminComponent } from './services/admin/admin.component';
 import { NotasComponent } from './components/grupos/notas/notas.component';
 import { RegistroAsignaturasComponent } from './components/grupos/registro-asignaturas/registro-asignaturas.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
+import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/
       NotasComponent,
       RegistroAsignaturasComponent,
       AlumnoServicioComponent,
+      AsignarHoraioComponent,
   ],
   imports: [
     CommonModule,

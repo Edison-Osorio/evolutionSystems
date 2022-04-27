@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentsService } from '@modules/students/services/students.service';
 
 @Component({
   selector: 'app-notas',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private studentsService:StudentsService) { }
 
   ngOnInit(): void {
+    this.notas()
+  }
+
+  notas(){
+    this.studentsService.notas(12345).subscribe(
+      res=> console.log('Estas son las notas -->', res)
+    )
   }
 
 }

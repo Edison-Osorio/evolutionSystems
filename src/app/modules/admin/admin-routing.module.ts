@@ -14,6 +14,7 @@ import { NotasComponent } from './components/grupos/notas/notas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignaturaComponent } from './components/asignatura/asignatura.component';
+import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
 
 const routes: Routes = [
   {
@@ -53,9 +54,14 @@ const routes: Routes = [
     path: 'docente',
     component: DocenteComponent,
   },
+  // Routes of horario
   {
     path:'horario',
     component: HorarioComponent
+  },
+  {
+    path:'asignar-horio',
+    component: AsignarHoraioComponent
   },
   {
     path:'horario/:cod_gra',

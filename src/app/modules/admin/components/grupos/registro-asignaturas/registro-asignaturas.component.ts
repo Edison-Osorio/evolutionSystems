@@ -11,6 +11,8 @@ export class RegistroAsignaturasComponent implements OnInit {
 
   asignaturas:any =[]
 
+  asignaturaCurso: any = []
+
   grupos: any = [];
 
   curso: any = {
@@ -25,6 +27,7 @@ export class RegistroAsignaturasComponent implements OnInit {
   ngOnInit(): void {
     this.getCodigoEmitido();
     this.listAsignaturas();
+this.notas()
   }
 
   getCodigoEmitido() {
@@ -33,6 +36,11 @@ export class RegistroAsignaturasComponent implements OnInit {
         'Este es el codigo emitido desde grupo para asignara -->',
         res
       );
+
+      const {id_curso} = res
+
+      console.log('Este es el codigo del curso -->', id_curso);
+      this.getAignaurasCurso(id_curso)
       this.curso = res
     });
   }
@@ -45,5 +53,21 @@ export class RegistroAsignaturasComponent implements OnInit {
 
     })
   }
+
+   getAignaurasCurso(id: any){
+     this.cursoService.getAsignaturaCurso(id).subscribe(
+       (res:any)=>{
+         console.log('Respuesta de las asignaturas del curso -->', res);
+      this.asignaturaCurso = res
+       }
+     )
+   }
+
+   notas(){
+     this.cursoService.notas(12345).subscribe(
+       res=> console.log('Estas son las notas -->', res)
+
+     )
+   }
 
 }
