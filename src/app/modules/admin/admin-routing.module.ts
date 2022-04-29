@@ -14,6 +14,8 @@ import { NotasComponent } from './components/grupos/notas/notas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignaturaComponent } from './components/asignatura/asignatura.component';
+import { BecaComponent } from './components/beca/beca.component';
+import { BecaAlumnoComponent } from './components/beca/beca-alumno/beca-alumno.component';
 
 const routes: Routes = [
   {
@@ -70,6 +72,14 @@ const routes: Routes = [
   {
     path:'servicios/alumno-servicios',
     component: AlumnoServicioComponent
+  },
+  {
+    path:'becas',
+    component: BecaComponent
+  },
+  {
+    path:'becas/becas-alumnos',
+    component: BecaAlumnoComponent
   },
   {
     path: '**',

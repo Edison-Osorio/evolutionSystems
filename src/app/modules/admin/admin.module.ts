@@ -28,6 +28,8 @@ import { AdminComponent } from './services/admin/admin.component';
 import { NotasComponent } from './components/grupos/notas/notas.component';
 import { RegistroAsignaturasComponent } from './components/grupos/registro-asignaturas/registro-asignaturas.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
+import { BecaComponent } from './components/beca/beca.component';
+import { BecaAlumnoComponent } from './components/beca/beca-alumno/beca-alumno.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/
       NotasComponent,
       RegistroAsignaturasComponent,
       AlumnoServicioComponent,
+      BecaComponent,
+      BecaAlumnoComponent,
   ],
   imports: [
     CommonModule,
