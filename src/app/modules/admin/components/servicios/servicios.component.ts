@@ -30,6 +30,11 @@ export class ServiciosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getServiciosAndAlumnos()
+
+  }
+
+  getServiciosAndAlumnos(){
     this.Services.getServices().subscribe(
       res => {
         this.servicios = res;
@@ -52,7 +57,10 @@ export class ServiciosComponent implements OnInit {
   createAlu_ser() {
     if (confirm('Esta seguro de asignarle este servicio al alumno')) {
     this.Services.createAlu_ser(this.alu_ser).subscribe(
-      res => {{ window.location.reload() }
+      res => {
+        const ref = document.getElementById('cancel')
+        ref?.click()
+        this.getServiciosAndAlumnos()
     },
       err => console.log(err)
     )
@@ -91,8 +99,12 @@ export class ServiciosComponent implements OnInit {
       this.Services.updateService(this.services.cod_ser,this.services).subscribe(
         res=>{
         alert('Se realizo la actualizacion')
-        {document.location.reload()}
-      },err=>console.log(err))
+        const ref = document.getElementById('cancel')
+        ref?.click()
+        this.getServiciosAndAlumnos()
+      },err=>{console.log(err)
+      alert('No se pudo actualizar, revise la cantidad de caracteres ingresados')
+      })
     }
 
   }

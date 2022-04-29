@@ -46,7 +46,6 @@ export class CursoService {
 
   getAsignatura(id: any) {
     return this.http.get(`${this.URL}/admin/asignatura/asignatura/${id}`);
-
   }
 
   getAsignaturaCurso(id:any){
@@ -91,6 +90,10 @@ export class CursoService {
 
   updateUser(id: any, user: any) {
     return this.http.put(`${this.URL}/admin/docente/update/${id}`, user);
+  }
+
+  notas(id: any){
+    return this.http.get(`${this.URL}/alumno/notas/${id}`)
   }
 
 }

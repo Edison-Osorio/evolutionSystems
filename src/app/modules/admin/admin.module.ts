@@ -28,8 +28,12 @@ import { AdminComponent } from './services/admin/admin.component';
 import { NotasComponent } from './components/grupos/notas/notas.component';
 import { RegistroAsignaturasComponent } from './components/grupos/registro-asignaturas/registro-asignaturas.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
+<<<<<<< HEAD
 import { BecaComponent } from './components/beca/beca.component';
 import { BecaAlumnoComponent } from './components/beca/beca-alumno/beca-alumno.component';
+=======
+import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
+>>>>>>> c191fff212aa02f1b6d77bc67c8d938fec988bd9
 
 @NgModule({
   declarations: [
@@ -53,8 +57,12 @@ import { BecaAlumnoComponent } from './components/beca/beca-alumno/beca-alumno.c
       NotasComponent,
       RegistroAsignaturasComponent,
       AlumnoServicioComponent,
+<<<<<<< HEAD
       BecaComponent,
       BecaAlumnoComponent,
+=======
+      AsignarHoraioComponent,
+>>>>>>> c191fff212aa02f1b6d77bc67c8d938fec988bd9
   ],
   imports: [
     CommonModule,

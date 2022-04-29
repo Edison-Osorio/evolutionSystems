@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -12,6 +12,7 @@ import { NotasComponent } from './components/notas/notas.component';
 import { ProgramadorComponent } from './components/programador/programador.component';
 import { NavagationDocenteComponent } from './components/navagation-docente/navagation-docente.component';
 import { InformationsComponent } from './components/informations/informations.component';
+import { InjectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
 
 
 @NgModule({
@@ -32,6 +33,11 @@ import { InformationsComponent } from './components/informations/informations.co
     FormsModule,
     HttpClientModule
   ],
-  providers:[DatePipe]
+  providers:[DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InjectSessionInterceptor,
+      multi: true
+    }]
 })
 export class DocenteModule { }

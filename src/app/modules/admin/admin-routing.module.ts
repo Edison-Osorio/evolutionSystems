@@ -14,8 +14,12 @@ import { NotasComponent } from './components/grupos/notas/notas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignaturaComponent } from './components/asignatura/asignatura.component';
+<<<<<<< HEAD
 import { BecaComponent } from './components/beca/beca.component';
 import { BecaAlumnoComponent } from './components/beca/beca-alumno/beca-alumno.component';
+=======
+import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
+>>>>>>> c191fff212aa02f1b6d77bc67c8d938fec988bd9
 
 const routes: Routes = [
   {
@@ -55,9 +59,14 @@ const routes: Routes = [
     path: 'docente',
     component: DocenteComponent,
   },
+  // Routes of horario
   {
     path:'horario',
     component: HorarioComponent
+  },
+  {
+    path:'asignar-horio',
+    component: AsignarHoraioComponent
   },
   {
     path:'horario/:cod_gra',

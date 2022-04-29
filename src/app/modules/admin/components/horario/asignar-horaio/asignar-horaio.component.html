@@ -1,0 +1,18 @@
+<div class="container text-black mt-5">
+  <form action="">
+    <select name="id_asignatura_ah" [(ngModel)]="asignatura_horario.id_asignatura_ah" id="">
+      <option value=" ">Seleccionar asignatura ...</option>
+      <option *ngFor="let asignatura of asignaturas" value="{{asignatura.id_asi}}">{{asignatura.nom_asi}}</option>
+    </select>
+    <br><br>
+    <select name="id_horario_ah" [(ngModel)]="asignatura_horario.id_horario_ah" id="">
+      <option value=" ">Seleccionar horario...</option>
+      <option *ngFor="let horario of horarios" value="{{horario.cod_hor}}">{{horario.horario | date}}</option>
+    </select>
+
+    <button
+    class="btn btn-success"
+    (click)="createAsignacion()"
+    >Enviar</button>
+  </form>
+</div>

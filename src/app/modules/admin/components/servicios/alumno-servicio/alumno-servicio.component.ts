@@ -16,6 +16,9 @@ export class AlumnoServicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAlu_Ser();
+    this.getServiciosAndAlumnos()
+  }
+  getServiciosAndAlumnos(){
     this.servicosServices.getServices().subscribe(
       res => {
         this.servicios = res;
@@ -27,6 +30,7 @@ export class AlumnoServicioComponent implements OnInit {
         this.alumnos = res;
       }, err => console.log(err)
     )
+
   }
   getAlu_Ser() {
     this.servicosServices.getAlu_Ser().subscribe(
@@ -40,8 +44,9 @@ export class AlumnoServicioComponent implements OnInit {
     if (confirm('¿Esta seguro de eliminarle este servicio al este alumno?')) {
       this.servicosServices.deleteAlu_Ser(id_alu, cod_ser).subscribe(
         res => {
+          this.getServiciosAndAlumnos()
+          this.getAlu_Ser()
           alert('Se le elimno el servicio al alumno ')
-          { window.location.reload() }
         }
       )
     }
@@ -69,7 +74,10 @@ export class AlumnoServicioComponent implements OnInit {
 
   createAlu_ser() {
     this.servicosServices.createAlu_ser(this.alu_ser).subscribe(
-      res => { window.location.reload() },
+      res => {  const ref = document.getElementById('cancel')
+      ref?.click()
+      this.getServiciosAndAlumnos()
+    this.getAlu_Ser()},
       err => console.log(err)
     )
   }
