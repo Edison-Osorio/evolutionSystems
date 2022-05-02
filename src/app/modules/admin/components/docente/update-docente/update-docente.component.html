@@ -43,7 +43,7 @@
                 class="form-control"
                 type="number"
                 name="nif_doc"
-                [(ngModel)]="docente.nif_doc"
+                [(ngModel)]="docente.nif_docente"
                 [(ngModel)]="user.documento"
                 placeholder="Ingrese su nif"
                 readonly
@@ -55,7 +55,7 @@
                 class="form-control"
                 type="text"
                 name="nom_doc"
-                [(ngModel)]="docente.nom_doc"
+                [(ngModel)]="docente.nombre_docente"
                 [(ngModel)]="user.nombre"
                 placeholder="Ingrese su nombre completo"
                 required
@@ -67,7 +67,7 @@
                 class="form-control"
                 type="text"
                 name="dir_doc"
-                [(ngModel)]="docente.dir_doc"
+                [(ngModel)]="docente.direccion_docente"
                 placeholder="Ingrese su direccion"
                 required
               />
@@ -78,7 +78,7 @@
                 class="form-control"
                 type="date"
                 name="fec_nac_doc"
-                [(ngModel)]="docente.fec_nac_doc"
+                [(ngModel)]="docente.fecha_nacimiento_docente"
               />
             </div>
             <div class="form-group mb-2 col-auto">
@@ -87,7 +87,7 @@
                 class="form-control"
                 type="text"
                 name="tel_doc"
-                [(ngModel)]="docente.tel_doc"
+                [(ngModel)]="docente.telefono_docente"
                 placeholder="Numero telefonico"
                 required
               />
@@ -109,7 +109,7 @@
                 class="form-control"
                 type="text"
                 name="dbancario"
-                [(ngModel)]="docente.dat_ban_doc"
+                [(ngModel)]="docente.dato_banco_docente"
                 placeholder="Dato bancario"
                 required
               />
@@ -125,13 +125,13 @@
                 required
               />
             </div>
-           
+
             <div class="form-group mb-2 col-auto">
               <label for="categoria">Categoria a enseñar</label>
               <select
                 name="categoria"
                 class="form-control form-select"
-                [(ngModel)]="docente.id_categoria"
+                [(ngModel)]="docente.id_categoria_d"
                 [ngModelOptions]="{ standalone: true }"
               >
                 <option value="">Seleccione la categoria...</option>
@@ -141,10 +141,11 @@
           </div>
         </fieldset>
       </div>
+      <div class=" ms-4 text-start text-danger"> <b>Para actualizar la contraseña lo debe de hacer cada uno de los usuario en el apartado de Logueo</b></div>
       <div class="modal-footer">
         <button
           class="btn btn-success"
-          (click)="updateDocente(docente.nif_doc)"
+          (click)="updateDocente(docente.nif_docente)"
           type="submit"
           value="Registrar"
           name="Registrar"
@@ -157,7 +158,6 @@
 <br>
 
 </div>
-<h6 class=" ms-4 text-start text-danger">Para actualizar la contraseña lo debe de hacer cada uno de los usuario en el apartado de Logueo</h6>
     </div>
   </div>
 </div>

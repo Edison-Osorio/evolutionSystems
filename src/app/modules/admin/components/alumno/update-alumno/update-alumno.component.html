@@ -40,10 +40,9 @@
               <label for="nif">Documento </label>
               <input
                 class="form-control"
-                type="number"
-                name="id_alu"
-                [(ngModel)]="alumno.id_alu"
-                [(ngModel)]="user.documento"
+                type="text"
+                name="id_alumno"
+                [(ngModel)]="alumno.id_alumno"
                 placeholder="Ingrese el documento"
                 readonly
               />
@@ -53,8 +52,8 @@
               <input
                 class="form-control"
                 type="text"
-                name="nom_alu"
-                [(ngModel)]="alumno.nom_alu"
+                name="nombre_alumno"
+                [(ngModel)]="alumno.nombre_alumno"
                 [(ngModel)]="user.nombre"
                 placeholder="Ingrese el nombre completo"
                 required
@@ -66,7 +65,7 @@
                 class="form-control"
                 type="text"
                 name="dir_alu"
-                [(ngModel)]="alumno.dire_alu"
+                [(ngModel)]="alumno.direccion_alumno"
                 placeholder="Ingrese la direccion"
                 required
               />
@@ -77,7 +76,7 @@
                 class="form-control"
                 type="date"
                 name="fec_alu"
-                [(ngModel)]="alumno.fec_alu"
+                [(ngModel)]="alumno.fecha_nacimiento"
               />
             </div>
             <div class="form-group mb-2 col-auto">
@@ -86,7 +85,7 @@
                 class="form-control"
                 type="text"
                 name="tel_alu"
-                [(ngModel)]="alumno.tel_alu"
+                [(ngModel)]="alumno.telefono_alumno"
                 placeholder="Numero telefonico"
                 required
               />
@@ -112,7 +111,7 @@
                 class="form-control"
                 type="text"
                 name="nom_pa"
-                [(ngModel)]="alumno.nom_pa"
+                [(ngModel)]="alumno.nombre_papa"
                 placeholder="Nombre del papá"
                 required
               />
@@ -123,7 +122,7 @@
                 class="form-control"
                 type="text"
                 name="nom_ma"
-                [(ngModel)]="alumno.nom_ma"
+                [(ngModel)]="alumno.nombre_mama"
                 placeholder="Nombre de la mamá"
                 required
               />
@@ -134,49 +133,30 @@
                 class="form-control"
                 type="text"
                 name="dat_ban_alu"
-                [(ngModel)]="alumno.dat_ban_alu"
+                [(ngModel)]="alumno.dato_banco_alumno"
                 placeholder="Dato bancario"
                 required
               />
             </div>
           </div>
           <!-- Informacion de los grupos -->
-          <legend class="content-dark mt-3">Información de Grupo</legend>
-          <div class="row g-3 align-items-center">
-            <div class="form-group col-auto">
-              <label for="id_ciclo" class="col-form-label">Grado: </label>
-              <select
-                name="id_ciclo"
-                class="form-control form-select"
-                [(ngModel)]="alumno.id_curso"
-                [ngModelOptions]="{ standalone: true }"
-                required="false"
-              >
-                <option value="">Seleccionar grado ......</option>
-                <option
-                  *ngFor="let curso of cursos"
-                  value="{{ curso.id_curso }}"
-                >
-                {{curso.nombre_curso}} {{curso.nombre_grupo}}
-                </option>
-              </select>
-            </div>
-          </div>
         </fieldset>
       </div>
+      <div class="text-danger"><b> Para actualizar la contraseña lo debe de hacer cada uno de los usuario en el apartado de Logueo</b> </div>
       <div class="modal-footer">
         <button
           class="btn btn-success"
           type="submit"
           value="Registrar"
           name="Registrar"
-          (click)="update(alumno.id_alu)"
+          (click)="updateAlumno(alumno.id_alumno)"
         >
           Actualizar
         </button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cerrar
         </button>
+        <br>
       </div>
     </div>
   </div>

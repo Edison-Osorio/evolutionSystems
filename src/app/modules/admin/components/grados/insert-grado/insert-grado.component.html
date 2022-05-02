@@ -1,0 +1,182 @@
+<!-- Modal para registrar Grado -->
+<div
+  class="modal fade"
+  id="registrarGrado"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrarGrado">Registrar Grado:</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-10">
+          <div class="card-header mt-4">
+            <div class="abs-center justify-content-center">
+              <form
+                method="post"
+                action="crud.component.html"
+                class="was-validated"
+              >
+                <fieldset>
+                  <div class="form-group mb-3">
+                    <label for="nombre_curso">Nombre del Curso: </label><br />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="nombre_curso"
+                      [(ngModel)]="grado.nombre_grado"
+                      placeholder="Ingrese el nombre del curso"
+                      required
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="plan_estudio"
+                      >Plan de estudio del curso:
+                    </label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="cplan_estudio"
+                      [(ngModel)]="grado.plan_estudio"
+                      placeholder="Ingrese caracteristicas"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="id_ciclo" class="col-form-label"
+                      >Categoria:
+                    </label>
+                    <select
+                      name="id_ciclo"
+                      class="form-control form-select"
+                      [(ngModel)]="grado.id_ciclo"
+                      [ngModelOptions]="{ standalone: true }"
+                      required="false"
+                    >
+                      <option value="">
+                        Seleccionar la categoria del curso ......
+                      </option>
+                      <option
+                        *ngFor="let ciclo of ciclos"
+                        value="{{ ciclo.id_ciclo }}"
+                      >
+                        {{ ciclo.nombre_ciclo }}
+                      </option>
+                    </select>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" (click)="createGrado()">
+            Crear Curso
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para registrar Grupo -->
+<div
+  class="modal fade"
+  id="registrarGrupo"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrarGrado">Registrar grupo:</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-10">
+          <div class="card-header mt-4">
+            <div class="abs-center justify-content-center">
+              <form
+                method="post"
+                action="crud.component.html"
+              >
+                <fieldset>
+                  <div class="form-group mb-3">
+                    <label for="nombre_curso">Nombre del Grupo: </label>
+                    <select
+                      name="id_grupo_cg"
+                      [(ngModel)]="grupo.id_grupo_grg"
+                      class="form-select"
+                      id=""
+                    >
+                  <option value="">Seleccione un grupo ...</option>
+                  <option *ngFor="let grupo of grupos" value="{{grupo.id_grupo}}">{{grupo.nombre_grupo}}</option>
+                  </select>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Grupo</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="showGrupos">
+             <tr *ngFor="let grupo of gruposGrado">
+              <td>{{ grupo.id_grupo }}</td>
+              <td>{{ grupo.nombre_grupo| uppercase }}</td>
+
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="!showGrupos">
+          <h5>No tiene Grupos asignados</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" (click)="createGrupo()">
+            Crear Curso
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

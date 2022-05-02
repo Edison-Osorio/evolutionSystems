@@ -1,0 +1,125 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="asignarAsignaturas"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="registrarGrado">
+          <!-- {{ curso.nombre_curso }} {{ curso.nombre_grupo }} -->
+        </h5>
+        <button
+          type="button"
+          id="cancel"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Cerrar
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="card-header mt-4">
+            <div class="abs-center justify-content-center">
+              <form
+                method="post"
+                action="crud.component.html"
+                class="was-validated"
+              >
+
+                  <div class="form-group mb-3">
+                    <label for="nombre_curso">Nombre de la Asignatura: </label
+                    ><br />
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="nombre_asignatura"
+                      [(ngModel)]="asignatura.nombre_asignatura"
+                      placeholder="Ingrese el nombre de las Asignatura"
+                      required
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="description_asignatura">Descripción: </label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="description_asignatura"
+                      [(ngModel)]="asignatura.descripcion_asignatura"
+                      placeholder="Ingrese la descripción de la asignatura"
+                      required
+                    />
+                  </div>
+
+                  <!-- <div class="form-group">
+                  <label for="id_ciclo" class="col-form-label"
+                    >Grado:
+                  </label>
+                  <select
+                    name="id_grado"
+                    class="form-control form-select"
+                    [(ngModel)]="grado.id_grado"
+                    [ngModelOptions]="{ standalone: true }"
+                    required
+                  >
+                    <option value="">
+                      Seleccionar la el grado ......
+                    </option>
+                    <option
+                      *ngFor="let ciclo of ciclos"
+                      value="{{ ciclo.id_ciclo }}"
+                    >
+                      {{ ciclo.nombre_ciclo }}
+                    </option>
+                  </select>
+                </div> -->
+                  <button
+                    type="submit"
+                    (click)="createAsignacion()"
+                    class="btn btn-success d-flex justify-content-end ms-auto"
+                  >
+                    Agregar
+                  </button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="showAsignaturas">
+            <tr *ngFor="let asignatura of asignaturasCurso">
+              <td>{{ asignatura.id_asignatura }}</td>
+              <td>{{ asignatura.nombre_asignatura| uppercase }}</td>
+              <td>
+                <button
+                  (click)="deleteAsignacion(asignatura.id_asi)"
+                  class="btn btn-danger ms-2 mb-2"
+                >
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="!showAsignaturas">
+          <h5>No tiene asignaturas asignadas</h5>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-insert-alumno> </app-insert-alumno>

@@ -7,9 +7,8 @@ import { CursoService } from '@modules/admin/services/curso.service';
   styleUrls: ['./asignatura.component.css'],
 })
 export class AsignaturaComponent implements OnInit {
-
-  showAdd !: boolean
-  showUpdate !: boolean
+  showAdd!: boolean;
+  showUpdate!: boolean;
   asignaturas: any = [];
 
   asignatura: any = {
@@ -21,32 +20,28 @@ export class AsignaturaComponent implements OnInit {
   constructor(private cursoService: CursoService) {}
 
   ngOnInit(): void {
-    this.listAsignatura();
+    // this.listAsignatura();
   }
 
   listAsignatura() {
     this.cursoService.getListAsignaturas().subscribe((res: any) => {
       this.asignaturas = res;
-      console.log(res);
     });
   }
 
-  clickAddAsignaturas(){
-    this.showAdd = true
-    this.showUpdate = false
+  clickAddAsignaturas() {
+    this.showAdd = true;
+    this.showUpdate = false;
   }
 
-  onEdit(asig :any){
-  this.showAdd = false
-  this.showUpdate = true
+  onEdit(asig: any) {
+    this.showAdd = false;
+    this.showUpdate = true;
 
-  this.asignatura = asig
-
+    this.asignatura = asig;
   }
 
   createAsignatura() {
-    console.log('Esta es la asignatura creada --> ', this.asignatura);
-
     this.cursoService.createAsignatura(this.asignatura).subscribe(
       (res: any) => {
         alert('Asignatura creada en la base de datos');
@@ -62,29 +57,30 @@ export class AsignaturaComponent implements OnInit {
     );
   }
 
-  updateAsignatura(){
-    const id = this.asignatura.id_asi
-    delete this.asignatura.id_asi
+  updateAsignatura() {
+    const id = this.asignatura.id_asi;
+    delete this.asignatura.id_asi;
 
-    console.log('Codigo de la asignatura -->', id);
-    console.log('Asignatura a actualizar -->', this.asignatura);
-     this.cursoService.updateAsignatura(id, this.asignatura).subscribe((res:any)=>{
-       alert('Asignatura actualizada')
-       const ref = document.getElementById('cancel')
-       ref?.click()
-       this.listAsignatura()
-     },
-     err => alert('NO se pudo actualizar la asignatura'))
+    this.cursoService.updateAsignatura(id, this.asignatura).subscribe(
+      (res: any) => {
+        alert('Asignatura actualizada');
+        const ref = document.getElementById('cancel');
+        ref?.click();
+        this.listAsignatura();
+      },
+      (err) => alert('NO se pudo actualizar la asignatura')
+    );
   }
 
-deleteAsignatura(id_asi: number){{
-  this.cursoService.deleteAsignatura(id_asi).subscribe(
-
-   (res:any)=> {alert('Asignatura eliminada')
-  this.listAsignatura()
-  },
-  err => alert('No se pudo eliminar la Asignatura')
-  )
-}}
-
+  deleteAsignatura(id_asi: number) {
+    {
+      this.cursoService.deleteAsignatura(id_asi).subscribe(
+        (res: any) => {
+          alert('Asignatura eliminada');
+          this.listAsignatura();
+        },
+        (err) => alert('No se pudo eliminar la Asignatura')
+      );
+    }
+  }
 }

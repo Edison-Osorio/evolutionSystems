@@ -23,8 +23,8 @@ export class AsignarHoraioComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.listHorario();
-    this.listAsignaturas()
+    // this.listHorario();
+    // this.listAsignaturas()
   }
 
   listHorario() {

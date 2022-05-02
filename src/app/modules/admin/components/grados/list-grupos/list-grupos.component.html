@@ -1,0 +1,99 @@
+<app-navigation-admin></app-navigation-admin>
+
+<div class="body-page">
+  <div class="m-2">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <!-- Button modal registrar curso -->
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  routerLink="/admin/grado"
+                >
+                  <i class="fa-solid fa-arrow-left-long"></i> Volver a Cursos
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary ms-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#registrarGrupo"
+                  (click)="gradoEmitido()"
+                >
+                  Registrar grupo
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <ul class="navbar-nav me-auto mb-5 mb-lg-0">
+          <form class="d-flex">
+            <input
+              class="form-control me-2 lg-4 me-2"
+              name="nif_doc"
+              placeholder="Buscar"
+              type="number"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </ul>
+      </nav>
+      <div class="col-md-12 col-xl-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="text-justify m-2">
+              <div class="card-body">
+                <div
+                  class="row d-flex justify-content-center text-dark"
+                  *ngIf="showGrupos"
+                >
+                  <div
+                    class="col-md-3 col-xl-2 mb-2"
+                    *ngFor="let grupo of grupos"
+                  >
+                    <div class="card">
+                      <div class="card-header text-center">
+                        <div class="card-tittle">
+                          <h3>
+                            {{ grupo.nombre_curso | uppercase }}
+                            {{ grupo.nombre_grupo }}
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <button
+                          type="button"
+                          class="btn btn-secondary mb-2"
+                          routerLink="/admin/notas/{{ grupo.id_curso }}/{{
+                            grupo.id_grupo
+                          }}"
+                        >
+                          Asignar notas
+                        </button>
+                        <button class="btn btn-danger ms-2">
+                          <!-- (click)="deleteGrado(curso.id_curso)" -->
+                          Eliminar <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="!showGrupos">
+                  <h5 class="text-center text-black">No tiene Grupos asignados</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-insert-grado></app-insert-grado>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AdminService } from '@modules/admin/services/admin.service';
-import { AlumnoService } from '@modules/admin/services/alumno.service';
+import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
 import { ServiciosService } from '@modules/admin/services/servicios.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class ServiciosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getServiciosAndAlumnos()
+    // this.getServiciosAndAlumnos()
 
   }
 

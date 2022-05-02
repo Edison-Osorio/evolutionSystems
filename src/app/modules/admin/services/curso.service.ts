@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CursoService {
   @Output() cursosEmitidos: EventEmitter<any> = new EventEmitter()
+  @Output() cursoEmitido: EventEmitter<any> = new EventEmitter()
   readonly URL = environment.api;
 
   constructor(private http: HttpClient) {}
@@ -24,8 +25,23 @@ export class CursoService {
     return this.http.get(`${this.URL}/admin/curso/grupo`)
   }
 
+  // Listamos los cursos con sus grupos
+  getCursoGrupo(){
+return this.http.get(`${this.URL}/admin/curso/curso-grupo`)
+  }
+
+  // LISTAMOS LOS GRUPOS DE UN CURSO POR MEDIO DEL IDENTIFICADOR DEL CURSO
+  listOnCursoGrupos(id: any){
+return this.http.get(`${this.URL}/admin/curso/crusoGrupo/${id}`)
+  }
+
   createCurso(grado: Curso) {
     return this.http.post(`${this.URL}/admin/curso/add`, grado);
+  }
+
+  // CREAMOS LA ASIGNACION DE UN GRUPO A UN CURSO
+  createGrupoCurso(grupo:any){
+return this.http.post(`${this.URL}/admin/curso/addGrupoCurso`, grupo)
   }
 
   // Elimina el curso
@@ -57,6 +73,11 @@ export class CursoService {
     return this.http.post(`${this.URL}/admin/asignatura/add`, asignatura )
   }
 
+  // Asignamos una asignatura a un grado
+  createAsignacion(curso_asignatura: any){
+    return this.http.post(`${this.URL}/admin/asignatura/addAsignacion`, curso_asignatura)
+  }
+
   // Actualizamos las asignaturas
   updateAsignatura(id: number , asignatura: any){
     return this.http.put(`${this.URL}/admin/asignatura/update/${id}`, asignatura)
@@ -67,6 +88,12 @@ export class CursoService {
     return this.http.delete(`${this.URL}/admin/asignatura/delete/${id}`)
   }
 
+  // Eliminamos las asignaciones de las asignaturas
+  deleteAsignacion(curso_asignatura: any){
+   console.log('Este es el curso_asignatura--> ',curso_asignatura)
+    return this.http.delete(`${this.URL}/admin/asignatura/delete-asignacion/${curso_asignatura.id_asignatura_cs}/${curso_asignatura.id_curso_cs}`)
+  }
+
   getGrados(id: any) {
     return this.http.get(`${this.URL}/admin/doc_gra/${id}`);
   }
@@ -75,8 +102,8 @@ export class CursoService {
     return this.http.get(`${this.URL}/admin/docente/${id}`);
   }
 
-    getNotas(id: any){
-      return this.http.get(`${this.URL}/admin/nota/${id}`)
+    getNotas(id_curso: any, id_grupo: any){
+      return this.http.get(`${this.URL}/admin/nota/${id_curso}/${id_grupo}`)
     }
 
   getTrimestres() {
@@ -94,6 +121,10 @@ export class CursoService {
 
   notas(id: any){
     return this.http.get(`${this.URL}/alumno/notas/${id}`)
+  }
+
+  deleteNota(alumno: any){
+    return this.http.delete(`${this.URL}/admin/nota/delete/${alumno.id_alu}`)
   }
 
 }

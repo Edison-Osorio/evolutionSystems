@@ -1,0 +1,8 @@
+.col-auto {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.row{
+  border: black solid .2px;
+}

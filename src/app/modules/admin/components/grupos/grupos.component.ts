@@ -27,7 +27,7 @@ export class GruposComponent implements OnInit {
   notas: any = [];
   estudiantes: any = [];
   ngOnInit(): void {
-    this.listCurso();
+    // this.listCurso();
   }
 
   cursoEmitidos(curso:any){

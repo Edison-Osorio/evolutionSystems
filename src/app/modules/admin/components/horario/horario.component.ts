@@ -17,12 +17,12 @@ export class HorarioComponent implements OnInit {
     horario: Date
   }
   ngOnInit(): void {
-    this.horarioService.getHorario().subscribe(
-      res => {
-        this.horarios = res;
-      },
-      err => console.log(err)
-    )
+    // this.horarioService.getHorario().subscribe(
+    //   res => {
+    //     this.horarios = res;
+    //   },
+    //   err => console.log(err)
+    // )
   }
 
   refresh(){

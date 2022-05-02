@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlumnoService } from '@modules/admin/services/alumno.service';
+import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
+import { CursoService } from '@modules/admin/services/curso.service';
 
 @Component({
   selector: 'app-alumno',
@@ -9,9 +10,15 @@ import { AlumnoService } from '@modules/admin/services/alumno.service';
 export class AlumnoComponent implements OnInit {
   alumnos: any = [];
 
-  constructor(private alumnoService: AlumnoService) {}
+  constructor(
+    private alumnoService: AlumnoService,
+    private cursoService: CursoService
+  ) {}
 
   ngOnInit(): void {
+    this.listAlumno()
+  }
+  listAlumno(){
     this.alumnoService.getAlumnos().subscribe((res: any) => {
       this.alumnos = res;
     });
@@ -20,19 +27,38 @@ export class AlumnoComponent implements OnInit {
     this.alumnoService.codioAlumno.emit({ codigo });
   }
 
-  deleteAlumno(id_alu: number | string) {
-    if (confirm('¿Esta seguro de eliminar el Alumno')) {
-      this.alumnoService.deleteAlumno(id_alu).subscribe((res) => {
-        this.alumnoService.deleteUser(id_alu).subscribe((res) => {
-          alert('Alumno eliminado');
-          document.location.reload();
-        },
-      );
-      },
-      (err)=>{
-        alert('No se pudo eliminar el usuario')
-      });
-      
-    }
+  deleteAlumno(alumno: any) {
+    // if (confirm('¿Esta seguro de eliminar el Alumno')) {
+    //   this.cursoService.deleteNota(alumno).subscribe(
+    //     (res: any) => {
+    //       this.alumnoService.deleteMatricula(alumno).subscribe(
+    //         (res: any) => {
+    //           this.alumnoService.deleteAlumno(alumno.id_alu).subscribe(
+    //             (res) => {
+    //               this.alumnoService.deleteUser(alumno.id_alu).subscribe(
+    //                 (res) => {
+    //                   alert('Alumno eliminado');
+    //                   document.location.reload();
+    //                 },
+    //                 (err) => {
+    //                   alert('No se pudo eliminar el usuario');
+    //                 }
+    //               );
+    //             },
+    //             (err) => {
+    //               alert('No se pudo eliminar el usuario');
+    //             }
+    //           );
+    //         },
+    //         (err) => {
+    //           alert('No se pudo eliminar el usuario');
+    //         }
+    //       );
+    //     },
+    //     (err) => {
+    //       alert('No se pudo eliminar el usuario');
+    //     }
+    //   );
+    // }
   }
 }

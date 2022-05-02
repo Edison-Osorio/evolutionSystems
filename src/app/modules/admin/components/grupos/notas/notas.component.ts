@@ -12,6 +12,7 @@ import decode from 'jwt-decode'
 export class NotasComponent implements OnInit {
 
   hidden: boolean = false
+  identificador:any
   asignaturas: any = [];
   trimestres: any = [];
   notasAll: any = [];
@@ -29,9 +30,9 @@ export class NotasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAsignatura();
-    this.getTrimestres();
-    this.getNotas();
+    // this.getAsignatura();
+    // this.getTrimestres();
+    // this.getNotas();
   }
   decodeToken() {
     const token = this.cookie.get('token')!;
@@ -50,27 +51,35 @@ export class NotasComponent implements OnInit {
 
   getAsignatura() {
     const params = this.activedRoute.snapshot.params;
-    this.cursoService
-      .getAsignatura(params['id_curso'])
-      .subscribe((res: any) => {
-        this.asignaturas = res;
-      });
+    this.identificador = params['id_curso']
+    console.log('Este es el identificador --> ', this.identificador);
+
+     this.cursoService
+       .getAsignatura(params['id_curso'])
+       .subscribe((res: any) => {
+         this.asignaturas = res;
+       });
   }
 
   getTrimestres() {
     this.cursoService.getTrimestres().subscribe((res: any) => {
       this.trimestres = res;
       console.log(res);
-      
+
     });
   }
   getNotas() {
     const params = this.activedRoute.snapshot.params;
-    if (params['id_curso']) {
-      this.cursoService.getNotas(params['id_curso']).subscribe((res: any) => {
-        this.notasAll = res;
-      });
-    }
+
+    console.log('Esson son los parametros --> ', params);
+
+     if (params['id_curso'] && params['id_grupo']) {
+       this.cursoService.getNotas(params['id_curso'], params['id_grupo']).subscribe((res: any) => {
+         this.notasAll = res;
+         console.log('Estas son las notas --> ', this.notasAll, res);
+
+       });
+     }
   }
 
   onSelectPeriodo(id: any) {
@@ -122,7 +131,7 @@ export class NotasComponent implements OnInit {
           .updateNota(id_asi, id_alu, id_periodo, notas)
           .subscribe(
             (res: any) => {
-              console.log(res); 
+              console.log(res);
               document.location.reload();
             },
             (err) => console.log('Ocurrio un error ����', err)

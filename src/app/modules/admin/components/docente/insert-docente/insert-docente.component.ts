@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Docente } from '@core/models/Docente';
 import { User } from '@core/models/User';
-import { DocenteService } from '@modules/admin/services/docente.service';
+import { DocenteService } from '@modules/admin/services/docente/docente.service';
 
 @Component({
   selector: 'app-insert-docente',
@@ -12,14 +12,14 @@ export class InsertDocenteComponent implements OnInit {
   categorias: any = [];
 
   docente: Docente = {
-    nif_doc: '',
+    nif_docente: '',
+    nombre_docente: '',
+    direccion_docente: '',
+    fecha_nacimiento_docente: Date,
+    telefono_docente: '',
+    dato_banco_docente: '',
     titulo: '',
-    nom_doc: '',
-    dir_doc: '',
-    fec_nac_doc: Date,
-    tel_doc: '',
-    dat_ban_doc: '',
-    id_categoria: '',
+    id_categoria_d: '',
   };
   user: User = {
     tipoDocumento: '1',
@@ -44,16 +44,17 @@ export class InsertDocenteComponent implements OnInit {
   }
 
   createDocente() {
-    this.docenteService.createDocente(this.docente).subscribe(
-      (res) => {},
-      (err) => console.error(err)
-    );
     this.docenteService.createUser(this.user).subscribe(
       (res) => {
-        alert('Se realizó la insercion de nuevo Docente');
+       this.docenteService.createDocente(this.docente).subscribe(
+      (res:any) => {
+        alert(res.msg);
         document.location.reload();
       },
-      (err) => console.error(err)
+      (err:any)=>alert('No se pudo hacer la insercion del docente, verifique que el dentificador no este repetido')
+    );
+      },
+      (err:any)=>alert('No se pudo hacer la insercion del docente, verifique que el dentificador no este repetido')
     );
   }
 }

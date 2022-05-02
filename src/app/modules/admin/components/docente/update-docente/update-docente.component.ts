@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Docente } from '@core/models/Docente';
 import { User } from '@core/models/User';
-import { DocenteService } from '@modules/admin/services/docente.service';
+import { DocenteService } from '@modules/admin/services/docente/docente.service';
 
 @Component({
   selector: 'app-update-docente',
@@ -13,14 +13,14 @@ export class UpdateDocenteComponent implements OnInit {
   categorias: any = [];
 
   docente: Docente = {
-    nif_doc: '',
+    nif_docente: '',
+    nombre_docente: '',
+    direccion_docente: '',
+    fecha_nacimiento_docente: Date,
+    telefono_docente: '',
+    dato_banco_docente: '',
     titulo: '',
-    nom_doc: '',
-    dir_doc: '',
-    fec_nac_doc: Date,
-    tel_doc: '',
-    dat_ban_doc: '',
-    id_categoria: '',
+    id_categoria_d: '',
   };
   user: User = {
     tipoDocumento: '1',
@@ -52,8 +52,8 @@ export class UpdateDocenteComponent implements OnInit {
   getOnDocente(codigo: any) {
     this.docenteService.getOneDocente(codigo).subscribe((res: any) => {
       this.docente = res;
-      this.docente.fec_nac_doc = this.dateFormat.transform(
-        this.docente.fec_nac_doc,
+      this.docente.fecha_nacimiento_docente = this.dateFormat.transform(
+        this.docente.fecha_nacimiento_docente,
         'yyy-MM-dd'
       );
     });
@@ -74,7 +74,7 @@ export class UpdateDocenteComponent implements OnInit {
 
   // Actualización de usuario del docente en la tabla docente y usuario
   updateDocente(nif_doc: any) {
-    delete this.docente.nif_doc;
+    delete this.docente.nif_docente;
     if (
       confirm(
         `¿Está seguro de Actualizar el Usuario con el documento = ${nif_doc} `

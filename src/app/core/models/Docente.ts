@@ -1,10 +1,10 @@
 export interface Docente {
-  nif_doc?: any;
+  nif_docente?: any;
+  nombre_docente?: string;
+  direccion_docente?: string;
+  fecha_nacimiento_docente?: any;
+  telefono_docente?: string;
   titulo?: string;
-  nom_doc?: string;
-  dir_doc?: string;
-  fec_nac_doc?: any;
-  tel_doc?: string;
-  dat_ban_doc?: string;
-  id_categoria?: number | string
+  dato_banco_docente?: string;
+  id_categoria_d?: number | string
 }

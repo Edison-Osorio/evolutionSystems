@@ -30,12 +30,12 @@
               placeholder="Buscar"
               type="number"
               aria-label="Search"
-              [(ngModel)]="docent.nif_doc"
+              [(ngModel)]="docent.nif_docente"
             />
             <button
               class="btn btn-outline-success"
               type="submit"
-              (click)="getOneDocente(this.docent.nif_doc)"
+              (click)="getOneDocente(this.docent.nif_docente)"
             >
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -62,17 +62,17 @@
               </thead>
               <tbody>
                 <tr *ngFor="let docentes of docente">
-                  <td>{{ docentes.nif_doc }}</td>
-                  <td>{{ docentes.nom_doc | uppercase }}</td>
+                  <td>{{ docentes.nif_docente }}</td>
+                  <td>{{ docentes.nombre_docente | uppercase }}</td>
                   <td>{{ docentes.titulo | uppercase }}</td>
-                  <td>{{ docentes.dir_doc | uppercase }}</td>
-                  <td>{{ docentes.tel_doc }}</td>
-                  <td>{{ docentes.fec_nac_doc | date: "dd/MM/yyyy" }}</td>
-                  <td>{{ docentes.dat_ban_doc }}</td>
+                  <td>{{ docentes.direccion_docente | uppercase }}</td>
+                  <td>{{ docentes.fecha_nacimiento_docente | date: "dd/MM/yyyy" }}</td>
+                  <td>{{ docentes.telefono_docente }}</td>
+                  <td>{{ docentes.dato_banco_docente }}</td>
                   <td>{{ docentes.tipo }}</td>
                   <td>
-                    <button type="button" class="btn btn-info mb-1"  
-                    (click)="codigoDocente(docentes.nif_doc)" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-info mb-1"
+                    (click)="codigoDocente(docentes.nif_docente)" data-bs-toggle="modal"
                     data-bs-target="#UpdateDocente" >
                       <i class="fa-solid fa-pen-to-square"></i></button
                       ><button class="btn btn-danger ms-1" (click)="deleteDocente(docentes.nif_doc)">

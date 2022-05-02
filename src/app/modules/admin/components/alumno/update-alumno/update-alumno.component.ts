@@ -2,7 +2,7 @@ import { CursoService } from '@modules/admin/services/curso.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Alumno } from '@core/models/Alumno';
 import { User } from '@core/models/User';
-import { AlumnoService } from '@modules/admin/services/alumno.service';
+import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-alumno.component.css'],
 })
 export class UpdateAlumnoComponent implements OnInit {
-  cursos: any = [];
-  grupos: any = [];
+  // cursos: any = [];
+  // grupos: any = [];
 
   user: User = {
     tipoDocumento: '1',
@@ -25,15 +25,14 @@ export class UpdateAlumnoComponent implements OnInit {
   };
 
   alumno: Alumno = {
-    // id_alu: '',
-    nom_alu: '',
-    dire_alu: '',
-    tel_alu: '',
-    fec_alu: new Date(),
-    nom_pa: '',
-    nom_ma: '',
-    dat_ban_alu: '',
-    id_curso: '',
+    // id_alumno: '',
+    nombre_alumno: '',
+    direccion_alumno: '',
+    telefono_alumno: '',
+    fecha_nacimiento: Date,
+    nombre_papa: '',
+    nombre_mama: '',
+    dato_banco_alumno: '',
   };
 
   constructor(
@@ -45,35 +44,37 @@ export class UpdateAlumnoComponent implements OnInit {
 
   ngOnInit(): void {
     this.codigoEmitido();
-    this.getCursos();
-    this.getGrupos();
+    // this.getCursos();
+    // this.getGrupos();
   }
 
   codigoEmitido() {
-    this.alumnoService.codioAlumno.subscribe((codigo:any) => {
+    this.alumnoService.codioAlumno.subscribe((codigo: any) => {
       const codigos = codigo.codigo;
       this.getOneAlumno(codigos);
     });
   }
 
-  getCursos() {
-    this.cursoService.listCurso().subscribe((res: any) => {
-      this.cursos = res;
-    });
-  }
+  // getCursos() {
+  //   this.cursoService.listCurso().subscribe((res: any) => {
+  //     this.cursos = res;
+  //   });
+  // }
 
-  getGrupos() {
-    this.cursoService.getGrupo().subscribe((res: any) => {
-      this.grupos = res;
-    });
-  }
+  // getGrupos() {
+  //   this.cursoService.getGrupo().subscribe((res: any) => {
+  //     this.grupos = res;
+  //   });
+  // }
   getOneAlumno(codigo: any) {
     this.alumnoService.getOneAlumno(codigo).subscribe((res: any) => {
       this.alumno = res;
-      this.alumno.fec_alu = this.dateFormat.transform(
-        this.alumno.fec_alu,
+      this.alumno.fecha_nacimiento = this.dateFormat.transform(
+        this.alumno.fecha_nacimiento,
         'yyy-MM-dd'
       );
+
+      console.log('ESte es el alumno --> ', this.alumno);
     });
 
     //  ruta de la tabla Usuario
@@ -84,20 +85,26 @@ export class UpdateAlumnoComponent implements OnInit {
     });
   }
 
-  update(id_alu: any) {
-    delete this.alumno.id_alu;
+  updateAlumno(id_alu: any) {
+    delete this.alumno.id_alumno;
     if (
       confirm(
         `¿Está seguro de Actualizar el Usuario con el documento = ${id_alu}`
       )
     ) {
-      this.alumnoService
-        .updateAlumno(id_alu, this.alumno)
-        .subscribe((res:any ) => {});
-      this.alumnoService.updateUser(id_alu, this.user).subscribe((res:any) => {
-        alert('Usuario Actualizado');
-        document.location.reload();
-      });
+      this.alumnoService.updateAlumno(id_alu, this.alumno).subscribe(
+        (res: any) => {
+          const message = res.msg;
+          this.alumnoService.updateUser(id_alu, this.user).subscribe(
+            (res: any) => {
+              alert(message);
+              document.location.reload();
+            },
+            (err) => alert('Ocurrio un erro no se pudo actualizar el usuario')
+          );
+        },
+        (err) => alert('Ocurrio un erro no se pudo actualizar el usuario')
+      );
     }
   }
 }

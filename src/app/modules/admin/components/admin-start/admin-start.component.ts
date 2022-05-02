@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-start.component.css'],
 })
 export class AdminStartComponent implements OnInit {
- 
+
 
   constructor(private AlumService:AluSerService) { }
 
   ngOnInit(): void {
-    this.getAluSer();
+    // this.getAluSer();
   }
 
   getAluSer(){
@@ -25,5 +25,5 @@ export class AdminStartComponent implements OnInit {
 
   }
 
- 
+
 }

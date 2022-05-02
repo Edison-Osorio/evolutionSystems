@@ -21,16 +21,16 @@ export class ActualizarComponent implements OnInit {
   constructor(private adminService: AdminService, private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const params = this.activedRoute.snapshot.params;
-    if (params['cod_gra']) {
-      this.adminService.getGrado(params['cod_gra']).subscribe(
-        res => {
+    // const params = this.activedRoute.snapshot.params;
+    // if (params['cod_gra']) {
+    //   this.adminService.getGrado(params['cod_gra']).subscribe(
+    //     res => {
 
-          this.grado=res
-        },
-        err => console.log(err)
-      )
-    }
+    //       this.grado=res
+    //     },
+    //     err => console.log(err)
+    //   )
+    // }
   }
 
   // updateGrado(){

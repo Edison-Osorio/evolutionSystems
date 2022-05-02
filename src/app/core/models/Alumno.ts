@@ -1,12 +1,11 @@
 export interface Alumno {
-    id_alu?: number | string,
-    nom_alu?: string,
-    dire_alu?: string,
-    tel_alu?: string,
-    fec_alu?: any,
-    nom_pa?: string,
-    nom_ma?: string,
-    dat_ban_alu?: string,
-    id_curso?: number | string,
+    id_alumno?: number | string,
+    nombre_alumno?: string,
+    direccion_alumno?: string,
+    telefono_alumno?: string,
+    fecha_nacimiento?: any,
+    nombre_papa?: string,
+    nombre_mama?: string,
+    dato_banco_alumno?: string,
     id_periodo?: number | string
 }

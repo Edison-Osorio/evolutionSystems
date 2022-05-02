@@ -1,12 +1,11 @@
+import { GruposCrusoComponent } from './components/grupos/grupos-cruso/grupos-cruso.component';
 import { DocenteComponent } from './components/docente/docente.component';
 import { AdminPagesComponent } from './pages/admin-pages/admin-pages.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminStartComponent } from './components/admin-start/admin-start.component';
-import { GruposComponent } from './components/grupos/grupos.component';
-import { RegistroComponent } from './components/grupos/registro/registro.component';
-import { VerificarComponent } from './components/grupos/verificar/verificar.component';
-import { ActualizarComponent } from './components/grupos/actualizar/actualizar.component';
+
+
 
 import { AlumnoComponent } from './components/alumno/alumno.component';
 import { HorarioComponent } from './components/horario/horario.component';
@@ -15,6 +14,8 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignaturaComponent } from './components/asignatura/asignatura.component';
 import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
+import { GradosComponent } from './components/grados/grados.component';
+import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
 
 const routes: Routes = [
   {
@@ -31,16 +32,20 @@ const routes: Routes = [
     path:'alumno', component: AlumnoComponent
   },
   // Routes of grupo
+  // {
+  //   path: 'grupos/:cod_gra',
+  //   component: GruposComponent,
+  // },
   {
-    path: 'grupos/:cod_gra',
-    component: GruposComponent,
+    path: 'grado',
+    component: GradosComponent,
   },
   {
-    path: 'grupos',
-    component: GruposComponent,
+    path: 'grupos/:id_grado',
+    component: ListGruposComponent
   },
   {
-    path:'notas/:id_curso',
+    path:'notas/:id_curso/:id_grupo',
     component: NotasComponent
   },
 

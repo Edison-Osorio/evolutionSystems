@@ -19,11 +19,12 @@
           aria-label="Close"
         ></button>
       </div>
+      <form action="">
       <div class="modal-body">
         <fieldset>
             <legend class="content-dark">Información Personal</legend>
           <div class="row g-3 align-items-center">
-               
+
             <div class="form-group mb-2 col-auto">
               <label for="tipoDocumento">Tipo de Documento</label>
               <select
@@ -34,7 +35,7 @@
               >
                 <option value="1">Cedula de ciudadania</option>
                 <option value="2">Targeta de identidad</option>
-                <option value="3">Cedula de estrangeria</option>
+                <option value="3">Cedula de Extranjería</option>
               </select>
             </div>
             <div class="form-group mb-2 col-auto">
@@ -43,8 +44,9 @@
                 class="form-control"
                 type="number"
                 name="id_alu"
-                [(ngModel)]="alumno.id_alu"
+                [(ngModel)]="alumno.id_alumno"
                 [(ngModel)]="user.documento"
+                [(ngModel)]="matricula.id_alumno_m"
                 placeholder="Ingrese el documento"
                 required
               />
@@ -55,7 +57,7 @@
                 class="form-control"
                 type="text"
                 name="nom_alu"
-                [(ngModel)]="alumno.nom_alu"
+                [(ngModel)]="alumno.nombre_alumno"
                 [(ngModel)]="user.nombre"
                 placeholder="Ingrese el nombre completo"
                 required
@@ -67,7 +69,7 @@
                 class="form-control"
                 type="text"
                 name="dir_alu"
-                [(ngModel)]="alumno.dire_alu"
+                [(ngModel)]="alumno.direccion_alumno"
                 placeholder="Ingrese la direccion"
                 required
               />
@@ -78,7 +80,7 @@
                 class="form-control"
                 type="date"
                 name="fec_alu"
-                [(ngModel)]="alumno.fec_alu"
+                [(ngModel)]="alumno.fecha_nacimiento"
               />
             </div>
             <div class="form-group mb-2 col-auto">
@@ -87,7 +89,7 @@
                 class="form-control"
                 type="text"
                 name="tel_alu"
-                [(ngModel)]="alumno.tel_alu"
+                [(ngModel)]="alumno.telefono_alumno"
                 placeholder="Numero telefonico"
                 required
               />
@@ -124,7 +126,7 @@
               class="form-control"
               type="text"
               name="nom_pa"
-              [(ngModel)]="alumno.nom_pa"
+              [(ngModel)]="alumno.nombre_papa"
               placeholder="Nombre del papá"
               required
             />
@@ -135,7 +137,7 @@
               class="form-control"
               type="text"
               name="nom_ma"
-              [(ngModel)]="alumno.nom_ma"
+              [(ngModel)]="alumno.nombre_mama"
               placeholder="Nombre de la mamá"
               required
             />
@@ -146,32 +148,48 @@
               class="form-control"
               type="text"
               name="dat_ban_alu"
-              [(ngModel)]="alumno.dat_ban_alu"
+              [(ngModel)]="alumno.dato_banco_alumno"
               placeholder="Dato bancario"
               required
             />
           </div>
           </div>
           <!-- Informacion de los grupos -->
-          <legend class="content-dark mt-3">Información de Grupo</legend>
+          <legend class="content-dark mt-3">Información de Matricula</legend>
           <div class="row g-3 align-items-center">
             <div class="form-group col-auto">
-                <label for="id_ciclo" class="col-form-label">Grado: </label>
+                <label for="id_ciclo" class="col-form-label">Curso: </label>
                 <select
                   name="id_ciclo"
                   class="form-control form-select mb-2"
-                  [(ngModel)]="alumno.id_curso"
+                  (change)="onSelectGrupo($event.target)"
+                  [(ngModel)]="matricula.id_grado_m"
                   [ngModelOptions]="{ standalone: true }"
                   required="false"
                 >
-                  <option value="">Seleccionar grado ......</option>
-                  <option *ngFor="let curso of cursos" value="{{curso.id_curso}}" >
-                    {{curso.nombre_curso}} {{curso.nombre_grupo}}
+                  <option value="">Seleccionar El grado ......</option>
+                  <option *ngFor="let grado of grados" value="{{grado.id_grado}}" >
+                    {{grado.nombre_grado}}
                   </option>
                 </select>
               </div>
               <div class="form-group col-auto">
-                <label for="id_ciclo" class="col-form-label">Grado: </label>
+                <label for="id_ciclo" class="col-form-label">Grupo: </label>
+                <select
+                  name="id_ciclo"
+                  class="form-control form-select mb-2"
+                  [(ngModel)]="matricula.id_grupo_m"
+                  [ngModelOptions]="{ standalone: true }"
+                  required="false"
+                >
+                  <option value="">Seleccionar Grupo ......</option>
+                  <option *ngFor="let grupo of gruposCurso " value="{{grupo.id_grupo}}" >
+                    {{grupo.nombre_grupo}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group col-auto">
+                <label for="id_ciclo" class="col-form-label">Periodo: </label>
                 <select
                   name="id_ciclo"
                   class="form-control form-select mb-2"
@@ -179,7 +197,7 @@
                   [ngModelOptions]="{ standalone: true }"
                   required="false"
                 >
-                  <option value="">Seleccionar grado ......</option>
+                  <option value="">Seleccionar periodo ......</option>
                   <option *ngFor="let periodo of periodos " value="{{periodo.id_periodo}}" >
                     {{periodo.nombre_periodo}}
                   </option>
@@ -190,18 +208,19 @@
       </div>
       <div class="modal-footer">
         <button
-          class="btn btn-success"
-          type="submit"
-          value="Registrar"
-          name="Registrar"
-          (click)="insertAlumno()"
+        class="btn btn-success"
+        type="submit"
+        value="Registrar"
+        name="Registrar"
+        (click)="insertAlumno()"
         >
-          Registrar
-        </button>
-        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">
-          Cerrar
-        </button>
-      </div>
+        Registrar
+      </button>
+      <button type="submit" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">
+        Cerrar
+      </button>
+    </div>
+  </form>
     </div>
   </div>
 </div>

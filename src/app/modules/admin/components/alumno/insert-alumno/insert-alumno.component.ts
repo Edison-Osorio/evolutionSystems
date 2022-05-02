@@ -2,8 +2,9 @@ import { Alumno } from '@core/models/Alumno';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from '@core/models/User';
 import { CursoService } from '@modules/admin/services/curso.service';
-import { AlumnoService } from '@modules/admin/services/alumno.service';
+import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
 import { Router } from '@angular/router';
+import { GradoService } from '@modules/admin/services/grado/grado.service';
 
 @Component({
   selector: 'app-insert-alumno',
@@ -11,12 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./insert-alumno.component.css'],
 })
 export class InsertAlumnoComponent implements OnInit {
-  cursos: any = [];
+  grados: any = [];
   alumnos: any = [];
   asignaturas: any = [];
 
   periodos: any = [];
 
+  gruposCurso: any = [];
   grupos: any = [];
 
   user: User = {
@@ -29,16 +31,21 @@ export class InsertAlumnoComponent implements OnInit {
   };
 
   alumno: Alumno = {
-    id_alu: '',
-    nom_alu: '',
-    dire_alu: '',
-    tel_alu: '',
-    fec_alu: Date,
-    nom_pa: '',
-    nom_ma: '',
-    dat_ban_alu: '',
-    id_curso: '',
+    id_alumno: '',
+    nombre_alumno: '',
+    direccion_alumno: '',
+    telefono_alumno: '',
+    fecha_nacimiento: Date,
+    nombre_papa: '',
+    nombre_mama: '',
+    dato_banco_alumno: '',
     id_periodo: '',
+  };
+
+  matricula: any = {
+    id_alumno_m: '',
+    id_grado_m: '',
+    id_grupo_m: '',
   };
 
   // enviarCodigo(){
@@ -46,19 +53,27 @@ export class InsertAlumnoComponent implements OnInit {
   // }
 
   constructor(
-    private cursoService: CursoService,
+    // private cursoService: CursoService,
     private alumnoService: AlumnoService,
+    private gradoService: GradoService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.getCursos();
-    this.getPeriodos();
+    this.getGrados();
+    // this.getPeriodos();
+    this.getGradosGrupos();
   }
 
-  getCursos() {
-    this.cursoService.listCurso().subscribe((res: any) => {
-      this.cursos = res;
+  getGrados() {
+    this.gradoService.listGrados().subscribe((res: any) => {
+      this.grados = res;
+    });
+  }
+
+  getGradosGrupos() {
+    this.gradoService.listAllGradosGrupos().subscribe((res: any) => {
+      this.grupos = res;
     });
   }
 
@@ -68,54 +83,75 @@ export class InsertAlumnoComponent implements OnInit {
     });
   }
 
+  //   onSelectCurso(id: any){
+  //   const {value}= id
+  // notas
+  //   }
+  onSelectGrupo(id: any) {
+    const { value } = id;
+    this.gruposCurso = this.grupos.filter(
+      (item: any) => item.id_grado == value
+    );
+  }
+
   insertAlumno() {
-    const {id_periodo} = this.alumno;
+    const { id_periodo } = this.alumno;
 
-    delete this.alumno.id_periodo
+    delete this.alumno.id_periodo;
 
-    console.log('Iniciamos la inserción');
-
-     this.alumnoService.createAlumno(this.alumno).subscribe((res: any) => {});
-     alert('Se ha registrado el alumno');
-
-     this.alumnoService.createUser(this.user).subscribe((res: any) => {});
-     alert('Se ha registrado el alumno');
-     let ref = document.getElementById('cancel');
-     ref?.click();
-    console.log('Este es el objeto de alumno --> ', this.alumno);
-
-    this.cursoService
-      .getAsignaturaCurso(this.alumno.id_curso)
-      .subscribe((res: any) => {
-        this.asignaturas = res;
-        console.log('Esta es la respuesta del servidor -->', res);
-
-        console.log('Inicia for each');
-
-        for (let codigo_asignatura of this.asignaturas) {
-          console.log(
-            'Este es el codigo de las asignaturas --> ',
-            codigo_asignatura
-          );
-
-          console.log('VARIABLE DE ID PERIODO --> ', id_periodo);
-
-          const nota: any = {
-            id_asi: codigo_asignatura.id_asi,
-            id_alu: this.alumno.id_alu,
-            id_periodo: id_periodo,
-          };
-
-          console.log('Este es el objeto de nota --> ', nota);
-
-           this.alumnoService.createNota(nota).subscribe((res: any) => {
-             console.log(res);
-           });
-          console.log(
-            `INSERT INTO notas(id_asi, id_alu, id_periodo) values (${codigo_asignatura.id_asi}, ${this.alumno.id_alu}, ${id_periodo})`
-          );
-          // document.location.reload();
-        }
-      });
+    // INSERTAMOS EN LA TABLA USUARIO
+    this.alumnoService.createUser(this.user).subscribe(
+      (res: any) => {
+        // INSERTAMOS EN LA TABLA ALUMNO
+        this.alumnoService.createAlumno(this.alumno).subscribe(
+          (res: any) => {
+            alert(res.msg);
+            // INSERTAMOS EN LA TABLA DE MATRICULA
+            this.alumnoService.createMatricula(this.matricula).subscribe(
+              (res: any) => {
+                alert(res.msg);
+              },
+              (err) =>
+                alert(
+                  'No se pudo crear el alumno, revise que no se este repitiendo el identificador'
+                )
+            );
+          },
+          (err) =>
+            alert(
+              'No se pudo crear el alumno, revise que no se este repitiendo el identificador'
+            )
+        );
+      },
+      (err) =>
+        alert(
+          'No se pudo crear el alumno, revise que no se este repitiendo el identificador'
+        )
+    );
+    let ref = document.getElementById('cancel');
+    ref?.click();
+    // OBTENEMOS LAS ASIGNATURAS QUE PERTENECEN A ESTE EL GRADO INGRESADO
+    // this.cursoService
+    //   .getAsignaturaCurso(this.matricula.id_curso_m)
+    //   .subscribe((res: any) => {
+    //     this.asignaturas = res;
+    //     // RECORREMOS TODAS LAS SIGNATURAS DE UN CURSO PARA INSERTAR LAS NOTAS
+    //     for (let codigo_asignatura of this.asignaturas) {
+    //       const nota: any = {
+    //         id_asi: codigo_asignatura.id_asi,
+    //         id_alu: this.alumno.id_alumno,
+    //         id_periodo: id_periodo,
+    //       };
+    //       // INSERTAMOS EN LA TABLA NOTAS
+    //       this.alumnoService.createNota(nota).subscribe((res: any) => {
+    //         console.log(res);
+    //       });
+    //       console.log(
+    //         `INSERT INTO notas(id_asi, id_alu, id_periodo) values (${codigo_asignatura.id_asi}, ${this.alumno.id_alumno}, ${id_periodo})`
+    //       );
+    //     }
+    //     alert('Se ha registrado el alumno');
+    //     document.location.reload();
+    //   });
   }
 }

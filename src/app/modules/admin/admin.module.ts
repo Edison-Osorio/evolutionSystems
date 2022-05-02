@@ -29,6 +29,11 @@ import { NotasComponent } from './components/grupos/notas/notas.component';
 import { RegistroAsignaturasComponent } from './components/grupos/registro-asignaturas/registro-asignaturas.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
+import { GruposCrusoComponent } from './components/grupos/grupos-cruso/grupos-cruso.component';
+import { GradosComponent } from './components/grados/grados.component';
+import { InsertGradoComponent } from './components/grados/insert-grado/insert-grado.component';
+import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
+import { InsertAsignaturaComponent } from './components/grados/insert-asignatura/insert-asignatura.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +58,11 @@ import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asig
       RegistroAsignaturasComponent,
       AlumnoServicioComponent,
       AsignarHoraioComponent,
+      GruposCrusoComponent,
+      GradosComponent,
+      InsertGradoComponent,
+      ListGruposComponent,
+      InsertAsignaturaComponent,
   ],
   imports: [
     CommonModule,
