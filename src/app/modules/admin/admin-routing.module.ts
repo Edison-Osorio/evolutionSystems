@@ -13,9 +13,11 @@ import { NotasComponent } from './components/grupos/notas/notas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignaturaComponent } from './components/asignatura/asignatura.component';
+
 import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
 import { GradosComponent } from './components/grados/grados.component';
 import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
+
 
 const routes: Routes = [
   {
@@ -64,10 +66,10 @@ const routes: Routes = [
     path:'horario',
     component: HorarioComponent
   },
-  {
-    path:'asignar-horio',
-    component: AsignarHoraioComponent
-  },
+  // {
+  //   path:'asignar-horio',
+  //   component: AsignarHoraioComponent
+  // },
   {
     path:'horario/:cod_gra',
     component: HorarioComponent
@@ -82,6 +84,14 @@ const routes: Routes = [
     path:'servicios/alumno-servicios',
     component: AlumnoServicioComponent
   },
+  // {
+  //   path:'becas',
+  //   component: BecaComponent
+  // },
+  // {
+  //   path:'becas/becas-alumnos',
+  //   component: BecaAlumnoComponent
+  // },
   {
     path: '**',
     redirectTo: '/admin/admin',

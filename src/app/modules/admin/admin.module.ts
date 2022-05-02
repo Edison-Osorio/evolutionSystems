@@ -63,6 +63,7 @@ import { InsertAsignaturaComponent } from './components/grados/insert-asignatura
       InsertGradoComponent,
       ListGruposComponent,
       InsertAsignaturaComponent,
+
   ],
   imports: [
     CommonModule,
