@@ -9,11 +9,13 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+//import { BecasComponent } from './becas/becas.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    //BecasComponent
   ],
   imports: [
     BrowserModule,

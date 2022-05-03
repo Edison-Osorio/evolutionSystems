@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
-import { ServiciosService } from '@modules/admin/services/servicios.service';
+import { ServiciosService } from '@modules/admin/services/servicios/servicios.service';
 
 @Component({
   selector: 'app-alumno-servicio',
@@ -15,10 +15,12 @@ export class AlumnoServicioComponent implements OnInit {
   alumnos: any = []
 
   ngOnInit(): void {
-    // this.getAlu_Ser();
-    // this.getServiciosAndAlumnos()
+    this.getAlumno_Servicio();
+    this.getServiciosAndAlumnos()
   }
-  getServiciosAndAlumnos(){
+
+  //obtiene los servicios y alumnos
+  getServiciosAndAlumnos() {
     this.servicosServices.getServices().subscribe(
       res => {
         this.servicios = res;
@@ -30,65 +32,66 @@ export class AlumnoServicioComponent implements OnInit {
         this.alumnos = res;
       }, err => console.log(err)
     )
-
   }
-  getAlu_Ser() {
-    this.servicosServices.getAlu_Ser().subscribe(
+
+  //obtiene los alumnos con servicios
+  getAlumno_Servicio() {
+    this.servicosServices.getAlumno_Servicio().subscribe(
       res => {
         this.alumno_servicio = res
-      },err=> console.error(err)
+      }, err => console.error(err)
     )
   }
 
-  deleteAlu_ser(id_alu: any, cod_ser: any) {
+  // le elimina el servicio al alumno
+  deleteAlumno_Servicio(id_alu: any, cod_ser: any) {
     if (confirm('¿Esta seguro de eliminarle este servicio al este alumno?')) {
-      this.servicosServices.deleteAlu_Ser(id_alu, cod_ser).subscribe(
+      this.servicosServices.deleteAlumno_Servicio(id_alu, cod_ser).subscribe(
         res => {
           this.getServiciosAndAlumnos()
-          this.getAlu_Ser()
+          this.getAlumno_Servicio()
           alert('Se le elimno el servicio al alumno ')
         }
       )
     }
   }
 
-
-
-
   alu_ser: any = {
-    cod_servicio: 0,
-    id_alumno: 0
+    codigo_servicio_as: 0,
+    id_alumno_as: 0
   }
-  services:any={
-    cod_ser:'',
-    tipo_ser:'',
-    desc_ser:'',
-    valor:''
+  services: any = {
+    cod_ser: '',
+    tipo_ser: '',
+    desc_ser: '',
+    valor: ''
   }
 
-
+  //refresca el modelo
   refresh() {
     this.alu_ser.cod_servicio = 0
     this.alu_ser.id_alumno = 0
   }
 
+  //le asigna el servicio al alumnno
   createAlu_ser() {
-    this.servicosServices.createAlu_ser(this.alu_ser).subscribe(
-      res => {  const ref = document.getElementById('cancel')
-      ref?.click()
-      this.getServiciosAndAlumnos()
-    this.getAlu_Ser()},
+    this.servicosServices.createAlumno_servicio(this.alu_ser).subscribe(
+      res => {
+        const ref = document.getElementById('cancel')
+        ref?.click()
+        this.getServiciosAndAlumnos()
+        this.getAlumno_Servicio()
+      },
       err => console.log(err)
     )
   }
 
-
-  getOneAlu_Ser(id_alumno:any,cod_servicio:any){
-    this.servicosServices.getOne(id_alumno,cod_servicio).subscribe(
-      res=>{
-        this.alu_ser=res
-      },err=>console.log(err)
+  //obtiene un servicio alumno
+  getOneAlu_Ser(id_alumno: any, cod_servicio: any) {
+    this.servicosServices.getOne(id_alumno, cod_servicio).subscribe(
+      res => {
+        this.alu_ser = res
+      }, err => console.log(err)
     )
   }
-
 }

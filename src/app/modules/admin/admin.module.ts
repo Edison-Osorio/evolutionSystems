@@ -34,6 +34,10 @@ import { GradosComponent } from './components/grados/grados.component';
 import { InsertGradoComponent } from './components/grados/insert-grado/insert-grado.component';
 import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
 import { InsertAsignaturaComponent } from './components/grados/insert-asignatura/insert-asignatura.component';
+//import { BecasComponent } from './components/becas/becas.component';
+import { BecaComponent } from './components/becas/becas.component';
+//import { AlumnoServiciosComponent } from './components/becas/alumno-servicios/alumno-servicios.component';
+import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-becas.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,10 @@ import { InsertAsignaturaComponent } from './components/grados/insert-asignatura
       InsertGradoComponent,
       ListGruposComponent,
       InsertAsignaturaComponent,
+      BecaComponent,
+      //AlumnoServiciosComponent,
+      //AlumnoBecasComponent,
+      AlumnoBecasComponent
 
   ],
   imports: [

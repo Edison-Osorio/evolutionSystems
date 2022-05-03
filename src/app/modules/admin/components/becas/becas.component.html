@@ -1,0 +1,112 @@
+<app-navigation-admin></app-navigation-admin>
+<!-- Button trigger modal crear beca -->
+<div>
+  <div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearBeca">
+      Crear beca
+    </button>
+    <button type="button" class="btn btn-primary ms-2" routerLinkActive="active" routerLink="alumno-becas">
+      Ver alumnos con becas
+    </button>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">CODIGO</th>
+      <th scope="col">DESCRIPCION</th>
+      <th scope="col">CUPO</th>
+      <th scope="col">ACTUALIZAR/ELIMINAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let becas of becas">
+      <th scope="row">{{becas.codigo_beca}}</th>
+      <td>{{becas.descripcion|uppercase}}</td>
+      <td>{{becas.cupo}}</td>
+      <td><button type="button" class="btn btn-info mb-2" (click)="getOne(becas.codigo_beca)" data-bs-toggle="modal"
+          data-bs-target="#actualizarBeca">
+          <i class="fa-solid fa-pen-to-square"></i></button>
+        <button class="btn btn-danger ms-2 mb-2" (click)="deleteBeca(becas.codigo_beca)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<!-- Modal crear beca  -->
+<div class="modal fade" id="crearBeca" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Crear beca</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">CODIGO </label>
+          <input class="form-control" type="number" name="cod_beca" [(ngModel)]="beca.cod_beca"
+            placeholder="Ingrese el codigo para la beca" required />
+        </div> -->
+        <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">DESCRIPCION </label>
+          <input class="form-control" type="text" name="des_beca" [(ngModel)]="beca.descripcion"
+            placeholder="Ingrese la descripcion" required />
+        </div>
+        <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">CUPO </label>
+          <input class="form-control" type="number" name="cupo_beca" [(ngModel)]="beca.cupo"
+            placeholder="Ingrese el cupo" required />
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="createBeca()">Crear</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal de actualizar-->
+<div class="modal fade" id="actualizarBeca" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Actualizar beca</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">CODIGO </label>
+          <input class="form-control" type="number" name="cod_beca" [(ngModel)]="beca.codigo_beca"
+            placeholder="Ingrese el codigo para la beca" readonly />
+        </div>
+        <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">DESCRIPCION </label>
+          <input class="form-control" type="text" name="des_beca" [(ngModel)]="beca.descripcion"
+            placeholder="Ingrese la descripcion" required />
+        </div>
+        <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">CUPO </label>
+          <input class="form-control" type="number" name="cupo_beca" [(ngModel)]="beca.cupo"
+            placeholder="Ingrese el cupo" required />
+        </div>
+        <!-- <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">CODIGO DEL SERVICIO</label>
+          <input class="form-control" type="number" name="cod_ser" [(ngModel)]="beca.cod_ser"
+            placeholder="Ingrese el documento" required />
+        </div> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="updateBeca()">Actualizar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

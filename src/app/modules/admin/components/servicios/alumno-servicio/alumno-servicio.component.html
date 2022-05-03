@@ -2,32 +2,32 @@
 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#ser_alu">
   Agregar servicio a alumno
 </button>
-<button class="btn btn-primary ms-2"  routerLink="/admin/servicios" >Ver servicios</button>
-<table class="table" >
-    <thead>
-      <tr>
-        <th scope="col">ID ALUMNO</th>
-        <th scope="col">NOMBRE DEL ALUMNO</th>
-        <th scope="col">TIPO SERVICIO</th>
-        <th scope="col">DESCRIPCION</th>
-        <th scope="col">ELIMINAR</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let a_servicios of alumno_servicio">
-        <td scope="row">{{a_servicios.id_alu}}</td>
-        <td>{{a_servicios.nom_alu | uppercase}}</td>
-        <td>{{a_servicios.tipo_ser | uppercase}}</td>
-        <td>{{a_servicios.desc_ser | uppercase}}</td>
-        <td>
-          <button class="btn btn-danger ms-2" (click)="deleteAlu_ser(a_servicios.id_alu,a_servicios.cod_ser)">
-            <i class="fa-solid fa-trash-can"></i>
-          </button>
-        </td>
-      </tr>
+<button class="btn btn-primary ms-2" routerLink="/admin/servicios">Ver servicios</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID ALUMNO</th>
+      <th scope="col">NOMBRE DEL ALUMNO</th>
+      <th scope="col">TIPO SERVICIO</th>
+      <th scope="col">DESCRIPCION</th>
+      <th scope="col">ELIMINAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a_servicios of alumno_servicio">
+      <td scope="row">{{a_servicios.id_alumno}}</td>
+      <td>{{a_servicios.nombre_alumno | uppercase}}</td>
+      <td>{{a_servicios.tipo_servicio | uppercase}}</td>
+      <td>{{a_servicios.descripcion_servicio | uppercase}}</td>
+      <td>
+        <button class="btn btn-danger ms-2" (click)="deleteAlumno_Servicio(a_servicios.id_alumno,a_servicios.id_servicio)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </td>
+    </tr>
 
-    </tbody>
-  </table>
+  </tbody>
+</table>
 
 <!--  -->
 <!-- Modal agregar alumno servicio -->
@@ -42,11 +42,11 @@
       <div class="modal-body">
         <div class="form-group">
           <label for="id_ciclo" class="col-form-label">Alumno: </label>
-          <select name="id_alu " class="form-control form-select" [(ngModel)]="alu_ser.id_alumno"
+          <select name="id_alu " class="form-control form-select" [(ngModel)]="alu_ser.id_alumno_as"
             [ngModelOptions]="{ standalone: true }" required="false">
             <option value="0">Seleccione el Alumno ......</option>
-            <option *ngFor="let alumnos of alumnos" value="{{alumnos.id_alu}}">
-              {{alumnos.id_alu}} - {{alumnos.nom_alu}}
+            <option *ngFor="let alumnos of alumnos" value="{{alumnos.id_alumno}}">
+              {{alumnos.id_alumno}} - {{alumnos.nombre_alumno}}
             </option>
           </select>
         </div>
@@ -55,18 +55,19 @@
 
         <div class="form-group">
           <label for="id_ciclo" class="col-form-label">Seleccione el servicio </label>
-          <select name="cod_ser" class="form-control form-select " [(ngModel)]="alu_ser.cod_servicio"
+          <select name="cod_ser" class="form-control form-select " [(ngModel)]="alu_ser.codigo_servicio_as"
             [ngModelOptions]="{ standalone: true }" required="false">
             <option value="0">Seleccionar servicio ......</option>
-            <option *ngFor="let servicios of servicios" value="{{servicios.cod_ser}}">
-              {{servicios.tipo_ser}}
+            <option *ngFor="let servicios of servicios" value="{{servicios.id_servicio}}">
+              {{servicios.id_servicio}} {{servicios.tipo_servicio}}
             </option>
           </select>
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-success" (click)="createAlu_ser()">Asignar</button>
-          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal" (click)="refresh()">Cerrar</button>
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal"
+            (click)="refresh()">Cerrar</button>
         </div>
       </div>
     </div>
