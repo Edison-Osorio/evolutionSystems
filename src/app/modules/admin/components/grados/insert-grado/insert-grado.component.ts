@@ -6,7 +6,7 @@ import { Grado } from '../../../../../core/models/grado';
 @Component({
   selector: 'app-insert-grado',
   templateUrl: './insert-grado.component.html',
-  styleUrls: ['./insert-grado.component.css']
+  styleUrls: ['./insert-grado.component.css'],
 })
 export class InsertGradoComponent implements OnInit {
   ciclos: any = [];
@@ -16,7 +16,7 @@ export class InsertGradoComponent implements OnInit {
   grado: Grado = {
     nombre_grado: '',
     plan_estudio: '',
-    id_ciclo: '',
+    id_ciclo_g: '',
   };
   grupo: any = {
     id_grado_grg: '',
@@ -28,26 +28,25 @@ export class InsertGradoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.getCiclos();
+    this.getCiclos();
     this.getGrupos();
     this.listGruposGrado();
   }
 
-  // getCiclos() {
-  //   this.cursoService.getCiclo().subscribe((res: any) => {
-  //     this.ciclos = res;
-  //   });
-  // }
+  getCiclos() {
+    this.gradoService.listCiclo().subscribe((res: any) => {
+      this.ciclos = res;
+    });
+  }
 
   // Obtenermos todos los grupos de la tabla Grupos
   getGrupos() {
     this.gradoService.listGrupos().subscribe((res: any) => {
       this.grupos = res;
-     });
+    });
   }
 
   createGrado() {
-    delete this.grado.id_ciclo
     this.gradoService.createGrado(this.grado).subscribe(
       (res) => {
         alert('Grado Creado');
@@ -60,7 +59,7 @@ export class InsertGradoComponent implements OnInit {
   }
   // OPTENEMOS LA LISTA DE LOS GRUPOS ASIGNADOS AL CURSO
   listGruposGrado() {
-    this.gradoService.gradoEmitido.subscribe((grupo:any) => {
+    this.gradoService.gradoEmitido.subscribe((grupo: any) => {
       if (grupo.length == []) {
         this.showGrupos = false;
       } else {
@@ -73,9 +72,11 @@ export class InsertGradoComponent implements OnInit {
   createGrupo() {
     const params = this.activedRoute.snapshot.params;
     this.grupo.id_grado_grg = params['id_grado'];
-    this.gradoService.createAsignacionGrupoGrado(this.grupo).subscribe((res:any)=>{alert(res.msg)
-    document.location.reload()
-    })
-
+    this.gradoService
+      .createAsignacionGrupoGrado(this.grupo)
+      .subscribe((res: any) => {
+        alert(res.msg);
+        document.location.reload();
+      });
   }
 }

@@ -25,7 +25,7 @@ import { DocenteComponent } from './components/docente/docente.component';
 import { InsertDocenteComponent } from './components/docente/insert-docente/insert-docente.component';
 import { UpdateDocenteComponent } from './components/docente/update-docente/update-docente.component';
 import { AdminComponent } from './services/admin/admin.component';
-import { NotasComponent } from './components/grupos/notas/notas.component';
+
 import { RegistroAsignaturasComponent } from './components/grupos/registro-asignaturas/registro-asignaturas.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
@@ -34,6 +34,8 @@ import { GradosComponent } from './components/grados/grados.component';
 import { InsertGradoComponent } from './components/grados/insert-grado/insert-grado.component';
 import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
 import { InsertAsignaturaComponent } from './components/grados/insert-asignatura/insert-asignatura.component';
+import { AsignarDocentesComponent } from './components/grados/asignar-docentes/asignar-docentes.component';
+import { NotasComponent } from './components/grados/notas/notas.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { InsertAsignaturaComponent } from './components/grados/insert-asignatura
       InsertGradoComponent,
       ListGruposComponent,
       InsertAsignaturaComponent,
+      AsignarDocentesComponent,
 
   ],
   imports: [

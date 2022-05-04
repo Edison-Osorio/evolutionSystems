@@ -61,7 +61,7 @@
                     <select
                       name="id_ciclo"
                       class="form-control form-select"
-                      [(ngModel)]="grado.id_ciclo"
+                      [(ngModel)]="grado.id_ciclo_g"
                       [ngModelOptions]="{ standalone: true }"
                       required="false"
                     >
@@ -72,7 +72,7 @@
                         *ngFor="let ciclo of ciclos"
                         value="{{ ciclo.id_ciclo }}"
                       >
-                        {{ ciclo.nombre_ciclo }}
+                        {{ ciclo.tipo }}
                       </option>
                     </select>
                   </div>

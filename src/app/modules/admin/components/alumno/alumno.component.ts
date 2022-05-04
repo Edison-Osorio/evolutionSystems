@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
 import { CursoService } from '@modules/admin/services/curso.service';
+import { NotaService } from '@shared/services/nota/nota.service';
 
 @Component({
   selector: 'app-alumno',
@@ -12,12 +13,13 @@ export class AlumnoComponent implements OnInit {
 
   constructor(
     private alumnoService: AlumnoService,
-    private cursoService: CursoService
+
   ) {}
 
   ngOnInit(): void {
     this.listAlumno()
   }
+  // Listamos todos los alumnos
   listAlumno(){
     this.alumnoService.getAlumnos().subscribe((res: any) => {
       this.alumnos = res;

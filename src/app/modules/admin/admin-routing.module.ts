@@ -1,22 +1,17 @@
-import { GruposCrusoComponent } from './components/grupos/grupos-cruso/grupos-cruso.component';
-import { DocenteComponent } from './components/docente/docente.component';
-import { AdminPagesComponent } from './pages/admin-pages/admin-pages.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AdminStartComponent } from './components/admin-start/admin-start.component';
-
-
-
+import { AdminPagesComponent } from './pages/admin-pages/admin-pages.component';
+import { DocenteComponent } from './components/docente/docente.component';
 import { AlumnoComponent } from './components/alumno/alumno.component';
 import { HorarioComponent } from './components/horario/horario.component';
-import { NotasComponent } from './components/grupos/notas/notas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignaturaComponent } from './components/asignatura/asignatura.component';
-
-import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
 import { GradosComponent } from './components/grados/grados.component';
 import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
+import { NotasComponent } from './components/grados/notas/notas.component';
 
 
 const routes: Routes = [
@@ -34,10 +29,6 @@ const routes: Routes = [
     path:'alumno', component: AlumnoComponent
   },
   // Routes of grupo
-  // {
-  //   path: 'grupos/:cod_gra',
-  //   component: GruposComponent,
-  // },
   {
     path: 'grado',
     component: GradosComponent,
@@ -47,7 +38,7 @@ const routes: Routes = [
     component: ListGruposComponent
   },
   {
-    path:'notas/:id_curso/:id_grupo',
+    path:'notas/:id_grado/:id_grupo',
     component: NotasComponent
   },
 

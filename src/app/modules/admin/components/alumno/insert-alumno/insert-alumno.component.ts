@@ -5,6 +5,8 @@ import { CursoService } from '@modules/admin/services/curso.service';
 import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
 import { Router } from '@angular/router';
 import { GradoService } from '@modules/admin/services/grado/grado.service';
+import { NotaService } from '@shared/services/nota/nota.service';
+import { AsignaturaService } from '@modules/admin/services/asignatura/asignatura.service';
 
 @Component({
   selector: 'app-insert-alumno',
@@ -53,15 +55,15 @@ export class InsertAlumnoComponent implements OnInit {
   // }
 
   constructor(
-    // private cursoService: CursoService,
+    private asignaturaService: AsignaturaService,
     private alumnoService: AlumnoService,
     private gradoService: GradoService,
-    private router: Router
+    private notaService: NotaService
   ) {}
 
   ngOnInit(): void {
     this.getGrados();
-    // this.getPeriodos();
+    this.listPeriodo();
     this.getGradosGrupos();
   }
 
@@ -77,9 +79,11 @@ export class InsertAlumnoComponent implements OnInit {
     });
   }
 
-  getPeriodos() {
-    this.alumnoService.getTrimestres().subscribe((res: any) => {
+  // Listamos todos los periodos
+  listPeriodo() {
+    this.notaService.listPeriodo().subscribe((res: any) => {
       this.periodos = res;
+      // console.log('Esta es la respuesta del servidor de los periodos --> ',res);
     });
   }
 
@@ -98,7 +102,6 @@ export class InsertAlumnoComponent implements OnInit {
     const { id_periodo } = this.alumno;
 
     delete this.alumno.id_periodo;
-
     // INSERTAMOS EN LA TABLA USUARIO
     this.alumnoService.createUser(this.user).subscribe(
       (res: any) => {
@@ -109,49 +112,64 @@ export class InsertAlumnoComponent implements OnInit {
             // INSERTAMOS EN LA TABLA DE MATRICULA
             this.alumnoService.createMatricula(this.matricula).subscribe(
               (res: any) => {
+                // OBTENEMOS LAS ASIGNATURAS QUE PERTENECEN A ESTE EL GRADO INGRESADO
+                this.asignaturaService
+                  .listAsignaturaGrado(this.matricula.id_grado_m)
+                  .subscribe((res: any) => {
+                    this.asignaturas = res;
+
+                    // RECORREMOS TODAS LAS SIGNATURAS DE UN CURSO PARA INSERTAR LAS NOTAS
+                    for (
+                      let i: any = id_periodo;
+                      i <= this.periodos.length;
+                      i++
+                    ) {
+                      // console.log(
+                      //   'Este es el identificador del periodo --> ',
+                      //   i
+                      // );
+
+                      for (let codigo_asignatura of this.asignaturas) {
+                        const nota: any = {
+                          id_asignatura_n: codigo_asignatura.id_asignatura,
+                          id_alumno_n: this.alumno.id_alumno,
+                          id_grupo_n: this.matricula.id_grupo_m ,
+                          id_periodo_n: i,
+                        };
+                        // INSERTAMOS EN LA TABLA NOTAS
+                        this.notaService
+                          .createNota(nota)
+                          .subscribe((res: any) => {
+                            console.log(res);
+                          });
+                        // console.log(
+                        //   `INSERT INTO notas(id_asi, id_alu, id_periodo) values (${nota.id_asignatura_n}, ${nota.id_alumno_n}, ${nota.id_periodo_n})`
+                        // );
+                      }
+                    }
+                  });
+
                 alert(res.msg);
+                let ref = document.getElementById('cancel');
+                ref?.click();
+                document.location.reload()
               },
               (err) =>
                 alert(
-                  'No se pudo crear el alumno, revise que no se este repitiendo el identificador'
+                  'No se pudo crear el alumno, revise que no se este repitiendo el identificador matricula'
                 )
             );
           },
           (err) =>
             alert(
-              'No se pudo crear el alumno, revise que no se este repitiendo el identificador'
+              'No se pudo crear el alumno, revise que no se este repitiendo el identificador alumno'
             )
         );
       },
-      (err) =>
+      (err: any) =>
         alert(
-          'No se pudo crear el alumno, revise que no se este repitiendo el identificador'
+          'No se pudo crear el alumno, revise que no se este repitiendo el identificador del usuario'
         )
     );
-    let ref = document.getElementById('cancel');
-    ref?.click();
-    // OBTENEMOS LAS ASIGNATURAS QUE PERTENECEN A ESTE EL GRADO INGRESADO
-    // this.cursoService
-    //   .getAsignaturaCurso(this.matricula.id_curso_m)
-    //   .subscribe((res: any) => {
-    //     this.asignaturas = res;
-    //     // RECORREMOS TODAS LAS SIGNATURAS DE UN CURSO PARA INSERTAR LAS NOTAS
-    //     for (let codigo_asignatura of this.asignaturas) {
-    //       const nota: any = {
-    //         id_asi: codigo_asignatura.id_asi,
-    //         id_alu: this.alumno.id_alumno,
-    //         id_periodo: id_periodo,
-    //       };
-    //       // INSERTAMOS EN LA TABLA NOTAS
-    //       this.alumnoService.createNota(nota).subscribe((res: any) => {
-    //         console.log(res);
-    //       });
-    //       console.log(
-    //         `INSERT INTO notas(id_asi, id_alu, id_periodo) values (${codigo_asignatura.id_asi}, ${this.alumno.id_alumno}, ${id_periodo})`
-    //       );
-    //     }
-    //     alert('Se ha registrado el alumno');
-    //     document.location.reload();
-    //   });
   }
 }

@@ -1,0 +1,115 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="asignarDocentes"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-xl text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="registrarGrado">
+           {{ grado.nombre_grado }}
+        </h5>
+        <button
+          type="button"
+          id="cancelar"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Cerrar
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <div class="card-header mt-4">
+            <div class="abs-center justify-content-center">
+              <form
+                method="post"
+                action="crud.component.html"
+                class="was-validated"
+              >
+              <div class="row g-3 align-items-center">
+                <div class="form-group mb-2 col-auto">
+                  <label for="tipoDocumento">Asignaturas: </label>
+                  <select
+                    name="tipo_documento"
+                    class="form-control form-select"
+                    [(ngModel)]="docente_asignatura.id_asignatura_ad"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    <option value="">Seleccione la asignatura</option>
+                    <option
+                      *ngFor="let asignatura of asignaturas"
+                      value="{{ asignatura.id_asignatura }}"
+                    >
+                      {{ asignatura.nombre_asignatura }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group mb-2 col-auto">
+                  <label for="tipoDocumento">Docentes: </label>
+                  <select
+                    name="tipo_documento"
+                    class="form-control form-select"
+                    [(ngModel)]="docente_asignatura.id_docente_ad"
+                    [ngModelOptions]="{ standalone: true }"
+                  >
+                    <option value="">Seleccione el docente a asignar</option>
+                    <option
+                      *ngFor="let docente of docentes"
+                      value="{{ docente.nif_docente }}"
+                    >
+                      {{ docente.nombre_docente }}
+                    </option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  (click)="createAsignacion()"
+                  class="btn btn-success mt-4 pb-2 pt-2  text-center col-auto "
+                >
+                  Agregar
+                </button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th>NIF_DOCENTE</th>
+              <th>NOMBRE DOCENTE</th>
+              <th>ASIGNATURA</th>
+              <th>ACCIÓN</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="showDocentes">
+            <tr *ngFor="let docente of docentesAsignatura">
+              <td>{{ docente.nif_docente }}</td>
+              <td>{{ docente.nombre_docente }}</td>
+              <td>{{ docente.nombre_asignatura | uppercase }}</td>
+              <td>
+                 <button
+                  (click)="deleteAsignaturaDocente(docente.id_asignatura, docente.nif_docente)"
+                  class="btn btn-danger ms-2 mb-2"
+                >
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="!showDocentes">
+          <h5 class="text-center">No tiene Docentes asigandos al Grado</h5>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-insert-alumno> </app-insert-alumno>

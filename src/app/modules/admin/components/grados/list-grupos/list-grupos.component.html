@@ -62,7 +62,7 @@
                       <div class="card-header text-center">
                         <div class="card-tittle">
                           <h3>
-                            {{ grupo.nombre_curso | uppercase }}
+                            {{ grupo.nombre_grado | uppercase }}
                             {{ grupo.nombre_grupo }}
                           </h3>
                         </div>
@@ -71,7 +71,7 @@
                         <button
                           type="button"
                           class="btn btn-secondary mb-2"
-                          routerLink="/admin/notas/{{ grupo.id_curso }}/{{
+                          routerLink="/admin/notas/{{ grupo.id_grado }}/{{
                             grupo.id_grupo
                           }}"
                         >

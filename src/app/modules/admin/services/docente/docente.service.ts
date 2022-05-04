@@ -43,7 +43,7 @@ export class DocenteService {
 // Actualiza la información del docente en la tabla docente
   updateDocente(nif_doc: number | string, docentes: Docente) {
     return this.http.put(
-      `${this.URL}/admin/docente/update/${nif_doc}`,
+      `${this.URL}/docente/update/${nif_doc}`,
       docentes
     );
   }
@@ -54,7 +54,7 @@ export class DocenteService {
 
   // Elimina el docente de la tabla docente
   deleteDocente(nif_doc: number) {
-    return this.http.delete(`${this.URL}/admin/docente/delete/${nif_doc}`);
+    return this.http.delete(`${this.URL}/docente/delete/${nif_doc}`);
   }
   // Elimina el docente de la tabla de usuario
   deleteUser(nif_doc:any){
