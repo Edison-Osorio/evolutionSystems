@@ -8,12 +8,8 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminPagesComponent } from './pages/admin-pages/admin-pages.component';
 import { AdminStartComponent } from './components/admin-start/admin-start.component';
-import { GruposComponent } from './components/grupos/grupos.component';
 
 import { NavigationAdminComponent } from './components/navigation-admin/navigation-admin.component';
-import { RegistroComponent } from './components/grupos/registro/registro.component';
-import { VerificarComponent } from './components/grupos/verificar/verificar.component';
-import { ActualizarComponent } from './components/grupos/actualizar/actualizar.component';
 
 import { HorarioComponent } from './components/horario/horario.component';
 import { AsignaturaComponent } from './components/asignatura/asignatura.component';
@@ -26,26 +22,22 @@ import { InsertDocenteComponent } from './components/docente/insert-docente/inse
 import { UpdateDocenteComponent } from './components/docente/update-docente/update-docente.component';
 import { AdminComponent } from './services/admin/admin.component';
 
-import { RegistroAsignaturasComponent } from './components/grupos/registro-asignaturas/registro-asignaturas.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
 import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
-import { GruposCrusoComponent } from './components/grupos/grupos-cruso/grupos-cruso.component';
 import { GradosComponent } from './components/grados/grados.component';
 import { InsertGradoComponent } from './components/grados/insert-grado/insert-grado.component';
 import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
 import { InsertAsignaturaComponent } from './components/grados/insert-asignatura/insert-asignatura.component';
 import { AsignarDocentesComponent } from './components/grados/asignar-docentes/asignar-docentes.component';
 import { NotasComponent } from './components/grados/notas/notas.component';
+import { BecaComponent } from './components/becas/becas.component';
+import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-becas.component';
 
 @NgModule({
   declarations: [
     AdminPagesComponent,
     AdminStartComponent,
-    GruposComponent,
     NavigationAdminComponent,
-    RegistroComponent,
-    VerificarComponent,
-    ActualizarComponent,
     InsertAlumnoComponent,
       HorarioComponent,
       AsignaturaComponent,
@@ -57,15 +49,17 @@ import { NotasComponent } from './components/grados/notas/notas.component';
       UpdateDocenteComponent,
       AdminComponent,
       NotasComponent,
-      RegistroAsignaturasComponent,
       AlumnoServicioComponent,
       AsignarHoraioComponent,
-      GruposCrusoComponent,
       GradosComponent,
       InsertGradoComponent,
       ListGruposComponent,
       InsertAsignaturaComponent,
       AsignarDocentesComponent,
+      BecaComponent,
+      //AlumnoServiciosComponent,
+      //AlumnoBecasComponent,
+      AlumnoBecasComponent
 
   ],
   imports: [

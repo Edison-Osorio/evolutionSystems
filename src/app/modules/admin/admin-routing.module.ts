@@ -12,6 +12,9 @@ import { AsignaturaComponent } from './components/asignatura/asignatura.componen
 import { GradosComponent } from './components/grados/grados.component';
 import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
 import { NotasComponent } from './components/grados/notas/notas.component';
+//import { BecasComponent } from './components/becas/becas.component';
+import { BecaComponent } from './components/becas/becas.component';
+import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-becas.component';
 
 
 const routes: Routes = [
@@ -75,6 +78,14 @@ const routes: Routes = [
     path:'servicios/alumno-servicios',
     component: AlumnoServicioComponent
   },
+  {
+    path: 'becas',
+    component: BecaComponent
+  },
+  {
+    path: 'becas/alumno-becas',
+    component: AlumnoBecasComponent
+},
   // {
   //   path:'becas',
   //   component: BecaComponent

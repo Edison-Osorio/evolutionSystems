@@ -1,0 +1,119 @@
+<app-navigation-admin></app-navigation-admin>
+<div>
+  <div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearBeca">
+      Crear beca
+    </button>
+    <button type="button" class="btn btn-primary ms-2" routerLinkActive="active" routerLink="/admin/becas">
+      Ver becas
+    </button>
+    <!-- Button modal -->
+    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#asignarBecaAlumno">
+      Asignarle beca a alumno
+    </button>
+  </div>
+</div>
+<p id="parrafo" class="text-decoration-underline">Los servicios cubren el coste de la beca</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID ALUMNO</th>
+      <th scope="col">NOMBRE</th>
+      <th scope="col">DESCRIPCION</th>
+      <th scope="col">ELIMINAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let alumnos_becas of beca_alumno">
+      <th scope="row">{{alumnos_becas.id_alumno}}</th>
+      <td>{{alumnos_becas.nombre_alumno}}</td>
+      <td>{{alumnos_becas.descripcion}}</td>
+      <td><button class="btn btn-danger" (click)="deleteAlumno_beca(alumnos_becas.codigo_beca,alumnos_becas.id_alumno)">
+          <i class="fa-solid fa-trash-can"></i>
+        </button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal crear beca  -->
+<div class="modal fade" id="crearBeca" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Crear beca</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">CODIGO </label>
+          <input class="form-control" type="number" name="cod_beca" [(ngModel)]="beca.cod_beca"
+            placeholder="Ingrese el codigo para la beca" required />
+        </div> -->
+        <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">DESCRIPCION </label>
+          <input class="form-control" type="text" name="des_beca" [(ngModel)]="beca.des_beca"
+            placeholder="Ingrese la descripcion" required />
+        </div>
+        <div class="form-group mb-2 col-auto">
+          <label for="cod_beca">CUPO </label>
+          <input class="form-control" type="number" name="cupo_beca" [(ngModel)]="beca.cupo_beca"
+            placeholder="Ingrese el cupo" required />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="createBeca()">Crear</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal asignarle beca a alumno -->
+<div class="modal fade" id="asignarBecaAlumno" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog text-black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Asignarle beca a alumno</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="refrehs()"></button>
+      </div>
+      <div class="form-group col-auto">
+        <label for="id_ciclo" class="col-form-label">Alumno: </label>
+        <select name="id_alu " class="form-control form-select" [(ngModel)]="alumno_beca.id_alumno"
+          [ngModelOptions]="{ standalone: true }" required="false">
+          <option value="0">Seleccione el Alumno ......</option>
+          <option *ngFor="let alumnos of alumnos" value="{{alumnos.id_alumno}}">
+            {{alumnos.id_alumno}} - {{alumnos.nombre_alumno}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-auto">
+        <label for="id_ciclo" class="col-form-label">Beca: </label>
+        <select name="id_alu " class="form-control form-select" [(ngModel)]="alumno_beca.codigo_beca"
+          [ngModelOptions]="{ standalone: true }" required="false">
+          <option value="0">Seleccione la beca ......</option>
+          <option *ngFor="let becas of becas" value="{{becas.codigo_beca}}">
+            {{becas.codigo_beca}} - {{becas.descripcion}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-auto">
+        <label for="id_ciclo" class="col-form-label">Servicio: </label>
+        <select name="id_alu " class="form-control form-select" [(ngModel)]="alumno_beca.id_servicio"
+          [ngModelOptions]="{ standalone: true }" required="false">
+          <option value="0">Seleccione el servicio ......</option>
+          <option *ngFor="let servicios of servicios" value="{{servicios.id_servicio}}">
+            {{servicios.id_servicio}} - {{servicios.tipo_servicio}}
+          </option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="createAlumno_beca()">Asignar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="refrehs()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
