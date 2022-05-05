@@ -1,6 +1,7 @@
+import { AsignaturaService } from '@modules/admin/services/asignatura/asignatura.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CursoService } from '@modules/admin/services/curso.service';
+import { NotaService } from '@shared/services/nota/nota.service';
 import { CookieService } from 'ngx-cookie-service';
 import decode from 'jwt-decode'
 
@@ -24,15 +25,16 @@ export class NotasComponent implements OnInit {
   notes: any = {};
 
   constructor(
-    private cursoService: CursoService,
+    private notaService: NotaService,
+    private asignaturaService:AsignaturaService,
     private activedRoute: ActivatedRoute,
     private cookie: CookieService
   ) {}
 
   ngOnInit(): void {
-    // this.getAsignatura();
-    // this.getTrimestres();
-    // this.getNotas();
+     this.getAsignatura();
+     this.getPeriodo();
+     this.getNotas();
   }
   decodeToken() {
     const token = this.cookie.get('token')!;
@@ -54,27 +56,27 @@ export class NotasComponent implements OnInit {
     this.identificador = params['id_curso']
     console.log('Este es el identificador --> ', this.identificador);
 
-     this.cursoService
-       .getAsignatura(params['id_curso'])
+     this.asignaturaService.listAsignaturaGrado(params['id_grado'])
        .subscribe((res: any) => {
          this.asignaturas = res;
+         console.log('Esta es la resuesta de las asignaturas --> ', this.asignaturas);
+
        });
   }
 
-  getTrimestres() {
-    this.cursoService.getTrimestres().subscribe((res: any) => {
-      this.trimestres = res;
-      console.log(res);
-
-    });
+  getPeriodo() {
+     this.notaService.listPeriodo().subscribe((res: any) => {
+       this.trimestres = res;
+       console.log(res);
+     });
   }
   getNotas() {
     const params = this.activedRoute.snapshot.params;
 
     console.log('Esson son los parametros --> ', params);
 
-     if (params['id_curso'] && params['id_grupo']) {
-       this.cursoService.getNotas(params['id_curso'], params['id_grupo']).subscribe((res: any) => {
+     if (params['id_grado'] && params['id_grupo']) {
+       this.notaService.listNotas(params['id_grado'], params['id_grupo']).subscribe((res: any) => {
          this.notasAll = res;
          console.log('Estas son las notas --> ', this.notasAll, res);
 
@@ -87,13 +89,14 @@ export class NotasComponent implements OnInit {
 
     this.selections();
     this.notasPeriodo = this.notasAll.filter(
-      (item: any) => item.id_periodo == value
-    );
+      (item: any) => item.id_periodo_n == value
+      );
+      console.log('Esta es la variable de notas perido -->', this.notasPeriodo)
     this.hidden = true
   }
   onSelectAsignatura(id: any) {
     const { value } = id;
-    this.notas = this.notasPeriodo.filter((item: any) => item.id_asi == value);
+    this.notas = this.notasPeriodo.filter((item: any) => item.id_asignatura_n == value);
 
     this.notes = this.notas;
     console.log('varibale notas', this.notes);
@@ -118,24 +121,23 @@ export class NotasComponent implements OnInit {
         this.notas.length
       );
       for (var nota = 0; nota < this.notas.length; nota++) {
-        const { id_asi, id_alu, id_periodo } = this.notas[nota];
-        console.log('-->', id_asi, '-->', id_alu, '-->', id_periodo);
-        delete this.notas[nota].id_asi;
-        delete this.notas[nota].id_alu;
-        delete this.notas[nota].id_periodo;
-        delete this.notas[nota].nom_alu;
-        delete this.notas[nota].nom_asi;
+        const { id_asignatura_n, id_alumno_n, id_periodo_n } = this.notas[nota];
+        console.log('-->', id_asignatura_n, '-->', id_alumno_n, '-->', id_periodo_n);
+        delete this.notas[nota].id_asignatura_n;
+        delete this.notas[nota].id_alumno_n;
+        delete this.notas[nota].id_periodo_n;
+        delete this.notas[nota].nombre_alumno;
+        delete this.notas[nota].id_grupo_n;
+        delete this.notas[nota].nombre_asignatura;
         delete this.notas[nota].nota_final
         let notas = this.notas[nota];
-        this.cursoService
-          .updateNota(id_asi, id_alu, id_periodo, notas)
-          .subscribe(
-            (res: any) => {
-              console.log(res);
-              document.location.reload();
-            },
-            (err) => console.log('Ocurrio un error ����', err)
-          );
+          this.notaService.updateNotas( id_alumno_n,id_asignatura_n, id_periodo_n, notas).subscribe(
+              (res: any) => {
+                console.log(res);
+                 document.location.reload();
+              },
+              (err) => console.log('Ocurrio un error ����', err)
+            );
         console.log(notas);
       }
       console.log('Termina el ciclo');
@@ -143,5 +145,4 @@ export class NotasComponent implements OnInit {
       console.log('Se actualizaron estas notas', this.notas);
     }
   }
-
 }

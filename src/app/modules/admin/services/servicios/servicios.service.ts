@@ -11,37 +11,37 @@ export class ServiciosService {
 
   //obtener servicios
   getServices() {
-    return this.http.get(`${this.URL}/admin/servicios`)
+    return this.http.get(`${this.URL}/servicios`)
   }
 
   //obtener un servicio
   getOneServices(cod_ser: any) {
-    return this.http.get(`${this.URL}/admin/servicios/${cod_ser}`)
+    return this.http.get(`${this.URL}/servicios/${cod_ser}`)
   }
 
   // le asigna el servicio al alumno
   createAlumno_servicio(alu_ser: any) {
-    return this.http.post(`${this.URL}/admin/alumno_servicio/add/`, alu_ser)
+    return this.http.post(`${this.URL}/alumno_servicio/add/`, alu_ser)
   }
 
   // le elimina el servicio al alumno
   deleteAlumno_Servicio(id_alumno: number, cod_servicio: number) {
-    return this.http.delete(`${this.URL}/admin/alu_ser/delete/${id_alumno}/${cod_servicio}`)
+    return this.http.delete(`${this.URL}/alumno_servicio/delete/${id_alumno}/${cod_servicio}`)
   }
 
   // obtiene los alumnos con servicios
   getAlumno_Servicio() {
-    return this.http.get(`${this.URL}/admin/alumno_servicio`)
+    return this.http.get(`${this.URL}/alumno_servicio`)
   }
 
   //  obtiene un solo alumno servicio
   getOne(id_alumno: any, cod_servicio: any) {
-    return this.http.get(`${this.URL}/admin/alumno_servicio/${id_alumno}/${cod_servicio}`)
+    return this.http.get(`${this.URL}/alumno_servicio/${id_alumno}/${cod_servicio}`)
   }
 
   // actualiza el servicio
   updateService(cod_ser: any, service: any) {
-    return this.http.put(`${this.URL}/admin/servicios/update/${cod_ser}`, service)
+    return this.http.put(`${this.URL}/servicios/update/${cod_ser}`, service)
   }
 
 }

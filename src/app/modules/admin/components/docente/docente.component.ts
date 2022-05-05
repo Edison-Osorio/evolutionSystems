@@ -52,20 +52,22 @@ export class DocenteComponent implements OnInit {
     );
   }
 
-  deleteDocente(nif_doc: number) {
+  deleteDocente(nif_docente: number) {
     if (
       confirm(
-        `¿Esta seguro de eliminar a el docente con documento = ${nif_doc}?`
+        `¿Esta seguro de eliminar a el docente con documento = ${nif_docente}?`
       )
     ) {
-      this.docenteService.deleteDocente(nif_doc).subscribe(
-        (res) => {},
-        (err) => console.log(err, nif_doc)
+      this.docenteService.deleteDocente(nif_docente).subscribe(
+        (res) => {
+          this.docenteService.deleteUser(nif_docente).subscribe((res) => {
+            alert(`Docente con el documento ${nif_docente} fue eliminado`);
+            document.location.reload();
+          });
+        },
+        (err) => alert('Ocurrio un error y no se pudo eliminar el docente ')
       );
-      this.docenteService.deleteUser(nif_doc).subscribe((res) => {
-        alert(`Docente con el documento = ${nif_doc} fue eliminado`);
-        document.location.reload();
-      });
+
     }
   }
 }

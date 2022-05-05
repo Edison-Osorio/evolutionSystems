@@ -13,7 +13,7 @@ export class GradoService {
   readonly URL = environment.api;
   constructor(private http:HttpClient) { }
 
-  // listamos todo los grupos registrados
+  // listamos todo los grados registrados
   listGrados(){
     return this.http.get(`${this.URL}/grado/grado`)
   }
@@ -23,6 +23,10 @@ export class GradoService {
     return this.http.get(`${this.URL}/grado/grupo`)
   }
 
+  //Listamos todos los ciclos de enseñanza
+  listCiclo(){
+    return this.http.get(`${this.URL}/grado/ciclo`)
+  }
   // Listamos todos los grados con sus grupos
   listAllGradosGrupos(){
     return this.http.get(`${this.URL}/grado/grado-grupo`)
@@ -32,13 +36,6 @@ export class GradoService {
 listGruposGrado(id_grado:any){
 return this.http.get(`${this.URL}/grado/grado-grupo/${id_grado}`)
 }
-
-
-
-
-
-
-
 
   // Creamos un grado
   createGrado(grado: Grado){

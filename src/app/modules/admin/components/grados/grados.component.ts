@@ -23,6 +23,7 @@ export class GradosComponent implements OnInit {
   listGrados() {
     this.gradoService.listGrados().subscribe((res: any) => {
       this.grados = res;
+
     });
   }
 
@@ -32,7 +33,8 @@ export class GradosComponent implements OnInit {
       this.gradoService.deleteGrado(id_grado).subscribe(
         (res: any) => {
           alert(res.msg);
-          document.location.reload();
+          // document.location.reload();
+          this.listGrados()
         },
         (err) => {
           alert('No se puede eliminar este grupo');

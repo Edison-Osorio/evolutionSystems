@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CursoService } from '@modules/admin/services/curso.service';
+// import { CursoService } from '@modules/admin/services/curso.service';
 import { HorarioService } from '@modules/admin/services/horario.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class AsignarHoraioComponent implements OnInit {
 
   constructor(
     private horarioServices: HorarioService,
-    private cursoServices: CursoService
+    // private cursoServices: CursoService
   ) {}
 
   ngOnInit(): void {
@@ -34,12 +34,12 @@ export class AsignarHoraioComponent implements OnInit {
     });
   }
 
-  listAsignaturas(){
-    this.cursoServices.getListAsignaturas().subscribe((res: any) => {
-      console.log('esta es la respuesta de las asignaturas -->', res);
-      this.asignaturas = res
-    })
-  }
+  // listAsignaturas(){
+  //   this.cursoServices.getListAsignaturas().subscribe((res: any) => {
+  //     console.log('esta es la respuesta de las asignaturas -->', res);
+  //     this.asignaturas = res
+  //   })
+  // }
 
   createAsignacion(){
     console.log('esta es la informacion que se va a insertar --> ', this.asignatura_horario);

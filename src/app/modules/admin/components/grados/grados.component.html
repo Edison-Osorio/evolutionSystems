@@ -44,42 +44,55 @@
               <div class="card-body mt-5">
                 <div class="row d-flex justify-content-center text-dark">
                   <div
-                    class="col-md-3 col-xl-2 mb-2"
+                    class="col-md-4 col-xl-3 mb-2"
                     *ngFor="let grado of grados"
                   >
                     <div class="card">
-                      <div class="card-header text-center">
-                        <div class="card-tittle">
-                          <h3>
-                            {{ grado.nombre_grado | uppercase }}
-                            {{ grado.nombre_grupo }}
-                          </h3>
-                          {{ grado.nombre_ciclo }}
+
+                        <div class="card-header text-center">
+                          <div class="card-tittle">
+                            <h3>
+                              {{ grado.nombre_grado | uppercase }}
+                              {{ grado.nombre_grupo }}
+                            </h3>
+                            {{ grado.tipo }}
+                          </div>
                         </div>
-                      </div>
-                      <div class="card-body">
-                        <button
-                          ttype="button"
-                          class="btn btn-primary btn-block mb-2 ms-1"
-                          data-bs-toggle="modal"
-                          data-bs-target="#asignarAsignaturas"
-                          (click)="cursoEmitidos(grado)"
-                        >
-                          Agregar Asignaturas
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-secondary btn-block mb-2 ms-3"
-                          routerLink="/admin/grupos/{{ grado.id_grado }}"
-                        >
-                          Ver grupos
-                        </button>
-                        <button
-                          class="btn btn-danger ms-3"
-                          (click)="deleteGrado(grado.id_grado)"
-                        >
-                          Eliminar <i class="fa-solid fa-trash-can"></i>
-                        </button>
+                        <div class="card-body">
+                          <div class="row g-3 align-items-center justify-content-center">
+                           <button
+                            type="button"
+                            class="btn btn-primary btn-block ms-1 col-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#asignarAsignaturas"
+                            (click)="cursoEmitidos(grado)"
+                          >
+                            Asignaturas
+                          </button>
+                            <button
+                              type="button"
+                              class="btn btn-primary btn-block ms-1 col-auto"
+                              data-bs-toggle="modal"
+                              data-bs-target="#asignarDocentes"
+                              (click)="cursoEmitidos(grado)"
+                            >
+                              Docentes
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-secondary btn-block ms-1 col-auto"
+                              routerLink="/admin/grupos/{{ grado.id_grado }}"
+                            >
+                              Ver grupos
+                            </button>
+                            <button
+                              class="btn btn-danger ms-1 col-auto"
+                              (click)="deleteGrado(grado.id_grado)"
+                            >
+                              Eliminar <i class="fa-solid fa-trash-can"></i>
+                            </button>
+
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -88,9 +101,10 @@
             </div>
           </div>
         </div>
+        <app-insert-grado></app-insert-grado>
+        <app-insert-asignatura></app-insert-asignatura>
+        <app-asignar-docentes></app-asignar-docentes>
       </div>
-      <app-insert-grado></app-insert-grado>
-      <app-insert-asignatura></app-insert-asignatura>
     </div>
   </div>
 </div>

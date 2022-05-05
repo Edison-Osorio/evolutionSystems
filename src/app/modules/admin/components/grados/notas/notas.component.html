@@ -1,0 +1,86 @@
+<app-navigation-admin></app-navigation-admin>
+<br />
+<br />
+<br />
+<div class="container-fluid">
+<div class="row d-flex justify-content-center">
+  <div class="col-md-12 col-xl-12">
+    <div class="col-md-12 d-flex">
+      <div>
+        <button
+        type="button"
+        class="btn btn-secondary"
+        routerLink="/admin/grupos/{{identificador}}"
+      >
+        <i class="fa-solid fa-arrow-left-long"></i> Volver a Grupos
+      </button>
+      </div>
+   <div>
+    <select name="periodo" id="" class="form-select ms-2" [(ngModel)]="selectedPeriodo" (change)="onSelectPeriodo($event.target)" >
+      <option value="">Selecciona periodo</option>
+      <option
+        *ngFor="let trimestre of trimestres"
+        value="{{ trimestre.id_periodo }}"
+      >
+        {{ trimestre.nombre_periodo }}
+      </option>
+    </select>
+   </div>
+    <div *ngIf="hidden">
+      <select name="asignatura" id="" class="form-select ms-4" [(ngModel)]="selectedAsignatura" (change)="onSelectAsignatura($event.target)">
+        <option value="">Selecciona Asignatura</option>
+        <option
+          *ngFor="let asignatura of asignaturas"
+          value="{{ asignatura.id_asignatura }}"
+        >
+          {{ asignatura.nombre_asignatura }}
+        </option>
+      </select>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-xl-12">
+        <div class="card mt-2">
+          <div class="card-header mt-2">
+            <form action="">
+              <div class=" col-md-12 col-xl-12 d-flex justify-content-end ">
+                <button type="submit" value="Enviar" class="btn btn-outline-success mb-3 me-md-5 " (click)="update()">
+                  Guardar cambios
+                </button>
+              </div>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th col>NOMBRES</th>
+                  <th col>TALLER 1</th>
+                  <th col>PARCIAL 1</th>
+                  <th col>TALLER 2</th>
+                  <th col>PARCIAL 2</th>
+                  <th col>
+                    evalua
+                  </th>
+                  <th col>NotaFinal
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let nota of notas">
+                  <td class="form-control-lg w-50" >{{ nota.nombre_alumno }}</td>
+                  <td><input type="number" class="form-control " name="nota1" [(ngModel)]="nota.nota1" [ngModelOptions]="{standalone: true}" id=""  step="any"> </td>
+                  <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota2" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
+                  <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota3" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
+                  <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota4" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
+                  <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota5" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
+                  <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota_final" [ngModelOptions]="{standalone: true}" id="" step="any"  readonly></td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
