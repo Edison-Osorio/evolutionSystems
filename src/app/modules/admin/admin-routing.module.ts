@@ -20,6 +20,8 @@ import { ListGruposComponent } from './components/grados/list-grupos/list-grupos
 //import { BecasComponent } from './components/becas/becas.component';
 import { BecaComponent } from './components/becas/becas.component';
 import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-becas.component';
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { DatosAdministradorComponent } from './components/administrador/datos-administrador/datos-administrador.component';
 
 
 const routes: Routes = [
@@ -103,6 +105,14 @@ const routes: Routes = [
   //   path:'becas/becas-alumnos',
   //   component: BecaAlumnoComponent
   // },
+  {
+    path:'administrador',
+    component:AdministradorComponent
+  },
+  {
+    path:'administrador/datos',
+    component:DatosAdministradorComponent
+  },
   {
     path: '**',
     redirectTo: '/admin/admin',

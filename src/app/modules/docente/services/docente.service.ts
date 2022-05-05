@@ -27,16 +27,16 @@ export class DocenteService {
   }
 
   getDocente(id: any) {
-    return this.http.get(`${this.URL}/admin/docente/${id}`);
+    return this.http.get(`${this.URL}/docente/${id}`);
   }
-  
+
     getNotas(id: any){
       return this.http.get(`${this.URL}/admin/nota/${id}`)
     }
 
   getTrimestres() {
     return this.http.get(`${this.URL}/admin/nota/trimestres/`);
-    
+
   }
 
   updateNota(id_asi:number, id_alu:number, id_periodo:number, notas:any){
@@ -44,6 +44,6 @@ export class DocenteService {
   }
 
   updateUser(id: any, user: any) {
-    return this.http.put(`${this.URL}/admin/docente/update/${id}`, user);
+    return this.http.put(`${this.URL}/docente/update/${id}`, user);
   }
 }

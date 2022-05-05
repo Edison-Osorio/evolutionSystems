@@ -1,40 +1,27 @@
-
 <!-- navegation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top cabecero">
   <div class="container-fluid">
     <a class="bnavegacion navbar-brand title-navegation" href="#">
-      <img
-        src="../../../../../assets/img/logo/logo.jpeg"
-        alt="logo"
-        class="logo img-navegation"
-      />{{ nameUser }}
+      <img src="../../../../../assets/img/logo/logo.jpeg" alt="logo" class="logo img-navegation" />{{ nameUser }}
     </a>
     <div class="text-center test-darck" id="navbarText">
       <div class="nav justify-content-end" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-black">
           <li class="nav-item">
             <h6 class="bnavegacion navbar-brand title-navegation" href="#">
-              <img  alt="logo" class="logo img-navegation" />
+              <img alt="logo" class="logo img-navegation" src="../../../../../assets/img/logo/logo.jpeg" />
               {{ nameUser }}
-          </h6>
+            </h6>
           </li>
         </ul>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a
-              class="nav-link btn btn-secondary text-center"
-              routerLinkActive="active"
-              routerLink="/docente/informations"
-              ><i class="fa-solid fa-id-card"></i> My Informcioón</a
-            >
+            <a class="nav-link btn btn-secondary text-center" routerLinkActive="active"
+              routerLink="/admin/administrador/datos"><i class="fa-solid fa-id-card"></i> Mi Información</a>
           </li>
           <li class="nav-item ms-1">
-            <a
-              class="nav-link btn btn-secondary text-center"
-              routerLinkActive="active"
-              (click)="salir()"
-              ><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a
-            >
+            <a class="nav-link btn btn-secondary text-center" routerLinkActive="active" (click)="salir()"><i
+                class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
           </li>
         </ul>
       </div>
@@ -48,72 +35,58 @@
 <!-- Inicio de la navegación de los botones -->
 <ul class="nav justify-content-center mt-5">
   <li class="nav-item m-1">
-    <button
-      class="btn btn-info m-2 form-control btn-block text-center"
-      routerLink="/admin/alumno/"
-      routerLinkActive="active"
-    >
+    <button class="btn btn-info m-2 form-control btn-block text-center" routerLink="/admin/alumno/"
+      routerLinkActive="active">
       Alumnos
     </button>
   </li>
   &nbsp;
   <li class="nav-item m-1">
-    <button
-      class="btn btn-info m-2 form-control btn-block text-center"
-      routerLink="/admin/docente/"
-      routerLinkActive="active"
-    >
+    <button class="btn btn-info m-2 form-control btn-block text-center" routerLink="/admin/docente/"
+      routerLinkActive="active">
       Docentes
     </button>
   </li>
   &nbsp;
   <li class="nav-item m-1">
-    <button
-      class="btn btn-info m-2 form-control btn-block text-center"
-      routerLink="/admin/grado/"
-      routerLinkActive="active"
-    >
+    <button class="btn btn-info m-2 form-control btn-block text-center" routerLink="/admin/grado/"
+      routerLinkActive="active">
       Grados
     </button>
   </li>
   &nbsp;
   <li class="nav-item m-1">
-    <button
-      class="btn btn-info m-2 form-control btn-block text-center"
-      routerLinkActive="active"
-      routerLink="/admin/horario/"
-    >
+    <button class="btn btn-info m-2 form-control btn-block text-center" routerLinkActive="active"
+      routerLink="/admin/horario/">
       Horario
     </button>
   </li>
   &nbsp;
   <li class="nav-item m-1">
-    <button
-      class="btn btn-info m-2 form-control btn-block text-center"
-      routerLinkActive="active"
-     routerLink="/admin/asignatura"
-    >
+    <button class="btn btn-info m-2 form-control btn-block text-center" routerLinkActive="active"
+      routerLink="/admin/asignatura">
       Asignaturas
     </button>
   </li>
   &nbsp;
   <li class="nav-item m-1">
-    <button
-      class="btn btn-info m-2 form-control btn-block text-center"
-      routerLinkActive="active"
-      routerLink="/admin/servicios"
-    >
+    <button class="btn btn-info m-2 form-control btn-block text-center" routerLinkActive="active"
+      routerLink="/admin/servicios">
       Servicios
     </button>
   </li>
+  &nbsp;
   <li class="nav-item m-1">
-    <button
-      class="btn btn-info m-2 form-control btn-block text-center"
-      routerLinkActive="active"
-      routerLink="/admin/becas"
-    >
+    <button class="btn btn-info m-2 form-control btn-block text-center" routerLinkActive="active"
+      routerLink="/admin/becas">
       Becas
     </button>
   </li>
+  &nbsp;
+  <li class="nav-item m-1">
+    <button class="btn btn-info m-2 form-control btn-block text-center" routerLinkActive="active"
+      routerLink="/admin/administrador">
+      Administradores
+    </button>
+  </li>
 </ul>
-

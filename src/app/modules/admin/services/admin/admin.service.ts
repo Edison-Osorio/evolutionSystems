@@ -78,7 +78,7 @@ export class AdminService {
   getHorario() {
     return this.http.get(`${this.URL}/admin/horario`)
   }
-  // crear 
+  // crear
   crateHorario(horario: any) {
     return this.http.post(`${this.URL}/admin/horario/add`, horario)
   }
@@ -94,5 +94,29 @@ export class AdminService {
   getOnoHorario(cod_hor: any) {
     return this.http.get(`${this.URL}/admin/horario/${cod_hor}`)
   }
+
+  // <-- ADMINISTRADORES --> \\
+
+  // obtener administradores
+  getAdministradores() {
+    return this.http.get(`${this.URL}/administrador`)
+  }
+
+  // elimina el administrador
+  deleteAdministrador(documento: any) {
+    return this.http.delete(`${this.URL}/administrador/delete/${documento}`)
+  }
+
+  //obtiene un sulo administrador
+  getOneAdministrador(documento: any) {
+    return this.http.get(`${this.URL}/administrador/${documento}`)
+  }
+
+  //actualiza el administrador
+  updateAdministrador(documento: any, user: any) {
+    return this.http.put(`${this.URL}/administrador/update/${documento}`, user)
+  }
+
+
 }
 

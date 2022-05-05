@@ -24,7 +24,7 @@ import { InsertAlumnoComponent } from './components/alumno/insert-alumno/insert-
 import { DocenteComponent } from './components/docente/docente.component';
 import { InsertDocenteComponent } from './components/docente/insert-docente/insert-docente.component';
 import { UpdateDocenteComponent } from './components/docente/update-docente/update-docente.component';
-import { AdminComponent } from './services/admin/admin.component';
+//import { AdminComponent } from './services/admin/admin.component';
 import { NotasComponent } from './components/grupos/notas/notas.component';
 import { RegistroAsignaturasComponent } from './components/grupos/registro-asignaturas/registro-asignaturas.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
@@ -38,6 +38,9 @@ import { InsertAsignaturaComponent } from './components/grados/insert-asignatura
 import { BecaComponent } from './components/becas/becas.component';
 //import { AlumnoServiciosComponent } from './components/becas/alumno-servicios/alumno-servicios.component';
 import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-becas.component';
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { DatosAdministradorComponent } from './components/administrador/datos-administrador/datos-administrador.component';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +60,7 @@ import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-bec
       DocenteComponent,
       InsertDocenteComponent,
       UpdateDocenteComponent,
-      AdminComponent,
+      //AdminComponent,
       NotasComponent,
       RegistroAsignaturasComponent,
       AlumnoServicioComponent,
@@ -70,7 +73,10 @@ import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-bec
       BecaComponent,
       //AlumnoServiciosComponent,
       //AlumnoBecasComponent,
-      AlumnoBecasComponent
+      AlumnoBecasComponent,
+      AdministradorComponent,
+      DatosAdministradorComponent,
+
 
   ],
   imports: [
