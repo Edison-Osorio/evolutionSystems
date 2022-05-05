@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
-import { CursoService } from '@modules/admin/services/curso.service';
+// import { CursoService } from '@modules/admin/services/curso.service';
 import { NotaService } from '@shared/services/nota/nota.service';
 
 @Component({

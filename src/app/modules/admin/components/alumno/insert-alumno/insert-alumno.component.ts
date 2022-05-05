@@ -1,7 +1,7 @@
 import { Alumno } from '@core/models/Alumno';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from '@core/models/User';
-import { CursoService } from '@modules/admin/services/curso.service';
+// import { CursoService } from '@modules/admin/services/curso.service';
 import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
 import { Router } from '@angular/router';
 import { GradoService } from '@modules/admin/services/grado/grado.service';

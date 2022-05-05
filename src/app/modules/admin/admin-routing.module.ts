@@ -8,7 +8,7 @@ import { AlumnoComponent } from './components/alumno/alumno.component';
 import { HorarioComponent } from './components/horario/horario.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
-import { AsignaturaComponent } from './components/asignatura/asignatura.component';
+// import { AsignaturaComponent } from './components/asignatura/asignatura.component';
 import { GradosComponent } from './components/grados/grados.component';
 import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
 import { NotasComponent } from './components/grados/notas/notas.component';
@@ -45,11 +45,6 @@ const routes: Routes = [
     component: NotasComponent
   },
 
-  // Routes of asignatura
-  {
-    path:'asignatura',
-    component: AsignaturaComponent
-  },
   // Routes of Teacher
   {
     path: 'docente',

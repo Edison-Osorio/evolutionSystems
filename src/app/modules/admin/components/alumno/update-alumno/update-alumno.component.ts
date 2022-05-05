@@ -1,4 +1,4 @@
-import { CursoService } from '@modules/admin/services/curso.service';
+// import { CursoService } from '@modules/admin/services/curso.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Alumno } from '@core/models/Alumno';
 import { User } from '@core/models/User';
@@ -37,7 +37,7 @@ export class UpdateAlumnoComponent implements OnInit {
 
   constructor(
     private alumnoService: AlumnoService,
-    private cursoService: CursoService,
+    // private cursoService: CursoService,
     private dateFormat: DatePipe,
     private router: Router
   ) {}

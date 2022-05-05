@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminService } from '@modules/admin/services/admin.service';
+// import { AdminService } from '@modules/admin/services/admin.service';
 import { AlumnoService } from '@modules/admin/services/alumno/alumno.service';
 import { ServiciosService } from '@modules/admin/services/servicios/servicios.service';
 

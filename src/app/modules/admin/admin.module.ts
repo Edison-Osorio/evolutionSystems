@@ -12,7 +12,6 @@ import { AdminStartComponent } from './components/admin-start/admin-start.compon
 import { NavigationAdminComponent } from './components/navigation-admin/navigation-admin.component';
 
 import { HorarioComponent } from './components/horario/horario.component';
-import { AsignaturaComponent } from './components/asignatura/asignatura.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlumnoComponent } from './components/alumno/alumno.component';
 import { UpdateAlumnoComponent } from './components/alumno/update-alumno/update-alumno.component';
@@ -40,7 +39,6 @@ import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-bec
     NavigationAdminComponent,
     InsertAlumnoComponent,
       HorarioComponent,
-      AsignaturaComponent,
       ServiciosComponent,
       AlumnoComponent,
       UpdateAlumnoComponent,
