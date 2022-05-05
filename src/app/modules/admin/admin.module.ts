@@ -1,4 +1,3 @@
-
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -38,38 +37,26 @@ import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-bec
     AdminStartComponent,
     NavigationAdminComponent,
     InsertAlumnoComponent,
-      HorarioComponent,
-      ServiciosComponent,
-      AlumnoComponent,
-      UpdateAlumnoComponent,
-      DocenteComponent,
-      InsertDocenteComponent,
-      UpdateDocenteComponent,
-      AdminComponent,
-      NotasComponent,
-      AlumnoServicioComponent,
-      AsignarHoraioComponent,
-      GradosComponent,
-      InsertGradoComponent,
-      ListGruposComponent,
-      InsertAsignaturaComponent,
-      AsignarDocentesComponent,
-      BecaComponent,
-      //AlumnoServiciosComponent,
-      //AlumnoBecasComponent,
-      AlumnoBecasComponent
-
+    HorarioComponent,
+    ServiciosComponent,
+    AlumnoComponent,
+    UpdateAlumnoComponent,
+    DocenteComponent,
+    InsertDocenteComponent,
+    UpdateDocenteComponent,
+    AdminComponent,
+    NotasComponent,
+    AlumnoServicioComponent,
+    AsignarHoraioComponent,
+    GradosComponent,
+    InsertGradoComponent,
+    ListGruposComponent,
+    InsertAsignaturaComponent,
+    AsignarDocentesComponent,
+    BecaComponent,
+    AlumnoBecasComponent,
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    // SharedModule,
-    FormsModule,
-HttpClientModule
-  ],
-  providers:[
-    DatePipe
-  ]
-
+  imports: [CommonModule, AdminRoutingModule, FormsModule, HttpClientModule],
+  providers: [DatePipe],
 })
-export class AdminModule { }
+export class AdminModule {}
