@@ -1,63 +1,64 @@
 <app-navagation-students></app-navagation-students>
-<div class="m-2">
-    <br>
-    <div class="page-header mt-5">
-        <br>
-        <h2>Sesion estudiante</h2>
-        <br>
+
+<div class="m-2 mt-4">
+  <div class="row text-center">
+    <div class="col-md-6">
+      <div class="card mt-4">
+        <div class="card-header mt-4">
+          <div class="card-body mt-4">
+            <legend>
+              <h5 class="text-center">Tus Servicios</h5>
+            </legend>
+            <div class="container">
+              <table class="table table-hover table table-responsive table-bordered text-center">
+                <thead>
+                  <tr class="fondotabla">
+                    <th>Servicios en los cuales estas </th>
+                    <th>Descripcion </th>
+                    <th>Valor </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let serviciosAlumno of serviciosAlumno">
+                    <td>{{serviciosAlumno.tipo_servicio}}</td>
+                    <td>{{serviciosAlumno.descripcion_servicio}}</td>
+                    <td>{{serviciosAlumno.valor}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <br>
-    <h6> Estas en la pagina de servicios</h6>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card mt-4">
-                <div class="card-header mt-4">
-                    <a routerLink="../estudiantes" class="btn btn-primary text-center">Principal</a>&nbsp;
-                    <a routerLink="../progamador" class="btn btn-primary text-center">Progamador</a>&nbsp;
-                    <a routerLink="../notas" class="btn btn-primary text-center">Notas</a>&nbsp;
-                    <a routerLink="../servicios" class="btn btn-primary text-center">Servicios</a>&nbsp;
-                    <div class="card-body mt-4">
-                        <form action="servicios.component.html">
-                            <fieldset>
-                                <legend><h5>Servicios</h5></legend>
-                                <select name="tiposervicios">
-                                    <option value="0">Seleccione un servicio</option>
-                                    <option value="1">Becas</option>
-                                    <option value="2">Comedor</option>
-                                    <option value="3">Excursion</option>
-                                    <option value="3">Ruta escolar</option>
-                                    <option value="4">Talleres</option>
-                                </select>
-                            </fieldset>
-                            <br>
-                            <input class="enviar" type="submit" value="Enviar" name="Enviar">
-                        </form>
-                    </div>
-                </div>
+    <div class="col-md-6 text-left text-justify">
+      <div class="text-left">
+        <div class="card mt-4">
+          <div class="card-header mt-4">
+            <div class="card-body mt-4">
+              <form action="servicios.component.html">
+                <fieldset>
+                  <legend>
+                    <h5 class="text-center">Nuevos servicios</h5>
+                  </legend>
+                  <select class="form-select" name="tiposervicios" [(ngModel)]="mensaje.id_servicio_m">
+                    <option value="0" > Seleccione un servicio</option>
+                    <option *ngFor=" let servicios of servicios"  value="{{servicios.id_servicio}}" >
+                      {{servicios.tipo_servicio}}
+                    </option>
+                  </select>
+                  <br>
+                  <br>
+                  <input  class="form-control"
+                    type="text" name="mensaje" placeholder="Ingrese su mensaje de solicitud" [(ngModel)]="mensaje.mensaje" required />
+                </fieldset>
+                <br>
+                <button class=" btn btn-success" (click)="guardarSolicitud()" >Enviar</button>
+              </form>
             </div>
+          </div>
         </div>
-        <div class="col-md-4 text-white text-justify">
-            <div class="infromacion text-left">
-                <div class="card mt-4">
-                    <div class="card-header mt-4">
-                        <div class="fondo">
-                            <h3>Nombre del estudiante</h3>
-                            <p>Numero de identificacion
-                            <p>
-                            <p>Fecha de nacimiento
-                            <p>
-                            <p>Grado</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="card mt-4">
-                <div class="card-header text-lef">
-                    <p class="fondop">Evolution sisteam</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>

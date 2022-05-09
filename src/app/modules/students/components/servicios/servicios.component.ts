@@ -1,4 +1,8 @@
+import { StudentsService } from './../../services/students.service';
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import decode from 'jwt-decode';
+import { ServiciosService } from '@modules/admin/services/servicios/servicios.service';
 
 @Component({
   selector: 'app-servicios',
@@ -6,10 +10,70 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements OnInit {
+  servicios: any = []
+  a: any = []
+  serviciosAlumno: any = []
+  disabled: boolean = true
+  mensaje: any = {
+    mensaje: '',
+    id_alumno_m: '',
+    id_servicio_m: 0
+  }
 
-  constructor() { }
-
+  constructor(private studentsService: StudentsService, private cookie: CookieService) { }
   ngOnInit(): void {
+    this.alumnoToken()
+    this.getServicios()
+    this.servicioAlumno()
+
+  }
+
+  servicioAlumno() {
+    this.studentsService.getServiciosAlumno(this.alumnoToken()).subscribe(
+      res => {
+        this.serviciosAlumno = res
+      }
+    )
+  }
+  //this.getServicioscom()
+  getServicios() {
+    this.studentsService.alumnoOutService(this.alumnoToken()).subscribe(
+      res => {
+        console.log(res)
+        this.servicios = res;
+        //console.log(this.servicios);
+
+        //if (this.servicios.id_servicio!=null) {
+        //this.a=this.servicios
+        //console.log(this.a)
+        //}
+
+
+      }
+    )
+  }
+
+
+
+  alumnoToken() {
+    const token = this.cookie.get('token')!;
+    let decodetoken: any = {};
+    decodetoken = decode(token)
+
+    return decodetoken.documento
+  }
+
+  guardarSolicitud() {
+    this.mensaje.id_alumno_m = this.alumnoToken()
+    if (confirm('¿ Esta seguro de enviar esta solicitud ?')) {
+      this.studentsService.guardarSolicitud(this.mensaje).subscribe(
+        res => {
+          alert('Se envio la solicitud del servicio')
+        }, err => console.log(err)
+      )
+    } else {
+      alert('Se cancelo la solicitud')
+    }
   }
 
 }

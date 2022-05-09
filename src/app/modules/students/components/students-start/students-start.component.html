@@ -1,50 +1,55 @@
-<div class="m-2">
-        <app-navagation-students></app-navagation-students>
-        <br>
-        <div class="page-header mt-5">
-            <br>
-            <h2>Sesion estudiante</h2>
-            <br>
+<app-navagation-students></app-navagation-students>
+<div>
+  <div class="page-header ">
+    <h2>Sesion estudiante</h2>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card ">
+        <div class="card-header ">
+          <div class="card-body ">
+            <p>Esta es la intitucion evolution system, esta pagina wed esta generada para que tu
+              como
+              estudiante
+              puedas tener una mayor agilidd con la visulizacion de sus notas, mejorar las
+              posivilidades de
+              acceso a becas y servicios que ofrece nuestra institucion</p>
+          </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card mt-4">
-                    <div class="card-header mt-4">
-                        <div class="card-body mt-4">
-                            <p>Esta es la intitucion evolution system, esta pagina wed esta generada para que tu
-                                como
-                                estudiante
-                                puedas tener una mayor agilidd con la visulizacion de sus notas, mejorar las
-                                posivilidades de
-                                acceso a becas y servicios que ofrece nuestra institucion</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-white text-justify">
-                <div class="infromacion text-left">
-                    <div class="card mt-4">
-                        <div class="card-header mt-4">
-                            <div class="fondo">
-                                <h3>Nombre del estudiante</h3>
-                                <p>Numero de identificacion
-                                <p>
-                                <p>Fecha de nacimiento
-                                <p>
-                                <p>Grado</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card mt-4">
-                    <div class="card-header text-lef">
-                        <p class="fondop">Evolution sisteam</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="col text-white text-justify">
+      <div class="infromacion text-left">
+        <div class="card">
+          <div class="card-header ">
+            <div class="fondo">
+              <h3>Tus datos: </h3>
+              <p class="fw-normal" id="parrafo"> Nombre: {{alumnoGrado.nombre_alumno}}</p>
+              <p class="fw-normal" id="parrafo">Numero de identificacion: {{alumnoGrado.id_alumno}}</p>
+              <p class="fw-normal" id="parrafo">Fecha de nacimiento: {{alumnoGrado.fecha_nacimiento|date :'dd-MM-yyyy'}}
+              </p>
+              <p class="fw-normal" id="parrafo">Grado: {{alumnoGrado.nombre_grado}} ° {{alumnoGrado.nombre_grupo}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div *ngIf="hidden">
+  <p class="ms-2" id="parrafo">Si tienes alguna baca aparecera debajo</p>
+  <div>
+    <p *ngFor="let ib of informacionBeca" class=" ms-2" id="parrafo">{{ib.nombre_alumno}} tu beca con codigo
+      {{ib.codigo_beca}}: {{ib.descripcion}} es cubierta por el servicio {{ib.tipo_servicio}}</p>
+  </div>
+</div>
 
+<footer>
+  <div class="card mt-4">
+    <div class="card-header text-lef">
+      <p class="fondop">Evolution Systems</p>
+    </div>
+  </div>
+</footer>

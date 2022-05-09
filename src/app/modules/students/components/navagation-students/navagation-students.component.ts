@@ -1,5 +1,7 @@
-import { CookieService } from 'ngx-cookie-service';
+import { StudentsService } from './../../services/students.service';
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import decode from 'jwt-decode';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,15 +10,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./navagation-students.component.css']
 })
 export class NavagationStudentsComponent implements OnInit {
-
-  constructor(private cookie: CookieService, private router:Router) { }
+  informacion: any = []
+  constructor(private studentsService: StudentsService, private cookie: CookieService, private router: Router) { }
 
   ngOnInit(): void {
+    this.information()
   }
-  
-  salir(){
-this.cookie.delete('token', '/')
-this.router.navigate(['/'])
-  }
+  information() {
+    const token = this.cookie.get('token');
 
+    let decodetoken: any = {};
+    decodetoken = decode(token);
+
+
+    this.informacion = decodetoken
+
+
+  }
+  salir() {
+    this.cookie.delete('token', '/')
+    this.router.navigate(['/'])
+  }
 }

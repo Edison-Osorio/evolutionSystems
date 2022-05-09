@@ -1,0 +1,73 @@
+<app-navagation-students></app-navagation-students>
+
+<div>
+  <div class="text-justify text-dark m-3">
+    <div class="mt-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-justify">
+            <div class="card">
+              <div class="card-header">
+                <h2>Información</h2>
+              </div>
+              <div class="card-body btn-info">
+                <form class="cad-body">
+                  <img src="../../../../../assets/img/logo/logoUser.webp" alt="foto  " />
+                  <div class="form-group">
+                    <label for="documento" class="col-form-label">Documento:
+                    </label>
+                    <input type="text" name="documento" [(ngModel)]="estudiante.id_alumno" class="form-control"
+                      readonly />
+                  </div>
+                  <div class="form-group">
+                    <label for="nombre" class="col-form-label">Nombre:
+                    </label>
+                    <input type="text" name="nombre" [(ngModel)]="estudiante.nombre_alumno" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="nombre" class="col-form-label">Fecha nacimiento:
+                    </label>
+                    <input type="date" name="fecha" [(ngModel)]="estudiante.fecha_nacimiento " class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="Telefono" class="col-form-label">Telefono:
+                    </label>
+                    <input type="text" name="Telefono" [(ngModel)]="estudiante.telefono_alumno" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="col-form-label">Email:
+                    </label>
+                    <input type="text" name="email" [(ngModel)]="user.email" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="dir" class="col-form-label">Direccion:
+                    </label>
+                    <input type="text" name="dir" [(ngModel)]="estudiante.direccion_alumno" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="nom_ma" class="col-form-label">Nombre de la madre:
+                    </label>
+                    <input type="text" name="nom_ma" [(ngModel)]="estudiante.nombre_mama" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="nom_pa" class="col-form-label">Nombre de la padre:
+                    </label>
+                    <input type="text" name="nom_pa" [(ngModel)]="estudiante.nombre_papa" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="dato" class="col-form-label">Dato bancario:
+                    </label>
+                    <input type="text" name="dato" [(ngModel)]="estudiante.dato_banco_alumno" class="form-control" />
+                  </div>
+                  <br />
+                  <button type="button" class="btn btn-success" (click)="updateAlumno()">
+                    Actualizar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,105 +1,40 @@
-
 <app-navagation-students></app-navagation-students>
-<div class="m-2">
-    <br>
-    <div class="page-header mt-5">
-        <br>
-        <h2>Sesion estudiante</h2>
-        <br>
-    </div>
-    <br>
-    <h6> Estas en la pagina de notas</h6>
+<div class="m-2 mt-4">
     <div class="row">
-        <div class="col-md-8">
-            <div class="card mt-4">
-                <div class="card-header mt-4">
-                    <a routerLink="../estudiantes" class="btn btn-primary text-center">Principal</a>&nbsp;
-                    <a routerLink="../progamador" class="btn btn-primary text-center">Progamador</a>&nbsp;
-                    <a routerLink="../notas" class="btn btn-primary text-center">Notas</a>&nbsp;
-                    <a routerLink="../servicios" class="btn btn-primary text-center">Servicios</a>
-                    <div class="card-body mt-4">
-                        <p>Esta en la sesion de notas</p>
-                    </div>
-                    <table class="table table-responsive table-bordered">
-                        <thead>
-                            <tr class="fondotabla">
-                                <th>Materia</th>
-                                <th>Nota1</th>
-                                <th>Nota2</th>
-                                <th>Nota3</th>
-                                <th>NotaEvaluacion</th>
-                                <th>Nota final</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="fondomateria"><h6 class="fondomateria">Tecnologia</h6></td>
-                                <td>Doe</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                            </tr>
-                            <tr>
-                                <td class="fondomateria"><h6 class="fondomateria">Artes</h6></td>
-                                <td>Thomas</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                            </tr>
-                            <tr>
-                                <td class="fondomateria"><h6 class="fondomateria">Ciencias naturalez y salud
-                                </h6></td>
-                                <td>Jim</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                            </tr>
-                            <tr>
-                                <td class="fondomateria"><h6 class="fondomateria">Humanidades</h6></td>
-                                <td>Jim</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                            </tr>
-                            <tr>
-                                <td class="fondomateria"><h6 class="fondomateria">Ciencias sociales</h6></td>
-                                <td>Jim</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                                <td>10:00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 text-white text-justify">
-            <div class="infromacion text-left">
-                <div class="card mt-4">
-                    <div class="card-header mt-4">
-                        
-                            <h3>Nombre del estudiante</h3>
-                            <p>Numero de identificacion
-                            <p>
-                            <p>Fecha de nacimiento
-                            <p>
-                            <p>Grado</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="col-md-12">
             <div class="card mt-4">
-                <div class="card-header text-lef">
-                    <p class="fondopie">Evolution sisteam</p>
+                <div class="card-header mt-4">
+                    <div class="card-body mt-4">
+                        <h5 class="text-center">Notas</h5>
+                        <div class="container">
+                            <table class="table table-responsive table-bordered table-hover">
+                                <thead>
+                                    <tr class="fondotabla">
+                                        <th>Materia</th>
+                                        <th>Nota1</th>
+                                        <th>Nota2</th>
+                                        <th>Nota3</th>
+                                        <th>Nota4</th>
+                                        <th>Nota5</th>
+                                        <th>Nota final</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let notas of notas">
+                                        <td class="fondomateria">
+                                            <h6 class="fondomateria">{{notas.nom_asi}}</h6>
+                                        </td>
+                                        <td>{{notas.nota1}}</td>
+                                        <td>{{notas.nota2}}</td>
+                                        <td>{{notas.nota3}}</td>
+                                        <td>{{notas.nota4}}</td>
+                                        <td>{{notas.nota5}}</td>
+                                        <td>{{notas.nota_final}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
