@@ -15,8 +15,7 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (!this.authService.isAuth()) {
-      console.log('Token no es válido ó ya inspiró ');
-
+      // console.log('Token no es válido ó ya inspiró ');
       this.router.navigateByUrl('auth/login');
       return false;
     }

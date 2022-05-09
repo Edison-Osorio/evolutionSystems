@@ -26,6 +26,10 @@ export class AlumnoService {
   getOneUsuario(id_alu:any){
   return this.http.get(`${this.URL}/auth/list/${id_alu}`)
   }
+// Listamos los alumnos segun el identificador del grado y del grupo
+listAlumnoGradoGrupo(id_grado: any, id_grupo: any){
+return this.http.get(`${this.URL}/alumno/alumnos-grado-grupo/${id_grado}/${id_grupo}`)
+}
 // Creamos un alumno
   createAlumno(alumno:Alumno){
     return this.http.post(`${this.URL}/alumno/add-alumno`, alumno )

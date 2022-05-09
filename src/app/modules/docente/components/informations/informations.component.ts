@@ -13,13 +13,13 @@ import { DatePipe } from '@angular/common';
 })
 export class InformationsComponent implements OnInit {
   user: any = {
-    nif_doc: '',
-    area_doc: '',
-    nom_doc: '',
-    dir_doc: '',
-    fec_nac_doc: Date,
-    tel_doc: '',
-    dat_ban_doc: '',
+    nif_docente: '',
+    //area_doc: '',
+    nomre_docente: '',
+    direccion_docente: '',
+    fecha_nacimiento_docente: Date,
+    telefono_docente: '',
+    dato_banco_docente: '',
   };
   constructor(
     private cookie: CookieService,
@@ -30,8 +30,8 @@ export class InformationsComponent implements OnInit {
   ngOnInit(): void {
     this.docenteService.getDocente(this.decodeToken()).subscribe((res: any) => {
       this.user = res;
-      this.user.fec_nac_doc = this.dateFormat.transform(
-        this.user.fec_nac_doc,
+      this.user.fecha_nacimiento_docente = this.dateFormat.transform(
+        this.user.fecha_nacimiento_docente,
         'yyyy-MM-dd'
       );
     });
@@ -39,7 +39,7 @@ export class InformationsComponent implements OnInit {
   }
 
   updateUser() {
-    const id = this.user.nif_doc;
+    const id = this.user.nif_docente;
     delete this.user.nif_doc;
     delete this.user.nom_doc;
     delete this.user.fec_nac_doc;

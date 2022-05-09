@@ -1,0 +1,88 @@
+<app-navigation-admin></app-navigation-admin>
+
+<div class="container mt-5">
+    <button
+        type="button"
+        class="btn btn-secondary w-auto h-25 mb-3"
+        routerLink="/admin/grupos/{{identificador}}"
+      >
+        <i class="fa-solid fa-arrow-left-long"></i> Volver a Grupos
+      </button>
+    <div class="row text-black">
+        <div class="col-md-4 col-xl-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3>Asignar Horarios</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-group mb-2">
+                            <select name="asignatura" [(ngModel)]="horario.id_asignatura_ah" id="" class="form-select">
+                                <option value="">Seleccione la Asignatura</option>
+                                <option *ngFor="let horario of asignaturas" value="{{horario.id_asignatura}}">{{horario.nombre_asignatura}} </option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <select name="horario"
+                            [(ngModel)]="horario.id_horario_ah" id="" class="form-select">
+                                <option value="">Seleccione el horario</option>
+                                <option *ngFor="let horario of horarios" value="{{horario.id_horario}}">{{horario.dia}} {{horario.hora}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" (click)="createHorarioAsignatura()">
+                                Agregar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-xl-8">
+            <div class="card text-center">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h4>Horarios Asignados</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-group mb-3">
+                            <select name="asignatura" [(ngModel)]="selectedAsignatura" (change)=" onSelectAsignatura($event.target)" class="form-select w-50">
+                                <option value="">Filtrar por asignaturas</option>
+                                <option *ngFor="let horario of asignaturas" value="{{horario.id_asignatura}}">{{horario.nombre_asignatura}} </option>
+                            </select>
+                        </div>
+                    </form>
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ASIGNATURA</th>
+                                <th>DÍA</th>
+                                <th>HORA</th>
+                                <th>ACCION</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="showHorario">
+                            <tr *ngFor="let horarios of horarioGradoGrupo ">
+                                <td>{{horarios.nombre_asignatura | uppercase}}</td>
+                                <td>{{horarios.dia | uppercase}}</td>
+                                <td>{{horarios.hora }}</td>
+                                <td>
+                                    <button class="btn btn-danger" (click)="deleteHorarioAsignatura(horarios.id_asignatura, horarios.id_horario)">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div *ngIf="!showHorario">
+                        <h5 class="text-center">No tiene horarios asignados a este grupo</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

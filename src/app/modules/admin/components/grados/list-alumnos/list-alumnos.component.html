@@ -1,0 +1,44 @@
+<app-navigation-admin></app-navigation-admin>
+
+
+<div class="container fluid">
+    <div class="row">
+        <div class="col-md-12 col-xl-12 text-center">
+            <div class="card text-dark">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h2>Listado de alumnos</h2>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th>DOCUMENTO</th>
+                            <th>NOMBRES</th>
+                            <th>DIRECCIÓN</th>
+                            <th>TELEFONO</th>
+                            <th>FECHA NACIMIENTO</th>
+                            <th>NOMBRE PAPÁ</th>
+                            <th>NOMBRE MAMÁ</th>
+                            <th>CUENTA BANCO</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let alumno of alumnos">
+                            <td>{{ alumno.id_alumno }}</td>
+                            <td>{{ alumno.nombre_alumno | uppercase }}</td>
+                            <td>{{ alumno.direccion_alumno | uppercase }}</td>
+                            <td>{{ alumno.telefono_alumno | uppercase }}</td>
+                            <td>{{ alumno.fecha_nacimiento | date: "dd/MM/yyyy" }}</td>
+                            <td>{{ alumno.nombre_papa }}</td>
+                            <td>{{ alumno.nombre_mama }}</td>
+                            <td>{{ alumno.dato_banco_alumno }}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

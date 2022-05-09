@@ -18,10 +18,7 @@ import { InsertAlumnoComponent } from './components/alumno/insert-alumno/insert-
 import { DocenteComponent } from './components/docente/docente.component';
 import { InsertDocenteComponent } from './components/docente/insert-docente/insert-docente.component';
 import { UpdateDocenteComponent } from './components/docente/update-docente/update-docente.component';
-import { AdminComponent } from './services/admin/admin.component';
-
 import { AlumnoServicioComponent } from './components/servicios/alumno-servicio/alumno-servicio.component';
-import { AsignarHoraioComponent } from './components/horario/asignar-horaio/asignar-horaio.component';
 import { GradosComponent } from './components/grados/grados.component';
 import { InsertGradoComponent } from './components/grados/insert-grado/insert-grado.component';
 import { ListGruposComponent } from './components/grados/list-grupos/list-grupos.component';
@@ -30,6 +27,11 @@ import { AsignarDocentesComponent } from './components/grados/asignar-docentes/a
 import { NotasComponent } from './components/grados/notas/notas.component';
 import { BecaComponent } from './components/becas/becas.component';
 import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-becas.component';
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { DatosAdministradorComponent } from './components/administrador/datos-administrador/datos-administrador.component';
+import { HorarioAsignadoComponent } from './components/grados/horario-asignado/horario-asignado.component';
+import { ListAlumnosComponent } from './components/grados/list-alumnos/list-alumnos.component';
+
 
 @NgModule({
   declarations: [
@@ -37,24 +39,28 @@ import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-bec
     AdminStartComponent,
     NavigationAdminComponent,
     InsertAlumnoComponent,
-    HorarioComponent,
-    ServiciosComponent,
-    AlumnoComponent,
-    UpdateAlumnoComponent,
-    DocenteComponent,
-    InsertDocenteComponent,
-    UpdateDocenteComponent,
-    AdminComponent,
-    NotasComponent,
-    AlumnoServicioComponent,
-    AsignarHoraioComponent,
-    GradosComponent,
-    InsertGradoComponent,
-    ListGruposComponent,
-    InsertAsignaturaComponent,
-    AsignarDocentesComponent,
-    BecaComponent,
-    AlumnoBecasComponent,
+      HorarioComponent,
+      ServiciosComponent,
+      AlumnoComponent,
+      UpdateAlumnoComponent,
+      DocenteComponent,
+      InsertDocenteComponent,
+      UpdateDocenteComponent,
+      NotasComponent,
+      AlumnoServicioComponent,
+      GradosComponent,
+      InsertGradoComponent,
+      ListGruposComponent,
+      InsertAsignaturaComponent,
+      AsignarDocentesComponent,
+      BecaComponent,
+      AlumnoBecasComponent,
+      AdministradorComponent,
+      DatosAdministradorComponent,
+      HorarioAsignadoComponent,
+      ListAlumnosComponent,
+
+
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule, HttpClientModule],
   providers: [DatePipe],

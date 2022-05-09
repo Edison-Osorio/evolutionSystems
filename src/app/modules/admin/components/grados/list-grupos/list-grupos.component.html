@@ -65,28 +65,53 @@
                             {{ grupo.nombre_grado | uppercase }}
                             {{ grupo.nombre_grupo }}
                           </h3>
+                          Cantidad de alumnos: {{ grupo.alumnos }}
                         </div>
                       </div>
                       <div class="card-body">
-                        <button
+                        <div
+                          class="row g-3 align-items-center justify-content-center"
+                        >
+                          <button
+                            type="button"
+                            class="btn btn-secondary mb-2 col-auto"
+                            routerLink="/admin/alumnos/{{ grupo.id_grado }}/{{
+                              grupo.id_grupo
+                            }}"
+                          >
+                            Alumnos
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-secondary mb-2 ms-1 col-auto"
+                            routerLink="/admin/notas/{{ grupo.id_grado }}/{{
+                              grupo.id_grupo
+                            }}"
+                          >
+                            Notas
+                          </button>
+                          <button
                           type="button"
-                          class="btn btn-secondary mb-2"
-                          routerLink="/admin/notas/{{ grupo.id_grado }}/{{
+                          class="btn btn-secondary mb-2 ms-1 col-auto"
+                          routerLink="/admin/horario/{{ grupo.id_grado }}/{{
                             grupo.id_grupo
                           }}"
                         >
-                          Asignar notas
+                          Horario
                         </button>
-                        <button class="btn btn-danger ms-2">
-                          <!-- (click)="deleteGrado(curso.id_curso)" -->
-                          Eliminar <i class="fa-solid fa-trash-can"></i>
-                        </button>
+                          <button class="btn btn-danger mb-2 ms-1 col-auto">
+                            <!-- (click)="deleteGrado(curso.id_curso)" -->
+                             <i class="fa-solid fa-trash-can"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div *ngIf="!showGrupos">
-                  <h5 class="text-center text-black">No tiene Grupos asignados</h5>
+                  <h5 class="text-center text-black">
+                    No tiene Grupos asignados
+                  </h5>
                 </div>
               </div>
             </div>

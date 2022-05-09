@@ -98,7 +98,6 @@ export class AlumnoBecasComponent implements OnInit {
         }, err => {
           console.log(err)
           alert('Codigo de beca o ID del alumno repetido')
-          { document.location.reload() }
         }
       )
     } else { alert('Cancelado') }

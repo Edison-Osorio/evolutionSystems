@@ -15,6 +15,10 @@ import { NotasComponent } from './components/grados/notas/notas.component';
 //import { BecasComponent } from './components/becas/becas.component';
 import { BecaComponent } from './components/becas/becas.component';
 import { AlumnoBecasComponent } from './components/becas/alumno-becas/alumno-becas.component';
+import { AdministradorComponent } from './components/administrador/administrador.component';
+import { DatosAdministradorComponent } from './components/administrador/datos-administrador/datos-administrador.component';
+import { HorarioAsignadoComponent } from './components/grados/horario-asignado/horario-asignado.component';
+import { ListAlumnosComponent } from './components/grados/list-alumnos/list-alumnos.component';
 
 
 const routes: Routes = [
@@ -42,7 +46,11 @@ const routes: Routes = [
   },
   {
     path:'notas/:id_grado/:id_grupo',
-    component: NotasComponent
+    component:NotasComponent 
+  },
+  {
+    path: 'alumnos/:id_grado/:id_grupo',
+    component: ListAlumnosComponent
   },
 
   // Routes of Teacher
@@ -55,13 +63,9 @@ const routes: Routes = [
     path:'horario',
     component: HorarioComponent
   },
-  // {
-  //   path:'asignar-horio',
-  //   component: AsignarHoraioComponent
-  // },
   {
-    path:'horario/:cod_gra',
-    component: HorarioComponent
+    path:'horario/:id_grado/:id_grupo',
+    component: HorarioAsignadoComponent
   },
   // routes of services
   {
@@ -89,6 +93,14 @@ const routes: Routes = [
   //   path:'becas/becas-alumnos',
   //   component: BecaAlumnoComponent
   // },
+  {
+    path:'administrador',
+    component:AdministradorComponent
+  },
+  {
+    path:'administrador/datos',
+    component:DatosAdministradorComponent
+  },
   {
     path: '**',
     redirectTo: '/admin/admin',

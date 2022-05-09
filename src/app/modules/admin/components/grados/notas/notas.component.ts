@@ -53,7 +53,7 @@ export class NotasComponent implements OnInit {
 
   getAsignatura() {
     const params = this.activedRoute.snapshot.params;
-    this.identificador = params['id_curso']
+    this.identificador = params['id_grado']
     console.log('Este es el identificador --> ', this.identificador);
 
      this.asignaturaService.listAsignaturaGrado(params['id_grado'])

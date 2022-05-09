@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AsignarHoraioComponent } from './asignar-horaio.component';
+import { DatosAdministradorComponent } from './datos-administrador.component';
 
-describe('AsignarHoraioComponent', () => {
-  let component: AsignarHoraioComponent;
-  let fixture: ComponentFixture<AsignarHoraioComponent>;
+describe('DatosAdministradorComponent', () => {
+  let component: DatosAdministradorComponent;
+  let fixture: ComponentFixture<DatosAdministradorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AsignarHoraioComponent ]
+      declarations: [ DatosAdministradorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AsignarHoraioComponent);
+    fixture = TestBed.createComponent(DatosAdministradorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
