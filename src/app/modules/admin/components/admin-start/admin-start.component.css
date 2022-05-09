@@ -1,6 +1,6 @@
 
 a{
-   
+
     Color: black;
     font-style: arial;
     font-weight: bold;
@@ -58,3 +58,9 @@ h6{
 .logo{
     width: 60px;
 }
+
+/* #parrafo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  font-size: x-large;
+} */

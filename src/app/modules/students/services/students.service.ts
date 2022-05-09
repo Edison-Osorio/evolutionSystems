@@ -14,10 +14,27 @@ export class StudentsService {
     return this.http.get(`${this.URL}/alumno/notas/${id}`)
   }
 
-
-
-
    getStudent(id:string){
-     return this.http.get('${this.API_URI}/ruta/${id}');
+     return this.http.get(`${this.URL}/alumno/onAlumno/${id}`);
    }
+
+   getServiciosAlumno(id:any){
+     return this.http.get(`${this.URL}/alumno_servicio/${id}`)
+   }
+
+   getStudentWhitGrado(id:any){
+    return this.http.get(`${this.URL}/alumno/onAlumno/grado/${id}`)
+  }
+
+  guardarSolicitud(mensaje:any){
+    return this.http.post(`${this.URL}/solicitudes/add`,mensaje)
+  }
+
+  alumnoOutService(id:any){
+    return this.http.get(`${this.URL}/alumno_servicio/servicios/${id}`)
+  }
+
+  getBecaAlumno(id:any){
+    return this.http.get(`${this.URL}/beca/alumno/alumno_beca/${id}`)
+  }
 }

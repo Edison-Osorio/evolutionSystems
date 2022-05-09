@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { StudentsRoutingModule } from './students-routing.module';
@@ -11,6 +11,8 @@ import { StudentsStartComponent } from './components/students-start/students-sta
 import { NavagationStudentsComponent } from './components/navagation-students/navagation-students.component';
 import {StudentsService} from './services/students.service';
 import { InjectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
+import { FormsModule } from '@angular/forms';
+import { StudentInformationComponent } from './components/student-information/student-information.component';
 
 
 @NgModule({
@@ -20,19 +22,22 @@ import { InjectSessionInterceptor } from '@core/interceptors/inject-session.inte
     NotasComponent,
     ProgramadorComponent,
     ServiciosComponent,
-    NavagationStudentsComponent
+    NavagationStudentsComponent,
+    StudentInformationComponent
   ],
   imports: [
     CommonModule,
     StudentsRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [
     StudentsService, {
       provide: HTTP_INTERCEPTORS,
       useClass: InjectSessionInterceptor,
       multi: true
-    }
+    },
+    DatePipe
   ]
 })
 export class StudentsModule { }

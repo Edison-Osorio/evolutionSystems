@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '@modules/students/services/students.service';
+import { CookieService } from 'ngx-cookie-service';
+import decode from 'jwt-decode';
 
 @Component({
   selector: 'app-notas',
@@ -7,17 +9,30 @@ import { StudentsService } from '@modules/students/services/students.service';
   styleUrls: ['./notas.component.css']
 })
 export class NotasComponent implements OnInit {
-
-  constructor(private studentsService:StudentsService) { }
+  informacion: any = [];
+  notas:any = [];
+  constructor(private studentsService:StudentsService, private cookie: CookieService) { }
 
   ngOnInit(): void {
-    this.notas()
+    this.getNotas()
+    this.alumnoToken()
   }
 
-  notas(){
-    this.studentsService.notas(12345).subscribe(
-      res=> console.log('Estas son las notas -->', res)
+  getNotas(){
+    this.studentsService.notas(this.alumnoToken()).subscribe(
+      res => {
+        this.notas = res;
+        console.log(res)
+      }
     )
   }
+  alumnoToken() {
+    const token = this.cookie.get('token')!;
+    let decodetoken: any = {};
+    decodetoken = decode(token)
+
+    return decodetoken.documento
+  }
+
 
 }
