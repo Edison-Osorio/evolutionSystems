@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NavagationStudentsComponent implements OnInit {
   informacion: any = [];
-  nameStudent: any 
+  nameStudent: any;
   constructor(
     private studentsService: StudentsService,
     private cookie: CookieService,
@@ -20,7 +20,7 @@ export class NavagationStudentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.information();
-    this.listNumberAlumno()
+    this.listNumberAlumno();
   }
   information() {
     const token = this.cookie.get('token');
@@ -29,22 +29,15 @@ export class NavagationStudentsComponent implements OnInit {
     decodetoken = decode(token);
 
     this.informacion = decodetoken;
-    
-  }
-  
-
-  listNumberAlumno(){
-    console.log('Nombre de alumno --> ', this.informacion.documento);
-    
-     this.studentsService.getStudent(this.informacion.documento).subscribe(
-       (res: any )=>{
-         console.log('Esta es la respuesta del alumno --> ', res);
-         this.nameStudent = res.nombre_alumno
-       }
-     )
-
   }
 
+  listNumberAlumno() {
+    this.studentsService
+      .getStudent(this.informacion.documento)
+      .subscribe((res: any) => {
+        this.nameStudent = res.nombre_alumno;
+      });
+  }
 
   salir() {
     this.cookie.delete('token', '/');

@@ -27,6 +27,10 @@ export class ServiciosComponent implements OnInit {
     this.servicioAlumno()
 
   }
+  refresh(){
+    this.mensaje.mensaje= ''
+    this.mensaje.id_servicio_m = 0
+  }
 
   servicioAlumno() {
     this.studentsService.getServiciosAlumno(this.alumnoToken()).subscribe(
@@ -39,16 +43,7 @@ export class ServiciosComponent implements OnInit {
   getServicios() {
     this.studentsService.alumnoOutService(this.alumnoToken()).subscribe(
       res => {
-        console.log(res)
         this.servicios = res;
-        //console.log(this.servicios);
-
-        //if (this.servicios.id_servicio!=null) {
-        //this.a=this.servicios
-        //console.log(this.a)
-        //}
-
-
       }
     )
   }
@@ -69,6 +64,7 @@ export class ServiciosComponent implements OnInit {
       this.studentsService.guardarSolicitud(this.mensaje).subscribe(
         res => {
           alert('Se envio la solicitud del servicio')
+          this.refresh()
         }, err => console.log(err)
       )
     } else {

@@ -1,43 +1,55 @@
 <app-navagation-students></app-navagation-students>
-<div class="m-2 mt-4">
+
+<div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="card mt-4">
-                <div class="card-header mt-4">
-                    <div class="card-body mt-4">
-                        <h5 class="text-center">Notas</h5>
-                        <div class="container">
-                            <table class="table table-responsive table-bordered table-hover">
-                                <thead>
-                                    <tr class="fondotabla">
-                                            <th>NOMBRES</th>
-                                            <th>TALLER 1</th>
-                                            <th>PARCIAL 1</th>
-                                            <th>TALLER 2</th>
-                                            <th>PARCIAL 2</th>
-                                            <th>
-                                              EVALUACIÓN
-                                            </th>
-                                            <th>Nota Final
-                                            </th>
-                                          </tr>
-                                </thead>
-                                <tbody class=" text-center">
-                                    <tr *ngFor="let notas of notas">
-                                        <td class="fondomateria">
-                                            <h6 class="fondomateria">{{notas.nombre_asignatura | uppercase}}</h6>
-                                        </td>
-                                        <td>{{notas.nota1}}</td>
-                                        <td>{{notas.nota2}}</td>
-                                        <td>{{notas.nota3}}</td>
-                                        <td>{{notas.nota4}}</td>
-                                        <td>{{notas.nota5}}</td>
-                                        <td>{{notas.nota_final}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+        <div class="col-md-12 col-xl-12">
+            <div class="card text-black text-center">
+                <div class="card-header">
+                 <div class="card-title">
+                     <h3>Listado de Notas</h3>
+                 </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <select name="" [(ngModel)]="periodo" (change)="onSelectPeriodo($event.target)" class="form-select mb-2 w-25">
+                            <option value="">Selecione el periodo</option>
+                            <option *ngFor="let periodo of periodos" value="{{periodo.id_periodo}}">{{periodo.nombre_periodo}}</option>
+                        </select>
                     </div>
+                    <table class="table table-responsive table-bordered table-hover">
+                        <thead>
+                          <tr class="fondotabla">
+                            <th>NOMBRES</th>
+                            <th>TALLER 1</th>
+                            <th>PARCIAL 1</th>
+                            <th>TALLER 2</th>
+                            <th>PARCIAL 2</th>
+                            <th>EVALUACIÓN</th>
+                            <th>Nota Final</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-center" *ngIf="showNotas">
+                          <tr *ngFor="let notas of notasPeriodo">
+                            <td class="fondomateria">
+                              <h6 class="fondomateria">
+                                {{ notas.nombre_asignatura | uppercase }}
+                              </h6>
+                            </td>
+                            <td>{{ notas.nota1 }}</td>
+                            <td>{{ notas.nota2 }}</td>
+                            <td>{{ notas.nota3 }}</td>
+                            <td>{{ notas.nota4 }}</td>
+                            <td>{{ notas.nota5 }}</td>
+                            <td>{{ notas.nota_final }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div *ngIf="!showNotas">
+                          <h4>Seleccione un periodo para poder visualizar las notas</h4>
+                      </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
