@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import decode from 'jwt-decode';
+import { SolicitudesService } from '@modules/admin/services/solicitudes/solicitudes.service';
 
 @Component({
   selector: 'app-navigation-admin',
@@ -12,13 +13,14 @@ export class NavigationAdminComponent implements OnInit {
 
 
 nameUser: string = ''
+total:any=[]
 
 
-
-  constructor(private cookie: CookieService, private router: Router) {}
+  constructor(private cookie: CookieService, private router: Router,private solicitudesService:SolicitudesService) {}
 
   ngOnInit(): void {
     this.decodeToken()
+    this.totalSolicitudes()
   }
 
   salir() {
@@ -31,6 +33,16 @@ nameUser: string = ''
     let decodetoken: any = {};
     decodetoken = decode(token);
     this.nameUser = decodetoken.nombre
-    
+
+  }
+
+  // obtinen el total de las solicitudes 
+  totalSolicitudes(){
+    this.solicitudesService.contarSolicitudes().subscribe(
+      res=>{
+        this.total=res
+        console.log(this.total)
+      }
+    )
   }
 }
