@@ -31,6 +31,7 @@ import { AdministradorComponent } from './components/administrador/administrador
 import { DatosAdministradorComponent } from './components/administrador/datos-administrador/datos-administrador.component';
 import { HorarioAsignadoComponent } from './components/grados/horario-asignado/horario-asignado.component';
 import { ListAlumnosComponent } from './components/grados/list-alumnos/list-alumnos.component';
+import { SolicitudesComponent } from './components/alumno/solicitudes/solicitudes.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { ListAlumnosComponent } from './components/grados/list-alumnos/list-alum
       DatosAdministradorComponent,
       HorarioAsignadoComponent,
       ListAlumnosComponent,
+      SolicitudesComponent,
 
 
   ],

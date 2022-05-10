@@ -1,0 +1,27 @@
+<app-navigation-admin></app-navigation-admin>
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">Nombre del alumno</th>
+      <th scope="col">Tipo servicio</th>
+      <th scope="col">Mensaje</th>
+      <th scope="col">Acepar/Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let solicitudes of solicitudes">
+      <th scope="row">{{solicitudes.nombre_alumno}}</th>
+      <td>{{solicitudes.tipo_servicio}}</td>
+      <td>{{solicitudes.mensaje}}</td>
+      <td><button class="btn btn-success" (click)="createAlu_ser(solicitudes.id_alumno,solicitudes.id_servicio,solicitudes.id_mensaje)">
+        <i class="fa-solid fa-check"></i>
+      </button>
+
+      <button class="btn btn-danger ms-2" (click)="deleteSolicitud(solicitudes.id_mensaje)">
+        <i class="fa-solid fa-trash-can"></i>
+      </button>
+    </td>
+  </tr>
+</tbody>
+</table>
+<p id="parrafo" *ngIf="hiddenA">{{mensaje}}</p>

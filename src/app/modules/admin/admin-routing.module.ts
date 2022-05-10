@@ -19,6 +19,7 @@ import { AdministradorComponent } from './components/administrador/administrador
 import { DatosAdministradorComponent } from './components/administrador/datos-administrador/datos-administrador.component';
 import { HorarioAsignadoComponent } from './components/grados/horario-asignado/horario-asignado.component';
 import { ListAlumnosComponent } from './components/grados/list-alumnos/list-alumnos.component';
+import { SolicitudesComponent } from './components/alumno/solicitudes/solicitudes.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,11 @@ const routes: Routes = [
   },
   // Routes of Students
   {
-    path:'alumno', component: AlumnoComponent
+    path: 'alumno', component: AlumnoComponent
+  },
+  {
+    path: 'alumno/solicitudes',
+    component: SolicitudesComponent
   },
   // Routes of grupo
   {
@@ -45,8 +50,8 @@ const routes: Routes = [
     component: ListGruposComponent
   },
   {
-    path:'notas/:id_grado/:id_grupo',
-    component:NotasComponent 
+    path: 'notas/:id_grado/:id_grupo',
+    component: NotasComponent
   },
   {
     path: 'alumnos/:id_grado/:id_grupo',
@@ -60,21 +65,21 @@ const routes: Routes = [
   },
   // Routes of horario
   {
-    path:'horario',
+    path: 'horario',
     component: HorarioComponent
   },
   {
-    path:'horario/:id_grado/:id_grupo',
+    path: 'horario/:id_grado/:id_grupo',
     component: HorarioAsignadoComponent
   },
   // routes of services
   {
-    path:'servicios',
+    path: 'servicios',
     component: ServiciosComponent
   },
   // routes of alum-services
   {
-    path:'servicios/alumno-servicios',
+    path: 'servicios/alumno-servicios',
     component: AlumnoServicioComponent
   },
   {
@@ -84,7 +89,7 @@ const routes: Routes = [
   {
     path: 'becas/alumno-becas',
     component: AlumnoBecasComponent
-},
+  },
   // {
   //   path:'becas',
   //   component: BecaComponent
@@ -94,12 +99,12 @@ const routes: Routes = [
   //   component: BecaAlumnoComponent
   // },
   {
-    path:'administrador',
-    component:AdministradorComponent
+    path: 'administrador',
+    component: AdministradorComponent
   },
   {
-    path:'administrador/datos',
-    component:DatosAdministradorComponent
+    path: 'administrador/datos',
+    component: DatosAdministradorComponent
   },
   {
     path: '**',
@@ -112,4 +117,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule { }
