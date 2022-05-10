@@ -14,11 +14,12 @@ export class DocenteComponent implements OnInit {
   docent: Docente = {
     nif_docente: '',
   };
+  mensaje: any = 'Docente no encontrado'
 
   constructor(
     private docenteService: DocenteService,
     private activedRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getDocente();
@@ -44,9 +45,13 @@ export class DocenteComponent implements OnInit {
   }
 
   getOneDocente(nif_doc: string | number) {
-    this.docenteService.getOneDocente(nif_doc).subscribe(
+    this.docenteService.getUnDocente(nif_doc).subscribe(
       (res) => {
-        this.docente = res;
+        this.docente = res
+        if (this.docente[0] == null) {
+          this.mensaje
+          alert(this.mensaje)
+        }
       },
       (err) => err
     );

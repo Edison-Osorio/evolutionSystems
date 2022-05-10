@@ -13,7 +13,12 @@ import { NotaService } from '@shared/services/nota/nota.service';
 })
 export class AlumnoComponent implements OnInit {
   alumnos: any = [];
-
+  alumno:any={
+    id_alumno:''
+  }
+  hidden:boolean=true
+  hiddenM:boolean=true
+ mensaje:any='Alumno no encontrado'
   constructor(
     private alumnoService: AlumnoService,
     private notaService: NotaService,
@@ -28,6 +33,8 @@ export class AlumnoComponent implements OnInit {
   // Listamos todos los alumnos
   listAlumno() {
     this.alumnoService.getAlumnos().subscribe((res: any) => {
+      this.hidden=true
+      this.hiddenM=false
       this.alumnos = res;
     });
   }
@@ -96,5 +103,24 @@ export class AlumnoComponent implements OnInit {
         }
       );
     }
+  }
+
+
+
+
+
+
+  //obtener un solo alumno
+  getOnAlumno(){
+    this.alumnoService.getUnAlumno(this.alumno.id_alumno).subscribe(
+      res=>{
+        this.alumnos=res
+        if (this.alumnos[0]==null) {
+          this.mensaje
+          alert(this.mensaje)
+        }
+      },err=>console.log(err)
+
+    )
   }
 }

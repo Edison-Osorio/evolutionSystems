@@ -30,8 +30,9 @@
               placeholder="Buscar"
               type="number"
               aria-label="Search"
+              [(ngModel)]="alumno.id_alumno"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button class="btn btn-outline-success" type="submit" (click)="getOnAlumno()">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
@@ -41,7 +42,7 @@
         <div class="card mt-4 text-center ">
           <div class="card-header mt-4 text-black"><h3>Lista de Alumnos</h3></div>
           <div>
-            <table class="table table-bordered text-center">
+            <table class="table table-bordered text-center" *ngIf="hidden">
               <thead>
                 <tr>
                   <th>DOCUMENTO</th>

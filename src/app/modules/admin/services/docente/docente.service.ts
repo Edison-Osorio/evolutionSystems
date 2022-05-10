@@ -23,6 +23,9 @@ export class DocenteService {
   getOneDocente(nif_doc: number | string) {
     return this.http.get(`${this.URL}/docente/${nif_doc}`);
   }
+  getUnDocente(nif_doc: number | string) {
+    return this.http.get(`${this.URL}/docente/unDocente/${nif_doc}`);
+  }
   // Obtenemos un usuario de la tabla Usuario
   getOneUsuario(id_alu:any){
     return this.http.get(`${this.URL}/auth/list/${id_alu}`)

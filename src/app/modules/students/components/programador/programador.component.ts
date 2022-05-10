@@ -9,22 +9,22 @@ import decode from 'jwt-decode';
   styleUrls: ['./programador.component.css']
 })
 export class ProgramadorComponent implements OnInit {
-horario: any = [];
-informacion: any = [];
-  constructor(private studentsService: StudentsService, private cookie:CookieService) { }
-
+  horario: any = [];
+  informacion: any = [];
+  constructor(private studentsService: StudentsService, private cookie: CookieService) { }
+  newH:any
   ngOnInit(): void {
-    //this.getHorario()
-   this.alumnoToken()
+    this.getHorario()
+    this.alumnoToken()
   }
-  // getHorario (){
-  //   this.studentsService.getProgamador().subscribe(
-  //     res=>{
-  //       this.horario=res;
-  //       console.log(res)
-  //     }
-  //   )
-  // }
+  // obtiene el horario del alumno
+  getHorario() {
+    this.studentsService.getHorario(this.alumnoToken()).subscribe(
+      res => {
+        this.horario = res;
+      }
+    )
+  }
   alumnoToken() {
     const token = this.cookie.get('token')!;
     let decodetoken: any = {};

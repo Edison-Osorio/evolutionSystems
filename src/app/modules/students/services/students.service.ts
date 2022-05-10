@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpBackend, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { id } from 'date-fns/locale';
 @Injectable({
   providedIn: 'root'
 })
@@ -36,5 +37,10 @@ export class StudentsService {
 
   getBecaAlumno(id:any){
     return this.http.get(`${this.URL}/beca/alumno/alumno_beca/${id}`)
+  }
+
+  //obtiene el horario del alumno
+  getHorario(id:any){
+    return this.http.get(`${this.URL}/horario/horario-alumno/${id}`)
   }
 }
