@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ListAlumnosComponent implements OnInit {
 
   alumnos : any 
+  identificador:any
 
   constructor(private docenteService:DocenteService, private  activatedRoute:ActivatedRoute) { }
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class ListAlumnosComponent implements OnInit {
 
   listAlumnosGradoGrupo(){
     const {id_grado, id_grupo} = this.activatedRoute.snapshot.params
+    this.identificador = id_grado 
    this.docenteService.listAlumnoGradoGrupo(id_grado,id_grupo).subscribe(
      (res:any )=>{
        this.alumnos = res

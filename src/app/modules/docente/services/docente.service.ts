@@ -17,8 +17,8 @@ export class DocenteService {
     return this.http.get(`${this.URL}/docente/${id}`);
   }
 
-  listProgramadir(id: any) {
-    return this.http.get(`${this.URL}/docente/programador/${id}`);
+  listHorario(nif_docente: any) {
+    return this.http.get(`${this.URL}/horario/horario-docente-grado-grupo/${nif_docente}`);
   }
   //Listamos todos los grados a los que pertenece un docente
   getGrados(nif_docente: any) {

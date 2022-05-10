@@ -3,14 +3,21 @@
 
 <div class="container fluid">
     <div class="row">
-        <div class="col-md-12 col-xl-12 text-center">
+        <div class="col-md-12 col-xl-12">
             <div class="card text-dark">
                 <div class="card-header">
                     <div class="card-title">
-                        <h2>Listado de alumnos</h2>
+                        <h2 class="text-center">Listado de alumnos</h2>
                     </div>
+                    <button
+                    type="button"
+                    class="btn btn-secondary content-start"
+                    routerLink="/admin/grupos/{{identificador}}"
+                  >
+                    <i class="fa-solid fa-arrow-left-long"></i> Volver a Grupos
+                  </button>
                 </div>
-                <div class="card-body">
+                <div class="card-body text-center">
                     <table class="table table-hover table-bordered">
                         <thead>
                         <tr>

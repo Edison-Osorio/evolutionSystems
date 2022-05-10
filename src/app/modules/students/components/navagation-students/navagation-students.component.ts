@@ -7,14 +7,20 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navagation-students',
   templateUrl: './navagation-students.component.html',
-  styleUrls: ['./navagation-students.component.css']
+  styleUrls: ['./navagation-students.component.css'],
 })
 export class NavagationStudentsComponent implements OnInit {
-  informacion: any = []
-  constructor(private studentsService: StudentsService, private cookie: CookieService, private router: Router) { }
+  informacion: any = [];
+  nameStudent: any 
+  constructor(
+    private studentsService: StudentsService,
+    private cookie: CookieService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.information()
+    this.information();
+    this.listNumberAlumno()
   }
   information() {
     const token = this.cookie.get('token');
@@ -22,13 +28,26 @@ export class NavagationStudentsComponent implements OnInit {
     let decodetoken: any = {};
     decodetoken = decode(token);
 
+    this.informacion = decodetoken;
+    
+  }
+  
 
-    this.informacion = decodetoken
-
+  listNumberAlumno(){
+    console.log('Nombre de alumno --> ', this.informacion.documento);
+    
+     this.studentsService.getStudent(this.informacion.documento).subscribe(
+       (res: any )=>{
+         console.log('Esta es la respuesta del alumno --> ', res);
+         this.nameStudent = res.nombre_alumno
+       }
+     )
 
   }
+
+
   salir() {
-    this.cookie.delete('token', '/')
-    this.router.navigate(['/'])
+    this.cookie.delete('token', '/');
+    this.router.navigate(['/']);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentsService } from '@modules/students/services/students.service';
 import { CookieService } from 'ngx-cookie-service';
 import decode from 'jwt-decode';
+import { NotaService } from '@shared/services/nota/nota.service';
 
 @Component({
   selector: 'app-notas',
@@ -11,20 +12,11 @@ import decode from 'jwt-decode';
 export class NotasComponent implements OnInit {
   informacion: any = [];
   notas:any = [];
-  constructor(private studentsService:StudentsService, private cookie: CookieService) { }
+  constructor(private studentsService:StudentsService,private notaService:NotaService, private cookie: CookieService) { }
 
   ngOnInit(): void {
-    this.getNotas()
     this.alumnoToken()
-  }
-
-  getNotas(){
-    this.studentsService.notas(this.alumnoToken()).subscribe(
-      res => {
-        this.notas = res;
-        console.log(res)
-      }
-    )
+    this.getNotas()
   }
   alumnoToken() {
     const token = this.cookie.get('token')!;
@@ -33,6 +25,16 @@ export class NotasComponent implements OnInit {
 
     return decodetoken.documento
   }
+
+  getNotas(){
+    this.notaService.listNotasAlumno(this.alumnoToken()).subscribe(
+      res => {
+        this.notas = res;
+        console.log(res)
+      }
+    )
+  }
+ 
 
 
 }

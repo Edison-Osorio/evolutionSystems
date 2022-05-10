@@ -33,9 +33,13 @@ p{
   background-color: #D6EEEB;
   Color: black;
   font-style: arial;
+  font-size: 18px;
 }
 
 #parrafo {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: black;
+}
+#welcome{
+  font-size: 20px;
 }

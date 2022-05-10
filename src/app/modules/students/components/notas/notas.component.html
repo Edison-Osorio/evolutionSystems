@@ -10,19 +10,22 @@
                             <table class="table table-responsive table-bordered table-hover">
                                 <thead>
                                     <tr class="fondotabla">
-                                        <th>Materia</th>
-                                        <th>Nota1</th>
-                                        <th>Nota2</th>
-                                        <th>Nota3</th>
-                                        <th>Nota4</th>
-                                        <th>Nota5</th>
-                                        <th>Nota final</th>
-                                    </tr>
+                                            <th>NOMBRES</th>
+                                            <th>TALLER 1</th>
+                                            <th>PARCIAL 1</th>
+                                            <th>TALLER 2</th>
+                                            <th>PARCIAL 2</th>
+                                            <th>
+                                              EVALUACIÓN
+                                            </th>
+                                            <th>Nota Final
+                                            </th>
+                                          </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class=" text-center">
                                     <tr *ngFor="let notas of notas">
                                         <td class="fondomateria">
-                                            <h6 class="fondomateria">{{notas.nom_asi}}</h6>
+                                            <h6 class="fondomateria">{{notas.nombre_asignatura | uppercase}}</h6>
                                         </td>
                                         <td>{{notas.nota1}}</td>
                                         <td>{{notas.nota2}}</td>

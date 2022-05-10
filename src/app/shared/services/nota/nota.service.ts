@@ -16,6 +16,11 @@ export class NotaService {
     return this.http.get(`${this.URL}/nota/list-notas/${id_grado}/${id_grupo}`)
   }
 
+  //Listamos las notas de un alumno por su identificador
+  listNotasAlumno(id_alumno: any){
+    return this.http.get(`${this.URL}/nota/notas-alumno/${id_alumno}`)
+  }
+
   // Listanos todos los periodos
   listPeriodo(){
     return this.http.get(`${this.URL}/nota/periodo`)

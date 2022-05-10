@@ -1,34 +1,36 @@
 <app-navagation-students></app-navagation-students>
-<div>
-  <div class="page-header ">
-    <h2>Sesion estudiante</h2>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="card ">
-        <div class="card-header ">
-          <div class="card-body ">
-            <p>Esta es la intitucion evolution system, esta pagina wed esta generada para que tu
-              como
-              estudiante
-              puedas tener una mayor agilidd con la visulizacion de sus notas, mejorar las
-              posivilidades de
-              acceso a becas y servicios que ofrece nuestra institucion</p>
-          </div>
-        </div>
+
+<div class="container-fluid">
+  <div class="card text-black">
+    <div class="card-header">
+      <div class="card-title">
+        <h3 class="text-center">Bienvenido {{ alumno.nombre_alumno }}</h3>
       </div>
     </div>
-    <div class="col text-white text-justify">
-      <div class="infromacion text-left">
-        <div class="card">
-          <div class="card-header ">
-            <div class="fondo">
-              <h3>Tus datos: </h3>
-              <p class="fw-normal" id="parrafo"> Nombre: {{alumnoGrado.nombre_alumno}}</p>
-              <p class="fw-normal" id="parrafo">Numero de identificacion: {{alumnoGrado.id_alumno}}</p>
-              <p class="fw-normal" id="parrafo">Fecha de nacimiento: {{alumnoGrado.fecha_nacimiento|date :'dd-MM-yyyy'}}
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8 col-xl-8">
+          <div class="container">
+            <p id="welcome" class="text-center">
+              Has ingresado a la pagina wed de la intitucion educativa normativa
+              evolution, en la sesión de estudiantes, en la cual podrás
+              verificar tú progamador de clases, notas, servicios en los cuales
+              estas y a cuales puedes hacer peticiones para que los
+              administrativos hagan su respectivo registro
+            </p>
+            <h6 class="text-center">
+              Esperamos que disfrutes la interaccion en nuestra pagina
+            </h6>
+          </div>
+        </div>
+        <div class="col-md-3 col-xl-3">
+          <div *ngIf="hidden">
+            <div>
+              <p *ngFor="let ib of informacionBeca" class="ms-2" id="parrafo">
+                {{ ib.nombre_alumno }} tu beca con codigo {{ ib.codigo_beca }}:
+                {{ ib.descripcion }} es cubierta por el servicio
+                {{ ib.tipo_servicio }}
               </p>
-              <p class="fw-normal" id="parrafo">Grado: {{alumnoGrado.nombre_grado}} ° {{alumnoGrado.nombre_grupo}}</p>
             </div>
           </div>
         </div>
@@ -36,20 +38,5 @@
     </div>
   </div>
 </div>
-<br>
-<br>
-<div *ngIf="hidden">
-  <p class="ms-2" id="parrafo">Si tienes alguna baca aparecera debajo</p>
-  <div>
-    <p *ngFor="let ib of informacionBeca" class=" ms-2" id="parrafo">{{ib.nombre_alumno}} tu beca con codigo
-      {{ib.codigo_beca}}: {{ib.descripcion}} es cubierta por el servicio {{ib.tipo_servicio}}</p>
-  </div>
-</div>
 
-<footer>
-  <div class="card mt-4">
-    <div class="card-header text-lef">
-      <p class="fondop">Evolution Systems</p>
-    </div>
-  </div>
-</footer>
+

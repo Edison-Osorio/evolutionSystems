@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ListAlumnosComponent implements OnInit {
 
   alumnos: any = []
+  identificador:any = []
 
   constructor(private alumnoService:AlumnoService,private activatedRouter:ActivatedRoute) { }
 
@@ -19,6 +20,7 @@ export class ListAlumnosComponent implements OnInit {
 
   listAlumnos(){
     const {id_grado, id_grupo} = this.activatedRouter.snapshot.params
+    this.identificador = id_grado
     console.log('esson son los identificadores --> ', id_grado, id_grupo);
 
     this.alumnoService.listAlumnoGradoGrupo(id_grado, id_grupo).subscribe(
@@ -27,8 +29,6 @@ export class ListAlumnosComponent implements OnInit {
         this.alumnos = res
         
       }
-      // console.log('esta es la longitud de un array');
-      
     )
     
   }

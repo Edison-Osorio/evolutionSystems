@@ -1,34 +1,52 @@
 <app-navagation-docente></app-navagation-docente>
 
 <br />
-<br />
-<br />
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="card m-auto mt-2">
-      <div class="card-header mt-2">
-        <table class="table table-bordered text-center ">
-          <thead>
-            <tr>
-              <th col>FECHA</th>
-              <th col>ASIGNATURA</th>
-              <th col>GRUPO</th>
-              <th col>DESCRIPCIÓN DEL GRUPO</th>
-              <th col>HORA DE INGRESO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let horario of horarios" >
-              <td>{{horario.fec_hor | date: 'dd/MM/yyyy'}}</td>
-              <td>{{horario.nom_asi}}</td>
-              <td>{{horario.nom_grad}}</td>
-              <td>{{horario.desc_grad}}</td>
-              <td>{{horario.hora}}</td>
-            </tr>
-          </tbody>
-        </table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-xl-12">
+      <div class="card m-auto mt-2 text-center text-black">
+        <div class="card-header">
+          <div class="card-title">
+            <h4>HORARIO SEMANAL</h4>
+          </div>
+        </div>
+        <div class="card-body mt-2">
+          <div class="col-md-12 d-flex mb-2">
+         <div>
+          <select name="periodo" id="" class="form-select" [(ngModel)]="dia" (change)="onSelectDia($event.target)"  >
+            <option value="">Selecciona Día</option>
+             <option value="Lunes">LUNES</option>
+             <option value="Martes">MARTES </option>
+             <option value="Miercoles">MIERCOLES</option>
+             <option value="Jueves">JUEVES </option>
+             <option value="Viernes">VIERNES</option>
+          </select>
+         </div>
+          </div>
+          <table class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th col>DIAS</th>
+                <th col>HORA DE INGRESO</th>
+                <th col>GRADO</th>
+                <th col>ASIGNATURA</th>
+                <th col>DESCRIPCIÓN DEL GRUPO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let horario of horarioDias">
+                <td>{{ horario.dia }}</td>
+                <td>{{ horario.hora }}</td>
+                <td>{{ horario.nombre_grado }} {{ horario.nombre_grupo }}</td>
+                <td>{{ horario.nombre_asignatura }}</td>
+                <td>{{ horario.descripcion_asignatura }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </div>
+

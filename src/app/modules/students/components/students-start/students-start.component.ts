@@ -18,7 +18,7 @@ export class StudentsStartComponent implements OnInit {
     this.becaAlumno()
     this.studentService.getStudent(this.alumnoToken()).subscribe(
       res => {
-        this.alumno = res
+        this.alumno = res  
       }
     )
     this.studentService.getStudentWhitGrado(this.alumnoToken()).subscribe(
@@ -33,7 +33,6 @@ export class StudentsStartComponent implements OnInit {
       (res: any) => {
         if (res) {
           this.informacionBeca = res
-          console.log(this.informacionBeca)
           this.hidden = true
         } else {
           this.hidden = true
@@ -41,6 +40,7 @@ export class StudentsStartComponent implements OnInit {
       }
     )
   }
+
 
   alumnoToken() {
     const token = this.cookie.get('token')!;

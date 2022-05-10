@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DocenteService } from '@modules/docente/services/docente.service';
 
 // Decodificador del token
-import decode from 'jwt-decode'
+import decode from 'jwt-decode';
 
 @Component({
   selector: 'app-programador',
@@ -11,31 +11,48 @@ import decode from 'jwt-decode'
   styleUrls: ['./programador.component.css'],
 })
 export class ProgramadorComponent implements OnInit {
-  horarios:any = [];
+  horarios: any = [];
+  horarioDias: any = [];
+  dia: any = ''
 
-  identificador:number = 0
+  trimestres: any = [];
 
-   constructor(private docenteService: DocenteService, private cookie:CookieService) {}
+  identificador: number = 0;
+
+  constructor(
+    private docenteService: DocenteService,
+    private cookie: CookieService
+  ) {}
 
   ngOnInit(): void {
-    this.getProgramador()
-    this.decodeToken()
+    this.getProgramador();
+    this.decodeToken();
   }
 
-  // Se obtiene el identificador del usuario 
+  // Se obtiene el identificador del usuario
   decodeToken() {
     const token = this.cookie.get('token')!;
     let decodetoken: any = {};
     decodetoken = decode(token);
 
-     return decodetoken.documento;
-     
-    }
-    getProgramador() {
-    // this.docenteService.getProgramador(this.decodeToken()).subscribe((res: any) => {
-    //   console.log(res);
-    //   this.horarios = res;
-    //   console.log( 'Esta es la variable de Horario', this.horarios);
-    // });
+    return decodetoken.documento;
   }
+  getProgramador() {
+    this.docenteService
+      .listHorario(this.decodeToken())
+      .subscribe((res: any) => {
+        this.horarios = res;
+        this.horarioDias = res
+      });
+  }
+
+  onSelectDia(id:any){
+    const {value}= id
+    if (this.dia == '') {
+      this.horarioDias = this.horarios
+    }else{
+      this.horarioDias = this.horarios.filter((item:any)=> item.dia == value)
+    }
+  }
+
 }
