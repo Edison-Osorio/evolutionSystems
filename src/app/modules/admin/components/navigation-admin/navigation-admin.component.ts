@@ -36,12 +36,11 @@ total:any=[]
 
   }
 
-  // obtinen el total de las solicitudes 
+  // obtinen el total de las solicitudes
   totalSolicitudes(){
     this.solicitudesService.contarSolicitudes().subscribe(
       res=>{
         this.total=res
-        console.log(this.total)
       }
     )
   }

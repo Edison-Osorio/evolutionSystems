@@ -22,6 +22,10 @@ export class AlumnoService {
   getOneAlumno(id_alumno:any){
     return this.http.get(`${this.URL}/alumno/onAlumno/${id_alumno}`)
   }
+  // trae un alumno para listarlo
+  getUnAlumno(id_alumno:any){
+    return this.http.get(`${this.URL}/alumno/unAlumno/${id_alumno}`)
+  }
 // Obtenemos un usuario de la tabla Usuario
   getOneUsuario(id_alu:any){
   return this.http.get(`${this.URL}/auth/list/${id_alu}`)

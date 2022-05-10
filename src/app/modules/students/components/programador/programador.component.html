@@ -11,16 +11,20 @@
                             <table class=" table table-responsive table-bordered table-hover ">
                                 <thead>
                                     <tr class="fondotabla">
-                                        <th>Fechas</th>
-                                        <th>Materia</th>
-                                        <th>Hora de ingreso</th>
+                                        <th>Nombre asignatura</th>
+                                        <th>Descripcion asignatura</th>
+                                        <th>Docente</th>
+                                      <th>Dia</th>
+                                      <th>Hora</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let progamador of horario">
-                                        <td>{{progamador.fec_hor | date:"dd/MM/yyyy" }}</td>
-                                        <td>{{progamador.nom_asi}}</td>
-                                        <td>{{progamador.hora}}</td>
+                                      <td>{{progamador.nombre_asignatura | uppercase}}</td>
+                                      <td>{{progamador.descripcion_asignatura |uppercase}}</td>
+                                      <td>{{progamador.nombre_docente | uppercase}}</td>
+                                      <td>{{progamador.dia | uppercase}}</td>
+                                      <td>{{progamador.hora   }}</td>
                                     </tr>
 
                                 </tbody>
