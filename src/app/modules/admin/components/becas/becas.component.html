@@ -1,16 +1,28 @@
 <app-navigation-admin></app-navigation-admin>
-<!-- Button trigger modal crear beca -->
+
+<div class="container">
+  <div class="row">
+    <div class="card text-black">
+      <div class="card-header">
+        <div class="card-title">
+          <h3 class="text-center">
+            Lista de todas las Becas
+          </h3>
+        </div>
+      </div>
+      <div class="card-body">
+       <!-- Button trigger modal crear beca -->
 <div>
   <div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearBeca">
+    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#crearBeca">
       Crear beca
     </button>
-    <button type="button" class="btn btn-primary ms-2" routerLinkActive="active" routerLink="alumno-becas">
+    <button type="button" class="btn btn-primary ms-2 mb-2" routerLinkActive="active" routerLink="alumno-becas">
       Ver alumnos con becas
     </button>
   </div>
 </div>
-<table class="table table-hover">
+<table class="table table-hover table-bordered text-center">
   <thead>
     <tr>
       <th scope="col">CODIGO</th>
@@ -34,6 +46,14 @@
     </tr>
   </tbody>
 </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 

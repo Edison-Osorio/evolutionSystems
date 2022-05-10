@@ -28,6 +28,10 @@ export class ServiciosService {
   deleteAlumno_Servicio(id_alumno: number, cod_servicio: number) {
     return this.http.delete(`${this.URL}/alumno_servicio/delete/${id_alumno}/${cod_servicio}`)
   }
+    // le elimina el servicio al alumno segun el identificador del alumno
+  deleteAlumno_ServicioAlumno(id_alumno: number) {
+    return this.http.delete(`${this.URL}/alumno_servicio/delete-servicio-alumno/${id_alumno}`)
+  }
 
   // obtiene los alumnos con servicios
   getAlumno_Servicio() {

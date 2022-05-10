@@ -1,10 +1,21 @@
 <app-navigation-admin></app-navigation-admin>
+<div class="container">
+  <div class="row">
+    <div class="card text-black">
+      <div class="card-header">
+        <div class="card-title">
+          <h3 class="text-center">
+            Lista de todos los Servicios
+          </h3>
+        </div>
+      </div>
+      <div class="card-body">
 <!-- Button agregar servicio a alumno -->
-<button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#ser_alu">
+<button type="button" class="btn btn-primary ms-2 mb-2" data-bs-toggle="modal" data-bs-target="#ser_alu">
   Agregar servicio a alumno
 </button>
-<button class="btn btn-primary ms-2" routerLink="alumno-servicios">Ver alumnos</button>
-<table class="table">
+<button class="btn btn-primary ms-2 mb-2" routerLink="alumno-servicios">Ver alumnos</button>
+<table class="table table-hover table-bordered text-center">
   <thead>
     <tr>
       <th scope="col">CODIGO</th>
@@ -30,6 +41,11 @@
 
   </tbody>
 </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Modal agregar alumno servicio -->
 <div class="modal fade" id="ser_alu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

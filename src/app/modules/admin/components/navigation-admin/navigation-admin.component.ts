@@ -41,7 +41,6 @@ total:any=[]
     this.solicitudesService.contarSolicitudes().subscribe(
       res=>{
         this.total=res
-        console.log(this.total)
       }
     )
   }

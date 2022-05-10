@@ -53,11 +53,11 @@ return this.http.get(`${this.URL}/alumno/alumnos-grado-grupo/${id_grado}/${id_gr
   }
 // Eliminamos un alumno
   deleteAlumno(id_alu :any){
-    return this.http.delete(`${this.URL}/estudiante/delete/${id_alu}`)
+    return this.http.delete(`${this.URL}/alumno/delete-alumno/${id_alu}`)
   }
   // ELIMINAMOS LA MATRICULA DEL ALUMNO
   deleteMatricula(matricula:any){
-    return this.http.delete(`${this.URL}/estudiante/deleteMatricula/${matricula.id_alu}/${matricula.id_curso}`)
+    return this.http.delete(`${this.URL}/alumno/delete-matricula/${matricula}/`)
   }
 // Eliminamos el alumno de la lista de
   deleteUser(id_alu:any){

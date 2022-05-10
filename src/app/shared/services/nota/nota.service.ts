@@ -37,4 +37,10 @@ export class NotaService {
   }
 
 
+  // Eliminamos las notas de un alumno
+  deleteNota(id_alumno:any){
+    return this.http.delete(`${this.URL}/nota/delete-nota/${id_alumno}`)
+  }
+
+
 }

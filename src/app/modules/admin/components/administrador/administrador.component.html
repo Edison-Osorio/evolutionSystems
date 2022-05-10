@@ -1,86 +1,152 @@
 <app-navigation-admin></app-navigation-admin>
-<!-- Button de crear administrador -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createAdministrador">
-  Agregar administrador
-</button>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">DOCUMENTO</th>
-      <th scope="col">NOMBRE</th>
-      <th scope="col">CORREO</th>
-      <th scope="col">ELIMINAR</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let administradores of administradores">
-      <th scope="row">{{administradores.documento}}</th>
-      <td>{{administradores.nombre | uppercase}}</td>
-      <td>{{administradores.email }}</td>
-      <td><button class="btn btn-danger" (click)="deleteAdministrador(administradores.documento)">
-        <i class="fa-solid fa-trash-can"></i>
-      </button></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="card text-black">
+      <div class="card-header">
+        <div class="card-title">
+          <h3 class="text-center">
+            Lista de todos los Administradores del Sistema
+          </h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Button de crear administrador -->
+        <button
+          type="button"
+          class="btn btn-primary mb-2"
+          data-bs-toggle="modal"
+          data-bs-target="#createAdministrador"
+        >
+          Agregar administrador
+        </button>
+
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">DOCUMENTO</th>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">CORREO</th>
+              <th scope="col">ELIMINAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let administradores of administradores">
+              <th scope="row">{{ administradores.documento }}</th>
+              <td>{{ administradores.nombre | uppercase }}</td>
+              <td>{{ administradores.email }}</td>
+              <td>
+                <button
+                  class="btn btn-danger"
+                  (click)="deleteAdministrador(administradores.documento)"
+                >
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Modal -->
-<div class="modal fade" id="createAdministrador" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="createAdministrador"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog text-black">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Agregar administrador</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="staticBackdropLabel">
+          Agregar administrador
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
-        <div class="modal-dialog text-black modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="registrarDocente">Agregar nuevo docente</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <fieldset>
-                <legend>Información Personal</legend>
-                <div class="form-group mb-2 col-auto">
-                  <label for="tipoDocumento">Tipo de Documento</label>
-                  <select name="tipo_documento" class="form-control form-select"
-                    [(ngModel)]="administrador.tipoDocumento" [ngModelOptions]="{ standalone: true }">
-                    <option value="1">Cedula de ciudadania</option>
-                    <option value="2">Targeta de identidad</option>
-                    <option value="3">Cedula de estrangeria</option>
-                  </select>
-                </div>
-                <div class="form-group mb-2 col-auto">
-                  <label for="nif">Documento </label><br />
-                  <input class="form-control" type="number" name="documento" [(ngModel)]="administrador.documento"
-                    placeholder="Ingrese su nif" required />
-                </div>
-                <div class="form-group mb-2 col-auto">
-                  <label for="nombres">Nombres</label><br />
-                  <input class="form-control" type="text" name="nom_doc" [(ngModel)]="administrador.nombre"
-                    placeholder="Ingrese su nombre completo" required />
-                </div>
-                <div class="form-group mb-2 col-auto">
-                  <label for="correo">Correo</label><br />
-                  <input class="form-control" type="email" name="correo" [(ngModel)]="administrador.email"
-                    placeholder="Correo electronico" required />
-                </div>
-                <div class="form-group mb-2 col-auto">
-                  <label for="contrasena">Contraseña</label><br />
-                  <input class="form-control" type="password" name="contrasena" [(ngModel)]="administrador.contrasena"
-                    placeholder="Contraseña" required />
-                </div>
-              </fieldset>
-            </div>
+        <fieldset>
+          <legend>Información Personal</legend>
+          <div class="form-group mb-2 col-auto">
+            <label for="tipoDocumento">Tipo de Documento</label>
+            <select
+              name="tipo_documento"
+              class="form-control form-select"
+              [(ngModel)]="administrador.tipoDocumento"
+              [ngModelOptions]="{ standalone: true }"
+            >
+              <option value="1">Cedula de ciudadania</option>
+              <option value="2">Targeta de identidad</option>
+              <option value="3">Cedula de estrangeria</option>
+            </select>
           </div>
-        </div>
+          <div class="form-group mb-2 col-auto">
+            <label for="nif">Documento </label><br />
+            <input
+              class="form-control"
+              type="number"
+              name="documento"
+              [(ngModel)]="administrador.documento"
+              placeholder="Ingrese su nif"
+              required
+            />
+          </div>
+          <div class="form-group mb-2 col-auto">
+            <label for="nombres">Nombres</label><br />
+            <input
+              class="form-control"
+              type="text"
+              name="nom_doc"
+              [(ngModel)]="administrador.nombre"
+              placeholder="Ingrese su nombre completo"
+              required
+            />
+          </div>
+          <div class="form-group mb-2 col-auto">
+            <label for="correo">Correo</label><br />
+            <input
+              class="form-control"
+              type="email"
+              name="correo"
+              [(ngModel)]="administrador.email"
+              placeholder="Correo electronico"
+              required
+            />
+          </div>
+          <div class="form-group mb-2 col-auto">
+            <label for="contrasena">Contraseña</label><br />
+            <input
+              class="form-control"
+              type="password"
+              name="contrasena"
+              [(ngModel)]="administrador.contrasena"
+              placeholder="Contraseña"
+              required
+            />
+          </div>
+        </fieldset>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="createAdministrador()">Agregar</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="createAdministrador()"
+        >
+          Agregar
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
       </div>
     </div>
   </div>

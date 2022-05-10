@@ -53,4 +53,9 @@ export class BecaService {
     return this.http.delete(`${this.URL}/beca/beca_alumno/delete/${codigo_beca}/${id_alumno}`)
   }
 
+  // elimina las becas con los servicios que los cubre
+  deleteAlumnoBecaService(id_alumno: any) {
+    return this.http.delete(`${this.URL}/beca/delete-alumno-beca/${id_alumno}`)
+  }
+
 }
