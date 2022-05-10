@@ -1,0 +1,63 @@
+<app-navagation-docente></app-navagation-docente>
+
+<div class="body-page">
+  <div class="m-2">
+    <div class="row">
+      <div class="col-md-12 col-xl-12">
+        <div class="card">
+          
+          <div class="card-header">
+            <button
+            type="button"
+            class="btn btn-secondary ms-5 mb-2"
+            routerLink="/docente/grados"
+          >
+            <i class="fa-solid fa-arrow-left-long"></i> Volver a Cursos
+          </button>
+            <div class="text-justify m-2">
+              <div class="card-body mt-5">
+                <div class="row d-flex justify-content-center text-dark">
+                  <div
+                    class="col-md-3 col-xl-2 mb-2 text-center"
+                    *ngFor="let grupo of grupos"
+                  >
+                    <div class="card">
+                      <div class="card-header text-center">
+                        <div class="card-tittle">
+                          <h3>
+                            {{ grupo.nombre_grado | uppercase }}
+                            {{ grupo.nombre_grupo }}
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <button
+                          type="button"
+                          class="btn btn-primary btn-block ms-1 mb-2"
+                          routerLink="/docente/alumnos/{{ grupo.id_grado }}/{{
+                            grupo.id_grupo
+                          }}"
+                        >
+                          Alumno
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-secondary btn-block ms-1"
+                          routerLink="/docente/notas/{{ grupo.id_grado }}/{{
+                            grupo.id_grupo
+                          }}"
+                        >
+                          Notas
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

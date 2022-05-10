@@ -25,7 +25,7 @@ export class UpdateDocenteComponent implements OnInit {
   user: User = {
     tipoDocumento: '1',
     // documento: '',
-    // nombre: '',
+     nombre: '',
     // contrasena: '',
     email: '',
     // rol: 'estudiante',

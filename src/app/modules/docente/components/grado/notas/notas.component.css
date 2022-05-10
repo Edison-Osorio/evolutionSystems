@@ -1,0 +1,26 @@
+legend.centrado {
+    text-align: center;
+  }
+  
+  #imagen {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  img {
+    width: 100px;
+    border-radius: 50%;
+  }
+  
+  .abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20vh;
+  }
+ 
+  td{
+    width: 11%;
+  }
+  
+  

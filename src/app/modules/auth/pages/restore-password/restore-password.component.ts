@@ -22,7 +22,7 @@ export class RestorePasswordComponent implements OnInit {
     contrasena: '',
   };
 
-  constructor(private authService: AuthService, private router:Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -48,12 +48,10 @@ export class RestorePasswordComponent implements OnInit {
     delete this.user.tipoDocumento;
 
     this.authService.updateUser(this.user).subscribe((res: any) => {
-      console.log(res);
       const { msg, data } = res;
 
       alert(msg);
-      this.router.navigate(['/auth/login'])
-
+      this.router.navigate(['/auth/login']);
     });
 
     console.log(this.user);

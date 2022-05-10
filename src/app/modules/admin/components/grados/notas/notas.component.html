@@ -57,7 +57,7 @@
                   <th col>TALLER 2</th>
                   <th col>PARCIAL 2</th>
                   <th col>
-                    evalua
+                    EVALUACIÓN
                   </th>
                   <th col>NotaFinal
                   </th>
@@ -65,7 +65,7 @@
               </thead>
               <tbody>
                 <tr *ngFor="let nota of notas">
-                  <td class="form-control-lg w-50" >{{ nota.nombre_alumno }}</td>
+                  <th class="form-control " >{{ nota.nombre_alumno }}</th>
                   <td><input type="number" class="form-control " name="nota1" [(ngModel)]="nota.nota1" [ngModelOptions]="{standalone: true}" id=""  step="any"> </td>
                   <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota2" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
                   <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota3" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>

@@ -28,8 +28,6 @@ export class AuthService {
   }
 
   updateUser(user: any) {
-    console.log(user);
-
     return this.http.put(`${this.URL}/auth/updateUser`, user);
   }
 

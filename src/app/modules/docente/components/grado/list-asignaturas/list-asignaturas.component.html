@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div class="modal fade" id="showAsignaturas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-black text-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Asignaturas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered text-center">
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="showAsignaturas">
+              <tr *ngFor="let asignatura of asignaturasGrado">
+                <td>{{ asignatura.id_asignatura }}</td>
+                <td>{{ asignatura.nombre_asignatura| uppercase }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="!showAsignaturas">
+            <h5>No tiene asignaturas asignadas</h5>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

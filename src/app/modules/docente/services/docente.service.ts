@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../../environments/environment';
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -8,41 +8,42 @@ import { Injectable } from '@angular/core';
 export class DocenteService {
   readonly URL = environment.api;
 
+  @Output() codigoGradoEmitido: EventEmitter<any> = new EventEmitter();
+
   constructor(private http: HttpClient) {}
-
-  getEstudiantes(cod_gra: number | string) {
-    return this.http.get(`${this.URL}/admin/estudiante/${cod_gra}`);
-  }
-
-  getProgramador(id: any) {
-    return this.http.get(`${this.URL}/docente/programador/${id}`);
-  }
-
-  getAsignatura(id: any) {
-    return this.http.get(`${this.URL}/docente/asignatura/${id}`);
-  }
-
-  getGrados(id: any) {
-    return this.http.get(`${this.URL}/admin/doc_gra/${id}`);
-  }
-
+  
+  //Optenemos la información de un docente
   getDocente(id: any) {
     return this.http.get(`${this.URL}/docente/${id}`);
   }
 
-    getNotas(id: any){
-      return this.http.get(`${this.URL}/admin/nota/${id}`)
-    }
-
-  getTrimestres() {
-    return this.http.get(`${this.URL}/admin/nota/trimestres/`);
-
+  listProgramadir(id: any) {
+    return this.http.get(`${this.URL}/docente/programador/${id}`);
+  }
+  //Listamos todos los grados a los que pertenece un docente
+  getGrados(nif_docente: any) {
+    return this.http.get(`${this.URL}/grado/grados-docente/${nif_docente}`);
   }
 
-  updateNota(id_asi:number, id_alu:number, id_periodo:number, notas:any){
-    return this.http.put(`${this.URL}/admin/nota/update/${id_asi}/${id_alu}/${id_periodo}`, notas)
+  // Listamos todos los grupos de un grado por medio del identificador del grado
+  listGruposGrado(id_grado: any) {
+    return this.http.get(`${this.URL}/grado/grado-grupo/${id_grado}`);
   }
 
+  // Listamos los alumnos segun el identificador del grado y del grupo
+  listAlumnoGradoGrupo(id_grado: any, id_grupo: any) {
+    return this.http.get(
+      `${this.URL}/alumno/alumnos-grado-grupo/${id_grado}/${id_grupo}`
+    );
+  }
+
+  // listamos las asignaturas según el docente y el grado
+  listAsignaturasDocenteGrado(nif_docente: any, id_grado: any) {
+    return this.http.get(
+      `${this.URL}/asignatura/asignatura-docente-grado/${nif_docente}/${id_grado}`
+    );
+  }
+  
   updateUser(id: any, user: any) {
     return this.http.put(`${this.URL}/docente/update/${id}`, user);
   }

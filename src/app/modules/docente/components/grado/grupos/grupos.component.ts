@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./grupos.component.css'],
 })
 export class GruposComponent implements OnInit {
-  grados: any = [];
+  grupos: any = [];
   hidden: boolean = false;
   estudiantes: any = [];
 
@@ -21,21 +21,14 @@ export class GruposComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.decodeToken();
-    this.getGrados();
+    // this.decodeToken();
+    this.listGrupos();
   }
 
-  decodeToken() {
-    const token = this.cookie.get('token')!;
-    let decodetoken: any = {};
-    decodetoken = decode(token);
-
-    return decodetoken.documento;
-  }
-
-  getGrados() {
-    this.docenteService.getGrados(this.decodeToken()).subscribe((res: any) => { 
-      this.grados = res;
+  listGrupos() {
+    const {id_grado} = this.activedRoute.snapshot.params
+    this.docenteService.listGruposGrado(id_grado).subscribe((res: any) => { 
+      this.grupos = res;
     });
   }
 }

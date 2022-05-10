@@ -1,0 +1,59 @@
+<app-navagation-docente></app-navagation-docente>
+
+<div class="body-page">
+  <div class="m-2">
+    <div class="row">
+      <div class="col-md-12 col-xl-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="text-justify m-2">
+              <div class="card-body">
+                <div class="row d-flex justify-content-center text-dark">
+                  <div
+                    class="col-md-4 col-xl-3 mb-2"
+                    *ngFor="let grado of grados"
+                  >
+                    <div class="card">
+                      <div class="card-header text-center">
+                        <div class="card-tittle">
+                          <h3>
+                            {{ grado.nombre_grado | uppercase }}
+                          </h3>
+                          {{ grado.tipo }}
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div
+                          class="row g-3 align-items-center justify-content-center"
+                        >
+                          <button
+                            type="button"
+                            class="btn btn-primary btn-block ms-1 col-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#showAsignaturas"
+                            (click)="codigoEmitido(grado.id_grado)"
+                          >
+                            Asignaturas
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-secondary btn-block ms-1 col-auto"
+                            routerLink="/docente/grupos/{{ grado.id_grado }}"
+                          >
+                            Ver grupos
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <app-list-asignaturas></app-list-asignaturas>
+  </div>
+</div>
+

@@ -2,18 +2,25 @@
 <br />
 <br />
 <br />
-<div class="container-xxl">
+<div class="container-fluid">
 <div class="row d-flex justify-content-center">
   <div class="col-md-12">
-    <div class="col-md-6 d-flex">
+    <div class="col-md-12 d-flex">
+      <button
+      type="button"
+      class="btn btn-secondary"
+      routerLink="/docente/grupos/{{identificador}}"
+    >
+      <i class="fa-solid fa-arrow-left-long"></i> Volver a Grupos
+    </button>
    <div>
-    <select name="periodo" id="" class="form-select" [(ngModel)]="selectedPeriodo" (change)="onSelectPeriodo($event.target)" >
+    <select name="periodo" id="" class="form-select ms-2" [(ngModel)]="selectedPeriodo" (change)="onSelectPeriodo($event.target)" >
       <option value="">Selecciona periodo</option>
       <option
         *ngFor="let trimestre of trimestres"
-        value="{{ trimestre.id_etapa }}"
+        value="{{ trimestre.id_periodo }}"
       >
-        {{ trimestre.nombre_etapa }}
+        {{ trimestre.nombre_periodo | uppercase}}
       </option>
     </select>
    </div>
@@ -22,9 +29,9 @@
         <option value="">Selecciona Asignatura</option>
         <option
           *ngFor="let asignatura of asignaturas"
-          value="{{ asignatura.id_asi }}"
+          value="{{ asignatura.id_asignatura  }}"
         >
-          {{ asignatura.nom_asi }}
+          {{ asignatura.nombre_asignatura | uppercase }}
         </option>
       </select>
     </div>
@@ -56,7 +63,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let nota of notas">
-              <th class="form-control " >{{ nota.nom_alu }}</th>
+              <th class="form-control " >{{ nota.nombre_alumno }}</th>
               <td><input type="number" class="form-control " name="nota1" [(ngModel)]="nota.nota1" [ngModelOptions]="{standalone: true}" id=""  step="any"> </td>
               <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota2" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
               <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota3" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>

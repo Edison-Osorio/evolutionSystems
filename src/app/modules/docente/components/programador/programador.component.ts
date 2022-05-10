@@ -32,16 +32,10 @@ export class ProgramadorComponent implements OnInit {
      
     }
     getProgramador() {
-    this.docenteService.getProgramador(this.decodeToken()).subscribe((res: any) => {
-      console.log(res);
-
-      this.horarios = res;
-
-      console.log(res);
-      
-
-      console.log( 'Esta es la variable de Horario', this.horarios);
-      
-    });
+    // this.docenteService.getProgramador(this.decodeToken()).subscribe((res: any) => {
+    //   console.log(res);
+    //   this.horarios = res;
+    //   console.log( 'Esta es la variable de Horario', this.horarios);
+    // });
   }
 }

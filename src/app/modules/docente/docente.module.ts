@@ -6,13 +6,15 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { DocenteRoutingModule } from './docente-routing.module';
 import { DocentePageComponent } from './pages/docente-page/docente-page.component';
 import { DocenteStartComponent } from './components/docente-start/docente-start.component';
-import { EstudianteComponent } from './components/estudiante/estudiante.component';
-import { GruposComponent } from './components/grupos/grupos.component';
-import { NotasComponent } from './components/notas/notas.component';
+import { GruposComponent } from './components/grado/grupos/grupos.component';
+import { NotasComponent } from './components/grado/notas/notas.component';
 import { ProgramadorComponent } from './components/programador/programador.component';
 import { NavagationDocenteComponent } from './components/navagation-docente/navagation-docente.component';
 import { InformationsComponent } from './components/informations/informations.component';
 import { InjectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
+import { GradoComponent } from './components/grado/grado.component';
+import { ListAlumnosComponent } from './components/grado/list-alumnos/list-alumnos.component';
+import { ListAsignaturasComponent } from './components/grado/list-asignaturas/list-asignaturas.component';
 
 
 @NgModule({
@@ -23,8 +25,10 @@ import { InjectSessionInterceptor } from '@core/interceptors/inject-session.inte
     NotasComponent,
     ProgramadorComponent,
     NavagationDocenteComponent,
-    EstudianteComponent,
-    InformationsComponent
+    InformationsComponent,
+    GradoComponent,
+    ListAlumnosComponent,
+    ListAsignaturasComponent
   ],
 
   imports: [
