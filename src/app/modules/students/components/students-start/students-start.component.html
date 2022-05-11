@@ -4,39 +4,85 @@
   <div class="card text-black">
     <div class="card-header">
       <div class="card-title">
-        <h3 class="text-center">Bienvenido {{ alumno.nombre_alumno }}</h3>
+        <h3 class="text-center">Bienvenido/a {{ alumno.nombre_alumno }}</h3>
       </div>
     </div>
     <div class="card-body">
-      <div class="row">
-        <div class="col-md-8 col-xl-8">
+      <div class="row" *ngIf="hidden">
+        <div class="col-md-7 col-xl-7">
           <div class="container">
-            <p id="welcome" class="text-center">
-              Has ingresado a la pagina wed de la intitucion educativa normativa
-              evolution, en la sesión de estudiantes, en la cual podrás
-              verificar tú progamador de clases, notas, servicios en los cuales
-              estas y a cuales puedes hacer peticiones para que los
-              administrativos hagan su respectivo registro
+            <p class="welcome">
+              Bienvenido/a {{ alumno.nombre_alumno }} has ingresado a la pagina
+              wed de la Intitución Educativa La Normativa Evolution, en la
+              sesión de estudiantes, en la cual podrás verificar las notas y
+              ademas ver el promedio en tiempo real de la nota final de cada una
+              de las asignaturas de su proceso formativo, en el aplicativa
+              también encontrará un apartado en el cual podrá ver el horario
+              semana de cada una de las clases del grado y así tener una mejor
+              gestión del tiempo para desempañar cada una de las tareas diarias.
             </p>
-            <h6 class="text-center">
-              Esperamos que disfrutes la interaccion en nuestra pagina
-            </h6>
+            <p class="welcome">
+              Por medio de este aplicativo puede visualizar los servicios a los
+              cuales ha accedido y como también podrá hacer la petición de un
+              servicio al cual quiera pertenecer. Aparte de los servicios podrá
+              visualizar las becas que tiene siempre y cuando el colegio le haya
+              otorgado una beca.
+            </p>
           </div>
         </div>
-        <div class="col-md-3 col-xl-3">
-          <div *ngIf="hidden">
-            <div>
-              <p *ngFor="let ib of informacionBeca" class="ms-2" id="parrafo">
-                {{ ib.nombre_alumno }} tu beca con codigo {{ ib.codigo_beca }}:
-                {{ ib.descripcion }} es cubierta por el servicio
-                {{ ib.tipo_servicio }}
-              </p>
+        <div class="col-md-4 col-xl-5">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title text-center">
+                <h3>Mis Becas</h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th>Beca</th>
+                    <th>Servicio a Cubir</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let informacionBeca of informacionBeca">
+                    <td>{{ informacionBeca.descripcion }}</td>
+                    <td>{{ informacionBeca.tipo_servicio }}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
+      <!-- Si no hay becas -->
+      <div class="row" *ngIf="!hidden">
+        <div class="col-md-12 col-xl-12">
+          <div class="container">
+            <p id="welcome" class="text-center">
+              Bienvenido/a {{ alumno.nombre_alumno }} has ingresado a la pagina
+              wed de la Intitución Educativa La Normativa Evolution, en la
+              sesión de estudiantes, en la cual podrás verificar las notas y
+              ademas ver el promedio en tiempo real de la nota final de cada una
+              de las asignaturas de su proceso formativo, en el aplicativa
+              también encontrará un apartado en el cual podrá ver el horario
+              semana de cada una de las clases del grado y así tener una mejor
+              gestión del tiempo para desempañar cada una de las tareas diarias.
+            </p>
+            <p class="welcome">
+              Por medio de este aplicativo puede visualizar los servicios a los
+              cuales ha accedido y como también podrá hacer la petición de un
+              servicio al cual quiera pertenecer. Aparte de los servicios podrá
+              visualizar las becas que tiene siempre y cuando el colegio le haya
+              otorgado una beca.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+    <h6 class="text-center">
+      ¡ Esperamos que disfrutes la interaccion en nuestra pagina !
+    </h6>
   </div>
 </div>
-
-

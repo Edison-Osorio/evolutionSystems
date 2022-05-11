@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import decode from 'jwt-decode'
 
 @Component({
   selector: 'app-docente-start',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocenteStartComponent implements OnInit {
 
-  constructor() { }
+  nameUser:any
+  constructor(private cookie:CookieService) { }
 
   ngOnInit(): void {
+    this.decodeToken()
+  }
+
+  decodeToken() {
+    const token = this.cookie.get('token')!;
+    let decodetoken: any = {};
+    decodetoken = decode(token);
+    this.nameUser = decodetoken.nombre
+
   }
 
 }

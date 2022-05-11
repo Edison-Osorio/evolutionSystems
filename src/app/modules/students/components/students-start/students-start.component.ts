@@ -31,11 +31,11 @@ export class StudentsStartComponent implements OnInit {
   becaAlumno() {
     this.studentService.getBecaAlumno(this.alumnoToken()).subscribe(
       (res: any) => {
-        if (res) {
+        if (res.length != []) {
           this.informacionBeca = res
           this.hidden = true
         } else {
-          this.hidden = true
+          this.hidden = false
         }
       }
     )

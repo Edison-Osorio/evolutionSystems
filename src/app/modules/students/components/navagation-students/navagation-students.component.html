@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top cabecero card-header">
   <div class="container-fluid">
-    <a class="bnavegacion navbar-brand title-navegation" href="#">
+    <a class="bnavegacion navbar-brand title-navegation" routerLink="/estudiante/estudiante">
       <img src="../../../../../assets/img/logo/logo.jpeg" alt="logo" class="logo img-navegation" />
       {{ nameStudent}}
 
@@ -30,24 +30,21 @@
   </div>
 </nav>
 <br>
+<br>
 <!-- Inicio de la navegación de los botones -->
 <ul class="nav justify-content-center mt-5">
-  <li class="nav-item m-1">
-    <a type="button" class="btn btn-info m-3 form-control btn-block" routerLink="/estudiante/estudiante">
-      Inicio
-    </a>
-  </li>
-  <li class="nav-item mt-1">
-    <a  type="button" class="btn btn-info m-3 form-control btn-block" routerLink="/estudiante/programador">
-      Progamador
-    </a>
-  </li>
-
+ 
   <li class="nav-item m-1">
     <a type="button" class="btn btn-info m-3 form-control btn-block" routerLink="/estudiante/notas">
       Notas
     </a>
   </li>
+  <li class="nav-item mt-1">
+    <a  type="button" class="btn btn-info m-3 form-control btn-block" routerLink="/estudiante/programador">
+      Horario
+    </a>
+  </li>
+
   <li class="nav-item m-1">
     <a type="button" class="btn btn-info m-3 form-control btn-block" routerLink="/estudiante/servicios">
       servicios

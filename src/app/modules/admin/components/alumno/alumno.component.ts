@@ -13,12 +13,13 @@ import { NotaService } from '@shared/services/nota/nota.service';
 })
 export class AlumnoComponent implements OnInit {
   alumnos: any = [];
-  alumno:any={
-    id_alumno:''
-  }
-  hidden:boolean=true
-  hiddenM:boolean=true
- mensaje:any='Alumno no encontrado'
+  alumnosAll: any = [];
+  alumno: any = {
+    id_alumno: '',
+  };
+  hidden: boolean = true;
+  hiddenM: boolean = true;
+  mensaje: any = 'Alumno no encontrado';
   constructor(
     private alumnoService: AlumnoService,
     private notaService: NotaService,
@@ -33,17 +34,38 @@ export class AlumnoComponent implements OnInit {
   // Listamos todos los alumnos
   listAlumno() {
     this.alumnoService.getAlumnos().subscribe((res: any) => {
-      this.hidden=true
-      this.hiddenM=false
+      this.hidden = true;
+      this.hiddenM = false;
       this.alumnos = res;
+      this.alumnosAll = res;
     });
   }
   codigoAlumno(codigo: number) {
     this.alumnoService.codioAlumno.emit({ codigo });
   }
 
+  //obtener un solo alumno
+  getOnAlumno() {
+    this.alumnoService.getUnAlumno(this.alumno.id_alumno).subscribe(
+      (res) => {
+        if (this.alumno.id_alumno == '') {
+          this.alumnos = this.alumnosAll;
+        } else {
+        this.alumnos = res;
+        if (this.alumnos[0] == null) {
+          this.mensaje;
+          alert(this.mensaje);
+        }
+      }
+      },
+      (err) => console.log(err)
+    );
+  }
+
   deleteAlumno(alumno: any) {
-    if (confirm(`¿Esta seguro de eliminar el Alumno con el documento ${alumno}` )) {
+    if (
+      confirm(`¿Esta seguro de eliminar el Alumno con el documento ${alumno}`)
+    ) {
       this.notaService.deleteNota(alumno).subscribe(
         (res: any) => {
           this.alumnoService.deleteMatricula(alumno).subscribe(
@@ -63,10 +85,10 @@ export class AlumnoComponent implements OnInit {
                                   this.alumnoService
                                     .deleteUser(alumno)
                                     .subscribe(
-                                      (res:any) => {
+                                      (res: any) => {
                                         const message = res.msg;
                                         alert(message);
-                                        this.listAlumno()
+                                        this.listAlumno();
                                       },
                                       (err) => {
                                         alert('No se pudo eliminar el usuario');
@@ -103,24 +125,5 @@ export class AlumnoComponent implements OnInit {
         }
       );
     }
-  }
-
-
-
-
-
-
-  //obtener un solo alumno
-  getOnAlumno(){
-    this.alumnoService.getUnAlumno(this.alumno.id_alumno).subscribe(
-      res=>{
-        this.alumnos=res
-        if (this.alumnos[0]==null) {
-          this.mensaje
-          alert(this.mensaje)
-        }
-      },err=>console.log(err)
-
-    )
   }
 }

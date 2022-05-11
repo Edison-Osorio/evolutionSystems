@@ -2,11 +2,6 @@ legend.centrado {
   text-align: center;
 }
 
-/* #imagen {
-  width: 100px;
-  border-radius: 50%;
-} */
-
 fieldset {
   background-color: #4aa1f3f3;
 }
@@ -19,27 +14,9 @@ img {
 .img-grupos {
   width: 200px;
 }
-h3{
-  border-radius:10px ;
-  background-color: #D6EEEB;
-  Color: black;
-  font-style: arial;
-}
-p{
-  font-style: arial;
-  color: black;
-}h6{
-  border-radius:10px ;
-  background-color: #D6EEEB;
-  Color: black;
-  font-style: arial;
-  font-size: 18px;
-}
 
-#parrafo {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
-}
-#welcome{
+
+.welcome{
   font-size: 20px;
+  text-align: justify;
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AdminService } from '@modules/admin/services/admin/admin.service';
 import { DatePipe } from '@angular/common';
 import { HorarioService } from '@modules/admin/services/horario/horario.service';
 

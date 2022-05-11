@@ -1,7 +1,7 @@
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '@modules/admin/services/admin/admin.service';
 import decode from 'jwt-decode'
+import { AdminService } from '@modules/admin/services/admin/admin.service';
 //import { decode } from 'querystring';
 
 @Component({

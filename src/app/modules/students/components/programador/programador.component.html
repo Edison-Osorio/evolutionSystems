@@ -1,38 +1,47 @@
 <app-navagation-students></app-navagation-students>
 
-<div class=" m-2 mt-4">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card mt-4">
-                <div class="card-header mt-4">
-                    <div class="card-body mt-4">
-                        <h5 class="text-center">Progamador</h5>
-                        <div class="container">
-                            <table class=" table table-responsive table-bordered table-hover ">
-                                <thead>
-                                    <tr class="fondotabla">
-                                        <th>Nombre asignatura</th>
-                                        <th>Descripcion asignatura</th>
-                                        <th>Docente</th>
-                                      <th>Dia</th>
-                                      <th>Hora</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let progamador of horario">
-                                      <td>{{progamador.nombre_asignatura | uppercase}}</td>
-                                      <td>{{progamador.descripcion_asignatura |uppercase}}</td>
-                                      <td>{{progamador.nombre_docente | uppercase}}</td>
-                                      <td>{{progamador.dia | uppercase}}</td>
-                                      <td>{{progamador.hora   }}</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-12 col-xl-12">
+      <div class="card mt-4">
+        <div class="card-header mt-4">
+          <h3 class="text-center text-black">HORARIO SEMANAL</h3>
         </div>
+        <div class="card-body">
+          <div class="container">
+              <div class="form-group w-25 mb-2">
+                  <select name="dia" [(ngModel)]="dia" (change)="onSelectDia($event.target)" class="form-select">
+                      <option value="">Seleccione un dia</option>
+                      <option value="Lunes">LUNES</option>
+                      <option value="Martes">MARTES</option>
+                      <option value="Miercoles">MIERCOLES</option>
+                      <option value="Jueves">JUEVES</option>
+                      <option value="Viernes">VIERNES</option>
+                  </select>
+              </div>
+            <table class="table table-responsive table-bordered table-hover">
+              <thead>
+                <tr class="fondotabla">
+                  <th>Dia</th>
+                  <th>Hora</th>
+                  <th>Nombre asignatura</th>
+                  <th>Descripcion asignatura</th>
+                  <th>Docente</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let progamador of horarioDia">
+                  <td>{{ progamador.dia | uppercase }}</td>
+                  <td>{{ progamador.hora }}</td>
+                  <td>{{ progamador.nombre_asignatura | uppercase }}</td>
+                  <td>{{ progamador.descripcion_asignatura | uppercase }}</td>
+                  <td>{{ progamador.nombre_docente | uppercase }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

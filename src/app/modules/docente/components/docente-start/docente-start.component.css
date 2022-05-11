@@ -1,40 +1,4 @@
-legend.centrado {
-    text-align: center;
-  }
-  
-  #imagen {
-    width: 100px;
-    border-radius: 50%;
-  }
-  
-  img {
-    width: 100px;
-    border-radius: 50%;
-  }
-  
-  .abs-center {
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    min-height: 20vh;
-  }
- 
-  
-  .form {
-    margin: auto;
-    
-  }
-  
-  .container {
-    width: 25rem;
-  
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  #imagen {
-    width: 50px;
-    border-radius: 50%;
-  }
-  
+p{
+  font-size: 20px;
+  text-align: justify;
+}

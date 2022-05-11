@@ -6,32 +6,44 @@ import decode from 'jwt-decode';
 @Component({
   selector: 'app-programador',
   templateUrl: './programador.component.html',
-  styleUrls: ['./programador.component.css']
+  styleUrls: ['./programador.component.css'],
 })
 export class ProgramadorComponent implements OnInit {
   horario: any = [];
+  dia: any = '';
+  horarioDia: any = [];
   informacion: any = [];
-  constructor(private studentsService: StudentsService, private cookie: CookieService) { }
-  newH:any
+  constructor(
+    private studentsService: StudentsService,
+    private cookie: CookieService
+  ) {}
+  newH: any;
   ngOnInit(): void {
-    this.getHorario()
-    this.alumnoToken()
+    this.getHorario();
+    this.alumnoToken();
   }
   // obtiene el horario del alumno
   getHorario() {
-    this.studentsService.getHorario(this.alumnoToken()).subscribe(
-      res => {
-        this.horario = res;
-      }
-    )
+    this.studentsService.getHorario(this.alumnoToken()).subscribe((res) => {
+      this.horario = res;
+      this.horarioDia = res;
+    });
   }
+
+  onSelectDia(nombre_dia: any) {
+    const { value } = nombre_dia;
+    if (this.dia == '') {
+      this.horarioDia = this.horario;
+    } else {
+      this.horarioDia = this.horario.filter((item: any) => item.dia == value);
+    }
+  }
+
   alumnoToken() {
     const token = this.cookie.get('token')!;
     let decodetoken: any = {};
-    decodetoken = decode(token)
+    decodetoken = decode(token);
 
-    return decodetoken.documento
+    return decodetoken.documento;
   }
-
 }
-
