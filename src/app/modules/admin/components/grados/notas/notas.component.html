@@ -65,7 +65,7 @@
               </thead>
               <tbody>
                 <tr *ngFor="let nota of notas">
-                  <th class="form-control " >{{ nota.nombre_alumno }}</th>
+                  <th class="form-control " > {{ nota.nombre_alumno }} <button type="button" id="buttonModal" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#listInformations" (click)="codigoAemitir(nota.id_alumno_n)" >  <i class="fa-solid fa-book"></i>   </button></th>
                   <td><input type="number" class="form-control " name="nota1" [(ngModel)]="nota.nota1" [ngModelOptions]="{standalone: true}" id=""  step="any"> </td>
                   <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota2" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
                   <td><input type="number" class="form-control " name="" [(ngModel)]="nota.nota3" [ngModelOptions]="{standalone: true}" id=""  step="any"></td>
@@ -84,3 +84,4 @@
 </div>
 </div>
 
+<app-informe-admin></app-informe-admin>

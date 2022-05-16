@@ -7,7 +7,7 @@ import { GradoService } from '@modules/admin/services/grado/grado.service';
   styleUrls: ['./grados.component.css'],
 })
 export class GradosComponent implements OnInit {
-  constructor(private gradoService:GradoService) {}
+  constructor(private gradoService: GradoService) {}
   grados: any = [];
 
   notas: any = [];
@@ -22,7 +22,13 @@ export class GradosComponent implements OnInit {
 
   listGrados() {
     this.gradoService.listGrados().subscribe((res: any) => {
-      this.grados = res;
+      const { query, query2 } = res;
+
+      if (query2.length == []) {
+        this.grados = query;
+      } else {
+        this.grados = query2;
+      }
     });
   }
 
@@ -33,7 +39,7 @@ export class GradosComponent implements OnInit {
         (res: any) => {
           alert(res.msg);
           // document.location.reload();
-          this.listGrados()
+          this.listGrados();
         },
         (err) => {
           alert('No se puede eliminar este grupo');

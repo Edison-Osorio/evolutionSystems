@@ -69,7 +69,8 @@ export class InsertAlumnoComponent implements OnInit {
 
   getGrados() {
     this.gradoService.listGrados().subscribe((res: any) => {
-      this.grados = res;
+      const { query } = res;
+      this.grados = query;
     });
   }
 
@@ -133,7 +134,7 @@ export class InsertAlumnoComponent implements OnInit {
                         const nota: any = {
                           id_asignatura_n: codigo_asignatura.id_asignatura,
                           id_alumno_n: this.alumno.id_alumno,
-                          id_grupo_n: this.matricula.id_grupo_m ,
+                          id_grupo_n: this.matricula.id_grupo_m,
                           id_periodo_n: i,
                         };
                         // INSERTAMOS EN LA TABLA NOTAS
@@ -152,7 +153,7 @@ export class InsertAlumnoComponent implements OnInit {
                 alert(res.msg);
                 let ref = document.getElementById('cancel');
                 ref?.click();
-                document.location.reload()
+                document.location.reload();
               },
               (err) =>
                 alert(

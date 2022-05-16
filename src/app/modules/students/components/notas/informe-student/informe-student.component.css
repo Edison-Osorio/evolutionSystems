@@ -1,0 +1,37 @@
+
+img {
+    width: 120px;
+}
+
+select{
+    text-align: center;
+}
+
+ p{
+    color: black;
+} 
+
+.page-header{
+    background-color: #6ACDE5;
+    text-align:justify;
+}
+/* .container{
+    background-color: #D6EEEB;
+} */
+.fondopie{
+    background-color: #6ACDE5;
+    color: black;
+}
+.fondotabla{
+    background-color: #D6EEEB;
+    color: black;
+}
+.fondomateria{
+    background-color: #D6EEEB;
+    color: black;
+    text-decoration: none;
+    width: auto;
+}
+.border{
+    border-radius: 20px;
+}

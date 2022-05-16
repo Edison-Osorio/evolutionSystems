@@ -15,6 +15,7 @@ import { InjectSessionInterceptor } from '@core/interceptors/inject-session.inte
 import { GradoComponent } from './components/grado/grado.component';
 import { ListAlumnosComponent } from './components/grado/list-alumnos/list-alumnos.component';
 import { ListAsignaturasComponent } from './components/grado/list-asignaturas/list-asignaturas.component';
+import { InformeComponent } from './components/grado/notas/informe/informe.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ListAsignaturasComponent } from './components/grado/list-asignaturas/li
     InformationsComponent,
     GradoComponent,
     ListAlumnosComponent,
-    ListAsignaturasComponent
+    ListAsignaturasComponent,
+    InformeComponent
   ],
 
   imports: [

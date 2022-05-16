@@ -19,6 +19,10 @@ export class StudentsService {
      return this.http.get(`${this.URL}/alumno/onAlumno/${id}`);
    }
 
+   getGradoAlumno(id_alumno:any){
+     return this.http.get(`${this.URL}/alumno/GradoAlumno/${id_alumno}`)
+   }
+
    getServiciosAlumno(id:any){
      return this.http.get(`${this.URL}/alumno_servicio/${id}`)
    }

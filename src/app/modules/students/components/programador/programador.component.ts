@@ -10,6 +10,7 @@ import decode from 'jwt-decode';
 })
 export class ProgramadorComponent implements OnInit {
   horario: any = [];
+  grado:any
   dia: any = '';
   horarioDia: any = [];
   informacion: any = [];
@@ -21,13 +22,25 @@ export class ProgramadorComponent implements OnInit {
   ngOnInit(): void {
     this.getHorario();
     this.alumnoToken();
+    this.getGrado()
   }
   // obtiene el horario del alumno
   getHorario() {
     this.studentsService.getHorario(this.alumnoToken()).subscribe((res) => {
       this.horario = res;
       this.horarioDia = res;
+      
     });
+  }
+
+  getGrado(){
+    this.studentsService.getGradoAlumno(this.alumnoToken()).subscribe((res:any)=>{
+
+      const grados = res.nombre_grado
+      const grupo = res.nombre_grupo
+
+      this.grado = `${grados} ${grupo}`     
+    })
   }
 
   onSelectDia(nombre_dia: any) {

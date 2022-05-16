@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -8,7 +8,9 @@ import { environment } from 'src/environments/environment';
 export class NotaService {
 
   readonly URL = environment.api
-
+ @Output() notasEmitidas: EventEmitter<any> = new EventEmitter();
+ @Output() asignaturasEmitidas:EventEmitter<any> = new EventEmitter()
+ @Output() CodigoEmitido: EventEmitter<any> = new EventEmitter()
   constructor(private http: HttpClient) { }
 
   // listamos las notas

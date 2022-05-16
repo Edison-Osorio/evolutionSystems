@@ -35,12 +35,19 @@
         </option>
       </select>
     </div>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#listInformations">
+  Ver informe final
+</button>
     </div>
     <div class="card mt-2">
       <div class="card-header mt-2">
         <form action="">
+          <h2 class="text-black mb-0">
+            {{Grado}} {{Grupo}}
+          </h2>
           <div class=" col-md-12 d-flex justify-content-end ">
-            <button type="submit" value="Enviar" class="btn btn-outline-success mb-3 me-md-5 " (click)="update()">
+            <button type="submit" value="Enviar" class="btn btn-outline-success mb-3  " (click)="update()">
               Guardar cambios
             </button>
           </div>
@@ -79,3 +86,8 @@
   </div>
 </div>
 </div>
+
+<app-informe></app-informe>
+
+
+

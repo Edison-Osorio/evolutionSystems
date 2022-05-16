@@ -29,7 +29,13 @@ export class ListGruposComponent implements OnInit {
               this.showGrupos = false
             } else {
               this.showGrupos = true
-              this.grupos = res
+              const { query, query2 } = res
+              if (query2.length == [] ) {
+                this.grupos = query
+                
+              } else {
+                this.grupos = query2
+              }              
             }
        }
      )

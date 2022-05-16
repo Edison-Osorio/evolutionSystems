@@ -43,6 +43,11 @@ export class NotasComponent implements OnInit {
     return decodetoken.documento;
   }
 
+  codigoAemitir(codigo:any){
+    this.notaService.CodigoEmitido.emit({codigo})
+
+  }
+
   selections() {
     if (this.selectedPeriodo === '') {
       this.selectedAsignatura = '';
@@ -72,7 +77,7 @@ export class NotasComponent implements OnInit {
       this.notaService
         .listNotas(params['id_grado'], params['id_grupo'])
         .subscribe((res: any) => {
-          this.notasAll = res;
+          this.notasAll = res; 
         });
     }
   }
@@ -112,6 +117,8 @@ export class NotasComponent implements OnInit {
         delete this.notas[nota].id_grupo_n;
         delete this.notas[nota].nombre_asignatura;
         delete this.notas[nota].nota_final;
+        delete this.notas[nota].nombre_grado;
+        delete this.notas[nota].nombre_grupo;
         let notas = this.notas[nota];
         this.notaService
           .updateNotas(id_alumno_n, id_asignatura_n, id_periodo_n, notas)

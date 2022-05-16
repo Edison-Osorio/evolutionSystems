@@ -13,6 +13,7 @@ export class NotasComponent implements OnInit {
 
   showNotas!:boolean
   informacion: any = [];
+  grado:any
   notas: any = [];
   periodo: any = '';
   periodos: any = [];
@@ -27,6 +28,7 @@ export class NotasComponent implements OnInit {
     this.alumnoToken();
     this.getNotas();
     this.listPeriodo();
+    this.getGrado()
   }
   alumnoToken() {
     const token = this.cookie.get('token')!;
@@ -36,9 +38,19 @@ export class NotasComponent implements OnInit {
     return decodetoken.documento;
   }
 
+  getGrado(){
+    this.studentsService.getGradoAlumno(this.alumnoToken()).subscribe((res:any)=>{
+      
+      const grados = res.nombre_grado
+      const grupo = res.nombre_grupo
+
+      this.grado = `${grados} ${grupo}`     
+    })
+  }
+
   getNotas() {
     this.notaService.listNotasAlumno(this.alumnoToken()).subscribe((res) => {
-      this.notas = res;
+      this.notas = res; 
     });
   }
 

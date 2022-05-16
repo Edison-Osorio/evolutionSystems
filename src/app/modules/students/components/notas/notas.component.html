@@ -10,12 +10,26 @@
                  </div>
                 </div>
                 <div class="card-body">
+                  <!-- <div class="form-group">
+                    <button class="btn btn-success">
+                      Ver informe Final
+                    </button>
+                  </div> -->
                     <div class="form-group">
+                      <div>
+                        <h5> GRADO: 
+                          {{grado}}
+                        </h5>
+                      </div>
                         <select name="" [(ngModel)]="periodo" (change)="onSelectPeriodo($event.target)" class="form-select mb-2 w-25">
                             <option value="">Selecione el periodo</option>
                             <option *ngFor="let periodo of periodos" value="{{periodo.id_periodo}}">{{periodo.nombre_periodo}}</option>
                         </select>
+                        <button type="button" id="buttonModal" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#listInformations">
+                          Ver informe final
+                        </button>
                     </div>
+                    
                     <table class="table table-responsive table-bordered table-hover">
                         <thead>
                           <tr class="fondotabla">
@@ -52,4 +66,5 @@
         </div>
     </div>
 </div>
+<app-informe-student></app-informe-student>
 

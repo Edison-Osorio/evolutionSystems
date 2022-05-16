@@ -1,0 +1,145 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="listInformations"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="staticBackdropLabel">
+          Informe de notas finales
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container mt-4 text-black">
+          <div id="htmldata">
+            <!--div el cual alverga los datos que se van a llevar al PDF -->
+            <!-- infromacion -->
+            
+            <div class="d-flex justify-content-center">
+              <div class="justify-content-start">
+                <img
+                  class="border"
+                  src="../../../../../../../assets/img/logo/logo.png"
+                  alt="logo"
+                  class="logo img-navegation text-left"
+                />
+              </div>
+              <div class="justify-content-center">
+                <h2 class="text-center">
+                  <br />
+                  Institución Educativa La Normativa Evolution
+                </h2>
+              </div>
+            </div>
+              <table class=" table table-bordered table-responsive  text-center text-black">
+                <thead>
+                  <tr>
+                    <th colspan="4">
+                      <h5 class="text-center">NIT</h5>
+                      <p class="text-center">933847992-6</p>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <h6>Docente:</h6>
+                      <h6>
+                        {{ userName }}
+                      </h6>
+                    </th>
+                    <th>
+                      <h6>GRADO:</h6> <h6>{{ Grado }} {{ Grupo }}</h6>
+                    </th>
+                    <th>
+                      <h5 class="text-center">Periodo </h5>
+                      <div
+                        class="form-group d-flex justify-content-center text-center"
+                      >
+                        <select
+                          class="form-select"
+                          (change)="onSelectPeriodo($event.target)"
+                        >
+                          <option value="">Seleccione un periodo</option>
+                          <option
+                            *ngFor="let periodo of periodos"
+                            value="{{ periodo.id_periodo }}"
+                          >
+                            {{ periodo.nombre_periodo }}
+                          </option>
+                        </select>
+                      </div>
+                    </th>
+                    <th>
+                      <h5 class="text-center">Asignatura</h5>
+                      <div
+                        class="form-group d-flex justify-content-center text-center"
+                      >
+                        <select
+                          class="form-select"
+                          (change)="onSelectAsignatura($event.target)"
+                        >
+                          <option value="">Seleccione una asignatura</option>
+                          <option
+                            *ngFor="let asignatura of asignaturas"
+                            value="{{ asignatura.id_asignatura }}"
+                          >
+                            {{ asignatura.nombre_asignatura }}
+                          </option>
+                        </select>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            <!-- </div> -->
+
+            <table class="table table-responsive table-bordered">
+              <thead>
+                <tr class="fondotabla">
+                  <th>Nombres</th>
+                  <th>Nota final</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- <tr *ngFor="let nota of notas"> -->
+                <tr *ngFor="let nota of notas">
+                  <td>{{ nota.nombre_alumno }}</td>
+                  <td>{{ nota.nota_final }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-center">__________</p>
+            <p class="text-center">Firma del Docente</p>
+            <br />
+            <h5 class="text-center">Caldas Antioquia</h5>
+            <br />
+            <h5 class="text-center">Telefono</h5>
+            <p class="text-center">315 870 46 52</p>
+            <br />
+            <h5 class="text-center">Fecha</h5>
+            <p class="text-center"> {{date | date:'dd/MM/yyy' }} </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button class="text-center btn btn-success" (click)="downloadPDF()">
+          Descargar le informe del trimestre
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,7 @@ export class DocenteService {
 
   @Output() codigoGradoEmitido: EventEmitter<any> = new EventEmitter();
 
+
   constructor(private http: HttpClient) {}
   
   //Optenemos la información de un docente

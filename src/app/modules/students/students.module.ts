@@ -13,6 +13,7 @@ import {StudentsService} from './services/students.service';
 import { InjectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
 import { FormsModule } from '@angular/forms';
 import { StudentInformationComponent } from './components/student-information/student-information.component';
+import { InformeStudentComponent } from './components/notas/informe-student/informe-student.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { StudentInformationComponent } from './components/student-information/st
     ProgramadorComponent,
     ServiciosComponent,
     NavagationStudentsComponent,
-    StudentInformationComponent
+    StudentInformationComponent,
+    InformeStudentComponent
   ],
   imports: [
     CommonModule,
