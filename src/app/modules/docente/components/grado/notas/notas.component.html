@@ -15,7 +15,7 @@
     </button>
    <div>
     <select name="periodo" id="" class="form-select ms-2" [(ngModel)]="selectedPeriodo" (change)="onSelectPeriodo($event.target)" >
-      <option value="">Selecciona periodo</option>
+      <option value="">Seleccionar periodo</option>
       <option
         *ngFor="let trimestre of trimestres"
         value="{{ trimestre.id_periodo }}"
@@ -26,7 +26,7 @@
    </div>
     <div *ngIf="hidden">
       <select name="asignatura" id="" class="form-select ms-4" [(ngModel)]="selectedAsignatura" (change)="onSelectAsignatura($event.target)">
-        <option value="">Selecciona Asignatura</option>
+        <option value="">Seleccionar Asignatura</option>
         <option
           *ngFor="let asignatura of asignaturas"
           value="{{ asignatura.id_asignatura  }}"
@@ -54,17 +54,16 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th col>Nombres</th>
-              <th col>parcial1</th>
-              <th col>taller1</th>
-              <th col>parcial2</th>
-              <th col>taller2</th>
+              <th col>NOMBRES</th>
+              <th col>PARCIAL1</th>
+              <th col>TALLER1</th>
+              <th col>PARCIAL2</th>
+              <th col>TALLER2</th>
               <th col>
-                evaluación
+               EVALUACIÓN
               </th>
               <th row>
-                nota
-                final
+                NOTA FINAL
               </th>
             </tr>
           </thead>

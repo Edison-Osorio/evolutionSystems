@@ -40,7 +40,7 @@ export class LoginPagesComponent implements OnInit {
           this.errorSession = true;
           this.error = msg;
 
-          return console.log('no se aprobo su ingreso');
+          return console.log('No se aprobo su ingreso');
         } else {
           let decodetoken: any = {};
           decodetoken = decode(token);

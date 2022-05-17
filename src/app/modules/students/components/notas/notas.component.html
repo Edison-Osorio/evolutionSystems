@@ -22,7 +22,7 @@
                         </h5>
                       </div>
                         <select name="" [(ngModel)]="periodo" (change)="onSelectPeriodo($event.target)" class="form-select mb-2 w-25">
-                            <option value="">Selecione el periodo</option>
+                            <option value="">Seleccione el periodo</option>
                             <option *ngFor="let periodo of periodos" value="{{periodo.id_periodo}}">{{periodo.nombre_periodo}}</option>
                         </select>
                         <button type="button" id="buttonModal" class="btn btn-primary ms-5" data-bs-toggle="modal" data-bs-target="#listInformations">
@@ -33,13 +33,13 @@
                     <table class="table table-responsive table-bordered table-hover">
                         <thead>
                           <tr class="fondotabla">
-                            <th>NOMBRES</th>
+                            <th>ASIGNATURA</th>
                             <th>TALLER 1</th>
                             <th>PARCIAL 1</th>
                             <th>TALLER 2</th>
                             <th>PARCIAL 2</th>
                             <th>EVALUACIÓN</th>
-                            <th>Nota Final</th>
+                            <th>NOTA FINAL</th>
                           </tr>
                         </thead>
                         <tbody class="text-center" *ngIf="showNotas">

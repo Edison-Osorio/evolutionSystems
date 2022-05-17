@@ -33,9 +33,9 @@
                 [(ngModel)]="user.tipoDocumento"
                 [ngModelOptions]="{ standalone: true }"
               >
-                <option value="1">Cedula de ciudadania</option>
-                <option value="2">Targeta de identidad</option>
-                <option value="3">Cedula de Extranjería</option>
+                <option value="1">Cédula de Ciudadanía</option>
+                <option value="2">Tarjeta de Identidad</option>
+                <option value="3">Cédula de Extranjería</option>
               </select>
             </div>
             <div class="form-group mb-2 col-auto">
@@ -64,13 +64,13 @@
               />
             </div>
             <div class="form-group mb-2 col-auto col-auto">
-              <label for="direccion">Direccion</label>
+              <label for="direccion">Dirección</label>
               <input
                 class="form-control"
                 type="text"
                 name="dir_alu"
                 [(ngModel)]="alumno.direccion_alumno"
-                placeholder="Ingrese la direccion"
+                placeholder="Ingrese la dirección"
                 required
               />
             </div>
@@ -84,7 +84,7 @@
               />
             </div>
             <div class="form-group mb-2 col-auto">
-              <label for="telefono">Telefono</label>
+              <label for="telefono">Teléfono</label>
               <input
                 class="form-control"
                 type="text"
@@ -167,7 +167,7 @@
                   [ngModelOptions]="{ standalone: true }"
                   required="false"
                 >
-                  <option value="">Seleccionar El grado ......</option>
+                  <option value="">Seleccionar El grado ...</option>
                   <option *ngFor="let grado of grados" value="{{grado.id_grado}}" >
                     {{grado.nombre_grado}}
                   </option>
@@ -182,7 +182,7 @@
                   [ngModelOptions]="{ standalone: true }"
                   required="false"
                 >
-                  <option value="">Seleccionar Grupo ......</option>
+                  <option value="">Seleccionar Grupo ...</option>
                   <option *ngFor="let grupo of gruposCurso " value="{{grupo.id_grupo}}" >
                     {{grupo.nombre_grupo}}
                   </option>
@@ -197,7 +197,7 @@
                   [ngModelOptions]="{ standalone: true }"
                   required="false"
                 >
-                  <option value="">Seleccionar periodo ......</option>
+                  <option value="">Seleccionar periodo ...</option>
                   <option *ngFor="let periodo of periodos " value="{{periodo.id_periodo}}" >
                     {{periodo.nombre_periodo}}
                   </option>

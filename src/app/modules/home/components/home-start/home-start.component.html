@@ -2,48 +2,42 @@
   <div class="row mt-5 m-auto text-dark test-justify">
     <div class="col-md-8 col-xl-9">
 
-      <h4>Bienvenidos a nuestra institución educativa Normative Evolution, donde la educación y el futuro de sus hijos está
-      en buenas manos. </h4> <br>
+      <h4>Bienvenidos a nuestra institución educativa Normative Evolution, donde el aprendizaje y el futuro de sus hijos
+        está en buenas manos. </h4> <br>
 
       <app-slider></app-slider>
 
-         <br>
-        <div class="row">
+      <br>
+      <div class="row">
 
-          <div class="  col-md-6 ">
-            <h5>Información del colegio.  </h5>
-            Somos una institución que lleva más de 100 años enseñando y dando lo mejor de nosotros para sus hijos y ustedes,
-            en nuestra
-            institución contamos con una amplia dotación tecnológica tanto como para las salas informáticas como para los
-            laboratorios químico y físicos de nuestra institución y todo es implementado en la enseñanza de nuestros hijos.
-          </div>
-     <br>
-          <div class="  col-md-6">
-            <h5>Aulas o Ambientes.  </h5>
-            En nuestra institución contamos con unos ambientes y aulas con la mejor adecuación para las clases de nuestros
-            alumnos, también tenemos espacios de lectura y de cultura que son del agrada de nuestros alumnos, impulsamos
-            nuestros alumnos hacer deportes y también utilizamos el deporte como medio de relajamiento y contamos con una amplia
-            biblioteca
-          </div>
-     <br>
-          <div class=" col-md-9">
-            <h5>Docentes y Perosonal Administrativo    </h5>
-            contamos el mejor y especializado grupo de docentes que se encargaran de la educación de sus hijos también
-            nuestros directivos son personas muy responsables y eficiente a la hora de realizar su trabajo, contamos con un
-            equipo de tres psicólogos que se encargaran de la salud mental de nuestros alumnos, hemos tenido casos de
-            alumnos que sufren depresión, bullying ocasionado por sus mismos compañeros o familia, también alumnos que viene
-            desde la casa con  problemas y tan solo necesita un persona que los escuche y les brindenun poco de atención
-            entres otros problemas psicológicos.
-          </div>
+        <div class="  col-md-6 ">
+          <h5>Información general </h5>
+         Somos una institución que lleva más de 100 años enseñando, dando lo mejor de nosotros para revolucionar las
+          praticas de enseñanza y
+          mejorar la calidad de educacion que se brinda a nuestros estudiantes.
+          <h6>Nombre</h6>
+          Institución Educativa la Normativa Evolution
+          <h6>Dirección</h6>
+         Kilometro 6 vía la pintada
+          <h6>Municipio</h6>
+         Caldas
+          <h6>Departamento</h6>
+          Antioquia
+
+
         </div>
-
-
-
-
-
-
-
-
+        <br>
+        <div class="  col-md-6">
+          <h5>Aulas o Ambientes. </h5>
+          En nuestra institución contamos con una amplia adecuación, dotación tecnológica para ambientes, aulas, salas informáticas, laboratorios químicos, laboratorios físicos para el rendimineto de las clases de nuestros alumnos. También tenemos espacios de lectura, cultura, deporte, biblioteca que son del agrado de nuestros estudiantes, promoviendo ambitos saludables para su diario vivir.        
+        </div>
+        <br>
+        <div class=" col-md-9">
+          <h5>Docentes y Perosonal Administrativo </h5>
+          Contamos con el mejor y especializado grupo de docentes que se encargaran de la educación de los alumnos. Como directivos responsables y eficiente a la hora de realizar labores en su entorno laboral. <br>
+          Lo cual ayuda a que nuestra institución brinde un mejor servicio tanto para padres como alumnos.
+        </div>
+      </div>
     </div>
 
     <div class="col-md-3 col-xl-3">
@@ -56,90 +50,6 @@
 
           <a [routerLink]="'auth/login'" class="btn btn-primary form-control">Ingresar</a>
         </div>
-
-        <!-- Section job -->
-        <div class="card-header">
-          <h6>¿Le gustaria trabajar con nosotros?</h6>
-        </div>
-        <div class="card-body">
-          <p>
-            Nuestra institucion se destaca por contar con la cantidad de
-            profecionales adecuados
-          </p>
-          <a [routerLink]="'jobs'" class="btn btn-primary form-control">Trabaja con nosotros</a>
-        </div>
-        <!-- Section students -->
-        <div class="card-header">
-          <h6>¿Le gustaria estudiar con nosotros?</h6>
-        </div>
-        <div class="col-md-12 text-justify mb-4">
-
-          <div class="col-md-12 ">
-            <div class=" tarjeta">
-              <p>
-                Nuestra institucion cuanta con las instalaciones adecuadas para que su aprendizaje sea ameno
-              </p>
-              <div class="">
-                <button id="iniciarModal" class="nav-link btn btn-primary form-control btn-block" data-bs-toggle="modal"
-                  data-bs-target="#ingresar" data-bs-whatever="@mdo">
-                  Solicitar matricula
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modal para aplicar matricula-->
-        <div class="modal fade" id="ingresar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-
-              </div>
-              <div class="modal-body">
-                <form class="cad-body">
-                  <div class="form-group">
-
-                  </div>
-                  <div class="form-group">
-                    <label for="documento" class="col-form-label">Nombres:</label>
-                    <input type="text" name="Nombres" class="form-control" />
-                  </div>
-                  <div class="form-group">
-                    <label for="documento" class="col-form-label">Apellidos:</label>
-                    <input type="text" name="Nombres" class="form-control" />
-                  </div>
-                  <div class="form-group">
-                    <label for="documento" class="col-form-label">Direccion:</label>
-                    <input type="text" name="Direccion" class="form-control" />
-                  </div>
-
-                  <div class="form-group">
-                    <label for="documento" class="col-form-label">Telefono:</label>
-                    <input type="text" name="Telefono" class="form-control" />
-                  </div>
-                  <div class="form-group">
-                    <label for="documento" class="col-form-label">Correo:</label>
-                    <input type="email" name="Correo" class="form-control" />
-                  </div>
-                  <div class="form-group">
-                    <label for="documento" class="col-form-label">Descricion :</label>
-                    <input type="email" name="Descricion" class="form-control" />
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                  <i class="fas fa-times"></i>
-                </button>
-                <button type="button" class="btn btn-info">
-                  <i class="fas fa-sign-in-alt"></i> enviar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -147,14 +57,14 @@
   <section class="m-2" id="AcercaDeNosotros">
     <div class="col-md-10">
 
-    <h5>También para nuestros alumnos tenemos una serie de servicios a los cuales cualquier alumno podrá acceder. </h5>
-    1 ruta escolar. <br>
-    2 comedor . <br>
-    3 excursiones .<br>
-    4 talleres.<br>
-    la institución implementa un servicio llamado becas pero este no puede ser accedido por cualquier alumno este se le
-    dará a los alumnos que sobresalgan en nuestra institución
-  </div>
+      <h5>También para nuestros alumnos tenemos una serie de servicios a los cuales cualquier alumno podrá acceder.
+      </h5>
+      1. Ruta escolar. <br>
+      2. Comedor . <br>
+      3. Excursiones .<br>
+      4. Talleres.<br>
+      La institución implementa un servicio llamado becas, pero este no puede ser accedido por cualquier alumno, se le dará a los alumnos que sobresalgan en nuestra institución
+    </div>
 
   </section>
 
