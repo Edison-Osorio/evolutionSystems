@@ -16,6 +16,7 @@ export class HorarioAsignadoComponent implements OnInit {
   horarioGradoGrupo: any = [];
   horariosGrado: any = [];
   selectedAsignatura: any = '';
+  selectedDia:any = ''
   horario: any = {
     id_asignatura_ah: '',
     id_horario_ah: '',
@@ -67,6 +68,7 @@ export class HorarioAsignadoComponent implements OnInit {
           this.showHorario = true
         this.horariosGrado = res;
         this.horarioGradoGrupo = res;
+        
       }
       });
   }
@@ -76,11 +78,26 @@ export class HorarioAsignadoComponent implements OnInit {
     if (this.selectedAsignatura === '') {
       this.horarioGradoGrupo = this.horariosGrado;
     } else {
+      this.selectedDia = ''
       this.horarioGradoGrupo = this.horariosGrado.filter(
         (item: any) => item.id_asignatura == value
       );
     }
   }
+
+  onSelectDia(id:any){
+    const {value} = id
+    if (this.selectedDia === '') {
+      this.selectedAsignatura = ''
+      this.horarioGradoGrupo = this.horariosGrado
+    } else {
+      
+      this.horarioGradoGrupo = this.horariosGrado.filter((item:any)=> item.dia == value)
+      console.log(this.horarioGradoGrupo);
+      
+    }
+  }
+
 
   // Asignamos un horario a una asignatura
   createHorarioAsignatura() {
@@ -91,6 +108,8 @@ export class HorarioAsignadoComponent implements OnInit {
         alert(res.msg);
         this.refresh();
         this.listHorarioGradoGrupo();
+        this.selectedAsignatura = ''
+        this.selectedDia = ''
       },
       (err) =>
         alert(
@@ -107,6 +126,7 @@ export class HorarioAsignadoComponent implements OnInit {
           (res: any) => {
             alert(res.msg);
             this.listHorarioGradoGrupo();
+            this.selectedAsignatura = ''
           },
           (err) => alert('Ocurrio un error y no se pudo elimimar este horario')
         );

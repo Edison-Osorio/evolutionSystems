@@ -21,11 +21,9 @@ export class ListAlumnosComponent implements OnInit {
   listAlumnos(){
     const {id_grado, id_grupo} = this.activatedRouter.snapshot.params
     this.identificador = id_grado
-    console.log('esson son los identificadores --> ', id_grado, id_grupo);
 
     this.alumnoService.listAlumnoGradoGrupo(id_grado, id_grupo).subscribe(
       (res:any)=>{
-        console.log('Está es la respuesta --> ', res);
         this.alumnos = res
         
       }

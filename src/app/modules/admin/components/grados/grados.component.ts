@@ -24,11 +24,8 @@ export class GradosComponent implements OnInit {
     this.gradoService.listGrados().subscribe((res: any) => {
       const { query, query2 } = res;
 
-      if (query2.length == []) {
         this.grados = query;
-      } else {
-        this.grados = query2;
-      }
+       
     });
   }
 

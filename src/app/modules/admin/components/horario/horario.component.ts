@@ -88,6 +88,7 @@ export class HorarioComponent implements OnInit {
            const ref = document.getElementById('cancel')
            ref?.click()
            this.listHorario()
+           window.location.reload()
          },
          (err) => console.log(err)
        );

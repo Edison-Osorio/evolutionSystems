@@ -117,7 +117,7 @@ decodeToken() {
         return doc;
       })
       .then((docResult) => {
-        docResult.save(`sistemas.pdf`);
+        docResult.save(`InformeFinal.pdf`);
       });
   }
 }

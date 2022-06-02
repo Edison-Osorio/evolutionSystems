@@ -40,6 +40,10 @@ export class BecaComponent implements OnInit {
 
   // crear becas
   createBeca() {
+    console.log('Este es el metodo de crear la beca');
+    console.log('Esta es lo que se envia ', this.beca);
+    
+    
     this.becaService.createBeca(this.beca).subscribe(
       res => {
         alert('se creo la beca')

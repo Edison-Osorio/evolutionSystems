@@ -30,6 +30,7 @@
                                 <option value="">Seleccione el horario</option>
                                 <option *ngFor="let horario of horarios" value="{{horario.id_horario}}">{{horario.dia}} {{horario.hora}}</option>
                             </select>
+                            
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success" (click)="createHorarioAsignatura()">
@@ -53,8 +54,16 @@
                             <select name="asignatura" [(ngModel)]="selectedAsignatura" (change)=" onSelectAsignatura($event.target)" class="form-select w-50">
                                 <option value="">Filtrar por asignaturas</option>
                                 <option *ngFor="let horario of asignaturas" value="{{horario.id_asignatura}}">{{horario.nombre_asignatura}} </option>
-                            </select>
+                            </select> 
                         </div>
+                        <div class="form-group mb-3">   <select name="asignatura" [(ngModel)]="selectedDia" (change)="onSelectDia($event.target)" class="form-select w-50 ">
+                            <option value="">Filtrar por Dia</option>
+                            <option value="Lunes">Lunes</option>
+                            <option value="Martes">Martes</option>
+                            <option value="Miercoles">Miercoles</option>
+                            <option value="Jueves">Jueves</option>
+                            <option value="Viernes">Viernes</option>
+                        </select></div>
                     </form>
                     <table class="table table-hover table-bordered">
                         <thead>
