@@ -1,95 +1,198 @@
-<div class="body text-dark">
-  <div class="row mt-5 m-auto text-dark test-justify">
-    <div class="col-md-8 col-xl-9">
+<div class="container">
+  <div class="body text-dark">
+    <div class="row mt-5 m-auto text-dark test-justify">
+      <div class="col-md-12 col-xl-12">
+        <app-slider></app-slider>
 
-      <h4>Bienvenidos a nuestra institución educativa Normative Evolution, donde el aprendizaje y el futuro de sus hijos
-        está en buenas manos. </h4> <br>
+        <br />
+        <div class="row">
+          <div class="col-md-5 col-xl-5">
+            <div class="card-body m-auto">
+              <!-- login -->
+              <div class="card-header">
+                Ingrese para acceder al sistema si ya esta registrado
+              </div>
+              <div class="card-body">
+                <img [src]="'./assets/img/inicio.png'" alt="" srcset="" />
 
-      <app-slider></app-slider>
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
+                  class="btn btn-primary form-control"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  Ingresar <i class="fa-solid fa-right-to-bracket"></i>
+                </button>
+              </div>
+            </div>
+            <ul class="nav  flex-column ms-5">
+              <li class="nav-item">
+                <h6 class="text-info">Nombre</h6>
+                <div class="text-start">
+                  Institución Educativa <br>
+                  la Normativa Evolution
+                </div>
+                
+              </li>
+              <li class="nav-item">
+                <h6 class="text-info">Dirección</h6>
+                <div class="text-start">
+                  
+                  Vereda Pueblo Rico
+                </div>
+              </li>
+              <li class="nav-item">
+                <h6 class="text-info">Municipio</h6>
+                <div class="text-start">Concordia</div>
+            
+              </li>
+              <li class="nav-item">
+                <h6 class="text-info">Departamento</h6>
+                <div class="text-start">
+                  Antioquia
+                </div>
+              </li>
+            </ul>
+          </div>
 
-      <br>
-      <div class="row">
+          <div class="col-md-7 mt-3">
+            <div class="card-header">
+              <div class="card-title">
+                <h5 class="text-info">Misión</h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  Aportar a la sociedad una formación multidimensional,
+                  fundamentada y regida en valores y principios, con aprendizaje
+                  significativo en el desarrollo investigativo, fomentando el
+                  potencial individual y grupal, ayudando a la toma de
+                  decisiones
+                </div>
+                <div class="col-md-2">
+                  <img [src]="'./assets/img/mision.jpg'" alt="" srcset="" />
+                </div>
+              </div>
+            </div>
 
-        <div class="  col-md-6 ">
-          <h5>Información general </h5>
-         Somos una institución que lleva más de 100 años enseñando, dando lo mejor de nosotros para revolucionar las
-          praticas de enseñanza y
-          mejorar la calidad de educacion que se brinda a nuestros estudiantes.
-          <h6>Nombre</h6>
-          Institución Educativa la Normativa Evolution
-          <h6>Dirección</h6>
-         Kilometro 6 vía la pintada
-          <h6>Municipio</h6>
-         Caldas
-          <h6>Departamento</h6>
-          Antioquia
+            <div class="card-header mt-3">
+              <div class="card-title">
+                <h5 class="text-info">Visión</h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  La Institución Educativa La Normativa Evolution en el año
+                  2028, será una comunidad más comprometida con el derecho de la
+                  educación, donde estos respondan a las necesidades de su
+                  población en pro de una mejor calidad de vida
+                </div>
+                <div class="col-md-2">
+                  <img [src]="'./assets/img/vision1.jpg'" alt="" srcset="" />
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-md-12">
+            <h5 class="text-center text-info">Reseña Histórica</h5>
+            Somos una institución que surgió en la vereda Pueblo Rico para
+            ayudar a todos los niños de esta población, ya que no contaban con
+            la forma de acceder al colegio del municipio, por lo cual con la
+            ayuda de los dueños de las haciendas aledañas se construyo y se
+            destinó el presupuesto para la contratación de los docentes; por
+            nuestra institución han pasado más de 2000 alumnos los cuales han
+            podido acceder a la educación superior y así traer una mejoría para
+            la vereda aplicando cada uno de los conocimientos adquiridos en su
+            vida como alumnos.
 
-        </div>
-        <br>
-        <div class="  col-md-6">
-          <h5>Aulas o Ambientes. </h5>
-          En nuestra institución contamos con una amplia adecuación, dotación tecnológica para ambientes, aulas, salas informáticas, laboratorios químicos, laboratorios físicos para el rendimineto de las clases de nuestros alumnos. También tenemos espacios de lectura, cultura, deporte, biblioteca que son del agrado de nuestros estudiantes, promoviendo ambitos saludables para su diario vivir.        
-        </div>
-        <br>
-        <div class=" col-md-9">
-          <h5>Docentes y Perosonal Administrativo </h5>
-          Contamos con el mejor y especializado grupo de docentes que se encargaran de la educación de los alumnos. Como directivos responsables y eficiente a la hora de realizar labores en su entorno laboral. <br>
-          Lo cual ayuda a que nuestra institución brinde un mejor servicio tanto para padres como alumnos.
+            <br />
+            <!-- <br />
+            <h6>Nombre</h6>
+            Institución Educativa la Normativa Evolution
+            <h6>Dirección</h6>
+            Vereda Pueblo Rico
+            <h6>Municipio</h6>
+            Concordia
+            <h6>Departamento</h6>
+            Antioquia -->
+            <br>
+           
+          </div>
+          <br />
+          <!-- <div class="col-md-6">
+            <h5>Aulas o Ambientes.</h5>
+            En nuestra institución contamos con una amplia adecuación, dotación
+            tecnológica para ambientes, aulas, salas informáticas, laboratorios
+            químicos, laboratorios físicos para el rendimineto de las clases de
+            nuestros alumnos. También tenemos espacios de lectura, cultura,
+            deporte, biblioteca que son del agrado de nuestros estudiantes,
+            promoviendo ambitos saludables para su diario vivir.
+          </div>
+          <br />
+          <div class="col-md-9">
+            <h5>Docentes y Perosonal Administrativo</h5>
+            Contamos con el mejor y especializado grupo de docentes que se
+            encargaran de la educación de los alumnos. Como directivos
+            responsables y eficiente a la hora de realizar labores en su entorno
+            laboral. <br />
+            Lo cual ayuda a que nuestra institución brinde un mejor servicio
+            tanto para padres como alumnos.
+          </div> -->
         </div>
       </div>
     </div>
 
-    <div class="col-md-3 col-xl-3">
-      <div class="card-body m-auto">
-        <!-- login -->
-        <div class="card-header">
-          <p>Ingrese para acceder al sistema si ya esta registrado</p>
-        </div>
-        <div class="card-body">
-
-          <a [routerLink]="'auth/login'" class="btn btn-primary form-control">Ingresar</a>
-        </div>
+    <!-- <section class="m-2" id="AcercaDeNosotros">
+      <div class="col-md-10">
+        <h5>
+          También para nuestros alumnos tenemos una serie de servicios a los
+          cuales cualquier alumno podrá acceder.
+        </h5>
+        1. Ruta escolar. <br />
+        2. Comedor . <br />
+        3. Excursiones .<br />
+        4. Talleres.<br />
+        La institución implementa un servicio llamado becas, pero este no puede
+        ser accedido por cualquier alumno, se le dará a los alumnos que
+        sobresalgan en nuestra institución
       </div>
-    </div>
+    </section> -->
+
+    <section class="m-2" id="contacto">
+      <div class="justify-content-sm-start">
+        <ul class="nav nav-pills nav-justified m-2 text-dark">
+          <li class="nav-item">
+            <div><i class="fa-brands fa-facebook"></i>I.E Normativa Evolution</div>
+          </li>
+          <li class="nav-item">
+            <div>
+              <i class="fa-solid fa-envelope"></i>servicioienevolution@gmail.com
+            </div>
+          </li>
+        </ul>
+        <ul class="nav nav-pills nav-justified m-2">
+          <li class="nav-item">
+            <div>
+              <i class="fa-brands fa-twitter-square"></i>I.E Normativa Evolution
+            </div>
+          </li>
+          <li class="nav-item">
+            <div>
+              <i class="fa-solid fa-phone-volume"></i> Linea de atencion
+              018000009992
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <app-footer></app-footer>
+    </section>
   </div>
-
-  <section class="m-2" id="AcercaDeNosotros">
-    <div class="col-md-10">
-
-      <h5>También para nuestros alumnos tenemos una serie de servicios a los cuales cualquier alumno podrá acceder.
-      </h5>
-      1. Ruta escolar. <br>
-      2. Comedor . <br>
-      3. Excursiones .<br>
-      4. Talleres.<br>
-      La institución implementa un servicio llamado becas, pero este no puede ser accedido por cualquier alumno, se le dará a los alumnos que sobresalgan en nuestra institución
-    </div>
-
-  </section>
-
-  <section class="m-2" id="contacto">
-    <div class="justify-content-sm-start">
-      <ul class="nav nav-pills nav-justified m-2 text-dark">
-        <li class="nav-item">
-          <p><i class="fa-brands fa-facebook"></i>I.E Normativa Evolution</p>
-        </li>
-        <li class="nav-item">
-          <p><i class="fa-solid fa-envelope"></i>servicioienevolution@gmail.com</p>
-        </li>
-      </ul>
-      <ul class="nav nav-pills nav-justified m-2">
-        <li class="nav-item">
-          <p><i class="fa-brands fa-twitter-square"></i>I.E Normativa Evolution</p>
-        </li>
-        <li class="nav-item">
-          <p><i class="fa-solid fa-phone-volume"></i> Linea de atencion 018000009992</p>
-        </li>
-
-      </ul>
-
-    </div>
-
-    <app-footer></app-footer>
-  </section>
 </div>
+
+<!-- Modal -->
+<app-login></app-login>

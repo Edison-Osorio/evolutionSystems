@@ -1,6 +1,19 @@
-img {
+/* img {
   border-radius: 20px; 
   width: 2em;
-  height: 20em;
+  height: 25em;
+} */
+
+img {
+  border-radius: 20px; 
+  width: 1em;
+  height: 25em;
 }
 
+.carousel-inner{
+  width: 70%;
+}
+
+button{
+  color: black;
+}
